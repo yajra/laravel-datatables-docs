@@ -2,6 +2,7 @@
     - [Installation](/docs/laravel-datatables/{{version}}/installation)
 - Getting Started
     - [Introduction](/docs/laravel-datatables/{{version}}/introduction)
+    - [Demo Application](https://datatables.yajrabox.com/)
 - Configuration
     - [Package Options](/docs/laravel-datatables/{{version}}/general-settings)
     - [Debugging Mode](/docs/laravel-datatables/{{version}}/debugger)
