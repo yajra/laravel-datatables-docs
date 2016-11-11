@@ -1,0 +1,10 @@
+- Setup
+    - [Installation](/docs/laravel-datatables/{{version}}/installation)
+- Getting Started
+    - [Introduction](/docs/laravel-datatables/{{version}}/introduction)
+- Configuration
+    - [Package Options](/docs/laravel-datatables/{{version}}/general-settings)
+    - [Debugging Mode](/docs/laravel-datatables/{{version}}/debugger)
+- Others
+    - [Security](/docs/laravel-datatables/{{version}}/security)
+    - [Contributing](/docs/laravel-datatables/{{version}}/contributing)
