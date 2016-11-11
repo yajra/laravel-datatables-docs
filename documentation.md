@@ -2,10 +2,14 @@
     - [Installation](/docs/laravel-datatables/{{version}}/installation)
 - Getting Started
     - [Introduction](/docs/laravel-datatables/{{version}}/introduction)
+    - [Feature Overview](/docs/laravel-datatables/{{version}}/feature)
     - [Demo Application](https://datatables.yajrabox.com/)
 - Configuration
     - [Package Options](/docs/laravel-datatables/{{version}}/general-settings)
     - [Debugging Mode](/docs/laravel-datatables/{{version}}/debugger)
+- [HTML Builder](/docs/laravel-datatables/{{version}}/builder)
+- Service Implementation
+    - [Basic Implementation](/docs/laravel-datatables/{{version}}/service-basic)
 - Others
     - [Security](/docs/laravel-datatables/{{version}}/security)
     - [Contributing](/docs/laravel-datatables/{{version}}/contributing)
