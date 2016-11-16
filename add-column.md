@@ -46,7 +46,7 @@ Route::get('user-data', function() {
 	$model = App\User::query();
 
 	return Datatables::eloquent($model)
-				->addColumn('intro', 'users.datatables.into')
+				->addColumn('intro', 'users.datatables.intro')
 				->make(true);
 });
 ```
