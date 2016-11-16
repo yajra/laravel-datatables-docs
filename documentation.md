@@ -1,7 +1,7 @@
 - Prologue
 	- [Release Notes](/docs/laravel-datatables/{{version}}/releases)
 	- [Upgrade Guide](/docs/laravel-datatables/{{version}}/upgrade)
-	- [Contribution Guide](/docs/laravel-datatables/{{version}}/contribution)
+	- [Contribution Guide](/docs/laravel-datatables/{{version}}/contributing)
 	- [API Documentation](/api/laravel-datatables/{{version}})
 - Setup
 	- [Installation](/docs/laravel-datatables/{{version}}/installation)
