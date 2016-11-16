@@ -2,6 +2,7 @@
 	- [Release Notes](/docs/laravel-datatables/{{version}}/releases)
 	- [Upgrade Guide](/docs/laravel-datatables/{{version}}/upgrade)
 	- [Contribution Guide](/docs/laravel-datatables/{{version}}/contributing)
+    - [Security Issues](/docs/laravel-datatables/{{version}}/security)
 	- [API Documentation](/api/laravel-datatables/{{version}})
 - Setup
 	- [Installation](/docs/laravel-datatables/{{version}}/installation)
@@ -63,7 +64,4 @@
 	- [PDF](/docs/laravel-datatables/{{version}}/buttons-pdf)
 	- [Print](/docs/laravel-datatables/{{version}}/buttons-print)
 	- [Artisan Console](/docs/laravel-datatables/{{version}}/buttons-console)
-- Others
-    - [Security](/docs/laravel-datatables/{{version}}/security)
-    - [Contributing](/docs/laravel-datatables/{{version}}/contributing)
 
