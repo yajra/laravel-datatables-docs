@@ -14,7 +14,7 @@
 - Configuration
     - [Package Options](/docs/laravel-datatables/{{version}}/general-settings)
     - [Debugging Mode](/docs/laravel-datatables/{{version}}/debugger)
-- Engines
+- Engines & Data Sources
 	- [Eloquent](/docs/laravel-datatables/{{version}}/engine-eloquent)
 	- [Query Builder](/docs/laravel-datatables/{{version}}/engine-query)
 	- [Collection](/docs/laravel-datatables/{{version}}/engine-collection)
