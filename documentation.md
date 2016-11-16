@@ -60,9 +60,9 @@
 - Buttons
 	- [Installation](/docs/laravel-datatables/{{version}}/buttons-installation)
 	- [Quick Starter](/docs/laravel-datatables/{{version}}/buttons-starter)
-	- [Excel](/docs/laravel-datatables/{{version}}/buttons-excel)
-	- [CSV](/docs/laravel-datatables/{{version}}/buttons-csv)
-	- [PDF](/docs/laravel-datatables/{{version}}/buttons-pdf)
-	- [Print](/docs/laravel-datatables/{{version}}/buttons-print)
+	- [Excel](/docs/laravel-datatables/{{version}}/buttons-export#excel)
+	- [CSV](/docs/laravel-datatables/{{version}}/buttons-export#csv)
+	- [PDF](/docs/laravel-datatables/{{version}}/buttons-export#pdf)
+	- [Print](/docs/laravel-datatables/{{version}}/buttons-export#print)
 	- [Artisan Console](/docs/laravel-datatables/{{version}}/buttons-console)
 

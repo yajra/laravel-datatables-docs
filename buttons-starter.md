@@ -19,7 +19,7 @@ use Yajra\Datatables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
-	//...some default stubs deleted for brevity.
+	//...some default stubs deleted for simplicity.
 
     public function html()
     {
