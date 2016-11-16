@@ -12,7 +12,7 @@
 	- [Quick Starter](https://datatables.yajrabox.com/starter)
 	- [Service Implementation](https://datatables.yajrabox.com/service)
 - Configuration
-    - [General Settings](/docs/laravel-datatables/{{version}}/config-general)
+    - [General Settings](/docs/laravel-datatables/{{version}}/general-settings)
     - [Debugging Mode](/docs/laravel-datatables/{{version}}/debugger)
 - Engines & Data Sources
 	- [Eloquent](/docs/laravel-datatables/{{version}}/engine-eloquent)
