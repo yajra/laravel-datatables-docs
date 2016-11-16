@@ -59,6 +59,7 @@
 
 - Buttons
 	- [Installation](/docs/laravel-datatables/{{version}}/buttons-installation)
+	- [Quick Starter](/docs/laravel-datatables/{{version}}/buttons-starter)
 	- [Excel](/docs/laravel-datatables/{{version}}/buttons-excel)
 	- [CSV](/docs/laravel-datatables/{{version}}/buttons-csv)
 	- [PDF](/docs/laravel-datatables/{{version}}/buttons-pdf)
