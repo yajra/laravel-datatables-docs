@@ -34,11 +34,12 @@
 	- [Row Data](/docs/laravel-datatables/{{version}}/row-options#row-data)
 	- [Row Attributes](/docs/laravel-datatables/{{version}}/row-options#row-attributes)
 - Searching
-	- [Advance Search](/docs/laravel-datatables/{{version}}/advance-search)
+	- [Manual Search](/docs/laravel-datatables/{{version}}/manual-search)
 	- [Filter Column](/docs/laravel-datatables/{{version}}/filter-column)
 	- [Query Builder Extension](/docs/laravel-datatables/{{version}}/query-builder)
 	- [Regex Search](/docs/laravel-datatables/{{version}}/regex)
 - Sorting
+	- [Manual Order](/docs/laravel-datatables/{{version}}/manual-order)
 	- [Order Column](/docs/laravel-datatables/{{version}}/order-column)
 	- [Order Columns](/docs/laravel-datatables/{{version}}/order-columns)
 - Utilities

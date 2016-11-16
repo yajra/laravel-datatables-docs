@@ -1,6 +1,6 @@
-# Advance Search
+# Manual Search
 
-You can optionally write your advance filtering functions and thus disabling global search function of the package.
+You can optionally write your own manual filtering functions and thus disabling global search of the package.
 To achieve this, you can use the `filter` api.
 
 <a name="without-global-search"></a>
