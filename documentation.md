@@ -28,9 +28,9 @@
 	- [Edit Column](/docs/laravel-datatables/{{version}}/edit-column)
 	- [Remove Column](/docs/laravel-datatables/{{version}}/remove-column)
 - Row Editing
-	- [Row Data](/docs/laravel-datatables/{{version}}/row-options#row-data)
-	- [Row Class](/docs/laravel-datatables/{{version}}/row-options#row-class)
 	- [Row ID](/docs/laravel-datatables/{{version}}/row-options#row-id)
+	- [Row Class](/docs/laravel-datatables/{{version}}/row-options#row-class)
+	- [Row Data](/docs/laravel-datatables/{{version}}/row-options#row-data)
 	- [Row Attributes](/docs/laravel-datatables/{{version}}/row-options#row-attributes)
 - Searching
 	- [Advance Search](/docs/laravel-datatables/{{version}}/advance-search)
