@@ -43,7 +43,7 @@
 	- [Order Column](/docs/laravel-datatables/{{version}}/order-column)
 	- [Order Columns](/docs/laravel-datatables/{{version}}/order-columns)
 - Utilities
-	- [XSS filtering](/docs/laravel-datatables/{{version}}/escape-column)
+	- [XSS filtering](/docs/laravel-datatables/{{version}}/xss)
 	- [Blacklist Columns](/docs/laravel-datatables/{{version}}/blacklist)
 	- [Whitelist Columns](/docs/laravel-datatables/{{version}}/whitelist)
 - HTML Builder
