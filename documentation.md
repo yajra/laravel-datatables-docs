@@ -18,24 +18,25 @@
 	- [Eloquent](/docs/laravel-datatables/{{version}}/engine-eloquent)
 	- [Query Builder](/docs/laravel-datatables/{{version}}/engine-query)
 	- [Collection](/docs/laravel-datatables/{{version}}/engine-collection)
-- Column Editing
-	- [Add Column](/docs/laravel-datatables/{{version}}/add-column)
-	- [Edit Column](/docs/laravel-datatables/{{version}}/edit-column)
-	- [Remove Column](/docs/laravel-datatables/{{version}}/remove-column)
 - Response
 	- [Array Response](/docs/laravel-datatables/{{version}}/response-array)
 	- [Object Response](/docs/laravel-datatables/{{version}}/response-object)
 	- [Fractal Transformer](/docs/laravel-datatables/{{version}}/response-fractal)
 	- [Additional Data Response](/docs/laravel-datatables/{{version}}/response-with)
-- Row Customization
-	- [Row Data](/docs/laravel-datatables/{{version}}/row-data)
-	- [Row Class](/docs/laravel-datatables/{{version}}/row-class)
-	- [Row ID](/docs/laravel-datatables/{{version}}/row-id)
-	- [Row Attributes](/docs/laravel-datatables/{{version}}/row-attributes)
+- Column Editing
+	- [Add Column](/docs/laravel-datatables/{{version}}/add-column)
+	- [Edit Column](/docs/laravel-datatables/{{version}}/edit-column)
+	- [Remove Column](/docs/laravel-datatables/{{version}}/remove-column)
+- Row Editing
+	- [Row Data](/docs/laravel-datatables/{{version}}/row-options#row-data)
+	- [Row Class](/docs/laravel-datatables/{{version}}/row-options#row-class)
+	- [Row ID](/docs/laravel-datatables/{{version}}/row-options#row-id)
+	- [Row Attributes](/docs/laravel-datatables/{{version}}/row-options#row-attributes)
 - Searching
 	- [Advance Search](/docs/laravel-datatables/{{version}}/advance-search)
 	- [Filter Column](/docs/laravel-datatables/{{version}}/filter-column)
 	- [Query Builder Extension](/docs/laravel-datatables/{{version}}/query-builder)
+	- [Regex Search](/docs/laravel-datatables/{{version}}/regex)
 - Sorting
 	- [Order Column](/docs/laravel-datatables/{{version}}/order-column)
 	- [Order Columns](/docs/laravel-datatables/{{version}}/order-columns)
@@ -43,7 +44,6 @@
 	- [XSS filtering](/docs/laravel-datatables/{{version}}/escape-column)
 	- [Blacklist Columns](/docs/laravel-datatables/{{version}}/blacklist)
 	- [Whitelist Columns](/docs/laravel-datatables/{{version}}/whitelist)
-	- [Regex Search](/docs/laravel-datatables/{{version}}/regex)
 - HTML Builder
 	- [Builder](/docs/laravel-datatables/{{version}}/html-builder)
 	- [Columns](/docs/laravel-datatables/{{version}}/html-builder-column)
