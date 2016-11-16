@@ -13,7 +13,7 @@
 
 - [PHP >=5.5.9](http://php.net/)
 - [Laravel 5.0 or later](https://github.com/laravel/framework)
-- [DataTables jQuery Plugin Version 1.10.x](http://datatables.net/)
+- [jQuery DataTables v1.10.x](http://datatables.net/)
 
 <a name="installing-laravel-datatables-oracle"></a>
 ### Installing Laravel Datatables
