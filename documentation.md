@@ -27,6 +27,7 @@
 	- [Add Column](/docs/laravel-datatables/{{version}}/add-column)
 	- [Edit Column](/docs/laravel-datatables/{{version}}/edit-column)
 	- [Remove Column](/docs/laravel-datatables/{{version}}/remove-column)
+	- [Index Column](/docs/laravel-datatables/{{version}}/index-column)
 - Row Editing
 	- [Row ID](/docs/laravel-datatables/{{version}}/row-options#row-id)
 	- [Row Class](/docs/laravel-datatables/{{version}}/row-options#row-class)

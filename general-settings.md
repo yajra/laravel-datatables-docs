@@ -5,6 +5,7 @@ You can change the package behavior by updating the configuration file.
 
 The configuration file can be found at `config/datatables.php`.
 
+<a name="smart-search"></a>
 ## Smart Search
 Smart search will enclose search keyword with wildcard string `"%keyword%"`.
 The sql generated will be like `column LIKE "%keyword%"` when set to `true`.
@@ -13,6 +14,7 @@ The sql generated will be like `column LIKE "%keyword%"` when set to `true`.
 'smart' => true,
 ```
 
+<a name="case-sensitivity"></a>
 ## Case Sensitive Search
 Case insensitive will search the keyword in lower case format.
 The sql generated will be like `LOWER(column) LIKE LOWER(keyword)` when set to `true`.
@@ -21,6 +23,7 @@ The sql generated will be like `LOWER(column) LIKE LOWER(keyword)` when set to `
 'case_insensitive' => true,
 ```
 
+<a name="wild-card"></a>
 ## Wild Card Search
 Wild card will add `%` in between every characters of the keyword.
 The sql generated will be like `column LIKE "%k%e%y%w%o%r%d%"` when set to `true`.
@@ -29,6 +32,15 @@ The sql generated will be like `column LIKE "%k%e%y%w%o%r%d%"` when set to `true
 'use_wildcards' => false,
 ```
 
+<a name="index-column"></a>
+## Index Column
+DataTables internal index id response column name.
+
+```php
+'index_column' => 'DT_Row_Index',
+```
+
+<a name="engines"></a>
 ## Engines
 A list of available engines.
 This is where you can register your custom datatables engine.
@@ -42,6 +54,7 @@ This is where you can register your custom datatables engine.
     ],
 ```
 
+<a name="builders"></a>
 ## Builders
 A list of accepted data source / builders of datatables with their corresponding engine handler.
 
@@ -55,6 +68,7 @@ A list of accepted data source / builders of datatables with their corresponding
     ],
 ```
 
+<a name="fractal-includes"></a>
 ## Fractal Includes
 Request key name to parse includes on fractal.
 
@@ -62,6 +76,7 @@ Request key name to parse includes on fractal.
 'includes' => 'include',
 ```
 
+<a name="fractal-serializer"></a>
 ## Fractal Serializer
 Default fractal serializer to be used when serializing the response.
 
