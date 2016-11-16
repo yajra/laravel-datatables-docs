@@ -8,7 +8,6 @@ You can look at `Yajra\Datatables\Enginges\EloquentEngine` class which handles t
 
 ```php
 use Datatables;
-use DB;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
