@@ -40,7 +40,7 @@
 	- [Filter Column](/docs/laravel-datatables/{{version}}/filter-column)
 	- [Query Builder Extension](/docs/laravel-datatables/{{version}}/query-builder)
 	- [Regex Search](/docs/laravel-datatables/{{version}}/regex)
-- Sorting
+- Sorting/Ordering
 	- [Manual Order](/docs/laravel-datatables/{{version}}/manual-order)
 	- [Order Column](/docs/laravel-datatables/{{version}}/order-column)
 	- [Order Columns](/docs/laravel-datatables/{{version}}/order-columns)
