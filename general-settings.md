@@ -40,34 +40,6 @@ DataTables internal index id response column name.
 'index_column' => 'DT_Row_Index',
 ```
 
-<a name="engines"></a>
-## Engines
-A list of available engines.
-This is where you can register your custom datatables engine.
-
-```php
-'engines' => [
-        'eloquent'   => Yajra\Datatables\Engines\EloquentEngine::class,
-        'query'      => Yajra\Datatables\Engines\QueryBuilderEngine::class,
-        'collection' => Yajra\Datatables\Engines\CollectionEngine::class,
-        // add your custom engine
-    ],
-```
-
-<a name="builders"></a>
-## Builders
-A list of accepted data source / builders of datatables with their corresponding engine handler.
-
-```php
-'builders' => [
-        Illuminate\Database\Eloquent\Relations\HasMany::class => 'eloquent',
-        Illuminate\Database\Eloquent\Builder::class           => 'eloquent',
-        Illuminate\Database\Query\Builder::class              => 'query',
-        Illuminate\Support\Collection::class                  => 'collection',
-        // add your data source to custom engine handler
-    ],
-```
-
 <a name="fractal-includes"></a>
 ## Fractal Includes
 Request key name to parse includes on fractal.
