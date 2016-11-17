@@ -3,7 +3,7 @@
 	- [Upgrade Guide](/docs/laravel-datatables/{{version}}/upgrade)
 	- [Contribution Guide](/docs/laravel-datatables/{{version}}/contributing)
     - [Security Issues](/docs/laravel-datatables/{{version}}/security)
-	- [API Documentation](/api/laravel-datatables/{{version}})
+	- [API Documentation](http://yajra.github.io/laravel-datatables/api/{{version}})
 - Setup
 	- [Installation](/docs/laravel-datatables/{{version}}/installation)
 - Getting Started
