@@ -1,4 +1,4 @@
-# Buttons Configurations
+# DataTable Service Configurations
 
 ```php
 return [

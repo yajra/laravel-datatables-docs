@@ -62,15 +62,8 @@
 	- [Add Checkbox](/docs/laravel-datatables/{{version}}/html-builder-checkbox)
 	- [Add Index](/docs/laravel-datatables/{{version}}/html-builder-index)
 
-### PLUGINS
-
-- Buttons
-	- [Installation](/docs/laravel-datatables/{{version}}/buttons-installation)
-	- [Configuration](/docs/laravel-datatables/{{version}}/buttons-config)
+- Service Class
 	- [Quick Starter](/docs/laravel-datatables/{{version}}/buttons-starter)
-	- [Excel](/docs/laravel-datatables/{{version}}/buttons-export#excel)
-	- [CSV](/docs/laravel-datatables/{{version}}/buttons-export#csv)
-	- [PDF](/docs/laravel-datatables/{{version}}/buttons-export#pdf)
-	- [Print](/docs/laravel-datatables/{{version}}/buttons-export#print)
+	- [DataTable Buttons](/docs/laravel-datatables/{{version}}/buttons-export)
 	- [Artisan Console](/docs/laravel-datatables/{{version}}/buttons-console)
 

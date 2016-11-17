@@ -1,4 +1,4 @@
-# Buttons Quick Starter
+# DataTable Service Quick Starter
 
 ## Create Users DataTable
 

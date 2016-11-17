@@ -130,3 +130,55 @@ class UsersDataTable extends DataTable
     }
 ...
 ```
+
+<a name="reset"></a>
+## Reset Button
+
+To enable reset button, set `reset` on the buttons array.
+
+```php
+namespace App\DataTables;
+
+use App\User;
+use Yajra\Datatables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    //...some default stubs deleted for simplicity.
+
+    public function html()
+    {
+        return $this->builder()
+                    ->columns($this->getColumns())
+                    ->parameters([
+                        'buttons' => ['reset'],
+                    ]);
+    }
+...
+```
+
+<a name="reload"></a>
+## Reload Button
+
+To enable reload button, set `reload` on the buttons array.
+
+```php
+namespace App\DataTables;
+
+use App\User;
+use Yajra\Datatables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    //...some default stubs deleted for simplicity.
+
+    public function html()
+    {
+        return $this->builder()
+                    ->columns($this->getColumns())
+                    ->parameters([
+                        'buttons' => ['reload'],
+                    ]);
+    }
+...
+```
