@@ -16,11 +16,15 @@ Route::get('user-data', function() {
 ```
 
 ## Using Javascript
-```php
-$('#example').DataTable({
-	serverSide: true,
-	processing: true,
-	ajax: '',
-	paging: false
+```
+<script>
+$(document).ready(function() {
+	$('#example').DataTable({
+		serverSide: true,
+		processing: true,
+		ajax: '',
+		paging: false
+	});
 });
+</script>
 ```
