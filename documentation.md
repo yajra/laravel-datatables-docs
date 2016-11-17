@@ -46,6 +46,7 @@
 	- [Manual Order](/docs/laravel-datatables/{{version}}/manual-order)
 	- [Order Column](/docs/laravel-datatables/{{version}}/order-column)
 	- [Order Columns](/docs/laravel-datatables/{{version}}/order-columns)
+	- [Order Nulls Last](/docs/laravel-datatables/{{version}}/order-by-nulls-last)
 - Utilities
 	- [XSS filtering](/docs/laravel-datatables/{{version}}/xss)
 	- [Blacklist Columns](/docs/laravel-datatables/{{version}}/blacklist)
