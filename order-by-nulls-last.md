@@ -13,3 +13,5 @@ Route::get('user-data', function() {
 			->make(true);
 });
 ```
+
+> You must update [nulls_last_sql](/docs/laravel-datatables/{{version}}/general-settings#nulls-last-sql) config and use a pattern that matches your DB Driver.

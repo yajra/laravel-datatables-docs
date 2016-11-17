@@ -92,3 +92,13 @@ If published, the file will installed on `resources/views/vendor/datatables/scri
 'script_template' => 'datatables::script',
 ```
 
+<a name="nulls-last-sql"></a>
+## NULLS LAST sql
+Nulls last sql pattern for Postgresql & Oracle.
+
+> {tip} For MySQL, use '-%s %s' as the sql pattern.
+
+```php
+'nulls_last_sql' => '%s %s NULLS LAST',
+```
+
