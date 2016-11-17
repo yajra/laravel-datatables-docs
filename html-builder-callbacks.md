@@ -19,3 +19,12 @@ You can use a `js` string for each valid callback as documented on [`datatables.
 |`stateLoadParams` | State loaded - data manipulation callback |
 |`stateSaveCallback` | Callback that defines how the table state is stored and where. |
 |`stateSaveParams` | State save - data manipulation callback |
+
+## Example
+In this example, we will hook on the the `drawCallback` of dataTable.
+
+```php
+$builder->parameters([
+	'drawCallback' => 'function() { alert("Table Draw Callback") }',
+]);
+```
