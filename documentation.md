@@ -23,6 +23,7 @@
 	- [Array Response](/docs/laravel-datatables/{{version}}/response-array)
 	- [Object Response](/docs/laravel-datatables/{{version}}/response-object)
 	- [Fractal Transformer](/docs/laravel-datatables/{{version}}/response-fractal)
+	- [Fractal Serializer](/docs/laravel-datatables/{{version}}/response-fractal-serializer)
 	- [Additional Data Response](/docs/laravel-datatables/{{version}}/response-with)
 - Column Editing
 	- [Add Column](/docs/laravel-datatables/{{version}}/add-column)
