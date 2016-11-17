@@ -83,4 +83,12 @@ Default fractal serializer to be used when serializing the response.
 ```php
 'serializer' => League\Fractal\Serializer\DataArraySerializer::class,
 ```
+<a name="script-template"></a>
+## Script Template
+DataTables html builder script blade template.
+If published, the file will installed on `resources/views/vendor/datatables/script.blade.php`.
+
+```php
+'script_template' => 'datatables::script',
+```
 
