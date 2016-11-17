@@ -50,6 +50,7 @@
 	- [Whitelist Columns](/docs/laravel-datatables/{{version}}/whitelist)
 - HTML Builder
 	- [Builder](/docs/laravel-datatables/{{version}}/html-builder)
+	- [Table](/docs/laravel-datatables/{{version}}/html-builder-table)
 	- [Columns](/docs/laravel-datatables/{{version}}/html-builder-column)
 	- [Parameters](/docs/laravel-datatables/{{version}}/html-builder-parameters)
 	- [Events/Callbacks](/docs/laravel-datatables/{{version}}/html-builder-callbacks)
