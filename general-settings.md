@@ -123,6 +123,7 @@ This directory is appended on default Laravel namespace.
 **With Model:** ```App\Post``
 **Export filename:** ```posts_(timestamp)```
 
+<a name="generator"></a>
 ## PDF Generator
 Set the PDF generator to be used when converting your dataTable to pdf.
 
