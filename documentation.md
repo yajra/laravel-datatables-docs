@@ -50,6 +50,7 @@
 	- [Whitelist Columns](/docs/laravel-datatables/{{version}}/whitelist)
 	- [Set Total Records](/docs/laravel-datatables/{{version}}/set-total-records)
 	- [With Trashed](/docs/laravel-datatables/{{version}}/with-trashed)
+	- [Skip Paging](/docs/laravel-datatables/{{version}}/skip-paging)
 - HTML Builder
 	- [Builder](/docs/laravel-datatables/{{version}}/html-builder)
 	- [Table](/docs/laravel-datatables/{{version}}/html-builder-table)
