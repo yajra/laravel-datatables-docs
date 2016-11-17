@@ -18,4 +18,4 @@ You can use a `js` string for each valid callback as documented on [`datatables.
 |`stateLoaded` | State loaded callback. |
 |`stateLoadParams` | State loaded - data manipulation callback |
 |`stateSaveCallback` | Callback that defines how the table state is stored and where. |
-|`stateSaveParams` | State save - data manipulation callbac |
+|`stateSaveParams` | State save - data manipulation callback |
