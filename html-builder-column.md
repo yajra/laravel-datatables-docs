@@ -52,7 +52,6 @@ Footer attribute will be as your `tables` column's `footer` content `<tfoot></tf
 
 > {tip} To display the footer using html builder, pass `true` as 2nd argument on `$builder->table([], true)` api.
 
-
 ### Exportable (Optional)
 Exportable attribute will flag the column to be included when `exporting` the table. Default value is `true`.
 

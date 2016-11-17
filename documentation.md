@@ -52,10 +52,12 @@
 	- [Builder](/docs/laravel-datatables/{{version}}/html-builder)
 	- [Table](/docs/laravel-datatables/{{version}}/html-builder-table)
 	- [Columns](/docs/laravel-datatables/{{version}}/html-builder-column)
+	- [Ajax](/docs/laravel-datatables/{{version}}/html-builder-ajax)
 	- [Parameters](/docs/laravel-datatables/{{version}}/html-builder-parameters)
 	- [Events/Callbacks](/docs/laravel-datatables/{{version}}/html-builder-callbacks)
 	- [Add Action](/docs/laravel-datatables/{{version}}/html-builder-action)
 	- [Add Checkbox](/docs/laravel-datatables/{{version}}/html-builder-checkbox)
+	- [Add Index](/docs/laravel-datatables/{{version}}/html-builder-index)
 
 ### PLUGINS
 
