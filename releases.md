@@ -5,7 +5,7 @@
 <a name="7.0"></a>
 ## Laravel Datatables 7.0
 
-Laravel Datatable 7.0 splits Laravel Datatable 6.x into a main package and plugins packages for more flexibile and pluggable design.
+Laravel Datatables 7.0 splits Laravel Datatables 6.x into a main package and plugins packages for more flexibile and pluggable design.
 
 ### Buttons Plugin
 On Laravel Datatables 7.0, service classes and files are extracted into a separate package to reduce its complexity and dependencies on other packages by default.
@@ -13,5 +13,5 @@ This idea comes up from [Issue #832](https://github.com/yajra/laravel-datatables
 
 ### DomPDF
 `DomPDF` dependency is now optional on Laravel Datatables 7.0 and was transferred to Buttons plugin.
-And the `Buttons` plugin will now give you a choice to install or not.
-This was also set to optional since we now have an option to use [`laravel-snappy`](https://github.com/barryvdh/laravel-snappy) as our pdf generator.
+And the `Buttons` plugin will now give you a choice to install it or not.
+This was as a `suggest` since we now have an option to use [`snappy`](https://github.com/barryvdh/laravel-snappy) as our pdf generator.
