@@ -48,6 +48,7 @@
 	- [XSS filtering](/docs/laravel-datatables/{{version}}/xss)
 	- [Blacklist Columns](/docs/laravel-datatables/{{version}}/blacklist)
 	- [Whitelist Columns](/docs/laravel-datatables/{{version}}/whitelist)
+	- [Set Total Records](/docs/laravel-datatables/{{version}}/set-total-records)
 - HTML Builder
 	- [Builder](/docs/laravel-datatables/{{version}}/html-builder)
 	- [Table](/docs/laravel-datatables/{{version}}/html-builder-table)
