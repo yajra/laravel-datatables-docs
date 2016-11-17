@@ -2,8 +2,8 @@
 
 <a name="v6-to-v7"></a>
 ## Upgrading from v6.x to v7.x
-  - composer require yajra/laravel-datatables-oracle
-  - composer require yajra/laravel-datatables-buttons
+  - composer require yajra/laravel-datatables-oracle:^7.0
+  - composer require yajra/laravel-datatables-buttons:^1.0
   - php artisan vendor:publish --tag=datatables --force
   - php artisan vendor:publish --tag=datatables-buttons --force
 
