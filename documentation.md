@@ -30,6 +30,7 @@
 	- [Remove Column](/docs/laravel-datatables/{{version}}/remove-column)
 	- [Index Column](/docs/laravel-datatables/{{version}}/index-column)
 - Row Editing
+	- [Row Options](/docs/laravel-datatables/{{version}}/row-options)
 	- [Row ID](/docs/laravel-datatables/{{version}}/row-options#row-id)
 	- [Row Class](/docs/laravel-datatables/{{version}}/row-options#row-class)
 	- [Row Data](/docs/laravel-datatables/{{version}}/row-options#row-data)
