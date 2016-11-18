@@ -15,5 +15,5 @@ Route::get('user-data', function() {
 });
 ```
 
-Using `addIndexColumn` will add another column on your response with a column name that is set on [`index_column`](/docs/laravel-datatables/{{version}}/general-settings#index-column) configuration.
+Using `addIndexColumn` will add another column on your response with a column name that is set on [`index_column`](/docs/{{package}}/{{version}}/general-settings#index-column) configuration.
 The default index column name is `DT_Row_Index`

@@ -9,7 +9,7 @@ Laravel Datatables 7.0 splits Laravel Datatables 6.x into a main package and plu
 
 ### Buttons Plugin
 On Laravel Datatables 7.0, service classes and files are extracted into a separate package to reduce its complexity and dependencies on other packages by default.
-This idea comes up from [Issue #832](https://github.com/yajra/laravel-datatables/issues/832) which actually makes sense since not all users are using the export functionality.
+This idea comes up from [Issue #832](https://github.com/yajra/{{package}}/issues/832) which actually makes sense since not all users are using the export functionality.
 
 ### DomPDF
 `DomPDF` dependency is now optional on Laravel Datatables 7.0 and was transferred to Buttons plugin.
