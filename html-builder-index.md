@@ -19,4 +19,4 @@ The default attributes of index column are:
 ];
 ```
 
-The `addIndex` api should be used along with [`addIndexColumn`](/docs/laravel-datatables/{{version}}/index-column) of `Datatables`.
+The `addIndex` api should be used along with [`addIndexColumn`](/docs/{{package}}/{{version}}/index-column) of `Datatables`.
