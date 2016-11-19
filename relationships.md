@@ -27,17 +27,18 @@ To trigger search on `posts` relationship, we need to specify the `relation.colu
 <script>
 	$(document).ready(function() {
 		$('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '{{ url("collection/basic-object-data") }}',
-        columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-            {data: 'posts', name: 'posts.title'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'}
-        ]
+	        processing: true,
+	        serverSide: true,
+	        ajax: '{{ url("collection/basic-object-data") }}',
+	        columns: [
+	            {data: 'id', name: 'id'},
+	            {data: 'name', name: 'name'},
+	            {data: 'email', name: 'email'},
+	            {data: 'posts', name: 'posts.title'},
+	            {data: 'created_at', name: 'created_at'},
+	            {data: 'updated_at', name: 'updated_at'}
+	        ]
+		});
 	});
 </script>
 ```
