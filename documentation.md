@@ -42,6 +42,7 @@
 	- [Query Builder Extension](/docs/{{package}}/{{version}}/query-builder)
 	- [Regex Search](/docs/{{package}}/{{version}}/regex)
 	- [Smart Search](/docs/{{package}}/{{version}}/smart-search)
+	- [Relationships](/docs/{{package}}/{{version}}/relationships)
 - Sorting/Ordering
 	- [Manual Order](/docs/{{package}}/{{version}}/manual-order)
 	- [Order Column](/docs/{{package}}/{{version}}/order-column)
