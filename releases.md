@@ -15,3 +15,13 @@ This idea comes up from [Issue #832](https://github.com/yajra/{{package}}/issues
 `DomPDF` dependency is now optional on Laravel Datatables 7.0 and was transferred to Buttons plugin.
 And the `Buttons` plugin will now give you a choice to install it or not.
 This was as a `suggest` since we now have an option to use [`snappy`](https://github.com/barryvdh/laravel-snappy) as our pdf generator.
+
+### Other Changes
+
+#### Request property
+`Datatables` `request` property is now set as `protected`. To access the request instance, use the getter method `getRequest()`.
+
+```php
+$dataTable = Datatable::of(User::query());
+$request = $dataTable->getRequest();
+```
