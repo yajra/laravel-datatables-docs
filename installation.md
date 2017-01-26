@@ -11,8 +11,7 @@
 <a name="requirements"></a>
 ### Requirements
 
-- [PHP >=5.5.9](http://php.net/)
-- [Laravel 5.x](https://github.com/laravel/framework)
+- [Laravel 5.4](https://github.com/laravel/framework)
 - [jQuery DataTables v1.10.x](http://datatables.net/)
 
 <a name="installing-laravel-datatables-oracle"></a>
