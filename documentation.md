@@ -69,6 +69,7 @@
 	- [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
 	- [Add Checkbox](/docs/{{package}}/{{version}}/html-builder-checkbox)
 	- [Add Index](/docs/{{package}}/{{version}}/html-builder-index)
+	- [Github](https://github.com/yajra/laravel-datatables-html)
 
 - Buttons
 	- [Installation](/docs/{{package}}/{{version}}/buttons-installation)
