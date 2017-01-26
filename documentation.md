@@ -55,7 +55,11 @@
 	- [Set Total Records](/docs/{{package}}/{{version}}/set-total-records)
 	- [With Trashed](/docs/{{package}}/{{version}}/with-trashed)
 	- [Skip Paging](/docs/{{package}}/{{version}}/skip-paging)
+
+### PLUGINS
+
 - HTML Builder
+	- [Installation](/docs/{{package}}/{{version}}/html-installation)
 	- [Builder](/docs/{{package}}/{{version}}/html-builder)
 	- [Table](/docs/{{package}}/{{version}}/html-builder-table)
 	- [Columns](/docs/{{package}}/{{version}}/html-builder-column)
@@ -65,8 +69,6 @@
 	- [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
 	- [Add Checkbox](/docs/{{package}}/{{version}}/html-builder-checkbox)
 	- [Add Index](/docs/{{package}}/{{version}}/html-builder-index)
-
-### PLUGINS
 
 - Buttons
 	- [Installation](/docs/{{package}}/{{version}}/buttons-installation)
