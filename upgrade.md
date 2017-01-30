@@ -2,10 +2,30 @@
 
 <a name="v6-to-v7"></a>
 ## Upgrading from v6.x to v7.x
-- composer require yajra/laravel-datatables-oracle:^7.0
-- composer require yajra/laravel-datatables-buttons:^1.0
-- php artisan vendor:publish --tag=datatables --force
-- php artisan vendor:publish --tag=datatables-buttons --force
+To upgrade Laravel Datatable from version 6.x to version 7.x:
+
+```sh
+composer require yajra/laravel-datatables-oracle:^7.0
+php artisan vendor:publish --tag=datatables --force
+```
+
+### Service Approach
+Service class is now extracted to own plugin, `Buttons Plugin`. If you are using the service approach, you need to perform the following:
+
+```sh
+composer require yajra/laravel-datatables-buttons:^1.0
+php artisan vendor:publish --tag=datatables-buttons --force
+```
+
+### Html Builder
+HTML builder is now extracted to own plugin, If you are using Datatables html builder, you need to perform the following:
+> {info} HTML Builder plugin is a prerequisite of Buttons plugin. You can optionally skip this part if already installed the Buttons plugin.
+
+```sh
+composer require yajra/laravel-datatables-html:^1.0
+php artisan vendor:publish --tag=datatables-html --force
+```
+
 
 ### XSS Protection
 All columns are now escaped by default to protect us from XSS attack. To allow columns to have an html content, use `rawColumns` api.
