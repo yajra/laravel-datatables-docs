@@ -8,7 +8,7 @@
 - php artisan vendor:publish --tag=datatables-buttons --force
 
 ### XSS Protection
-All columns are now escaped by default to protect us XSS attack. To allow columns to have an html content, use `rawColumns` api.
+All columns are now escaped by default to protect us from XSS attack. To allow columns to have an html content, use `rawColumns` api.
 
 ```php
 Datatables::of(User::query())
