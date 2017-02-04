@@ -34,7 +34,7 @@ On your `resources/views/users/index.blade.php`.
 @extends('app')
 
 @section('contents')
-    {!! $html->table(['class' => 'table table-bordered', true]) !!}
+    {!! $html->table(['class' => 'table table-bordered'], true) !!}
 @endsection
 
 @push('scripts')
