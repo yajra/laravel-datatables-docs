@@ -19,6 +19,15 @@ return Datatables::eloquent(Role::select())
 		    ->make(true);
 ```
 
+<a name="none"></a>
+## Remove escaping of all columns
+
+```php
+return Datatables::eloquent(Role::select())
+		    ->escapeColumns([])
+		    ->make(true);
+```
+
 <a name="index"></a>
 ## Escape by output index
 
