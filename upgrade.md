@@ -14,8 +14,15 @@ Service class is now extracted to own plugin, `Buttons Plugin`. If you are using
 
 ```sh
 composer require yajra/laravel-datatables-buttons:^1.0
+```
+
+Register `Yajra\Datatables\ButtonsServiceProder` on 'config/app.php' and publish config.
+
+
+```php
 php artisan vendor:publish --tag=datatables-buttons --force
 ```
+
 
 ### Html Builder
 HTML builder is now extracted to own plugin, If you are using Datatables html builder, you need to perform the following:
