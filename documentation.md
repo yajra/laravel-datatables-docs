@@ -30,6 +30,7 @@
 	- [Edit Column](/docs/{{package}}/{{version}}/edit-column)
 	- [Remove Column](/docs/{{package}}/{{version}}/remove-column)
 	- [Index Column](/docs/{{package}}/{{version}}/index-column)
+	- [Raw Columns](/docs/{{package}}/{{version}}/raw-columns)
 - Row Editing
 	- [Row Options](/docs/{{package}}/{{version}}/row-options)
 	- [Row ID](/docs/{{package}}/{{version}}/row-options#row-id)
