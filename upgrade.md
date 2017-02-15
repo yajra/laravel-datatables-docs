@@ -2,7 +2,7 @@
 
 <a name="v6-to-v7"></a>
 ## Upgrading from v6.x to v7.x
-To upgrade Laravel Datatable from version 6.x to version 7.x:
+To upgrade Laravel Datatables from version 6.x to version 7.x:
 
 ```sh
 composer require yajra/laravel-datatables-oracle:^7.0
