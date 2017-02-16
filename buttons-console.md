@@ -99,7 +99,7 @@ class PostsDataTable extends DataTable
 In this example, we will pass a `--model` option to set the model to be used by our DataTable.
 
 ```
-php artisan datatables:make PostsDataTable --model=Post
+php artisan datatables:make Posts --model
 ```
 
 ## Creating a DataTable Scope service class
