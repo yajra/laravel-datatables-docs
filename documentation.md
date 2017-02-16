@@ -53,6 +53,7 @@
 	- [Whitelist Columns](/docs/{{package}}/{{version}}/whitelist)
 	- [Set Total Records](/docs/{{package}}/{{version}}/set-total-records)
 	- [With Trashed](/docs/{{package}}/{{version}}/with-trashed)
+	- [Only Trashed](/docs/{{package}}/{{version}}/only-trashed)
 	- [Skip Paging](/docs/{{package}}/{{version}}/skip-paging)
 - HTML Builder
 	- [Builder](/docs/{{package}}/{{version}}/html-builder)
