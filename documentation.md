@@ -77,6 +77,7 @@
 	- [Configuration](/docs/{{package}}/{{version}}/buttons-config)
 	- [Quick Starter](/docs/{{package}}/{{version}}/buttons-starter)
 	- [DataTable Buttons](/docs/{{package}}/{{version}}/buttons-export)
+	- [Extended DataTable](/docs/{{package}}/{{version}}/buttons-extended)
 	- [Artisan Console](/docs/{{package}}/{{version}}/buttons-console)
 	- [Github](https://github.com/yajra/laravel-datatables-buttons)
 
