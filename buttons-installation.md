@@ -2,7 +2,7 @@
 
 Run the following command in your project to get the latest version of the plugin:
 
-`composer require yajra/laravel-datatables-buttons:^1.0`
+`composer require yajra/laravel-datatables-buttons:^1.1`
 
 Open the file ```config/app.php``` and then add following service provider.
 
