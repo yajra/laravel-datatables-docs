@@ -16,7 +16,7 @@ Service class is now extracted to own plugin, `Buttons Plugin`. If you are using
 composer require yajra/laravel-datatables-buttons:^1.0
 ```
 
-Register `Yajra\Datatables\ButtonsServiceProder::class` on `config/app.php` and publish config.
+Register `Yajra\Datatables\ButtonsServiceProvider::class` on `config/app.php` and publish config.
 
 
 ```php
