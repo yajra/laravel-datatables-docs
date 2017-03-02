@@ -1,6 +1,7 @@
 # Response using Transformer
 
-When using tranformer, all column operations must be done via transformer. Thus `addColumn`, `editColumn` and `removeColumn` should be avoided when using fractal.
+When using tranformer, all response manipulations must be done via transformer.
+Thus `addColumn`, `editColumn`, `removeColumn`, `setRowAttr`, `setClassAttr`, etc... should be avoided when using fractal.
 
 ```php
 use Datatables;
