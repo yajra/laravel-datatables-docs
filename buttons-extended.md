@@ -37,12 +37,20 @@ TO
 Route::get('datatable', function(RolesDataTable $dataTable){
    return $dataTable->before(function (\Yajra\Datatables\Engines\BaseEngine $dataTable) {
        return $dataTable->addColumn('test', 'added inside controller');
-   })->response(function (\Illuminate\Support\Collection $response) {
+   })
+   ->response(function (\Illuminate\Support\Collection $response) {
        $response['test'] = 'Append Data';
 
        return $response;
-   })->withHtml(function(\Yajra\Datatables\Html\Builder $builder) {
+   })
+   ->withHtml(function(\Yajra\Datatables\Html\Builder $builder) {
         $builder->columns(['id', 'name', 'etc...']);
-   })->render('path.to.view');
+   })
+   ->with('key', 'value')
+   ->with([
+    'key2' => 'value2',
+    'key3' => 'value3',
+   ])
+   ->render('path.to.view');
 });
 ```
