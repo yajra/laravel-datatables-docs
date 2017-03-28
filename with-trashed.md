@@ -7,7 +7,7 @@ To achieve this, we can use `withTrashed` api.
 use Datatables;
 
 Route::get('user-data', function() {
-	$model = App\User::withTrashed()->query();
+	$model = App\User::query()->withTrashed();
 
 	return Datatables::eloquent($model)
 				->withTrashed()
