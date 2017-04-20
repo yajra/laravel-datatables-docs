@@ -15,7 +15,7 @@ use Yajra\Datatables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
-	protected $actions = ['print', 'excel', 'myCustomAction'];
+    protected $actions = ['print', 'excel', 'myCustomAction'];
 
     public function html()
     {
