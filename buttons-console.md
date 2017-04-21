@@ -180,6 +180,38 @@ class PostsDataTable extends DataTable
 ```
 
 
+### Model Namespace Option
+
+In this example, we will pass a `--model-namespace` option to set the model namespace to be used by our DataTable.
+
+```
+php artisan datatables:make Posts --model-namespace="Models\Client"
+```
+It will implicitly activate `--model` option and override the `model` parameter in `datatables-buttons` config file.
+This will allow to use a non-standard namespace if front-end and back-end models are in separate namespace for example. 
+
+
+
+### Action Option
+
+In this example, we will pass a `--action` option to set a custom path for the action column view.
+
+```
+php artisan datatables:make Posts --action="client.action"
+```
+If not provided, a default path will be used. It will needs to be changed thereafter.
+
+### Columns Option
+
+In this example, we will pass a `--columns` option to set the columns to be used by our DataTable.
+
+```
+php artisan datatables:make Posts --columns="id,title,author"
+```
+If not provided, a default set of columns will be used. It will needs to be manually changed thereafter.
+
+
+
 ## Creating a DataTable Scope service class
 
 DataTable scope is class that we can use to limit our database search results based on the defined query scopes.
