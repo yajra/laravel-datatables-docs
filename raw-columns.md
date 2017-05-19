@@ -1,6 +1,6 @@
 # Raw Columns
 
-By default, Laravel DataTables protects us from XSS attack by esacping all our outputs.
+By default, Laravel DataTables protects us from XSS attack by escaping all our outputs.
 In cases where you want to render an html content, please use `rawColumns` api.
 
 
