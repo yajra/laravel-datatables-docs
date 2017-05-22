@@ -4,7 +4,10 @@ Laravel DataTables allows you to configure how you want to handle server-side er
 Below are the options available for error handling.
 
 ## ERROR CONFIGURATIONS
-Configuration is located at `config/datatables.php` under `error` key.
+Configuration is located at `config/datatables.php` under `error` key. 
+You can also configure via env by setting `DATATABLES_ERROR` key appropriately.
+
+The default configuration is `env('DATATABLES_ERROR', null)`.
 
 
 - [NULL](#null-error) : `'error' => null`
