@@ -69,6 +69,7 @@
 	- [Columns](/docs/{{package}}/{{version}}/html-builder-column)
 	- [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
 	- [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
+	- [Minified Ajax](/docs/{{package}}/{{version}}/html-builder-minified-ajax)
 	- [Parameters](/docs/{{package}}/{{version}}/html-builder-parameters)
 	- [Events/Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks)
 	- [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
