@@ -13,8 +13,11 @@ $builder->minifiedAjax($url, $script = '', $data = []);
 
 ## Ajax Parameters
 `$url` is the url where we will fetch our json data.
+
 `$script` any vanilla javascript to be included on `data` method of ajax.
+
 `$data` is an array of values to be appended on server request.
+
 
 ```php
 $builder->minifiedAjax('', null, ['foo' => 'bar'])
