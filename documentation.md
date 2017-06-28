@@ -65,6 +65,7 @@
 	- [Installation](/docs/{{package}}/{{version}}/html-installation)
 	- [Builder](/docs/{{package}}/{{version}}/html-builder)
 	- [Table](/docs/{{package}}/{{version}}/html-builder-table)
+	- [Config](/docs/{{package}}/{{version}}/html-builder-config)
 	- [Columns](/docs/{{package}}/{{version}}/html-builder-column)
 	- [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
 	- [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
