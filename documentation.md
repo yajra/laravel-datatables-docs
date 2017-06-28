@@ -66,6 +66,7 @@
 	- [Builder](/docs/{{package}}/{{version}}/html-builder)
 	- [Table](/docs/{{package}}/{{version}}/html-builder-table)
 	- [Columns](/docs/{{package}}/{{version}}/html-builder-column)
+	- [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
 	- [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
 	- [Parameters](/docs/{{package}}/{{version}}/html-builder-parameters)
 	- [Events/Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks)
