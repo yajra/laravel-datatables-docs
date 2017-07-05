@@ -10,10 +10,16 @@ composer require yajra/laravel-datatables-oracle:8.*
 php artisan vendor:publish --tag=datatables --force
 ```
 
-If you are using service approach:
+If you are using service approach / buttons plugin:
 ```bash
 composer require yajra/laravel-datatables-buttons:3.*
 php artisan vendor:publish --tag=datatables-buttons --force
+```
+
+If you are using html plugin:
+```bash
+composer require yajra/laravel-datatables-html:3.*
+php artisan vendor:publish --tag=datatables-html --force
 ```
 
 If you are using fractal:
