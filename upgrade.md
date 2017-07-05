@@ -2,7 +2,7 @@
 
 <a name="v7-to-v8"></a>
 ## Upgrading from v7.x to v8.x
-To upgrade Laravel Datatables from version 7.x to version 8.x:
+To upgrade Laravel DataTables from version 7.x to version 8.x:
 
 
 ```bash
