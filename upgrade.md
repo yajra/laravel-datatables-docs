@@ -52,21 +52,45 @@ DataTables factory class is now renamed to `Factory` from `Datatables`. If you a
 - The package namespace was updated from `Yajra\Datatables` to `Yajra\DataTables`. 
 > Use sublime's find and replace all feature to update all affected files.
 - Constructor dependencies were removed.
-- `dataTable()` method is now strictly implemented.
 - You need to instanstiate the DataTable class within the `dataTable()` method:
-```php
-// FROM
-public function dataTable() {
+	```php
+	// FROM
+	public function dataTable() {
 		return $this->datatables->eloquent($this->query());
-}
-```
-```php
-// TO
-use Yajra\DataTables\EloquentDataTable;
-public function dataTable() {
-		return new EloquentDataTable($this->query());
-}
-```
+	}
+	```
+	```php
+	// TO
+	use Yajra\DataTables\EloquentDataTable;
+	public function dataTable($query) {
+		return new EloquentDataTable($query);
+	}
+	```
+
+	Or inject the factory using method injection.
+	```php
+	use Yajra\DataTables\Factory;
+	public function dataTable($query, Factory $dataTable) {
+		return $dataTable->eloquent($query);
+	}
+	```
+- Query method results are automatically injected on `dataTable($query)` api.
+	```php
+	use Yajra\DataTables\Factory;
+	public function dataTable($query, Factory $dataTable) {
+		return $dataTable->eloquent($query);
+	}
+
+	public function query() {
+		return Model::query();
+	}
+	```
+- The following methods now supports method injection:
+
+	Action Buttons: `csv(), pdf(), excel(), printPreview()`
+
+	Builder Methods: `ajax(), dataTable(), query()`
+
 
 <a name="html"></a>
 ## [v8] DataTables Html Changes
