@@ -43,9 +43,9 @@ DataTables Facade was renamed to `Yajra\DataTables\Facades\DataTables`. If you w
 
 <a name="factory"></a>
 ## [v8] DataTables Factory class
-DataTables factory class is now renamed to `Factory` from `Datatables`. If you are injecting `Yajra\Datatables\Datables` on your code, you must update it to `Yajra\DataTables\Factory`.
+DataTables factory class is now renamed to `DataTables` from `Datatables`. If you are injecting `Yajra\Datatables\Datables` on your code, you must update it to `Yajra\DataTables\DataTables`.
 
-`Datatables::of()` method is deprecated in favor of `Factory::make()` to match Laravel's factory api. `of` api will be removed on next major release.
+`DataTables::of()` method is now an alias of new `DataTables::make()` method to match Laravel's factory api structure.
 
 <a name="buttons"></a>
 ## [v8] DataTables Buttons Changes
