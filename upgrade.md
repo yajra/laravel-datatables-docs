@@ -69,16 +69,16 @@ DataTables factory class is now renamed to `DataTables` from `Datatables`. If yo
 
 	Or inject the factory using method injection.
 	```php
-	use Yajra\DataTables\Factory;
-	public function dataTable($query, Factory $dataTable) {
-		return $dataTable->eloquent($query);
+	use Yajra\DataTables\DataTables;
+	public function dataTable($query, DataTables $dataTables) {
+		return $dataTables->eloquent($query);
 	}
 	```
 - Query method results are automatically injected on `dataTable($query)` api.
 	```php
-	use Yajra\DataTables\Factory;
-	public function dataTable($query, Factory $dataTable) {
-		return $dataTable->eloquent($query);
+	use Yajra\DataTables\DataTables;
+	public function dataTable($query, DataTables $dataTables) {
+		return $dataTables->eloquent($query);
 	}
 
 	public function query() {
