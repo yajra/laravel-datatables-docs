@@ -49,6 +49,8 @@ DataTables factory class is now renamed to `DataTables` from `Datatables`. If yo
 
 <a name="buttons"></a>
 ## [v8] DataTables Buttons Changes
+> See https://github.com/yajra/laravel-datatables-buttons/blob/master/CHANGELOG.md for full changelog.
+
 - The package namespace was updated from `Yajra\Datatables` to `Yajra\DataTables`. 
 > Use sublime's find and replace all feature to update all affected files.
 - Constructor dependencies were removed.
@@ -90,6 +92,10 @@ DataTables factory class is now renamed to `DataTables` from `Datatables`. If yo
 	Action Buttons: `csv(), pdf(), excel(), printPreview()`
 
 	Builder Methods: `ajax(), dataTable(), query()`
+
+- `DataTableContract` contract removed.
+- `DataTableScopeContract` contract renamed to `DataTableScope`.
+- `DataTableButtonsContract` contract renamed to `DataTableButtons`.
 
 
 <a name="html"></a>
