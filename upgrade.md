@@ -55,6 +55,7 @@ DataTables factory class is now renamed to `DataTables` from `Datatables`. If yo
 > Use sublime's find and replace all feature to update all affected files.
 - Constructor dependencies were removed.
 - You need to instanstiate the DataTable class within the `dataTable()` method:
+- The `dataTable()` method should `public` now instead of `protected`.
 	```php
 	// FROM
 	public function dataTable() {
