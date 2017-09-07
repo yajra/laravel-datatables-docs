@@ -16,7 +16,7 @@
     - [General Settings](/docs/{{package}}/{{version}}/general-settings)
     - [Debugging Mode](/docs/{{package}}/{{version}}/debugger)
     - [Error Handler](/docs/{{package}}/{{version}}/error-handler)
-- Engines & Data Sources
+- DataTables Classes
 	- [Eloquent](/docs/{{package}}/{{version}}/engine-eloquent)
 	- [Query Builder](/docs/{{package}}/{{version}}/engine-query)
 	- [Collection](/docs/{{package}}/{{version}}/engine-collection)

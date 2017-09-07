@@ -1,7 +1,7 @@
 # Collection Data Source
 
 You may use Laravel's Collection as data source for your dataTables.
-You can look at `Yajra\DataTables\Enginges\CollectionEngine` class which handles the conversion of your Collection into a readbale DataTable API response.
+You can look at `Yajra\DataTables\CollectionDataTable` class which handles the conversion of your Collection into a readbale DataTable API response.
 
 <a name="factory"></a>
 ## Collection via Factory
@@ -68,3 +68,15 @@ Route::get('user-data', function() {
 	return app('datatables')->queryBuilder($collection)->toJson();
 });
 ```
+
+<a name="instance"></a>
+## CollectionDataTable new Instance
+
+```php
+use Yajra\DataTables\CollectionDataTable;
+
+Route::get('user-data', function() {
+    $model = App\User::query();
+
+    return (new CollectionDataTable($model))->toJson();
+});
