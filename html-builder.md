@@ -43,7 +43,7 @@ use Yajra\DataTables\Html\Builder;
 
 Route::get('users', function(Builder $builder) {
 	if (request()->ajax()) {
-        return DataTables::of(User::query())->make(true);
+        return DataTables::of(User::query())->toJson();
     }
 
 	$html = $builder->columns([

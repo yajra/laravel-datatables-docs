@@ -14,7 +14,7 @@ Route::get('user-data', function() {
 	return DataTables::eloquent($model)
 				->with('posts', 100)
 				->with('comments', 20)
-				->make(true);
+				->toJson();
 });
 ```
 
@@ -32,7 +32,7 @@ Route::get('user-data', function() {
 					'posts' => 100,
 					'comments' => 20,
 				])
-				->make(true);
+				->toJson();
 });
 ```
 

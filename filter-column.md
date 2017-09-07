@@ -21,6 +21,6 @@ Route::get('user-data', function() {
 					$sql = "CONCAT(users.first_name,'-',users.last_name)  like ?";
 	                $query->whereRaw($sql, ["%{$keyword}%"]);
 	            })
-				->make(true);
+				->toJson();
 });
 ```

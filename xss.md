@@ -10,7 +10,7 @@ Since v7.0, all dataTable response are encoded to prevent XSS attack. In case yo
 ```php
 return DataTables::eloquent(Role::select())
 		    ->rawColumns(['name', 'action'])
-		    ->make(true);
+		    ->toJson();
 ```
 
 # Other XSS methods
@@ -21,7 +21,7 @@ return DataTables::eloquent(Role::select())
 ```php
 return DataTables::eloquent(Role::select())
 		    ->escapeColumns(['name'])
-		    ->make(true);
+		    ->toJson();
 ```
 <a name="all"></a>
 ## Escape all columns
@@ -29,7 +29,7 @@ return DataTables::eloquent(Role::select())
 ```php
 return DataTables::eloquent(Role::select())
 		    ->escapeColumns()
-		    ->make(true);
+		    ->toJson();
 ```
 
 <a name="none"></a>
@@ -38,7 +38,7 @@ return DataTables::eloquent(Role::select())
 ```php
 return DataTables::eloquent(Role::select())
 		    ->escapeColumns([])
-		    ->make(true);
+		    ->toJson();
 ```
 
 <a name="index"></a>

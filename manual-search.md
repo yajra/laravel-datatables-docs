@@ -22,7 +22,7 @@ Route::get('user-data', function() {
 		                $query->where('email', 'like', "%{request('email')}%");
 		            }
 		        })
-				->make(true);
+				->toJson();
 });
 ```
 
@@ -47,6 +47,6 @@ Route::get('user-data', function() {
 		                $query->where('email', 'like', "%{request('email')}%");
 		            }
 		        }, true)
-				->make(true);
+				->toJson();
 });
 ```

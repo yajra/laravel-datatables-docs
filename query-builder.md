@@ -11,6 +11,6 @@ Route::get('user-data', function() {
 	$dataTable = DataTables::eloquent($model);
 	$dataTable->where('company_id', 2);
 
-	return $dataTable->make(true);
+	return $dataTable->toJson();
 });
 ```

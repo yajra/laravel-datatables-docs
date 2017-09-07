@@ -10,6 +10,6 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->blacklist(['password', 'name'])
-				->make(true);
+				->toJson();
 });
 ```

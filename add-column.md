@@ -13,7 +13,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->addColumn('intro', 'Hi {{$name}}!')
-				->make(true);
+				->toJson();
 });
 ```
 
@@ -30,7 +30,7 @@ Route::get('user-data', function() {
 				->addColumn('intro', function(User $user) {
 					return 'Hi ' . $user->name . '!';
 				})
-				->make(true);
+				->toJson();
 });
 ```
 
@@ -47,7 +47,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->addColumn('intro', 'users.datatables.intro')
-				->make(true);
+				->toJson();
 });
 ```
 
@@ -69,6 +69,6 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->addColumn('intro', 'Hi {{$name}}!', 2)
-				->make(true);
+				->toJson();
 });
 ```

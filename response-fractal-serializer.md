@@ -11,6 +11,6 @@ Route::get('user-data', function() {
 	return DataTables::eloquent($model)
 					->setTransformer(new App\Transformers\UserTransformer)
 					->setSerializer(new App\Serializers\CustomSerializer)
-					->make(true);
+					->toJson();
 });
 ```

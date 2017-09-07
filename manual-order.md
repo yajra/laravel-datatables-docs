@@ -19,6 +19,6 @@ Route::get('user-data', function() {
 		                $query->orderBy('email', 'desc');
 		            }
 		        })
-				->make(true);
+				->toJson();
 });
 ```

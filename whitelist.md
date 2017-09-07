@@ -10,6 +10,6 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->whitelist(['name', 'email'])
-				->make(true);
+				->toJson();
 });
 ```

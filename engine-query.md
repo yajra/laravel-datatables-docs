@@ -13,7 +13,7 @@ use DataTables;
 Route::get('user-data', function() {
 	$query = DB::table('users');
 
-	return DataTables::of($query)->make(true);
+	return DataTables::of($query)->toJson();
 });
 ```
 
@@ -27,7 +27,7 @@ use DataTables;
 Route::get('user-data', function() {
 	$query = DB::table('users');
 
-	return DataTables::queryBuilder($query)->make(true);
+	return DataTables::queryBuilder($query)->toJson();
 });
 ```
 
@@ -41,7 +41,7 @@ use Yajra\DataTables\DataTables;
 Route::get('user-data', function(DataTables $datatables) {
 	$query = DB::table('users');
 
-	return $datatables->queryBuilder($query)->make(true);
+	return $datatables->queryBuilder($query)->toJson();
 });
 ```
 <a name="ioc"></a>
@@ -53,6 +53,6 @@ use DB;
 Route::get('user-data', function() {
 	$query = DB::table('users');
 
-	return app('datatables')->queryBuilder($query)->make(true);
+	return app('datatables')->queryBuilder($query)->toJson();
 });
 ```

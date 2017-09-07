@@ -11,6 +11,6 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->onlyTrashed()
-				->make(true);
+				->toJson();
 });
 ```

@@ -8,7 +8,7 @@ We can now extend and reuse our DataTable class inside our controller by using `
 ## Upgrading from v1.0 to v1.1
 - Upgrade to `laravel-datatables-buttons:^1.1`
 - Rename `ajax()` method to `dataTable()`
-- Remove `->make(true)` from the method chain.
+- Remove `->toJson()` from the method chain.
 
 ```php
     public function ajax()
@@ -16,7 +16,7 @@ We can now extend and reuse our DataTable class inside our controller by using `
         return $this->datatables
             ->eloquent($this->query())
             ->addColumn('action', 'path.to.action.view')
-            ->make(true)
+            ->toJson()
     }
 ```
 

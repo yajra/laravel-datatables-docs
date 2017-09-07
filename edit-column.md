@@ -13,7 +13,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->editColumn('name', 'Hi {{$name}}!')
-				->make(true);
+				->toJson();
 });
 ```
 
@@ -30,7 +30,7 @@ Route::get('user-data', function() {
 				->editColumn('name', function(User $user) {
 					return 'Hi ' . $user->name . '!';
 				})
-				->make(true);
+				->toJson();
 });
 ```
 
@@ -47,7 +47,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->editColumn('name', 'users.datatables.into')
-				->make(true);
+				->toJson();
 });
 ```
 

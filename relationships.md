@@ -17,7 +17,7 @@ Route::get('user-data', function() {
                         return str_limit($post->title, 30, '...');
                     })->implode('<br>');
                 })
-				->make(true);
+				->toJson();
 });
 ```
 

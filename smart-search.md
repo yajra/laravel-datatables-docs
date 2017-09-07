@@ -11,6 +11,6 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 					->smart(false)
-					->make(true);
+					->toJson();
 });
 ```

@@ -14,7 +14,7 @@ Route::get('user-data', function() {
 				->addColumn('link', '<a href="#">Html Column</a>')
 				->addColumn('action', 'path.to.view')
 				->rawColumns(['link', 'action'])
-				->make(true);
+				->toJson();
 });
 ```
 

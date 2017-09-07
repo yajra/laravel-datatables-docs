@@ -158,7 +158,7 @@ All columns are now escaped by default to protect us from XSS attack. To allow c
 Datatables::of(User::query())
 	->addColumn('href', '<a href="#">Html Content</a>')
 	->rawColumns(['href'])
-	->make(true);
+	->toJson();
 ```
 
   

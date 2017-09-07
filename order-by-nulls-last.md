@@ -10,7 +10,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 			->orderByNullsLast()
-			->make(true);
+			->toJson();
 });
 ```
 

@@ -14,6 +14,6 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->orderColumn('name', '-name $1')
-				->make(true);
+				->toJson();
 });
 ```

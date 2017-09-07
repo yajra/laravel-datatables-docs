@@ -11,6 +11,6 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->setTotalRecords(100)
-				->make(true);
+				->toJson();
 });
 ```

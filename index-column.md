@@ -11,7 +11,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->addIndexColumn()
-				->make(true);
+				->toJson();
 });
 ```
 

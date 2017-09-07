@@ -12,7 +12,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->setTransformer(new UserTransformer)
-				->make(true);
+				->toJson();
 });
 ```
 

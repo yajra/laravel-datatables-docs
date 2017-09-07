@@ -16,7 +16,7 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return DataTables::of($collection)->make(true);
+	return DataTables::of($collection)->toJson();
 });
 ```
 
@@ -33,7 +33,7 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return DataTables::queryBuilder($collection)->make(true);
+	return DataTables::queryBuilder($collection)->toJson();
 });
 ```
 
@@ -50,7 +50,7 @@ Route::get('user-data', function(DataTables $datatables) {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return $datatables->queryBuilder($collection)->make(true);
+	return $datatables->queryBuilder($collection)->toJson();
 });
 ```
 <a name="ioc"></a>
@@ -65,6 +65,6 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return app('datatables')->queryBuilder($collection)->make(true);
+	return app('datatables')->queryBuilder($collection)->toJson();
 });
 ```
