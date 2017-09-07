@@ -4,6 +4,9 @@ Run the following command in your project to get the latest version of the plugi
 
 `composer require yajra/laravel-datatables-buttons:^3.0`
 
+## Configuration
+> This step is optional if you are using Laravel 5.5
+
 Open the file ```config/app.php``` and then add following service provider.
 
 ```php
