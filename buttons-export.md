@@ -10,7 +10,7 @@ Export button group includes `excel`, `csv` and `pdf` button.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -36,7 +36,7 @@ To enable exporting to excel, set `excel` on the buttons array.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -62,7 +62,7 @@ To enable exporting to csv, set `csv` on the buttons array.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -88,7 +88,7 @@ To enable exporting to pdf, set `pdf` on the buttons array.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -114,7 +114,7 @@ To enable print button, set `print` on the buttons array.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -140,7 +140,7 @@ To enable reset button, set `reset` on the buttons array.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -166,7 +166,7 @@ To enable reload button, set `reload` on the buttons array.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {

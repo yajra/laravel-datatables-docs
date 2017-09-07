@@ -1,17 +1,17 @@
 # Eager Loading Relationships
 
-`Datatables` support searching and sorting of eager loaded relationships when using `Eloquent`.
+`DataTables` support searching and sorting of eager loaded relationships when using `Eloquent`.
 In this example, I will show you how to setup a eager loading search using `EloquentEngine`.
 
 To enable search, we need to eager load the relationship we intend to use using Laravel's `User::with('posts')` api.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::with('posts');
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->addColumn('posts', function (User $user) {
                     return $user->posts->map(function($post) {
                         return str_limit($post->title, 30, '...');

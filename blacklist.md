@@ -3,12 +3,12 @@
 Sorting and searching will not work on columns explicitly defined as blacklisted.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->blacklist(['password', 'name'])
 				->make(true);
 });

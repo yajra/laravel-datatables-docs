@@ -35,7 +35,7 @@ TO
 ## Quick Example:
 ```php
 Route::get('datatable', function(RolesDataTable $dataTable){
-   return $dataTable->before(function (\Yajra\Datatables\Engines\BaseEngine $dataTable) {
+   return $dataTable->before(function (\Yajra\DataTables\Engines\BaseEngine $dataTable) {
        return $dataTable->addColumn('test', 'added inside controller');
    })
    ->response(function (\Illuminate\Support\Collection $response) {
@@ -43,7 +43,7 @@ Route::get('datatable', function(RolesDataTable $dataTable){
 
        return $response;
    })
-   ->withHtml(function(\Yajra\Datatables\Html\Builder $builder) {
+   ->withHtml(function(\Yajra\DataTables\Html\Builder $builder) {
         $builder->columns(['id', 'name', 'etc...']);
    })
    ->with('key', 'value')

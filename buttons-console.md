@@ -24,14 +24,14 @@ This will create an `PostsDataTable` class on `app\DataTables` directory.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class PostsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @return \Yajra\Datatables\Engines\BaseEngine
+     * @return \Yajra\DataTables\Engines\BaseEngine
      */
     public function dataTable()
     {
@@ -55,7 +55,7 @@ class PostsDataTable extends DataTable
     /**
      * Optional method if you want to use html builder.
      *
-     * @return \Yajra\Datatables\Html\Builder
+     * @return \Yajra\DataTables\Html\Builder
      */
     public function html()
     {
@@ -110,14 +110,14 @@ The exported filename will also be set to `posts_(timestamp)`.
 namespace App\DataTables;
 
 use App\Post;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class PostsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @return \Yajra\Datatables\Engines\BaseEngine
+     * @return \Yajra\DataTables\Engines\BaseEngine
      */
     public function dataTable()
     {
@@ -141,7 +141,7 @@ class PostsDataTable extends DataTable
     /**
      * Optional method if you want to use html builder.
      *
-     * @return \Yajra\Datatables\Html\Builder
+     * @return \Yajra\DataTables\Html\Builder
      */
     public function html()
     {
@@ -225,7 +225,7 @@ This will create an `ActiveUser` class on `app\DataTables\Scopes` directory.
 ```php
 namespace App\DataTables\Scopes;
 
-use Yajra\Datatables\Contracts\DataTableScopeContract;
+use Yajra\DataTables\Contracts\DataTableScopeContract;
 
 class ActiveUser implements DataTableScopeContract
 {

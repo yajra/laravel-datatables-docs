@@ -7,12 +7,12 @@ In some cases, you may want to use a custom order sql for a specific column. To 
 In this example, we will order the column name with nulls as last result.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->orderColumn('name', '-name $1')
 				->make(true);
 });

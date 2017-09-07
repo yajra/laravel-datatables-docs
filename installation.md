@@ -2,7 +2,7 @@
 
 - [Installation](#installation)
 	- [Requirements](#requirements)
-    - [Installing Laravel-Datatables](#installing-laravel-datatables-oracle)
+    - [Installing Laravel-DataTables](#installing-laravel-datatables-oracle)
     - [Configuration](#configuration)
 
 <a name="installation"></a>
@@ -15,9 +15,9 @@
 - [jQuery DataTables v1.10.x](http://datatables.net/)
 
 <a name="installing-laravel-datatables-oracle"></a>
-### Installing Laravel Datatables
+### Installing Laravel DataTables
 
-Laravel Datatables can be installed with [Composer](http://getcomposer.org/doc/00-intro.md). More details about this package in Composer can be found [here](https://packagist.org/packages/yajra/laravel-datatables-oracle).
+Laravel DataTables can be installed with [Composer](http://getcomposer.org/doc/00-intro.md). More details about this package in Composer can be found [here](https://packagist.org/packages/yajra/laravel-datatables-oracle).
 
 Run the following command in your project to get the latest version of the package:
 
@@ -33,7 +33,7 @@ Open the file ```config/app.php``` and then add following service provider.
 ```php
 'providers' => [
     // ...
-    Yajra\Datatables\DatatablesServiceProvider::class,
+    Yajra\DataTables\DataTablesServiceProvider::class,
 ],
 ```
 

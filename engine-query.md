@@ -1,19 +1,19 @@
 # Query Builder Data Source
 
 You may use Laravel's Query Builder as data source for your dataTables.
-You can look at `Yajra\Datatables\Enginges\QueryBuilderEngine` class which handles the conversion of your Query Builder into a readbale DataTable API response.
+You can look at `Yajra\DataTables\Enginges\QueryBuilderEngine` class which handles the conversion of your Query Builder into a readbale DataTable API response.
 
 <a name="factory"></a>
 ## Query Builder via Factory
 
 ```php
 use DB;
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$query = DB::table('users');
 
-	return Datatables::of($query)->make(true);
+	return DataTables::of($query)->make(true);
 });
 ```
 
@@ -22,12 +22,12 @@ Route::get('user-data', function() {
 
 ```php
 use DB;
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$query = DB::table('users');
 
-	return Datatables::queryBuilder($query)->make(true);
+	return DataTables::queryBuilder($query)->make(true);
 });
 ```
 
@@ -36,9 +36,9 @@ Route::get('user-data', function() {
 
 ```php
 use DB;
-use Yajra\Datatables\Datatables;
+use Yajra\DataTables\DataTables;
 
-Route::get('user-data', function(Datatables $datatables) {
+Route::get('user-data', function(DataTables $datatables) {
 	$query = DB::table('users');
 
 	return $datatables->queryBuilder($query)->make(true);

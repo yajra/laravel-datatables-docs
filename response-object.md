@@ -1,14 +1,14 @@
 # Object Response
 
-To convert the response of Datatables to an object, just pass `true` on `make` api.
+To convert the response of DataTables to an object, just pass `true` on `make` api.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->addColumn('intro', 'Hi {{$name}}!')
 				->make(true);
 });

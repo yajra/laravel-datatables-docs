@@ -26,7 +26,7 @@ You also need to look at [`datatables.net`](https://datatables.net/reference/opt
 
 ### Name (Optional)
 Name attribute represents the `column` name from your data source.
-Datatables will use this attribute when performing search and ordering functions.
+DataTables will use this attribute when performing search and ordering functions.
 
 > {tip} If not set, `name` attribute will automatically be set to same value as `data` attribute.
 

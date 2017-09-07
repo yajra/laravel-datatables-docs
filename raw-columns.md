@@ -5,12 +5,12 @@ In cases where you want to render an html content, please use `rawColumns` api.
 
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->addColumn('link', '<a href="#">Html Column</a>')
 				->addColumn('action', 'path.to.view')
 				->rawColumns(['link', 'action'])

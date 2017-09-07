@@ -11,7 +11,7 @@ request) and enabling a `myCustomAction`.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -35,4 +35,4 @@ class UsersDataTable extends DataTable
 }
 ```
 
-Take a look at `Yajra\Datatables\Services\DataTable` to see how to fetch and manipulate the data (functions `excel`, `csv`, `pdf`).
+Take a look at `Yajra\DataTables\Services\DataTable` to see how to fetch and manipulate the data (functions `excel`, `csv`, `pdf`).

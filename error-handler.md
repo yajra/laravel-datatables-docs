@@ -31,7 +31,7 @@ If set to `null`, the actual exception message will be used on error response.
 
 <a name="throw-error"></a>
 ## THROW Error
-If set to `'throw'`, the package will throw a `\Yajra\Datatables\Exception`. 
+If set to `'throw'`, the package will throw a `\Yajra\DataTables\Exception`. 
 You can then use your custom error handler if needed.
 
 **Example Error Handler**
@@ -48,7 +48,7 @@ Update `app\Exceptions\Handler.php` and register dataTables error exception hand
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof \Yajra\Datatables\Exception) {
+        if ($exception instanceof \Yajra\DataTables\Exception) {
             return response([
                 'draw'            => 0,
                 'recordsTotal'    => 0,

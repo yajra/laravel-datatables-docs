@@ -1,15 +1,15 @@
 # Skip Paging
 
-To skip paging of `Datatables`, we can use `skipPaging` api or just set `paging: false` on our javascript.
+To skip paging of `DataTables`, we can use `skipPaging` api or just set `paging: false` on our javascript.
 
 ## Using PHP
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::withTrashed()->query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->skipPaging()
 				->make(true);
 });

@@ -20,7 +20,7 @@ When the attribute passed is a `string`. The builder will treat this as the `URL
 $builder->ajax(route('users.data'));
 ```
 
-> {tip} Setting ajax to `null` or `empty string` will use the current url where Datatables was used.
+> {tip} Setting ajax to `null` or `empty string` will use the current url where DataTables was used.
 
 **Array Attributes**
 

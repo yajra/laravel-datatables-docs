@@ -11,8 +11,8 @@ Open the file ```config/app.php``` and then add following service provider.
 ```php
 'providers' => [
     // ...
-    Yajra\Datatables\DatatablesServiceProvider::class,
-    Yajra\Datatables\HtmlServiceProvider::class,
+    Yajra\DataTables\DataTablesServiceProvider::class,
+    Yajra\DataTables\HtmlServiceProvider::class,
 ],
 ```
 

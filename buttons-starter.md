@@ -15,7 +15,7 @@ Update `UsersDataTable` class and set the columns and parameters needed to rende
 namespace App\DataTables;
 
 use App\User;
-use Yajra\Datatables\Services\DataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {

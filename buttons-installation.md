@@ -9,8 +9,8 @@ Open the file ```config/app.php``` and then add following service provider.
 ```php
 'providers' => [
     // ...
-    Yajra\Datatables\DatatablesServiceProvider::class,
-    Yajra\Datatables\ButtonsServiceProvider::class,
+    Yajra\DataTables\DataTablesServiceProvider::class,
+    Yajra\DataTables\ButtonsServiceProvider::class,
 ],
 ```
 
