@@ -31,7 +31,7 @@ class PostsDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @return \Yajra\DataTables\Engines\BaseEngine
+     * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable()
     {
@@ -117,7 +117,7 @@ class PostsDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @return \Yajra\DataTables\Engines\BaseEngine
+     * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable()
     {
