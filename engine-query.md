@@ -64,7 +64,7 @@ Route::get('user-data', function() {
 use Yajra\DataTables\QueryDataTable;
 
 Route::get('user-data', function() {
-    $model = App\User::query();
+    $query = DB::table('users');
 
-    return (new QueryDataTable($model))->toJson();
+    return (new QueryDataTable($query))->toJson();
 });
