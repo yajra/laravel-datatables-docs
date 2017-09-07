@@ -1,13 +1,13 @@
 # Collection Data Source
 
-You may use Laravel's Collection as data source for your dataTables.
-You can look at `Yajra\Datatables\Enginges\CollectionEngine` class which handles the conversion of your Collection into a readbale DataTable API response.
+You may use Laravel's Collection as data source for your DataTables.
+You can look at `Yajra\DataTables\Enginges\CollectionEngine` class which handles the conversion of your Collection into a readbale DataTable API response.
 
 <a name="factory"></a>
 ## Collection via Factory
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$collection = collect([
@@ -16,7 +16,7 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return Datatables::of($collection)->make(true);
+	return DataTables::of($collection)->make(true);
 });
 ```
 
@@ -24,7 +24,7 @@ Route::get('user-data', function() {
 ## Collection via Facade
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$collection = collect([
@@ -33,7 +33,7 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return Datatables::queryBuilder($collection)->make(true);
+	return DataTables::queryBuilder($collection)->make(true);
 });
 ```
 
@@ -41,16 +41,16 @@ Route::get('user-data', function() {
 ## Collection via Dependency Injection
 
 ```php
-use Yajra\Datatables\Datatables;
+use Yajra\DataTables\DataTables;
 
-Route::get('user-data', function(Datatables $datatables) {
+Route::get('user-data', function(DataTables $DataTables) {
 	$collection = collect([
 		['id' => 1, 'name' => 'John'],
 		['id' => 2, 'name' => 'Jane'],
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return $datatables->queryBuilder($collection)->make(true);
+	return $DataTables->queryBuilder($collection)->make(true);
 });
 ```
 <a name="ioc"></a>
@@ -65,6 +65,6 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return app('datatables')->queryBuilder($collection)->make(true);
+	return app('DataTables')->queryBuilder($collection)->make(true);
 });
 ```

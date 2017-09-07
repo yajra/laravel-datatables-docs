@@ -4,10 +4,10 @@ Laravel DataTables allows you to configure how you want to handle server-side er
 Below are the options available for error handling.
 
 ## ERROR CONFIGURATIONS
-Configuration is located at `config/datatables.php` under `error` key. 
-You can also configure via env by setting `DATATABLES_ERROR` key appropriately.
+Configuration is located at `config/DataTables.php` under `error` key. 
+You can also configure via env by setting `DataTables_ERROR` key appropriately.
 
-The default configuration is `env('DATATABLES_ERROR', null)`.
+The default configuration is `env('DataTables_ERROR', null)`.
 
 
 - [NULL](#null-error) : `'error' => null`
@@ -31,12 +31,12 @@ If set to `null`, the actual exception message will be used on error response.
 
 <a name="throw-error"></a>
 ## THROW Error
-If set to `'throw'`, the package will throw a `\Yajra\Datatables\Exception`. 
+If set to `'throw'`, the package will throw a `\Yajra\DataTables\Exception`. 
 You can then use your custom error handler if needed.
 
 **Example Error Handler**
 
-Update `app\Exceptions\Handler.php` and register dataTables error exception handler.
+Update `app\Exceptions\Handler.php` and register DataTables error exception handler.
 
 ```php
     /**
@@ -48,7 +48,7 @@ Update `app\Exceptions\Handler.php` and register dataTables error exception hand
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof \Yajra\Datatables\Exception) {
+        if ($exception instanceof \Yajra\DataTables\Exception) {
             return response([
                 'draw'            => 0,
                 'recordsTotal'    => 0,

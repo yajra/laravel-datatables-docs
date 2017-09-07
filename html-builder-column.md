@@ -1,6 +1,6 @@
 # Html Builder Column
 
-Builder Column represents the column to be rendered by your dataTables.
+Builder Column represents the column to be rendered by your DataTables.
 You can use `addColumn` api to add a single column and `columns` api to add multiple columns.
 
 <a name="attributes"></a>
@@ -22,11 +22,11 @@ $column = [
 ];
 ```
 
-You also need to look at [`datatables.net`](https://datatables.net/reference/option/columns) official columns documentation for further reference.
+You also need to look at [`DataTables.net`](https://DataTables.net/reference/option/columns) official columns documentation for further reference.
 
 ### Name (Optional)
 Name attribute represents the `column` name from your data source.
-Datatables will use this attribute when performing search and ordering functions.
+DataTables will use this attribute when performing search and ordering functions.
 
 > {tip} If not set, `name` attribute will automatically be set to same value as `data` attribute.
 

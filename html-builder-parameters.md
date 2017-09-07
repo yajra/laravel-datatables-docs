@@ -2,7 +2,7 @@
 
 Parameters are basically the options you pass when declaring your `DataTable` js script.
 
-See the [`datatables.net`](https://datatables.net) official documentation for the list of all possible [`options`](https://datatables.net/reference/option/).
+See the [`DataTables.net`](https://DataTables.net) official documentation for the list of all possible [`options`](https://DataTables.net/reference/option/).
 
 
 ## Example
@@ -13,7 +13,7 @@ $builder->parameters([
 	'info' => false,
 	'searchDelay' => 350,
 	'language' => [
-		'url' => url('js/dataTables/language.json')
+		'url' => url('js/DataTables/language.json')
 	],
 ]);
 ```

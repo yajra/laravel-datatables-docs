@@ -1,14 +1,14 @@
 # Array Response
 
-Array response is the default response of Datatables.
+Array response is the default response of DataTables.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->addColumn('intro', 'Hi {{$name}}!')
 				->make();
 });

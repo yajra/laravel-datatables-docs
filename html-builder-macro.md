@@ -4,8 +4,8 @@ You can extend DataTables HTML Builder using `macro`.
 
 ## Example macro:
 ```php
-use Yajra\Datatables\Html\Builder;
-use Yajra\Datatables\Html\Column;
+use Yajra\DataTables\Html\Builder;
+use Yajra\DataTables\Html\Column;
 
 Builder::macro('addEditColumn', function () {
 	$attributes = [

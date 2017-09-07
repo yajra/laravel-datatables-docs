@@ -2,7 +2,7 @@
 
 <a name="console"></a>
 ## Artisan Console Configurations
-Namespace configuration is used by the datatables command generator.
+Namespace configuration is used by the DataTables command generator.
 
 ```php
 'namespace' => [
@@ -16,7 +16,7 @@ This is the base namespace/directory to be created when a new DataTable was call
 This directory is appended on default Laravel namespace.
 
 **Usage:**
-```php artisan datatables:make User```
+```php artisan DataTables:make User```
 
 **Output:**
 ```App\DataTables\UserDataTable```
@@ -26,7 +26,7 @@ This directory is appended on default Laravel namespace.
 ### Model Option
 This is the base namespace/directory where your model's are located.
 This directory is appended on default Laravel namespace.
-**Usage:** ```php artisan datatables:make Post --model```
+**Usage:** ```php artisan DataTables:make Post --model```
 **Output:** ```App\DataTables\PostDataTable```
 **With Model:** ```App\Post``
 **Export filename:** ```posts_(timestamp)```

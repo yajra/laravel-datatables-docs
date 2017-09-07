@@ -7,12 +7,12 @@ To achieve this, you can use the `filter` api.
 ## Manual Searching without Global Search
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->filter(function ($query) {
 		            if (request()->has('name')) {
 		                $query->where('name', 'like', "%{request('name')}%");
@@ -32,12 +32,12 @@ Route::get('user-data', function() {
 > {tip} To enable global search with filter api, just set the 2nd argument to `true`.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->filter(function ($query) {
 		            if (request()->has('name')) {
 		                $query->where('name', 'like', "%{request('name')}%");

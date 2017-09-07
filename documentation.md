@@ -8,10 +8,10 @@
 	- [Installation](/docs/{{package}}/{{version}}/installation)
 - Getting Started
     - [Introduction](/docs/{{package}}/{{version}}/introduction)
-    - [Demo Application](https://datatables.yajrabox.com/)
+    - [Demo Application](https://DataTables.yajrabox.com/)
 - Tutorials
-	- [Quick Starter](https://datatables.yajrabox.com/starter)
-	- [Service Implementation](https://datatables.yajrabox.com/service)
+	- [Quick Starter](https://DataTables.yajrabox.com/starter)
+	- [Service Implementation](https://DataTables.yajrabox.com/service)
 - Configuration
     - [General Settings](/docs/{{package}}/{{version}}/general-settings)
     - [Debugging Mode](/docs/{{package}}/{{version}}/debugger)
@@ -75,7 +75,7 @@
 	- [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
 	- [Add Checkbox](/docs/{{package}}/{{version}}/html-builder-checkbox)
 	- [Add Index](/docs/{{package}}/{{version}}/html-builder-index)
-	- [Github](https://github.com/yajra/laravel-datatables-html)
+	- [Github](https://github.com/yajra/laravel-DataTables-html)
 
 - Buttons
 	- [Installation](/docs/{{package}}/{{version}}/buttons-installation)
@@ -86,5 +86,5 @@
 	- [Sending Parameters](/docs/{{package}}/{{version}}/buttons-with)
 	- [Extended DataTable](/docs/{{package}}/{{version}}/buttons-extended)
 	- [Artisan Console](/docs/{{package}}/{{version}}/buttons-console)
-	- [Github](https://github.com/yajra/laravel-datatables-buttons)
+	- [Github](https://github.com/yajra/laravel-DataTables-buttons)
 

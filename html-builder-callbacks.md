@@ -1,6 +1,6 @@
 # Html Builder Event Callbacks
 
-You can use a `js` string for each valid callback as documented on [`datatables.net`](https://datatables.net/reference/option/) callback options list.
+You can use a `js` string for each valid callback as documented on [`DataTables.net`](https://DataTables.net/reference/option/) callback options list.
 
 ## DataTables - Callbacks
 | Callback | Description |

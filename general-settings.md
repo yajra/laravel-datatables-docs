@@ -3,7 +3,7 @@
 ## Introduction
 You can change the package behavior by updating the configuration file.
 
-The configuration file can be found at `config/datatables.php`.
+The configuration file can be found at `config/DataTables.php`.
 
 <a name="smart-search"></a>
 ## Smart Search
@@ -43,20 +43,20 @@ DataTables internal index id response column name.
 <a name="engines"></a>
 ## Engines
 A list of available engines.
-This is where you can register your custom datatables engine.
+This is where you can register your custom DataTables engine.
 
 ```php
 'engines' => [
-        'eloquent'   => Yajra\Datatables\Engines\EloquentEngine::class,
-        'query'      => Yajra\Datatables\Engines\QueryBuilderEngine::class,
-        'collection' => Yajra\Datatables\Engines\CollectionEngine::class,
+        'eloquent'   => Yajra\DataTables\Engines\EloquentEngine::class,
+        'query'      => Yajra\DataTables\Engines\QueryBuilderEngine::class,
+        'collection' => Yajra\DataTables\Engines\CollectionEngine::class,
         // add your custom engine
     ],
 ```
 
 <a name="builders"></a>
 ## Builders
-A list of accepted data source / builders of datatables with their corresponding engine handler.
+A list of accepted data source / builders of DataTables with their corresponding engine handler.
 
 ```php
 'builders' => [
@@ -86,10 +86,10 @@ Default fractal serializer to be used when serializing the response.
 <a name="script-template"></a>
 ## Script Template
 DataTables html builder script blade template.
-If published, the file will installed on `resources/views/vendor/datatables/script.blade.php`.
+If published, the file will installed on `resources/views/vendor/DataTables/script.blade.php`.
 
 ```php
-'script_template' => 'datatables::script',
+'script_template' => 'DataTables::script',
 ```
 
 <a name="nulls-last-sql"></a>

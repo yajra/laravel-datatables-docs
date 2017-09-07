@@ -8,12 +8,12 @@ Table api accepts two parameters: `$builder->table(array $attributes, $footer = 
 ## Table Example with Footer
 
 ```php
-use Datatables;
-use Yajra\Datatables\Html\Builder;
+use DataTables;
+use Yajra\DataTables\Html\Builder;
 
 Route::get('users', function(Builder $builder) {
 	if (request()->ajax()) {
-        return Datatables::of(User::query())->make(true);
+        return DataTables::of(User::query())->make(true);
     }
 
 	$html = $builder->columns([

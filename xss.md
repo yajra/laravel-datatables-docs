@@ -8,7 +8,7 @@ Since v7.0, all dataTable response are encoded to prevent XSS attack. In case yo
 
 ## Raw Columns
 ```php
-return Datatables::eloquent(Role::select())
+return DataTables::eloquent(Role::select())
 		    ->rawColumns(['name', 'action'])
 		    ->make(true);
 ```
@@ -19,7 +19,7 @@ return Datatables::eloquent(Role::select())
 ## Escape selected fields
 
 ```php
-return Datatables::eloquent(Role::select())
+return DataTables::eloquent(Role::select())
 		    ->escapeColumns(['name'])
 		    ->make(true);
 ```
@@ -27,7 +27,7 @@ return Datatables::eloquent(Role::select())
 ## Escape all columns
 
 ```php
-return Datatables::eloquent(Role::select())
+return DataTables::eloquent(Role::select())
 		    ->escapeColumns()
 		    ->make(true);
 ```
@@ -36,7 +36,7 @@ return Datatables::eloquent(Role::select())
 ## Remove escaping of all columns
 
 ```php
-return Datatables::eloquent(Role::select())
+return DataTables::eloquent(Role::select())
 		    ->escapeColumns([])
 		    ->make(true);
 ```
@@ -45,7 +45,7 @@ return Datatables::eloquent(Role::select())
 ## Escape by output index
 
 ```php
-return Datatables::eloquent(Role::select())
+return DataTables::eloquent(Role::select())
 		    ->escapeColumns([0])
 		    ->make();
  ```

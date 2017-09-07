@@ -6,12 +6,12 @@ You can add a custom column on your response by using `addColumn` api.
 ## Add Column with Blade Syntax
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->addColumn('intro', 'Hi {{$name}}!')
 				->make(true);
 });
@@ -21,12 +21,12 @@ Route::get('user-data', function() {
 ## Add Column with Closure
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->addColumn('intro', function(User $user) {
 					return 'Hi ' . $user->name . '!';
 				})
@@ -40,18 +40,18 @@ Route::get('user-data', function() {
 > {tip} You can use view to render your added column by passing the view path as the second argument on `addColumn` api.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
-				->addColumn('intro', 'users.datatables.intro')
+	return DataTables::eloquent($model)
+				->addColumn('intro', 'users.DataTables.intro')
 				->make(true);
 });
 ```
 
-Then create your view on `resources/views/users/datatables/intro.blade.php`.
+Then create your view on `resources/views/users/DataTables/intro.blade.php`.
 ```php
 Hi {{ $name }}!
 ```
@@ -62,12 +62,12 @@ Hi {{ $name }}!
 > {tip} Just pass the column order as the third argument of `addColumn` api.
 
 ```php
-use Datatables;
+use DataTables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return Datatables::eloquent($model)
+	return DataTables::eloquent($model)
 				->addColumn('intro', 'Hi {{$name}}!', 2)
 				->make(true);
 });
