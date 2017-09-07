@@ -1,6 +1,6 @@
 # Html Builder
 
-DataTables has a built-in html builder that you can use to automatically generate your table mark-up and javascripts declarations.
+Datatables has a built-in html builder that you can use to automatically generate your table mark-up and javascripts declarations.
 
 <a name="dependency-injection"></a>
 ## Html Builder via Dependency Injection
@@ -8,7 +8,7 @@ DataTables has a built-in html builder that you can use to automatically generat
 You can use the `Builder` class by using Dependency Injection.
 
 ```php
-use Yajra\DataTables\Html\Builder;
+use Yajra\Datatables\Html\Builder;
 
 Route::get('users', function(Builder $builder) {
 });
@@ -19,17 +19,17 @@ Route::get('users', function(Builder $builder) {
 
 ```php
 Route::get('users', function() {
-	$builder = app('DataTables.html');
+	$builder = app('datatables.html');
 });
 ```
 
-<a name="DataTables-intance"></a>
-## Html Builder from DataTables instance
+<a name="datatables-intance"></a>
+## Html Builder from Datatables instance
 
 ```php
-use Yajra\DataTables\DataTables;
+use Yajra\Datatables\Datatables;
 
-Route::get('users', function(DataTables $dataTable) {
+Route::get('users', function(Datatables $dataTable) {
 	$builder = $dataTable->getHtmlBuilder();
 });
 ```
@@ -38,12 +38,12 @@ Route::get('users', function(DataTables $dataTable) {
 ## Html Builder Example
 
 ```php
-use DataTables;
-use Yajra\DataTables\Html\Builder;
+use Datatables;
+use Yajra\Datatables\Html\Builder;
 
 Route::get('users', function(Builder $builder) {
 	if (request()->ajax()) {
-        return DataTables::of(User::query())->make(true);
+        return Datatables::of(User::query())->make(true);
     }
 
 	$html = $builder->columns([

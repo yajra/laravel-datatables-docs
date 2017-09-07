@@ -2,7 +2,7 @@
 
 Ajax is an option that you set to tell `dataTable` where to fetch it's data.
 
-See [DataTables.net](https://DataTables.net/) official documentation for [`ajax option`](https://DataTables.net/reference/option/ajax) for details.
+See [datatables.net](https://datatables.net/) official documentation for [`ajax option`](https://datatables.net/reference/option/ajax) for details.
 
 **Syntax**
 ```php
@@ -20,7 +20,7 @@ When the attribute passed is a `string`. The builder will treat this as the `URL
 $builder->ajax(route('users.data'));
 ```
 
-> {tip} Setting ajax to `null` or `empty string` will use the current url where DataTables was used.
+> {tip} Setting ajax to `null` or `empty string` will use the current url where Datatables was used.
 
 **Array Attributes**
 
@@ -35,7 +35,7 @@ $builder->ajax([
 ```
 
 ### URL Option
-URL option represents the `url` where DataTables will fetch it's json data.
+URL option represents the `url` where dataTables will fetch it's json data.
 
 ### Type Option
 Type option represents the type of request (`GET/POST`)  that we will use when sending a request to the server.

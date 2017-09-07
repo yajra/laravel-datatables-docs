@@ -3,12 +3,12 @@
 You can remove a column on your response by using `removeColumn` api.
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->removeColumn('password')
 				->make(true);
 });

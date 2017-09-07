@@ -11,12 +11,12 @@ In some cases, you may want to use a custom order sql for a set of columns. To a
 In this example, we will order the column name with nulls as last result.
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->orderColumns(['name', 'email'], '-:column $1')
 				->make(true);
 });

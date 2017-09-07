@@ -3,7 +3,7 @@
 ## Create Users DataTable
 
 ```
-php artisan DataTables:make Users
+php artisan datatables:make Users
 ```
 
 ## Update UsersDataTable
@@ -15,7 +15,7 @@ Update `UsersDataTable` class and set the columns and parameters needed to rende
 namespace App\DataTables;
 
 use App\User;
-use Yajra\DataTables\Services\DataTable;
+use Yajra\Datatables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
@@ -68,9 +68,9 @@ Our `users.index` view located at `resources/views/users/index.blade.php`.
 @endsection
 
 @push('scripts')
-<link rel="stylesheet" href="https://cdn.DataTables.net/buttons/1.0.3/css/buttons.DataTables.min.css">
-<script src="https://cdn.DataTables.net/buttons/1.0.3/js/DataTables.buttons.min.js"></script>
-<script src="/vendor/DataTables/buttons.server-side.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+<script src="/vendor/datatables/buttons.server-side.js"></script>
 {!! $dataTable->scripts() !!}
 @endpush
 ```

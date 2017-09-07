@@ -6,14 +6,14 @@ We can now extend and reuse our DataTable class inside our controller by using `
 
 
 ## Upgrading from v1.0 to v1.1
-- Upgrade to `laravel-DataTables-buttons:^1.1`
+- Upgrade to `laravel-datatables-buttons:^1.1`
 - Rename `ajax()` method to `dataTable()`
 - Remove `->make(true)` from the method chain.
 
 ```php
     public function ajax()
     {
-        return $this->DataTables
+        return $this->datatables
             ->eloquent($this->query())
             ->addColumn('action', 'path.to.action.view')
             ->make(true)
@@ -26,7 +26,7 @@ TO
 ```php
     public function dataTable()
     {
-        return $this->DataTables
+        return $this->datatables
             ->eloquent($this->query())
             ->addColumn('action', 'path.to.action.view');
     }
@@ -35,7 +35,7 @@ TO
 ## Quick Example:
 ```php
 Route::get('datatable', function(RolesDataTable $dataTable){
-   return $dataTable->before(function (\Yajra\DataTables\Engines\BaseEngine $dataTable) {
+   return $dataTable->before(function (\Yajra\Datatables\Engines\BaseEngine $dataTable) {
        return $dataTable->addColumn('test', 'added inside controller');
    })
    ->response(function (\Illuminate\Support\Collection $response) {
@@ -43,7 +43,7 @@ Route::get('datatable', function(RolesDataTable $dataTable){
 
        return $response;
    })
-   ->withHtml(function(\Yajra\DataTables\Html\Builder $builder) {
+   ->withHtml(function(\Yajra\Datatables\Html\Builder $builder) {
         $builder->columns(['id', 'name', 'etc...']);
    })
    ->with('key', 'value')

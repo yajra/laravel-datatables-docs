@@ -3,12 +3,12 @@
 Sorting and searching will only work on columns explicitly defined as whitelist.
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->whitelist(['name', 'email'])
 				->make(true);
 });

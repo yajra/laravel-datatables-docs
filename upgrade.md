@@ -6,31 +6,31 @@ To upgrade Laravel DataTables from version 7.x to version 8.x:
 
 
 ```bash
-composer require yajra/laravel-DataTables-oracle:8.*
-php artisan vendor:publish --tag=DataTables --force
+composer require yajra/laravel-datatables-oracle:8.*
+php artisan vendor:publish --tag=datatables --force
 ```
 
 If you are using service approach / buttons plugin:
 ```bash
-composer require yajra/laravel-DataTables-buttons:3.*
-php artisan vendor:publish --tag=DataTables-buttons --force
+composer require yajra/laravel-datatables-buttons:3.*
+php artisan vendor:publish --tag=datatables-buttons --force
 ```
 
 If you are using html plugin:
 ```bash
-composer require yajra/laravel-DataTables-html:3.*
-php artisan vendor:publish --tag=DataTables-html --force
+composer require yajra/laravel-datatables-html:3.*
+php artisan vendor:publish --tag=datatables-html --force
 ```
 
 If you are using fractal:
 ```bash
-composer require yajra/laravel-DataTables-fractal:1.*
-php artisan vendor:publish --tag=DataTables-fractal --force
+composer require yajra/laravel-datatables-fractal:1.*
+php artisan vendor:publish --tag=datatables-fractal --force
 ```
 
 <a name="namespace"></a>
 ## [v8] Namespace
-The package namespace was updated from `Yajra\DataTables` to `Yajra\DataTables`. 
+The package namespace was updated from `Yajra\Datatables` to `Yajra\DataTables`. 
 > Use sublime's find and replace all feature to update all affected files.
 
 <a name="facade"></a>
@@ -38,20 +38,20 @@ The package namespace was updated from `Yajra\DataTables` to `Yajra\DataTables`.
 DataTables Facade was renamed to `Yajra\DataTables\Facades\DataTables`. If you want to continue using your old facade, just register the alias on your `config/app.php` file.
 
 ```php
-'DataTables' => Yajra\DataTables\Facades\DataTables::class
+'Datatables' => Yajra\DataTables\Facades\DataTables::class
 ```
 
 <a name="factory"></a>
 ## [v8] DataTables Factory class
-DataTables factory class is now renamed to `DataTables` from `DataTables`. If you are injecting `Yajra\DataTables\DataTables` on your code, you must update it to `Yajra\DataTables\DataTables`.
+DataTables factory class is now renamed to `DataTables` from `Datatables`. If you are injecting `Yajra\Datatables\Datatables` on your code, you must update it to `Yajra\DataTables\DataTables`.
 
 `DataTables::of()` method is now an alias of new `DataTables::make()` method to match Laravel's factory api structure.
 
 <a name="buttons"></a>
 ## [v8] DataTables Buttons Changes
-> See https://github.com/yajra/laravel-DataTables-buttons/blob/master/CHANGELOG.md for full changelog.
+> See https://github.com/yajra/laravel-datatables-buttons/blob/master/CHANGELOG.md for full changelog.
 
-- The package namespace was updated from `Yajra\DataTables` to `Yajra\DataTables`. 
+- The package namespace was updated from `Yajra\Datatables` to `Yajra\DataTables`. 
 > Use sublime's find and replace all feature to update all affected files.
 - Constructor dependencies were removed.
 - You need to instanstiate the DataTable class within the `dataTable()` method:
@@ -59,7 +59,7 @@ DataTables factory class is now renamed to `DataTables` from `DataTables`. If yo
 	```php
 	// FROM
 	public function dataTable() {
-		return $this->DataTables->eloquent($this->query());
+		return $this->datatables->eloquent($this->query());
 	}
 	```
 	```php
@@ -73,15 +73,15 @@ DataTables factory class is now renamed to `DataTables` from `DataTables`. If yo
 	Or inject the factory using method injection. Note that you need to inject your classes first before the query results.
 	```php
 	use Yajra\DataTables\DataTables;
-	public function dataTable(DataTables $DataTables, $query) {
-		return $DataTables->eloquent($query);
+	public function dataTable(DataTables $dataTables, $query) {
+		return $dataTables->eloquent($query);
 	}
 	```
 - Query method results are automatically injected on `dataTable($query)` api.
 	```php
 	use Yajra\DataTables\DataTables;
-	public function dataTable($query, DataTables $DataTables) {
-		return $DataTables->eloquent($query);
+	public function dataTable($query, DataTables $dataTables) {
+		return $dataTables->eloquent($query);
 	}
 
 	public function query() {
@@ -95,13 +95,13 @@ DataTables factory class is now renamed to `DataTables` from `DataTables`. If yo
 	Builder Methods: `ajax(), dataTable(), query()`
 
 - `DataTableContract` contract removed.
-- `DataTablescopeContract` contract renamed to `DataTablescope`.
+- `DataTableScopeContract` contract renamed to `DataTableScope`.
 - `DataTableButtonsContract` contract renamed to `DataTableButtons`.
 
 
 <a name="html"></a>
 ## [v8] DataTables Html Changes
-The package namespace was updated from `Yajra\DataTables` to `Yajra\DataTables`. 
+The package namespace was updated from `Yajra\Datatables` to `Yajra\DataTables`. 
 > Use sublime's find and replace all feature to update all affected files.
 
 <a name="trashed"></a>
@@ -119,35 +119,35 @@ DataTables now supports `SoftDeletes` hence, there is no need to use `withTrashe
 
 <a name="v6-to-v7"></a>
 ## Upgrading from v6.x to v7.x
-To upgrade Laravel DataTables from version 6.x to version 7.x:
+To upgrade Laravel Datatables from version 6.x to version 7.x:
 
 ```sh
-composer require yajra/laravel-DataTables-oracle:^7.0
-php artisan vendor:publish --tag=DataTables --force
+composer require yajra/laravel-datatables-oracle:^7.0
+php artisan vendor:publish --tag=datatables --force
 ```
 
 ### Service Approach
 Service class is now extracted to own plugin, `Buttons Plugin`. If you are using the service approach, you need to perform the following:
 
 ```sh
-composer require yajra/laravel-DataTables-buttons:^1.0
+composer require yajra/laravel-datatables-buttons:^1.0
 ```
 
-Register `Yajra\DataTables\ButtonsServiceProvider::class` on `config/app.php` and publish config.
+Register `Yajra\Datatables\ButtonsServiceProvider::class` on `config/app.php` and publish config.
 
 
 ```php
-php artisan vendor:publish --tag=DataTables-buttons --force
+php artisan vendor:publish --tag=datatables-buttons --force
 ```
 
 
 ### Html Builder
-HTML builder is now extracted to own plugin, If you are using DataTables html builder, you need to perform the following:
+HTML builder is now extracted to own plugin, If you are using Datatables html builder, you need to perform the following:
 > HTML Builder plugin is a prerequisite of Buttons plugin. You can optionally skip this part if already installed the Buttons plugin.
 
 ```sh
-composer require yajra/laravel-DataTables-html:^1.0
-php artisan vendor:publish --tag=DataTables-html --force
+composer require yajra/laravel-datatables-html:^1.0
+php artisan vendor:publish --tag=datatables-html --force
 ```
 
 
@@ -155,7 +155,7 @@ php artisan vendor:publish --tag=DataTables-html --force
 All columns are now escaped by default to protect us from XSS attack. To allow columns to have an html content, use `rawColumns` api.
 
 ```php
-DataTables::of(User::query())
+Datatables::of(User::query())
 	->addColumn('href', '<a href="#">Html Content</a>')
 	->rawColumns(['href'])
 	->make(true);
@@ -164,8 +164,8 @@ DataTables::of(User::query())
   
 <a name="v5-to-v6"></a>
 ## Upgrading from v5.x to v6.x
-- Change all occurrences of `yajra\DataTables` to `Yajra\DataTables`. (Use Sublime's find and replace all for faster update).
-- Remove `DataTables` facade registration.
-- Temporarily comment out `Yajra\DataTables\DataTablesServiceProvider`.
-- Update package version on your composer.json and use `yajra/laravel-DataTables-oracle: ~6.0`
-- Uncomment the provider `Yajra\DataTables\DataTablesServiceProvider`.
+- Change all occurrences of `yajra\Datatables` to `Yajra\Datatables`. (Use Sublime's find and replace all for faster update).
+- Remove `Datatables` facade registration.
+- Temporarily comment out `Yajra\Datatables\DatatablesServiceProvider`.
+- Update package version on your composer.json and use `yajra/laravel-datatables-oracle: ~6.0`
+- Uncomment the provider `Yajra\Datatables\DatatablesServiceProvider`.

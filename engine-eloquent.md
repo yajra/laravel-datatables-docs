@@ -1,18 +1,18 @@
 # Eloquent Data Source
 
-You may use Laravel's Eloquent Model as data source for your DataTables.
-You can look at `Yajra\DataTables\Enginges\EloquentEngine` class which handles the conversion of your Eloquent Model into a readbale DataTable API response.
+You may use Laravel's Eloquent Model as data source for your dataTables.
+You can look at `Yajra\Datatables\Enginges\EloquentEngine` class which handles the conversion of your Eloquent Model into a readbale DataTable API response.
 
 <a name="factory"></a>
 ## Eloquent via Factory
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::of($model)->make(true);
+	return Datatables::of($model)->make(true);
 });
 ```
 
@@ -20,12 +20,12 @@ Route::get('user-data', function() {
 ## Eloquent via Facade
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)->make(true);
+	return Datatables::eloquent($model)->make(true);
 });
 ```
 
@@ -33,12 +33,12 @@ Route::get('user-data', function() {
 ## Eloquent via Dependency Injection
 
 ```php
-use Yajra\DataTables\DataTables;
+use Yajra\Datatables\Datatables;
 
-Route::get('user-data', function(DataTables $DataTables) {
+Route::get('user-data', function(Datatables $datatables) {
 	$model = App\User::query();
 
-	return $DataTables->eloquent($model)->make(true);
+	return $datatables->eloquent($model)->make(true);
 });
 ```
 <a name="ioc"></a>
@@ -48,6 +48,6 @@ Route::get('user-data', function(DataTables $DataTables) {
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return app('DataTables')->eloquent($model)->make(true);
+	return app('datatables')->eloquent($model)->make(true);
 });
 ```

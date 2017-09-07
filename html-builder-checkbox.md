@@ -7,7 +7,7 @@ The default attributes of checkbox column are:
 ```php
 [
 	'defaultContent' => '<input type="checkbox" ' . $this->html->attributes($attributes) . '/>',
-	'title'          => $this->form->checkbox('', '', false, ['id' => 'DataTablesCheckbox']),
+	'title'          => $this->form->checkbox('', '', false, ['id' => 'dataTablesCheckbox']),
 	'data'           => 'checkbox',
 	'name'           => 'checkbox',
 	'orderable'      => false,

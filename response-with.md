@@ -6,12 +6,12 @@ You can add additional server data on your response by using `with` api.
 ## Adding response using key and value
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->with('posts', 100)
 				->with('comments', 20)
 				->make(true);
@@ -22,12 +22,12 @@ Route::get('user-data', function() {
 ## Adding response using array
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->with([
 					'posts' => 100,
 					'comments' => 20,

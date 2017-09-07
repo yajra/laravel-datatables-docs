@@ -1,6 +1,6 @@
 # Regex Searching
 
-DataTables has the ability to perform search using regular expressions.
+Datatables has the ability to perform search using regular expressions.
 
 > Regex search only works and tested on the following Laravel DB drivers: MySQL, SQLite and Oracle.
 

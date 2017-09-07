@@ -4,13 +4,13 @@ When using tranformer, all response manipulations must be done via transformer.
 Thus `addColumn`, `editColumn`, `removeColumn`, `setRowAttr`, `setClassAttr`, etc... should be avoided when using fractal.
 
 ```php
-use DataTables;
+use Datatables;
 use App\Transformers\UserTransformer;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->setTransformer(new UserTransformer)
 				->make(true);
 });

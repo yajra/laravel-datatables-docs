@@ -15,7 +15,7 @@ php artisan list
 In this example, we will create a DataTable service class.
 
 ```
-php artisan DataTables:make Posts
+php artisan datatables:make Posts
 ```
 
 This will create an `PostsDataTable` class on `app\DataTables` directory.
@@ -24,24 +24,24 @@ This will create an `PostsDataTable` class on `app\DataTables` directory.
 namespace App\DataTables;
 
 use App\User;
-use Yajra\DataTables\Services\DataTable;
+use Yajra\Datatables\Services\DataTable;
 
 class PostsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @return \Yajra\DataTables\Engines\BaseEngine
+     * @return \Yajra\Datatables\Engines\BaseEngine
      */
     public function dataTable()
     {
-        return $this->DataTables
+        return $this->datatables
             ->eloquent($this->query())
             ->addColumn('action', 'path.to.action.view');
     }
 
     /**
-     * Get the query object to be processed by DataTables.
+     * Get the query object to be processed by dataTables.
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
      */
@@ -55,7 +55,7 @@ class PostsDataTable extends DataTable
     /**
      * Optional method if you want to use html builder.
      *
-     * @return \Yajra\DataTables\Html\Builder
+     * @return \Yajra\Datatables\Html\Builder
      */
     public function html()
     {
@@ -98,7 +98,7 @@ class PostsDataTable extends DataTable
 In this example, we will pass a `--model` option to set the model to be used by our DataTable.
 
 ```
-php artisan DataTables:make Posts --model
+php artisan datatables:make Posts --model
 ```
 
 This will generate a `App\DataTables\PostsDataTable` class that uses `App\Post` as the base model for our query. 
@@ -110,24 +110,24 @@ The exported filename will also be set to `posts_(timestamp)`.
 namespace App\DataTables;
 
 use App\Post;
-use Yajra\DataTables\Services\DataTable;
+use Yajra\Datatables\Services\DataTable;
 
 class PostsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @return \Yajra\DataTables\Engines\BaseEngine
+     * @return \Yajra\Datatables\Engines\BaseEngine
      */
     public function dataTable()
     {
-        return $this->DataTables
+        return $this->datatables
             ->eloquent($this->query())
             ->addColumn('action', 'path.to.action.view');
     }
 
     /**
-     * Get the query object to be processed by DataTables.
+     * Get the query object to be processed by dataTables.
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
      */
@@ -141,7 +141,7 @@ class PostsDataTable extends DataTable
     /**
      * Optional method if you want to use html builder.
      *
-     * @return \Yajra\DataTables\Html\Builder
+     * @return \Yajra\Datatables\Html\Builder
      */
     public function html()
     {
@@ -185,9 +185,9 @@ class PostsDataTable extends DataTable
 In this example, we will pass a `--model-namespace` option to set the model namespace to be used by our DataTable.
 
 ```
-php artisan DataTables:make Posts --model-namespace="Models\Client"
+php artisan datatables:make Posts --model-namespace="Models\Client"
 ```
-It will implicitly activate `--model` option and override the `model` parameter in `DataTables-buttons` config file.
+It will implicitly activate `--model` option and override the `model` parameter in `datatables-buttons` config file.
 This will allow to use a non-standard namespace if front-end and back-end models are in separate namespace for example. 
 
 
@@ -197,7 +197,7 @@ This will allow to use a non-standard namespace if front-end and back-end models
 In this example, we will pass a `--action` option to set a custom path for the action column view.
 
 ```
-php artisan DataTables:make Posts --action="client.action"
+php artisan datatables:make Posts --action="client.action"
 ```
 If not provided, a default path will be used. It will needs to be changed thereafter.
 
@@ -206,7 +206,7 @@ If not provided, a default path will be used. It will needs to be changed therea
 In this example, we will pass a `--columns` option to set the columns to be used by our DataTable.
 
 ```
-php artisan DataTables:make Posts --columns="id,title,author"
+php artisan datatables:make Posts --columns="id,title,author"
 ```
 If not provided, a default set of columns will be used. It will needs to be manually changed thereafter.
 
@@ -217,7 +217,7 @@ If not provided, a default set of columns will be used. It will needs to be manu
 DataTable scope is class that we can use to limit our database search results based on the defined query scopes.
 
 ```
-php artisan DataTables:scope ActiveUser
+php artisan datatables:scope ActiveUser
 ```
 
 This will create an `ActiveUser` class on `app\DataTables\Scopes` directory.
@@ -225,9 +225,9 @@ This will create an `ActiveUser` class on `app\DataTables\Scopes` directory.
 ```php
 namespace App\DataTables\Scopes;
 
-use Yajra\DataTables\Contracts\DataTablescopeContract;
+use Yajra\Datatables\Contracts\DataTableScopeContract;
 
-class ActiveUser implements DataTablescopeContract
+class ActiveUser implements DataTableScopeContract
 {
     /**
      * Apply a query scope.

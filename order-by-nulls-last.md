@@ -1,14 +1,14 @@
 # Order by NULLS LAST
 
-This api will set DataTables to perform ordering with `NULLS LAST` option.
+This api will set Datatables to perform ordering with `NULLS LAST` option.
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 			->orderByNullsLast()
 			->make(true);
 });

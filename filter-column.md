@@ -4,7 +4,7 @@ In some cases, we need to implement a custom search for a specific column.
 To achieve this, you can use `filterColumn` api.
 
 ```php
-use DataTables;
+use Datatables;
 use DB;
 
 Route::get('user-data', function() {
@@ -16,7 +16,7 @@ Route::get('user-data', function() {
             'updated_at',
         ]);
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->filterColumn('fullname', function($query, $keyword) {
 					$sql = "CONCAT(users.first_name,'-',users.last_name)  like ?";
 	                $query->whereRaw($sql, ["%{$keyword}%"]);

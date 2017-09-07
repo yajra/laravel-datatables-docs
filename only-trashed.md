@@ -1,15 +1,15 @@
 # Eloquent Model With Only Trashed
 
-When our `Model` uses `SoftDeletes` trait of Laravel, we need to implicitly tell `DataTables` to include only trashed records in the results.
+When our `Model` uses `SoftDeletes` trait of Laravel, we need to implicitly tell `Datatables` to include only trashed records in the results.
 To achieve this, we can use `onlyTrashed` api.
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::onlyTrashed()->query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->onlyTrashed()
 				->make(true);
 });

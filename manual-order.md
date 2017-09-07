@@ -1,15 +1,15 @@
 # Manual Order
 
-You may optionally disable the default ordering function of DataTables and write you own using `order` api.
+You may optionally disable the default ordering function of Datatables and write you own using `order` api.
 
 
 ```php
-use DataTables;
+use Datatables;
 
 Route::get('user-data', function() {
 	$model = App\User::query();
 
-	return DataTables::eloquent($model)
+	return Datatables::eloquent($model)
 				->order(function ($query) {
 		            if (request()->has('name')) {
 		                $query->orderBy('name', 'asc');
