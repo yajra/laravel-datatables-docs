@@ -2,7 +2,7 @@
 
 - [Installation](#installation)
 	- [Requirements](#requirements)
-    - [Installing Laravel-DataTables](#installing-laravel-datatables-oracle)
+    - [Installing Laravel-DataTables](#installing-laravel-datatables)
     - [Configuration](#configuration)
 
 <a name="installation"></a>
