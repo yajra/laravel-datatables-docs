@@ -76,7 +76,7 @@ Route::get('user-data', function() {
 use Yajra\DataTables\CollectionDataTable;
 
 Route::get('user-data', function() {
-    $model = App\User::query();
+    $collection = App\User::all();
 
-    return (new CollectionDataTable($model))->toJson();
+    return (new CollectionDataTable($collection))->toJson();
 });
