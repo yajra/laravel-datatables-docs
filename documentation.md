@@ -62,19 +62,19 @@
 ### PLUGINS
 
 - HTML Builder
-	- [Installation](/docs/{{package}}/{{version}}/html-installation)
-	- [Builder](/docs/{{package}}/{{version}}/html-builder)
-	- [Table](/docs/{{package}}/{{version}}/html-builder-table)
-	- [Config](/docs/{{package}}/{{version}}/html-builder-config)
-	- [Columns](/docs/{{package}}/{{version}}/html-builder-column)
-	- [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
-	- [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
-	- [Minified Ajax](/docs/{{package}}/{{version}}/html-builder-minified-ajax)
-	- [Parameters](/docs/{{package}}/{{version}}/html-builder-parameters)
-	- [Events/Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks)
-	- [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
-	- [Add Checkbox](/docs/{{package}}/{{version}}/html-builder-checkbox)
-	- [Add Index](/docs/{{package}}/{{version}}/html-builder-index)
+	- [Installation](/docs/{{package}}/{{version}}/html-builder/installation)
+	- [Builder](/docs/{{package}}/{{version}}/html-builder/builder)
+	- [Table](/docs/{{package}}/{{version}}/html-builder/builder-table)
+	- [Config](/docs/{{package}}/{{version}}/html-builder/builder-config)
+	- [Columns](/docs/{{package}}/{{version}}/html-builder/builder-column)
+	- [Macro](/docs/{{package}}/{{version}}/html-builder/builder-macro)
+	- [Ajax](/docs/{{package}}/{{version}}/html-builder/builder-ajax)
+	- [Minified Ajax](/docs/{{package}}/{{version}}/html-builder/builder-minified-ajax)
+	- [Parameters](/docs/{{package}}/{{version}}/html-builder/builder-parameters)
+	- [Events/Callbacks](/docs/{{package}}/{{version}}/html-builder/builder-callbacks)
+	- [Add Action](/docs/{{package}}/{{version}}/html-builder/builder-action)
+	- [Add Checkbox](/docs/{{package}}/{{version}}/html-builder/builder-checkbox)
+	- [Add Index](/docs/{{package}}/{{version}}/html-builder/builder-index)
 	- [Github](https://github.com/yajra/laravel-datatables-html)
 
 - Buttons
