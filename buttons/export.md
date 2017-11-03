@@ -105,6 +105,33 @@ class UsersDataTable extends DataTable
 ...
 ```
 
+<a name="post-pdf"></a>
+## Export as Excel, CSV, and PDF using POST method
+
+To enable exporting to excel, csv, and pdf using POST method set the following on the buttons array.
+This is recommended if you have a long query and if you are using IE browsers.
+
+```php
+namespace App\DataTables;
+
+use App\User;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    //...some default stubs deleted for simplicity.
+
+    public function html()
+    {
+        return $this->builder()
+                    ->columns($this->getColumns())
+                    ->parameters([
+                        'buttons' => ['postExcel', 'postCsv', 'postPdf'],
+                    ]);
+    }
+...
+```
+
 <a name="print"></a>
 ## Printable Version
 
