@@ -134,7 +134,8 @@ class UsersDataTable extends DataTable
 
 And also add this code to your routes.php file.
 ```php
-    $router->post('sample/export', SampleController::class . '@index');
+    Route::resource('sample', 'SampleController@index');
+    Route::post('sample/export', 'SampleController@index');
 ...
 ```
 
