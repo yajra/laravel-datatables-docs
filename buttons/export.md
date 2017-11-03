@@ -105,7 +105,7 @@ class UsersDataTable extends DataTable
 ...
 ```
 
-<a name="post-pdf"></a>
+<a name="post-export"></a>
 ## Export as Excel, CSV, and PDF using POST method
 
 To enable exporting to excel, csv, and pdf using POST method set the following on the buttons array.
@@ -129,6 +129,12 @@ class UsersDataTable extends DataTable
                         'buttons' => ['postExcel', 'postCsv', 'postPdf'],
                     ]);
     }
+...
+```
+
+And also add this code to your routes.php file.
+```php
+    $router->post('sample/export', SampleController::class . '@index');
 ...
 ```
 
