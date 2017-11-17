@@ -35,10 +35,10 @@ Route::get('user-data', function() {
 ```php
 use Yajra\DataTables\DataTables;
 
-Route::get('user-data', function(DataTables $datatables) {
+Route::get('user-data', function(DataTables $dataTables) {
 	$model = App\User::query();
 
-	return $datatables->eloquent($model)->toJson();
+	return $dataTables->eloquent($model)->toJson();
 });
 ```
 <a name="ioc"></a>
