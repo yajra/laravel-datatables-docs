@@ -17,9 +17,9 @@
     - [Debugging Mode](/docs/{{package}}/{{version}}/debugger)
     - [Error Handler](/docs/{{package}}/{{version}}/error-handler)
 - DataTables Classes
-	- [Eloquent](/docs/{{package}}/{{version}}/engine/eloquent)
-	- [Query Builder](/docs/{{package}}/{{version}}/engine/query)
-	- [Collection](/docs/{{package}}/{{version}}/engine/collection)
+	- [Eloquent](/docs/{{package}}/{{version}}/engine-eloquent)
+	- [Query Builder](/docs/{{package}}/{{version}}/engine-query)
+	- [Collection](/docs/{{package}}/{{version}}/engine-collection)
 - Response
 	- [Array Response](/docs/{{package}}/{{version}}/response/array)
 	- [Object Response](/docs/{{package}}/{{version}}/response/object)
