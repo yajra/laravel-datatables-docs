@@ -62,19 +62,19 @@
 ### PLUGINS
 
 - HTML Builder
-	- [Installation](/docs/{{package}}/{{version}}/html/installation)
-	- [Builder](/docs/{{package}}/{{version}}/html/builder)
-	- [Table](/docs/{{package}}/{{version}}/html/table)
-	- [Config](/docs/{{package}}/{{version}}/html/config)
-	- [Columns](/docs/{{package}}/{{version}}/html/column)
-	- [Macro](/docs/{{package}}/{{version}}/html/macro)
-	- [Ajax](/docs/{{package}}/{{version}}/html/ajax)
-	- [Minified Ajax](/docs/{{package}}/{{version}}/html/minified-ajax)
-	- [Parameters](/docs/{{package}}/{{version}}/html/parameters)
-	- [Events/Callbacks](/docs/{{package}}/{{version}}/html/callbacks)
-	- [Add Action](/docs/{{package}}/{{version}}/html/action)
-	- [Add Checkbox](/docs/{{package}}/{{version}}/html/checkbox)
-	- [Add Index](/docs/{{package}}/{{version}}/html/index)
+	- [Installation](/docs/{{package}}/{{version}}/html-installation)
+	- [Builder](/docs/{{package}}/{{version}}/html-builder)
+	- [Table](/docs/{{package}}/{{version}}/html-builder-table)
+	- [Config](/docs/{{package}}/{{version}}/html-builder-config)
+	- [Columns](/docs/{{package}}/{{version}}/html-builder-column)
+	- [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
+	- [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
+	- [Minified Ajax](/docs/{{package}}/{{version}}/html-builder-minified-ajax)
+	- [Parameters](/docs/{{package}}/{{version}}/html-builder-parameters)
+	- [Events/Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks)
+	- [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
+	- [Add Checkbox](/docs/{{package}}/{{version}}/html-builder-checkbox)
+	- [Add Index](/docs/{{package}}/{{version}}/html-builder-index)
 	- [Github](https://github.com/yajra/laravel-datatables-html)
 
 - Buttons
