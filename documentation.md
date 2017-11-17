@@ -78,13 +78,13 @@
 	- [Github](https://github.com/yajra/laravel-datatables-html)
 
 - Buttons
-	- [Installation](/docs/{{package}}/{{version}}/buttons/installation)
-	- [Configuration](/docs/{{package}}/{{version}}/buttons/config)
-	- [Quick Starter](/docs/{{package}}/{{version}}/buttons/starter)
-	- [DataTable Buttons](/docs/{{package}}/{{version}}/buttons/export)
-	- [Custom Actions](/docs/{{package}}/{{version}}/buttons/custom)
-	- [Sending Parameters](/docs/{{package}}/{{version}}/buttons/with)
-	- [Extended DataTable](/docs/{{package}}/{{version}}/buttons/extended)
-	- [Artisan Console](/docs/{{package}}/{{version}}/buttons/console)
+	- [Installation](/docs/{{package}}/{{version}}/buttons-installation)
+	- [Configuration](/docs/{{package}}/{{version}}/buttons-config)
+	- [Quick Starter](/docs/{{package}}/{{version}}/buttons-starter)
+	- [DataTable Buttons](/docs/{{package}}/{{version}}/buttons-export)
+	- [Custom Actions](/docs/{{package}}/{{version}}/buttons-custom)
+	- [Sending Parameters](/docs/{{package}}/{{version}}/buttons-with)
+	- [Extended DataTable](/docs/{{package}}/{{version}}/buttons-extended)
+	- [Artisan Console](/docs/{{package}}/{{version}}/buttons-console)
 	- [Github](https://github.com/yajra/laravel-datatables-buttons)
 
