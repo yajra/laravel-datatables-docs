@@ -40,7 +40,6 @@
 - ## Searching
 	- [Manual Search](/docs/{{package}}/{{version}}/manual-search)
 	- [Filter Column](/docs/{{package}}/{{version}}/filter-column)
-	- [Query Builder Extension](/docs/{{package}}/{{version}}/query-builder)
 	- [Regex Search](/docs/{{package}}/{{version}}/regex)
 	- [Smart Search](/docs/{{package}}/{{version}}/smart-search)
 	- [Relationships](/docs/{{package}}/{{version}}/relationships)
@@ -54,8 +53,6 @@
 	- [Blacklist Columns](/docs/{{package}}/{{version}}/blacklist)
 	- [Whitelist Columns](/docs/{{package}}/{{version}}/whitelist)
 	- [Set Total Records](/docs/{{package}}/{{version}}/set-total-records)
-	- [With Trashed](/docs/{{package}}/{{version}}/with-trashed)
-	- [Only Trashed](/docs/{{package}}/{{version}}/only-trashed)
 	- [Skip Paging](/docs/{{package}}/{{version}}/skip-paging)
 
 ### PLUGINS
