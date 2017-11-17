@@ -55,9 +55,9 @@ Footer attribute will be as your `tables` column's `footer` content `<tfoot></tf
 ### Exportable (Optional)
 Exportable attribute will flag the column to be included when `exporting` the table. Default value is `true`.
 
-> Exportable attribute should be used with the [Buttons Plugin](/docs/{{package}}/{{version}}/buttons/installation)
+> Exportable attribute should be used with the [Buttons Plugin](/docs/{{package}}/{{version}}/buttons-installation)
 
 ### Printable (Optional)
 Printable attribute will flag the column to be included when `printing` the table. Default value is `true`.
 
-> Exportable attribute should be used with the [Buttons Plugin](/docs/{{package}}/{{version}}/buttons/installation)
+> Exportable attribute should be used with the [Buttons Plugin](/docs/{{package}}/{{version}}/buttons-installation)
