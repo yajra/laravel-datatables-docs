@@ -21,11 +21,11 @@
 	- [Query Builder](/docs/{{package}}/{{version}}/engine/query)
 	- [Collection](/docs/{{package}}/{{version}}/engine/collection)
 - Response
-	- [Array Response](/docs/{{package}}/{{version}}/response/array)
-	- [Object Response](/docs/{{package}}/{{version}}/response/object)
-	- [Fractal Transformer](/docs/{{package}}/{{version}}/response/fractal)
-	- [Fractal Serializer](/docs/{{package}}/{{version}}/response/fractal-serializer)
-	- [Additional Data Response](/docs/{{package}}/{{version}}/response/with)
+	- [Array Response](/docs/{{package}}/{{version}}/response-array)
+	- [Object Response](/docs/{{package}}/{{version}}/response-object)
+	- [Fractal Transformer](/docs/{{package}}/{{version}}/response-fractal)
+	- [Fractal Serializer](/docs/{{package}}/{{version}}/response-fractal-serializer)
+	- [Additional Data Response](/docs/{{package}}/{{version}}/response-with)
 - Column Editing
 	- [Add Column](/docs/{{package}}/{{version}}/add-column)
 	- [Edit Column](/docs/{{package}}/{{version}}/edit-column)
