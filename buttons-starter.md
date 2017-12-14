@@ -49,8 +49,7 @@ class UsersDataTable extends DataTable
 ```php
 use App\DataTables\UsersDataTable;
 
-Route::get('users', function getUsers(UsersDataTable $dataTable)
-{
+Route::get('users', function(UsersDataTable $dataTable) {
     return $dataTable->render('users.index');
 });
 ```
