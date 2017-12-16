@@ -14,6 +14,11 @@ You can create your editor using [artisan command](/docs/{{package}}/{{version}}
 php artisan datatables:editor Users
 ```
 
+<a name="setup-editor-model"></a>
+## Setup Editor Model
+
+See [editor model](/docs/{{package}}/{{version}}/editor-model) docs for ref:
+
 <a name="setup-editor-rules"></a>
 ## Setup Editor Rules
 

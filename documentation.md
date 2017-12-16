@@ -87,6 +87,7 @@
 - ## Editor
 	- [Installation](/docs/{{package}}/{{version}}/editor-installation)
 	- [Editor Command](/docs/{{package}}/{{version}}/editor-command)
+	- [Editor Model](/docs/{{package}}/{{version}}/editor-model)
 	- [Editor Rules](/docs/{{package}}/{{version}}/editor-rules)
 	- [Event Hooks](/docs/{{package}}/{{version}}/editor-events)
 	- [Usage](/docs/{{package}}/{{version}}/editor-usage)
