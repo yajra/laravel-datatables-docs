@@ -32,7 +32,7 @@ In this example, we will create a DataTable Editor class.
 php artisan datatables:editor Posts
 ```
 
-This will create an `PostsDataTableEditor` class on `app\DataTables` directory.
+This will create a `PostsDataTableEditor` class on `app\DataTables` directory.
 
 ```php
 namespace App\DataTables;
