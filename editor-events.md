@@ -2,6 +2,7 @@
 
 In addition to Laravel's model events, DataTables Editor offers some pre & post event hooks.
 
+<a name="create-events"></a>
 ## Create Events
 
 Create action has the following event hooks:
@@ -21,6 +22,7 @@ public function created(Model $model, array $data) {
 }
 ```
 
+<a name="edit-events"></a>
 ## Edit Events
 
 Edit action has the following event hooks:
@@ -40,6 +42,7 @@ public function updated(Model $model, array $data) {
 }
 ```
 
+<a name="remove-events"></a>
 ## Remove Events
 
 Remove action has the following event hooks:

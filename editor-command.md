@@ -10,17 +10,20 @@ To view a list of all available Artisan commands, you may use the list command:
 php artisan list
 ```
 
+<a name="editor-command"></a>
 ## Editor Command
 
 ```bash
 php artisan datatables:editor {name}
 ```
 
+<a name="editor-command-options"></a>
 ## Editor Command Options
 
 - `--model` : The name given will be used as the model is singular form.
 - `--model-namespace` : The namespace of the model to be used.
 
+<a name="editor-command-example"></a>
 ## Creating a DataTables Editor class
 
 In this example, we will create a DataTable Editor class.
@@ -83,6 +86,7 @@ class PostsDataTableEditor extends DataTablesEditor
 }
 ```
 
+<a name="editor-command-model-option"></a>
 ### Model Option
 
 In this example, we will pass a `--model` option to set the model to be used by our DataTable.
@@ -146,6 +150,7 @@ class PostsDataTableEditor extends DataTablesEditor
 }
 ```
 
+<a name="editor-command-model-namespace-option"></a>
 ### Model Namespace Option
 
 In this example, we will pass a `--model-namespace` option to set the model namespace to be used by our DataTable.

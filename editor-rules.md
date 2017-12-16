@@ -2,6 +2,7 @@
 
 DataTables Editor requires three (3) rules for create, edit and remove action respectively.
 
+<a name="create-rules"></a>
 ## Create Rules
 
 This are the rules that will be used when validating a create action.
@@ -15,6 +16,7 @@ public function createRules() {
 }
 ```
 
+<a name="edit-rules"></a>
 ## Edit Rules
 
 This are the rules that will be used when validating an edit action.
@@ -28,6 +30,7 @@ public function editRules(Model $model) {
 }
 ```
 
+<a name="remove-rules"></a>
 ## Remove Rules
 
 This are the rules that will be used when validating a remove action.
