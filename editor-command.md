@@ -18,8 +18,8 @@ php artisan datatables:editor {name}
 
 ## Editor Command Options
 
-`--model` : The name given will be used as the model is singular form.
-`--model-namespace` : The namespace of the model to be used.
+- `--model` : The name given will be used as the model is singular form.
+- `--model-namespace` : The namespace of the model to be used.
 
 ## Creating a DataTables Editor class
 
