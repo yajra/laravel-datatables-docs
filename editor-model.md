@@ -1,6 +1,6 @@
 # DataTables Editor Model
 
-DataTables Editor requires aa `Eloquent Model` that will be used for our CRUD operations.
+DataTables Editor requires a `Eloquent Model` that will be used for our CRUD operations.
 
 > All CRUD operations of Editor uses database transaction.
 
