@@ -2,9 +2,9 @@
 
 This package is a plugin of [Laravel DataTables](https://github.com/yajra/laravel-datatables) for processing [DataTables Editor](https://editor.datatables.net/) library.
 
-> {info} Special thanks to [@bellwood](https://github.com/bellwood) and [@DataTables](https://github.com/datatables) for being [generous](https://github.com/yajra/laravel-datatables/issues/1548) for providing a license to support the development of this package.
+> {tip} Special thanks to [@bellwood](https://github.com/bellwood) and [@DataTables](https://github.com/datatables) for being [generous](https://github.com/yajra/laravel-datatables/issues/1548) for providing a license to support the development of this package.
 
-> A [premium license](https://editor.datatables.net/purchase/index) is required to be able to use [DataTables Editor](https://editor.datatables.net/) library.
+A [premium license](https://editor.datatables.net/purchase/index) is required to be able to use [DataTables Editor](https://editor.datatables.net/) library.
 
 <a name="installation"></a>
 ## Installation

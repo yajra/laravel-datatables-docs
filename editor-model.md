@@ -2,7 +2,7 @@
 
 DataTables Editor requires a `Eloquent Model` that will be used for our CRUD operations.
 
-> All CRUD operations of Editor uses database transaction.
+> {tip} All CRUD operations of Editor uses database transaction.
 
 <a name="setup"></a>
 ## Setup Model
