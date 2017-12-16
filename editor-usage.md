@@ -47,5 +47,5 @@ $.ajaxSetup({
 <a name="setup-content"></a>
 ## Setup your content
 
-You can use [DataTables Editor Genetor](https://editor.datatables.net/generator/index) to help you speed-up the process.
+You can use [DataTables Editor Generator](https://editor.datatables.net/generator/index) to help you speed-up the process.
 Once generated, copy the necessary scripts and html on your blade template.
