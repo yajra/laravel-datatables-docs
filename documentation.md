@@ -81,6 +81,12 @@
 	- [Custom Actions](/docs/{{package}}/{{version}}/buttons-custom)
 	- [Sending Parameters](/docs/{{package}}/{{version}}/buttons-with)
 	- [Extended DataTable](/docs/{{package}}/{{version}}/buttons-extended)
-	- [Artisan Console](/docs/{{package}}/{{version}}/buttons-console)
+	- [Buttons Command](/docs/{{package}}/{{version}}/buttons-console)
 	- [Github](https://github.com/yajra/laravel-datatables-buttons)
 
+- ## Editor
+	- [Installation](/docs/{{package}}/{{version}}/editor-installation)
+	- [Editor Command](/docs/{{package}}/{{version}}/editor-command)
+	- [Editor Rules](/docs/{{package}}/{{version}}/editor-rules)
+	- [Event Hooks](/docs/{{package}}/{{version}}/editor-events)
+	- [Github](https://github.com/yajra/laravel-datatables-editor)
