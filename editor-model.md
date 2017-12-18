@@ -19,3 +19,20 @@ class UsersDataTablesEditor extends DataTablesEditor
 {
     protected $model = User::class;
 }
+```
+
+## IMPORTANT
+
+> Don't forget to set your model's fillable property. The Editor's basic crud operation relies on this.
+
+```php
+namespace App;
+
+class User extends Model {
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+}
+```
