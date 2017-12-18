@@ -91,4 +91,5 @@
 	- [Editor Rules](/docs/{{package}}/{{version}}/editor-rules)
 	- [Event Hooks](/docs/{{package}}/{{version}}/editor-events)
 	- [Usage](/docs/{{package}}/{{version}}/editor-usage)
+	- [Tutorial](/docs/{{package}}/{{version}}/editor-tutorial)
 	- [Github](https://github.com/yajra/laravel-datatables-editor)
