@@ -21,9 +21,10 @@ class UsersDataTablesEditor extends DataTablesEditor
 }
 ```
 
-## IMPORTANT
+## Fillable Property
 
-> Don't forget to set your model's fillable property. The Editor's basic crud operation relies on this.
+Don't forget to set your model's fillable property. The Editor's basic crud operation relies on this.
+For advance operations like saving relations, use the [Editors Event Hooks](/docs/{{package}}/{{version}}/editor-events).
 
 ```php
 class User extends Model {
