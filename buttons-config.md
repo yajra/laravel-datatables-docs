@@ -37,12 +37,12 @@ Set the PDF generator to be used when converting your dataTable to pdf.
 
 Available generators are: `excel`, `snappy`
 
-### Excel Generator (Default Generator)
+### Excel Generator
 When `excel` is used as the generator, the package will use [`maatwebsite/excel`](http://www.maatwebsite.nl/laravel-excel/docs) to generate the PDF.
 
 > To export files to pdf, you will have to include "dompdf/dompdf": "~0.6.1", "mpdf/mpdf": "~5.7.3" or "tecnick.com/tcpdf": "~6.0.0" in your composer.json and change the export.pdf.driver config setting accordingly.
 
-### Snappy Generator
+### Snappy Generator (Default Generator)
 When `snappy` is used as the generator, you need to install [`barryvdh/laravel-snappy`](https://github.com/barryvdh/laravel-snappy)
 
 ### Snappy PDF Options
