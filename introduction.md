@@ -31,4 +31,3 @@ Official documentation of DataTables is available at [datatables.net](https://da
 
 Laravel DataTables is a package that handles the [server-side](https://www.datatables.net/manual/server-side) works of [DataTables](http://datatables.net) using [Laravel](http://laravel.com).
 
-

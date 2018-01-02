@@ -2,7 +2,6 @@
 
 You may optionally disable the default ordering function of Datatables and write you own using `order` api.
 
-
 ```php
 use Datatables;
 
