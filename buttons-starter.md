@@ -10,7 +10,6 @@ php artisan datatables:make Users
 
 Update `UsersDataTable` class and set the columns and parameters needed to render our dataTable.
 
-
 ```php
 namespace App\DataTables;
 
@@ -54,7 +53,6 @@ Route::get('users', function getUsers(UsersDataTable $dataTable)
     return $dataTable->render('users.index');
 });
 ```
-
 
 ## Example View:
 

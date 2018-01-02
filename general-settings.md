@@ -125,4 +125,3 @@ These are the options passed to `laravel-snappy` when exporting the pdf file.
 ],
 ```
 
-

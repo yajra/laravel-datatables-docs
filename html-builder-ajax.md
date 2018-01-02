@@ -43,5 +43,3 @@ Type option represents the type of request (`GET/POST`)  that we will use when s
 ### Data Option
 Data option is a `js` string that you can use to append custom data when sending the request to the server.
 
-
-

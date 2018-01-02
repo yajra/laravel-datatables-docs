@@ -45,7 +45,6 @@ Setting row class via `blade` string.
 ->setRowClass('{{ $id % 2 == 0 ? "alert-success" : "alert-warning" }}')
 ```
 
-
 <a name="row-data"></a>
 ## Row Data
 
