@@ -15,11 +15,11 @@ Route::get('user-data', function() {
 	return DataTables::eloquent($model)
 				->filter(function ($query) {
 		            if (request()->has('name')) {
-		                $query->where('name', 'like', "%{request('name')}%");
+		                $query->where('name', 'like', "%" . request('name') . "%");
 		            }
 
 		            if (request()->has('email')) {
-		                $query->where('email', 'like', "%{request('email')}%");
+		                $query->where('email', 'like', "%" . request('email') . "%");
 		            }
 		        })
 				->toJson();
