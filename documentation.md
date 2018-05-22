@@ -53,6 +53,7 @@
 	- [Blacklist Columns](/docs/{{package}}/{{version}}/blacklist)
 	- [Whitelist Columns](/docs/{{package}}/{{version}}/whitelist)
 	- [Set Total Records](/docs/{{package}}/{{version}}/set-total-records)
+	- [Set Filtered Records](/docs/{{package}}/{{version}}/set-filtered-records)
 	- [Skip Paging](/docs/{{package}}/{{version}}/skip-paging)
 
 ### PLUGINS
