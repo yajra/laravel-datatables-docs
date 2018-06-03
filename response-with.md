@@ -36,6 +36,25 @@ Route::get('user-data', function() {
 });
 ```
 
+<a name="closure"></a>
+## Adding response using closure with filtered query. 
+
+> This is for Query and Eloquent instance only,
+
+```php
+use DataTables;
+
+Route::get('user-data', function() {
+	$model = App\User::query();
+
+	return DataTables::eloquent($model)
+				->with('count', function($query) {
+					return $query->count();
+				})
+				->toJson();
+});
+```
+
 <a name="response"></a>
 ## Example Response
 
