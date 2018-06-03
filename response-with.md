@@ -39,8 +39,6 @@ Route::get('user-data', function() {
 <a name="closure"></a>
 ## Adding response with closure. 
 
-> This is for Query and Eloquent instance only,
-
 ```php
 use DataTables;
 
