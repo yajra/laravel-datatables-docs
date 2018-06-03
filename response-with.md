@@ -37,7 +37,7 @@ Route::get('user-data', function() {
 ```
 
 <a name="closure"></a>
-## Adding response using closure with filtered query. 
+## Adding response with closure. 
 
 > This is for Query and Eloquent instance only,
 
@@ -48,8 +48,27 @@ Route::get('user-data', function() {
 	$model = App\User::query();
 
 	return DataTables::eloquent($model)
-				->with('count', function($query) {
-					return $query->count();
+				->with('count', function() {
+					return $model->count();
+				})
+				->toJson();
+});
+```
+
+<a name="query-closure"></a>
+## Adding response with query callback. 
+
+> This is for Query and Eloquent instance only,
+
+```php
+use DataTables;
+
+Route::get('user-data', function() {
+	$model = App\User::query();
+
+	return DataTables::eloquent($model)
+				->withQuery('count', function($filteredQuery) {
+					return $filteredQuery->count();
 				})
 				->toJson();
 });
