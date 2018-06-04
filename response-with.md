@@ -46,7 +46,7 @@ Route::get('user-data', function() {
 	$model = App\User::query();
 
 	return DataTables::eloquent($model)
-				->with('count', function() {
+				->with('count', function() use ($model) {
 					return $model->count();
 				})
 				->toJson();
