@@ -38,6 +38,7 @@
 	- [Remove Column](/docs/{{package}}/{{version}}/remove-column)
 	- [Index Column](/docs/{{package}}/{{version}}/index-column)
 	- [Raw Columns](/docs/{{package}}/{{version}}/raw-columns)
+	- [Export Columns](/docs/{{package}}/{{version}}/export-columns)
 	- [Print Columns](/docs/{{package}}/{{version}}/print-columns)
   
 - Row Editing
