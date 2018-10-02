@@ -8,3 +8,4 @@ You may use the links below to further understand the Laravel Datatables.
 
 <a name="videos"></a>
 ## Videos
+- [Datatables in Laravel: Default and AJAX (Demo Project)](https://www.youtube.com/watch?v=1wgLY-V69MM)
