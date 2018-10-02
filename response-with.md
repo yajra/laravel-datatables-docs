@@ -36,6 +36,42 @@ Route::get('user-data', function() {
 });
 ```
 
+<a name="closure"></a>
+## Adding response with closure. 
+
+```php
+use DataTables;
+
+Route::get('user-data', function() {
+	$model = App\User::query();
+
+	return DataTables::eloquent($model)
+				->with('count', function() use ($model) {
+					return $model->count();
+				})
+				->toJson();
+});
+```
+
+<a name="query-closure"></a>
+## Adding response with query callback. 
+
+> This is for Query and Eloquent instance only,
+
+```php
+use DataTables;
+
+Route::get('user-data', function() {
+	$model = App\User::query();
+
+	return DataTables::eloquent($model)
+				->withQuery('count', function($filteredQuery) {
+					return $filteredQuery->count();
+				})
+				->toJson();
+});
+```
+
 <a name="response"></a>
 ## Example Response
 

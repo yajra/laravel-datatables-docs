@@ -11,7 +11,7 @@
 <a name="requirements"></a>
 ### Requirements
 
-- [Laravel 5.5](https://github.com/laravel/framework)
+- [Laravel 5.5+](https://github.com/laravel/framework)
 - [jQuery DataTables v1.10.x](http://datatables.net/)
 
 <a name="installing-laravel-datatables"></a>
@@ -33,7 +33,7 @@ composer require yajra/laravel-datatables:^1.0
 
 <a name="configuration"></a>
 ### Configuration
-> This step is optional if you are using Laravel 5.5
+> This step is optional if you are using Laravel 5.5+
 
 Open the file ```config/app.php``` and then add following service provider.
 
