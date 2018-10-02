@@ -40,8 +40,8 @@
 	- [Raw Columns](/docs/{{package}}/{{version}}/raw-columns)
 	- [Export Columns](/docs/{{package}}/{{version}}/export-columns)
 	- [Print Columns](/docs/{{package}}/{{version}}/print-columns)
-  
-- Row Editing
+
+- ## Row Editing
 	- [Row Options](/docs/{{package}}/{{version}}/row-options)
 	- [Row ID](/docs/{{package}}/{{version}}/row-options#row-id)
 	- [Row Class](/docs/{{package}}/{{version}}/row-options#row-class)
