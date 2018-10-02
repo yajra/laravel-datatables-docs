@@ -11,6 +11,7 @@
 - ## Tutorials
 	- [Quick Starter](https://datatables.yajrabox.com/starter)
 	- [Service Implementation](https://datatables.yajrabox.com/service)
+	- [Community Links](/docs/{{package}}/{{version}}/community-links)
 - ## Configuration
     - [General Settings](/docs/{{package}}/{{version}}/general-settings)
     - [Debugging Mode](/docs/{{package}}/{{version}}/debugger)
