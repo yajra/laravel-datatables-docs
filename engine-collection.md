@@ -33,7 +33,7 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return DataTables::queryBuilder($collection)->toJson();
+	return DataTables::collection($collection)->toJson();
 });
 ```
 
@@ -43,14 +43,14 @@ Route::get('user-data', function() {
 ```php
 use Yajra\DataTables\DataTables;
 
-Route::get('user-data', function(DataTables $datatables) {
+Route::get('user-data', function(DataTables $dataTables) {
 	$collection = collect([
 		['id' => 1, 'name' => 'John'],
 		['id' => 2, 'name' => 'Jane'],
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return $datatables->queryBuilder($collection)->toJson();
+	return $dataTables->collection($collection)->toJson();
 });
 ```
 <a name="ioc"></a>
@@ -65,7 +65,7 @@ Route::get('user-data', function() {
 		['id' => 3, 'name' => 'James'],
 	]);
 
-	return app('datatables')->queryBuilder($collection)->toJson();
+	return app('datatables')->collection($collection)->toJson();
 });
 ```
 
