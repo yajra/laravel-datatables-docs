@@ -80,6 +80,7 @@
 	- [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
 	- [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
 	- [Minified Ajax](/docs/{{package}}/{{version}}/html-builder-minified-ajax)
+	- [Post Ajax](/docs/{{package}}/{{version}}/html-builder-post-ajax)
 	- [Parameters](/docs/{{package}}/{{version}}/html-builder-parameters)
 	- [Events/Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks)
 	- [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
