@@ -31,6 +31,7 @@
 	- [Fractal Transformer](/docs/{{package}}/{{version}}/response-fractal)
 	- [Fractal Serializer](/docs/{{package}}/{{version}}/response-fractal-serializer)
 	- [Additional Data Response](/docs/{{package}}/{{version}}/response-with)
+	- [Only Columns](/docs/{{package}}/{{version}}/response-only)
 
 - ## Column Editing
 	- [Add Column](/docs/{{package}}/{{version}}/add-column)
