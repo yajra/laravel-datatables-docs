@@ -36,6 +36,7 @@
 
 - ## Column Editing
 	- [Add Column](/docs/{{package}}/{{version}}/add-column)
+	- [Add Columns](/docs/{{package}}/{{version}}/add-columns)
 	- [Edit Column](/docs/{{package}}/{{version}}/edit-column)
 	- [Remove Column](/docs/{{package}}/{{version}}/remove-column)
 	- [Index Column](/docs/{{package}}/{{version}}/index-column)
