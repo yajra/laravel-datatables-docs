@@ -7,8 +7,8 @@ The default attributes of index column are:
 ```php
 [
 	'defaultContent' => '',
-	'data'           => 'DT_Row_Index',
-	'name'           => 'DT_Row_Index',
+	'data'           => 'DT_RowIndex',
+	'name'           => 'DT_RowIndex',
 	'title'          => '',
 	'render'         => null,
 	'orderable'      => false,
