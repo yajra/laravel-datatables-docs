@@ -37,7 +37,7 @@ The sql generated will be like `column LIKE "%k%e%y%w%o%r%d%"` when set to `true
 DataTables internal index id response column name.
 
 ```php
-'index_column' => 'DT_Row_Index',
+'index_column' => 'DT_RowIndex',
 ```
 
 <a name="engines"></a>
