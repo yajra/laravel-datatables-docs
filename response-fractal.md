@@ -7,7 +7,7 @@ Thus `addColumn`, `editColumn`, `removeColumn`, `setRowAttr`, `setClassAttr`, et
 
 ## Closure
 
-You can pass a closure wich will receive an item of the result collection and should return an array
+You can pass a closure which will receive an item of the result collection and should return an array.
 
 ```php
 use DataTables;
@@ -30,7 +30,7 @@ Route::get('user-data', function() {
 });
 ```
 
-Thus you can make use of Laravel API Resource
+Thus you can make use of Laravel API Resource.
 
 ```php
 use DataTables;
@@ -51,7 +51,7 @@ Route::get('user-data', function() {
 
 ## Transformer
 
-You can use Transformer class
+You can use Transformer class.
 
 ```php
 use DataTables;
