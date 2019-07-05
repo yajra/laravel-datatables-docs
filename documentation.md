@@ -81,6 +81,7 @@
 	- [Table](/docs/{{package}}/{{version}}/html-builder-table)
 	- [Config](/docs/{{package}}/{{version}}/html-builder-config)
 	- [Columns](/docs/{{package}}/{{version}}/html-builder-column)
+	- [Column Builder](/docs/{{package}}/{{version}}/html-builder-column-builder)
 	- [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
 	- [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
 	- [Minified Ajax](/docs/{{package}}/{{version}}/html-builder-minified-ajax)
