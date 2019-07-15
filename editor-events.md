@@ -13,12 +13,20 @@ Create action has the following event hooks:
 To use the event hook, just add the methods on your editor class.
 
 ```php
-public function creating(Model $model, array $data) {
-    return $data;
+public function creating(Model $model, array $data)
+{
+    // Prior to version 1.8.0 of Laravel DataTables Editor the hook was not required
+    // to return the $model.
+    // In version 1.8.0+ the hook must return the $model instance:
+    return $model;
 }
 
-public function created(Model $model, array $data) {
-    return $data;
+public function created(Model $model, array $data)
+{
+    // Prior to version 1.8.0 of Laravel DataTables Editor the hook was not required
+    // to return the $model.
+    // In version 1.8.0+ the hook must return the $model instance:
+    return $model;
 }
 ```
 
@@ -34,11 +42,34 @@ To use the event hook, just add the methods on your editor class.
 
 ```php
 public function updating(Model $model, array $data) {
-    return $data;
+    // Prior to version 1.8.0 of Laravel DataTables Editor the hook was not required
+    // to return the $model.
+    // In version 1.8.0+ the hook must return the $model:
+    return $model;
 }
 
 public function updated(Model $model, array $data) {
-    return $data;
+    // Prior to version 1.8.0 of Laravel DataTables Editor the hook was not required
+    // to return the $model.
+    // In version 1.8.0+ the hook must return the $model instance:
+    return $model;
+}
+```
+
+<a name="saved-event"></a>
+## Saved event
+
+In addition to create and edit events, the `saved` event hook is called after `created` and `saved`.
+
+To use the event hook, just add the method on your editor class:
+
+```php
+public function saved(Model $model, array $data)
+{
+    // Prior to version 1.8.0 of Laravel DataTables Editor the hook was not required
+    // to return the $model.
+    // In version 1.8.0+ the hook must return the $model instance:
+    return $model;
 }
 ```
 
@@ -47,17 +78,21 @@ public function updated(Model $model, array $data) {
 
 Remove action has the following event hooks:
 
-- `deleting` event hook that is fired before deleting a new record.
+- `deleting` event hook that is fired before deleting a record.
 - `deleted` event hook that is fired after the record was deleted.
 
 To use the event hook, just add the methods on your editor class.
 
 ```php
 public function deleting(Model $model, array $data) {
-    return $data;
+    // Record still exists in database. Code can be used to delete records from
+    // child tables that don't specify cascade deletes on the foreign key
+    // definition.
 }
 
 public function deleted(Model $model, array $data) {
-    return $data;
+    // Record no longer exists in database, but $model instance still contains
+    // data as it was before deleting. Any instance state mutation will be
+    // preserved and returned in the 'data' array of the response.
 }
 ```
