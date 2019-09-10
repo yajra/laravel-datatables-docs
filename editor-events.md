@@ -203,7 +203,7 @@ To use the event hook, just add the methods on your editor class.
 
 ```php
 /**
- * Event hook that is fired after upload a file.
+ * Event hook that is fired after uploading a file.
  *
  * @param string $id The auto-generated file id from filesystem.
  * @return string
