@@ -40,3 +40,17 @@ public function removeRules(Model $model) {
     return [];
 }
 ```
+
+<a name="upload-rules"></a>
+## Upload Rules
+
+This are the rules that will be used when validating an upload action.
+
+```php
+public function uploadRules() {
+    return [
+        'avatar' => 'required|image',
+        'resume' => 'required|mimes:pdf',
+    ];
+}
+```
