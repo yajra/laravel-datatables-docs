@@ -19,15 +19,16 @@ Route::get('user-data', function() {
 ```
 
 Here is another example of orderColumn using closure.
+
 ```php
 use DataTables;
 
-Route::get('user-data', function() {
-	$model = App\User::query();
+Route::get('user-data', function () {
+    $model = App\User::query();
 
-	return DataTables::eloquent($model)
-				->orderColumn('name', function($query, $order) {
-                      $query->orderBy('status', $order);
+    return DataTables::eloquent($model)
+                 ->orderColumn('name', function ($query, $order) {
+                     $query->orderBy('status', $order);
                  });
 });
 ```
