@@ -38,10 +38,10 @@ Route::get('user-data', function() {
 use DB;
 use Yajra\DataTables\DataTables;
 
-Route::get('user-data', function(DataTables $datatables) {
+Route::get('user-data', function(DataTables $dataTables) {
 	$query = DB::table('users');
 
-	return $datatables->queryBuilder($query)->toJson();
+	return $dataTables->queryBuilder($query)->toJson();
 });
 ```
 <a name="ioc"></a>
