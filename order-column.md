@@ -17,3 +17,18 @@ Route::get('user-data', function() {
 				->toJson();
 });
 ```
+
+Here is another example of orderColumn using closure.
+
+```php
+use DataTables;
+
+Route::get('user-data', function () {
+    $model = App\User::query();
+
+    return DataTables::eloquent($model)
+                 ->orderColumn('name', function ($query, $order) {
+                     $query->orderBy('status', $order);
+                 });
+});
+```
