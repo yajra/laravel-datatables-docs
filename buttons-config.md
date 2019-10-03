@@ -24,7 +24,7 @@ This directory is appended on default Laravel namespace.
 **Export filename:** ```users_(timestamp)```
 
 ### Model Option
-This is the base namespace/directory where your models are located.
+This is the base namespace/directory where your model's are located.
 This directory is appended on default Laravel namespace.
 **Usage:** ```php artisan datatables:make Post --model```
 **Output:** ```App\DataTables\PostDataTable```
