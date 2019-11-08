@@ -12,7 +12,7 @@
     - [Community Links](/docs/{{package}}/{{version}}/community-links)
 
 - ## Tutorials
-	- [Quick Starter](https://datatables.yajrabox.com/starter)
+	- [Quick Starter](/docs/{{package}}/{{version}}/quick-starter)
 	- [Service Implementation](https://datatables.yajrabox.com/service)
 
 - ## Configuration
