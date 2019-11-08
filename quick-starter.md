@@ -3,8 +3,8 @@
 ## Create new project
 
 ```
-laravel new {project name}
-cd {project name}
+laravel new datatables
+cd datatables
 cp .env.example .env
 php artisan key:generate
 ```
@@ -209,5 +209,5 @@ Psy Shell v0.9.9 (PHP 7.2.22 — cli) by Justin Hileman
 
 ## Access Users DataTables
 
-http://{project name}.test/users
+http://datatables.test/users
 
