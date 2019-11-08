@@ -1,4 +1,4 @@
-# Laravel DataTables Quick Starter
+# DataTables Quick Starter
 
 ## Create new project
 
