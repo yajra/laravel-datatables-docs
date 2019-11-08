@@ -41,7 +41,6 @@ Edit `resources/js/bootstrap.js` and add the following:
     require('bootstrap');
     require('datatables.net-bs4');
     require('datatables.net-buttons-bs4');
-    require('datatables.net-select-bs4');
 
 ## Compile assets
 
