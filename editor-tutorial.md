@@ -9,7 +9,7 @@ This tutorial requires https://yajrabox.com/docs/laravel-datatables/master/quick
 
 ## Install DataTables Editor assets.
 
-    yarn add datatables.net-editor datatables.net-editor-bs4
+    yarn add datatables.net-editor-bs4 datatables.net-select-bs4
 
 ## Editor License
 
@@ -32,6 +32,7 @@ Copy and rename your `Editor.XX.zip` to `Editor.zip` and move it to project fold
         require('bootstrap');
         require('datatables.net-bs4');
         require('datatables.net-buttons-bs4');
+        require('datatables.net-select-bs4');
         require('datatables.net-editor-bs4');
     } catch (e) {}
 
