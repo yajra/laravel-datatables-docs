@@ -34,13 +34,19 @@ php artisan ui bootstrap --auth
 yarn add datatables.net-bs4 datatables.net-buttons-bs4
 ```
 
-## Register datatables.net assets in bootstrap.js
+## Register datatables.net assets in bootstrap.js and app.scss
 
 Edit `resources/js/bootstrap.js` and add the following:
 
     require('bootstrap');
     require('datatables.net-bs4');
     require('datatables.net-buttons-bs4');
+
+Edit `resources/scss/app.scss` and add the following:
+
+    // DataTables
+    @import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
+    @import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
 
 ## Compile assets
 
