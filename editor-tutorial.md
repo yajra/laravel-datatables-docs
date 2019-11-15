@@ -37,7 +37,7 @@ Copy and rename your `Editor.XX.zip` to `Editor.zip` and move it to project fold
     } catch (e) {}
 
 
-## Add editor styles on `resources/scss/app.scss`.
+## Add editor styles on `resources/sass/app.scss`.
 
     @import "~datatables.net-select-bs4/css/select.bootstrap4.css";
     @import "~datatables.net-editor-bs4/css/editor.bootstrap4.css";
@@ -73,6 +73,20 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 
 ...
+    /**
+     * Build DataTable class.
+     *
+     * @param mixed $query Results from query() method.
+     * @return \Yajra\DataTables\DataTableAbstract
+     */
+    public function dataTable($query)
+    {
+        return datatables()
+            ->eloquent($query)
+            ->setRowId('id') // Set the RowID
+            ...
+    }
+
     public function html()
     {
         return $this->builder()
