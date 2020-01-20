@@ -1,6 +1,6 @@
 # Object Response
 
-To convert the response of DataTables to an object, just pass `true` on `make` api.
+To convert the response of DataTables to an object, use `toJson` api.
 
 ```php
 use DataTables;
