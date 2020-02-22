@@ -2,7 +2,7 @@
 
 Run the following command in your project to get the latest version of the plugin:
 
-`composer require yajra/laravel-datatables-buttons:^3.0`
+`composer require yajra/laravel-datatables-buttons:^4.0`
 
 ## Configuration
 > This step is optional if you are using Laravel 5.5
