@@ -2,6 +2,8 @@
 
 You can add a custom column on your response by using `addColumn` api.
 
+> {note} added columns are assumed to be computed columns and not part of the database. Thus, search/sort will be disabled on those columns. If you need them, use the `editColumn` api instead.
+
 <a name="blade"></a>
 ## Add Column with Blade Syntax
 
