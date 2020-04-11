@@ -1,7 +1,7 @@
 # Query Builder Data Source
 
 You may use Laravel's Query Builder as data source for your dataTables.
-You can look at `Yajra\DataTables\QueryDataTable` class which handles the conversion of your Query Builder into a readbale DataTable API response.
+You can look at `Yajra\DataTables\QueryDataTable` class which handles the conversion of your Query Builder into a readable DataTable API response.
 
 <a name="factory"></a>
 ## Query Builder via Factory
