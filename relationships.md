@@ -50,3 +50,7 @@ Looking at `{data: 'posts', name: 'posts.title'},`:
 ## Nested Relationships
 Same strategy goes for nested relationships but do **NOTE** that ordering is not yet fully tested on nested relationships.
 
+It is advised that you include select('table.') on query to avoid weird issues where id from related model replaces the id of the main model.
+```php
+$posts = Post::with('user')->select('posts.');
+```
