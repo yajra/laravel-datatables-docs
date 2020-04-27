@@ -47,6 +47,11 @@ Looking at `{data: 'posts', name: 'posts.title'},`:
 - `data: posts` represents the data key (`data.posts`) that we are going to display on our table.
 - `name: posts.title` represents the `User` model relationship (`posts`) and the column we are going to perform our search (`title`).
 
+It is advised that you include select('table.') on query to avoid weird issues where id from related model replaces the id of the main model.
+```php
+$posts = Post::with('user')->select('posts.');
+```
+
 ## Nested Relationships
 Same strategy goes for nested relationships but do **NOTE** that ordering is not yet fully tested on nested relationships.
 
