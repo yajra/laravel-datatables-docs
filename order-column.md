@@ -32,3 +32,16 @@ Route::get('user-data', function () {
                  });
 });
 ```
+
+Disable ordering via orderColumn.
+
+```php
+use DataTables;
+
+Route::get('user-data', function () {
+    $model = App\User::query();
+
+    return DataTables::eloquent($model)
+                 ->orderColumn('name', false);
+});
+```
