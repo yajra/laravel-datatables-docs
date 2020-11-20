@@ -21,7 +21,7 @@ Route::get('users', function(Builder $builder) {
 		        ['data' => 'name', 'footer' => 'Name'],
 		        ['data' => 'email', 'footer' => 'Email'],
 		        ['data' => 'created_at', 'footer' => 'Created At'],
-		        ['data' => 'updated_at', 'footer' => 'Updated At'),
+		        ['data' => 'updated_at', 'footer' => 'Updated At'],
 	        ]);
 
 	return view('users.index', compact('html'));
