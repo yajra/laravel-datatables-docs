@@ -51,7 +51,7 @@ Route::get('users', function(Builder $builder) {
 		        ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
 		        ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
 		        ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Created At'],
-		        ['data' => 'updated_at', 'name' => 'updated_at', 'title' => 'Updated At']),
+		        ['data' => 'updated_at', 'name' => 'updated_at', 'title' => 'Updated At'],
 	        ]);
 
 	return view('users.index', compact('html'));
