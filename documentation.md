@@ -103,6 +103,8 @@
 	- [Sending Parameters](/docs/{{package}}/{{version}}/buttons-with)
 	- [Extended DataTable](/docs/{{package}}/{{version}}/buttons-extended)
 	- [Buttons Command](/docs/{{package}}/{{version}}/buttons-console)
+	- [Laravel Excel Export](/docs/{{package}}/{{version}}/buttons-laravel-excel)
+	- [Fast Excel Export](/docs/{{package}}/{{version}}/buttons-fast-excel)
 	- [Github](https://github.com/yajra/laravel-datatables-buttons)
 
 - ## Editor
