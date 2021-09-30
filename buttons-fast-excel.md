@@ -1,6 +1,10 @@
 # Fast Excel Integration
 
-[Fast-Excel](https://github.com/rap2hpoutre/fast-excel) is recommended when exporting bulk records.
+[Fast-Excel](https://github.com/rap2hpoutre/fast-excel) is recommended when exporting bulk records. 
+
+## LIMITATIONS! 
+
+FastExcel integration uses cursor behind the scene thus eager loaded columns will not work on export. You must used join statements if you want to export related columns. Also, column value formatting like converting boolean to Yes or No should be done on SQL LEVEL.
 
 ## Usage
 
