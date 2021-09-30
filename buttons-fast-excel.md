@@ -4,7 +4,7 @@
 
 ## LIMITATIONS! 
 
-FastExcel integration uses cursor behind the scene thus eager loaded columns will not work on export. You must used join statements if you want to export related columns. Also, column value formatting like converting boolean to Yes or No should be done on SQL LEVEL.
+FastExcel integration uses cursor behind the scene thus eager loaded columns will not work on export. You MUST use join statements if you want to export related columns. Also, column value formatting like converting boolean to Yes or No should be done on SQL LEVEL.
 
 ## Usage
 
