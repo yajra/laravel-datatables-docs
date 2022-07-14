@@ -115,6 +115,9 @@
     - [Fractal Transformer](/docs/{{package}}/{{version}}/response-fractal)
     - [Fractal Serializer](/docs/{{package}}/{{version}}/response-fractal-serializer)
 
+- ## Livewire + Batch Job Exports
+    - [Installation](/docs/{{package}}/{{version}}/exports-installation)
+
 - ## Editor
     - [Installation](/docs/{{package}}/{{version}}/editor-installation)
     - [Editor Command](/docs/{{package}}/{{version}}/editor-command)
