@@ -20,5 +20,5 @@ Open the file ```config/app.php``` and then add following service provider.
 After completing the step above, use the following command to publish configuration & assets:
 
 ```
-php artisan vendor:publish --tag=datatables-buttons
+php artisan vendor:publish --tag=datatables-fractal --force
 ```
