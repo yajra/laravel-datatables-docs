@@ -117,6 +117,9 @@
 
 - ## Export
     - [Installation](/docs/{{package}}/{{version}}/exports-installation)
+    - [Usage](/docs/{{package}}/{{version}}/exports-usage)
+    - [Purge](/docs/{{package}}/{{version}}/exports-purge)
+    - [Options](/docs/{{package}}/{{version}}/exports-options)
 
 - ## Editor
     - [Installation](/docs/{{package}}/{{version}}/editor-installation)
