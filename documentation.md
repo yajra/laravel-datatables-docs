@@ -66,9 +66,9 @@
 	- [Order By Nulls Last](/docs/{{package}}/{{version}}/order-by-nulls-last)
 
 - ## SearchPanes
-    - [Add SearchPanes](/docs/{{package}}/{{version}}/search-panes-starter.md)
-    - [Hide Columns in SearchPanes](/docs/{{package}}/{{version}}/search-panes-hide-columns.md)
-    - [Further options](/docs/{{package}}/{{version}}/search-panes-options.md)
+    - [Add SearchPanes](/docs/{{package}}/{{version}}/search-panes-starter)
+    - [Hide Columns in SearchPanes](/docs/{{package}}/{{version}}/search-panes-hide-columns)
+    - [Further options](/docs/{{package}}/{{version}}/search-panes-options)
 
 - ## Utilities
 	- [XSS filtering](/docs/{{package}}/{{version}}/xss)
