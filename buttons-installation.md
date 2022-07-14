@@ -1,5 +1,7 @@
 # Buttons Plugin Installation
 
+Github: https://github.com/yajra/laravel-datatables-buttons
+
 Run the following command in your project to get the latest version of the plugin:
 
 `composer require yajra/laravel-datatables-buttons:^9.0`
