@@ -34,7 +34,7 @@ php artisan ui bootstrap --auth
 yarn add datatables.net-bs4 datatables.net-buttons-bs4 datatables.net-select-bs4 datatables.net-searchpanes-bs4
 ```
 
-> {tip} datatables.net-select-bs4` and `datatables.net-searchpanes-bs4` are only required if you want to use SearchPanes
+> {tip} `datatables.net-select-bs4` and `datatables.net-searchpanes-bs4` are only required if you want to use SearchPanes
 
 ## Register datatables.net assets in bootstrap.js and app.scss
 
