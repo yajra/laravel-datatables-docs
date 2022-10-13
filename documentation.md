@@ -2,11 +2,10 @@
 	- [Release Notes](/docs/{{package}}/{{version}}/releases)
 	- [Upgrade Guide](/docs/{{package}}/{{version}}/upgrade)
 	- [Contribution Guide](/docs/{{package}}/{{version}}/contributing)
-    - [Security Issues](/docs/{{package}}/{{version}}/security)
-	- [API Documentation](http://yajra.github.io/{{package}}/api/{{version}})
+	- [Security Issues](/docs/{{package}}/{{version}}/security)
 
 - ## Getting Started
-    - [Introduction](/docs/{{package}}/{{version}}/introduction)
+	- [Introduction](/docs/{{package}}/{{version}}/introduction)
 	- [Installation](/docs/{{package}}/{{version}}/installation)
     - [Demo Application](https://datatables.yajrabox.com/)
     - [Community Links](/docs/{{package}}/{{version}}/community-links)
