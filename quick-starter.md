@@ -1,73 +1,165 @@
 # DataTables Quick Starter
 
-## Create new project
+## Create a new Laravel project
 
 ```
 laravel new datatables
 cd datatables
-cp .env.example .env
-php artisan key:generate
-```
-
-## Setup database and ENV configuration
-
-Create a new database and update `.env` file and set the datbase credentials.
-
-## Install package and publish assets
-
-```
-composer require yajra/laravel-datatables
-php artisan vendor:publish --tag=datatables-buttons
-
 ```
 
 ## Setup Laravel UI
 
-```
+```shell
 composer require laravel/ui --dev
 php artisan ui bootstrap --auth
 ```
 
-## Install Datatables.net assets
+## Install Laravel DataTables
 
-```
-yarn add datatables.net-bs4 datatables.net-buttons-bs4 datatables.net-select-bs4 datatables.net-searchpanes-bs4
-```
-
-> {tip} `datatables.net-select-bs4` and `datatables.net-searchpanes-bs4` are only required if you want to use SearchPanes
-
-## Register datatables.net assets in bootstrap.js and app.scss
-
-Edit `resources/js/bootstrap.js` and add the following:
-
-    require('bootstrap');
-    require('datatables.net-bs4');
-    require('datatables.net-buttons-bs4');
-    require('datatables.net-select-bs4');
-    require('datatables.net-searchpanes-bs4');
-
-Edit `resources/scss/app.scss` and add the following:
-
-    // DataTables
-    @import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
-    @import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
-    @import '~datatables.net-select-bs4/css/select.dataTables.css';
-    @import '~datatables.net-searchpanes-dt/css/searchPanes.dataTables.css';
-
-## Compile assets
-
-```
-yarn dev / watch / prod
+```shell
+composer require yajra/laravel-datatables:^9.0
 ```
 
-## Create controller and DataTable class
+## Setup database and ENV configuration
+
+Create a new database and update `.env` file and set the database credentials.
+
+```shell
+touch database/database.sqlite
+```
+
+```dotenv
+DB_CONNECTION=sqlite
+DB_DATABASE=/absolute/path/to/database/database.sqlite
+```
+
+```shell
+php artisan migrate
+```
+
+## Install Laravel DataTables Vite Assets
+
+```shell
+npm i laravel-datatables-vite --save-dev
+```
+
+This will install the following packages:
+
+1. Bootstrap Icons
+2. DataTables with Buttons and Select plugins for Bootstrap 5
+3. Laravel DataTables custom scripts
+
+## Register the package js and css
+
+Edit `resources/js/app.js` and add the following:
+
+```js
+import './bootstrap';
+import 'laravel-datatables-vite';
+```
+
+Edit `resources/sass/app.scss` and add the following:
+
+```postcss
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// DataTables
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
+@import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+```
+
+## Compile the assets
 
 ```
-php artisan make:controller UsersController
+npm run dev
+```
+
+## Create and update UsersDataTable
+
+Create a new DataTable class:
+
+```shell
 php artisan datatables:make Users
 ```
 
-### UsersController
+Then, update the `getColumns()` with the users fields:
+
+```php
+namespace App\DataTables;
+
+use App\Models\User;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    public function dataTable(QueryBuilder $query): EloquentDataTable
+    {
+        return (new EloquentDataTable($query))->setRowId('id');
+    }
+
+    public function query(User $model): QueryBuilder
+    {
+        return $model->newQuery();
+    }
+
+    public function html(): HtmlBuilder
+    {
+        return $this->builder()
+                    ->setTableId('users-table')
+                    ->columns($this->getColumns())
+                    ->minifiedAjax()
+                    ->orderBy(1)
+                    ->selectStyleSingle()
+                    ->buttons([
+                        Button::make('add'),
+                        Button::make('excel'),
+                        Button::make('csv'),
+                        Button::make('pdf'),
+                        Button::make('print'),
+                        Button::make('reset'),
+                        Button::make('reload'),
+                    ]);
+    }
+
+    protected function getColumns(): array
+    {
+        return [
+            Column::make('id'),
+            Column::make('name'),
+            Column::make('email'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
+        ];
+    }
+
+    protected function filename(): string
+    {
+        return 'Users_'.date('YmdHis');
+    }
+}
+```
+
+## Create and update the users controller
+
+Create a new controller and add the following:
+
+```shell
+php artisan make:controller UsersController
+```
 
 ```php
 namespace App\Http\Controllers;
@@ -83,107 +175,19 @@ class UsersController extends Controller
 }
 ```
 
-### UsersDataTable
+## Update the default app layout
 
-```php
-namespace App\DataTables;
-
-use App\User;
-use Yajra\DataTables\Html\Button;
-use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Services\DataTable;
-
-class UsersDataTable extends DataTable
-{
-    /**
-     * Build DataTable class.
-     *
-     * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
-     */
-    public function dataTable($query)
-    {
-        return datatables()
-            ->eloquent($query)
-            ->addColumn('action', 'users.action');
-    }
-
-    /**
-     * Get query source of dataTable.
-     *
-     * @param \App\User $model
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function query(User $model)
-    {
-        return $model->newQuery();
-    }
-
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->setTableId('users-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('name'),
-            Column::make('email'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Users_' . date('YmdHis');
-    }
-}
-```
-
-## Update app layout
-
-Add scripts before the body end tag of `resources/views/layouts/app.blade.php`
+Add `@stack('scripts')` before the body end tag of `resources/views/layouts/app.blade.php`
 
 ```
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+....
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
     @stack('scripts')
+</body>
+</html>
 ```
 
 ## Create users index file
@@ -194,11 +198,18 @@ Create new file: `resources/views/users/index.blade.php`.
 @extends('layouts.app')
 
 @section('content')
-    {{$dataTable->table()}}
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Manage Users</div>
+            <div class="card-body">
+                {{ $dataTable->table() }}
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
-    {{$dataTable->scripts()}}
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 @endpush
 ```
 
@@ -207,7 +218,9 @@ Create new file: `resources/views/users/index.blade.php`.
 Update `routes/web.php`.
 
 ```php
-Route::get('/users', 'UsersController@index')->name('users.index');
+use App\Http\Controllers\UsersController;
+
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 ```
 
 ## Create dummy data using tinker
@@ -216,7 +229,7 @@ Route::get('/users', 'UsersController@index')->name('users.index');
 php artisan tinker
 
 Psy Shell v0.9.9 (PHP 7.2.22 — cli) by Justin Hileman
->>> factory('App\User', 100)->create()
+>>> User::factory(100)->create()
 ```
 
 ## Access Users DataTables
