@@ -1,8 +1,8 @@
 # Add Column
 
-You can add a custom column on your response by using `addColumn` api.
+You can add a custom column to your response by using the `addColumn` api.
 
-> {note} added columns are assumed to be computed columns and not part of the database. Thus, search/sort will be disabled on those columns. If you need them, use the `editColumn` api instead.
+> {note} added columns are assumed to be computed columns and not part of the database. Thus, search/sort will be disabled for those columns. If you need them, use the `editColumn` api instead.
 
 <a name="blade"></a>
 ## Add Column with Blade Syntax

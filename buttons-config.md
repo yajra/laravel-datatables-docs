@@ -12,8 +12,8 @@ Namespace configuration is used by the datatables command generator.
 ```
 
 ### DataTable Base Namespace/Directory
-This is the base namespace/directory to be created when a new DataTable was called.
-This directory is appended on default Laravel namespace.
+This is the base namespace/directory to be created when a new DataTable is called.
+This directory is appended to the default Laravel namespace.
 
 **Usage:**
 ```php artisan datatables:make User```
@@ -24,8 +24,8 @@ This directory is appended on default Laravel namespace.
 **Export filename:** ```users_(timestamp)```
 
 ### Model Option
-This is the base namespace/directory where your model's are located.
-This directory is appended on default Laravel namespace.
+This is the base namespace/directory where your models are located.
+This directory is appended to the default Laravel namespace.
 **Usage:** ```php artisan datatables:make Post --model```
 **Output:** ```App\DataTables\PostDataTable```
 **With Model:** ```App\Post``
@@ -33,7 +33,7 @@ This directory is appended on default Laravel namespace.
 
 <a name="pdf-generator"></a>
 ## PDF Generator
-Set the PDF generator to be used when converting your dataTable to pdf.
+Set the PDF generator to be used when converting your dataTable to PDF.
 
 Available generators are: `excel`, `snappy`
 

@@ -1,9 +1,9 @@
 # Custom Actions
 
-You can enable custom actions on your buttons, as follows:
+You can enable custom actions on your buttons as follows:
 
 Update `UsersDataTable` class and overload the `actions` property. Here we are
-disabling the `csv` and `pdf` action (so they cannot be fired by hijacking the
+disabling the `csv` and `pdf` actions (so they cannot be fired by hijacking their
 request) and enabling a `myCustomAction`.
 
 
