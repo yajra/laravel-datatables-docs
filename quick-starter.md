@@ -1,26 +1,26 @@
-# DataTables Quick Starter
+## DataTables Quick Starter
 
-## Create a new Laravel project
+### Create a new Laravel project
 
 ```
 laravel new datatables
 cd datatables
 ```
 
-## Setup Laravel UI
+### Setup Laravel UI
 
 ```shell
 composer require laravel/ui --dev
 php artisan ui bootstrap --auth
 ```
 
-## Install Laravel DataTables
+### Install Laravel DataTables
 
 ```shell
 composer require yajra/laravel-datatables:^9.0
 ```
 
-## Setup database and ENV configuration
+### Setup database and ENV configuration
 
 Create a new database and update `.env` file and set the database credentials.
 
@@ -37,7 +37,7 @@ DB_DATABASE=/absolute/path/to/database/database.sqlite
 php artisan migrate
 ```
 
-## Install Laravel DataTables Vite Assets
+### Install Laravel DataTables Vite Assets
 
 ```shell
 npm i laravel-datatables-vite --save-dev
@@ -49,7 +49,7 @@ This will install the following packages:
 2. DataTables with Buttons and Select plugins for Bootstrap 5
 3. Laravel DataTables custom scripts
 
-## Register the package js and css
+### Register the package js and css
 
 Edit `resources/js/app.js` and add the following:
 
@@ -77,13 +77,13 @@ Edit `resources/sass/app.scss` and add the following:
 @import 'datatables.net-select-bs5/css/select.bootstrap5.css';
 ```
 
-## Compile the assets
+### Compile the assets
 
 ```
 npm run dev
 ```
 
-## Create and update UsersDataTable
+### Create and update UsersDataTable
 
 Create a new DataTable class:
 
@@ -153,7 +153,7 @@ class UsersDataTable extends DataTable
 }
 ```
 
-## Create and update the users controller
+### Create and update the users controller
 
 Create a new controller and add the following:
 
@@ -175,7 +175,7 @@ class UsersController extends Controller
 }
 ```
 
-## Update the default app layout
+### Update the default app layout
 
 Add `@stack('scripts')` before the body end tag of `resources/views/layouts/app.blade.php`
 
@@ -190,7 +190,7 @@ Add `@stack('scripts')` before the body end tag of `resources/views/layouts/app.
 </html>
 ```
 
-## Create users index file
+### Create users index file
 
 Create new file: `resources/views/users/index.blade.php`.
 
@@ -213,7 +213,7 @@ Create new file: `resources/views/users/index.blade.php`.
 @endpush
 ```
 
-## Register users route
+### Register users route
 
 Update `routes/web.php`.
 
@@ -223,7 +223,7 @@ use App\Http\Controllers\UsersController;
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 ```
 
-## Create dummy data using tinker
+### Create dummy data using tinker
 
 ```php
 php artisan tinker
@@ -232,7 +232,7 @@ Psy Shell v0.9.9 (PHP 7.2.22 — cli) by Justin Hileman
 >>> User::factory(100)->create()
 ```
 
-## Access Users DataTables
+### Access Users DataTables
 
 http://datatables.test/users
 
