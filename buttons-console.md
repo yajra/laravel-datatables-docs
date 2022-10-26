@@ -18,7 +18,7 @@ In this example, we will create a DataTable service class.
 php artisan datatables:make Posts
 ```
 
-This will create an `PostsDataTable` class on `app\DataTables` directory.
+This will create a `PostsDataTable` class in the `app\DataTables` directory.
 
 ```php
 namespace App\DataTables;
@@ -101,7 +101,7 @@ In this example, we will pass a `--model` option to set the model to be used by 
 php artisan datatables:make Posts --model
 ```
 
-This will generate a `App\DataTables\PostsDataTable` class that uses `App\Post` as the base model for our query. 
+This will generate an `App\DataTables\PostsDataTable` class that uses `App\Post` as the base model for our query. 
 The exported filename will also be set to `posts_(timestamp)`.
 
 ```php
@@ -194,12 +194,12 @@ This will allow to use a non-standard namespace if front-end and back-end models
 
 ### Action Option
 
-In this example, we will pass a `--action` option to set a custom path for the action column view.
+In this example, we will use the `--action` option to set a custom path for the action column view.
 
 ```
 php artisan datatables:make Posts --action="client.action"
 ```
-If not provided, a default path will be used. It will needs to be changed thereafter.
+If no path is provided, a default path will be used. It will need to be changed thereafter.
 
 ### Columns Option
 
@@ -208,13 +208,13 @@ In this example, we will pass a `--columns` option to set the columns to be used
 ```
 php artisan datatables:make Posts --columns="id,title,author"
 ```
-If not provided, a default set of columns will be used. It will needs to be manually changed thereafter.
+If not provided, a default set of columns will be used. It will need to be manually changed thereafter.
 
 
 
 ## Creating a DataTable Scope service class
 
-DataTable scope is class that we can use to limit our database search results based on the defined query scopes.
+DataTable scope is a class that we can use to limit our database search results based on the defined query scopes.
 
 ```
 php artisan datatables:scope ActiveUser
