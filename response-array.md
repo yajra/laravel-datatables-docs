@@ -1,6 +1,6 @@
 # Array Response
 
-Array response is the default response of DataTables.
+The default response of the package is an array of objects. If you prefer to return an array response, use `make(false)`.
 
 ```php
 use DataTables;
@@ -10,7 +10,7 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->addColumn('intro', 'Hi {{$name}}!')
-				->make();
+				->make(false);
 });
 ```
 
