@@ -1,7 +1,7 @@
 # Collection Data Source
 
 You may use Laravel's Collection as data source for your dataTables.
-You can look at `Yajra\DataTables\CollectionDataTable` class which handles the conversion of your Collection into a readbale DataTable API response.
+You can look at `Yajra\DataTables\CollectionDataTable` class which handles the conversion of your Collection into a readable DataTable API response.
 
 <a name="factory"></a>
 ## Collection via Factory
