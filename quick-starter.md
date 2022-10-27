@@ -233,6 +233,6 @@ php artisan serve
 
 Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000]([http://localhost:8000).
 
-We can now visit our [`/users`](http://localhost:8000/users) via route and see our users table.
+We can now visit our [`/users`](http://localhost:8000/users) route and see our users table.
 
 <img src="/img/screenshots/quick-starter.png" alt="Laravel DataTables Users" class="rounded-lg border dark:border-none shadow-lg" />
