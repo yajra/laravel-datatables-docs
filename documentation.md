@@ -77,7 +77,7 @@
 
 ### PLUGINS
 
-- ## HTML Builder
+- ## Html
     - [Installation](/docs/{{package}}/{{version}}/html-installation)
     - [Builder](/docs/{{package}}/{{version}}/html-builder)
     - [Table](/docs/{{package}}/{{version}}/html-builder-table)
