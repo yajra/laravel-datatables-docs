@@ -5,14 +5,13 @@
 	- [Security Issues](/docs/{{package}}/{{version}}/security)
 
 - ## Getting Started
-	- [Introduction](/docs/{{package}}/{{version}}/introduction)
-	- [Installation](/docs/{{package}}/{{version}}/installation)
+    - [Introduction](/docs/{{package}}/{{version}}/introduction)
+    - [Installation](/docs/{{package}}/{{version}}/installation)
     - [Demo Application](https://datatables.yajrabox.com/)
     - [Community Links](/docs/{{package}}/{{version}}/community-links)
 
 - ## Tutorials
-	- [Quick Starter](/docs/{{package}}/{{version}}/quick-starter)
-	- [Service Implementation](https://datatables.yajrabox.com/service)
+    - [Quick Starter](/docs/{{package}}/{{version}}/quick-starter)
 
 - ## Configuration
     - [General Settings](/docs/{{package}}/{{version}}/general-settings)
