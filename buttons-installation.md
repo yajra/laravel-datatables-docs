@@ -14,7 +14,7 @@ composer require yajra/laravel-datatables-buttons:^9.0
 <a name="configuratio"></a>
 ## Configuration
 
-> This step is optional if you are using Laravel 5.5
+> This step is optional if you are using Laravel 5.5+
 
 Open the file ```config/app.php``` and then add following service provider.
 
