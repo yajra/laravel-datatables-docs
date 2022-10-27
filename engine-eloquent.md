@@ -1,7 +1,7 @@
 # Eloquent Data Source
 
 You may use Laravel's Eloquent Model as data source for your dataTables.
-You can look at `Yajra\DataTables\EloquentDataTable` class which handles the conversion of your Eloquent Model into a readbale DataTable API response.
+You can look at `Yajra\DataTables\EloquentDataTable` class which handles the conversion of your Eloquent Model into a readable DataTable API response.
 
 <a name="factory"></a>
 ## Eloquent via Factory
