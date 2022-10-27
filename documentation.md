@@ -7,7 +7,6 @@
 - ## Getting Started
     - [Introduction](/docs/{{package}}/{{version}}/introduction)
     - [Installation](/docs/{{package}}/{{version}}/installation)
-    - [Demo Application](https://datatables.yajrabox.com/)
     - [Community Links](/docs/{{package}}/{{version}}/community-links)
 
 - ## Tutorials
