@@ -5,11 +5,13 @@ allow the user to quickly filter the datatable after predefined filters.
 
 > {note} To use datatables you need to make sure that the npm packages `datatables.net-select-bs4` and `datatables.net-searchpanes-bs4` are installed and added to your `app.js`/`app.css` files.
 
+<a name="frontend"></a>
 ## Adding SearchPanes to the frontend
 
 To be able to see SearchPanes you need to either add them fixed in the dom (displayed at all time) or add a button which
 opens them as popup.
 
+<a name="dom"></a>
 ### Adding SearchPanes fixed in the dom 
 
 SearchPanes can be added to a table via the dom string, in it, they are marked with a `P` if you for example
@@ -17,6 +19,7 @@ are using `Bfrtip` as dom you can use `PBfrtip` to display the SearchPanes at th
 to display them at the very bottom.
 
 Setting the dom String with the `\Yajra\DataTables\Html\Builder`:
+
 ```php
 public function html() : \Yajra\DataTables\Html\Builder
 {
@@ -34,6 +37,7 @@ public function html() : \Yajra\DataTables\Html\Builder
 }
 ```
 
+<a name="button"></a>
 ### Adding SearchPanes with a button
 
 To add a button which opens the SearchPanes you need to make one extending `searchPanes`:
@@ -58,6 +62,7 @@ public function html() : \Yajra\DataTables\Html\Builder
 }
 ```
 
+<a name="backend"></a>
 ## Adding SearchPanes to the backend
 
 The SearchPanes can be filled in the datatables declaration via the `searchPane()` method. The method takes the column
