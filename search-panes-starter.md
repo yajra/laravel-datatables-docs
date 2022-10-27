@@ -5,7 +5,6 @@ allow the user to quickly filter the datatable after predefined filters.
 
 > {note} To use datatables you need to make sure that the npm packages `datatables.net-select-bs4` and `datatables.net-searchpanes-bs4` are installed and added to your `app.js`/`app.css` files.
 
-<a name="frontend"></a>
 ## Adding SearchPanes to the frontend
 
 To be able to see SearchPanes you need to either add them fixed in the dom (displayed at all time) or add a button which
