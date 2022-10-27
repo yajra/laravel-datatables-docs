@@ -20,13 +20,10 @@ Official documentation of DataTables is available at [datatables.net](https://da
 <a name="laravel-datatables"></a>
 ## Laravel DataTables
 
-[![Join the chat at https://gitter.im/yajra/laravel-datatables](https://badges.gitter.im/yajra/laravel-datatables.svg)](https://gitter.im/yajra/laravel-datatables?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License](https://poser.pugx.org/yajra/laravel-datatables-oracle/license)](https://packagist.org/packages/yajra/laravel-datatables-oracle)
 
-[![Laravel 4.2|5.x](https://img.shields.io/badge/Laravel-4.2|5.x-orange.svg)](http://laravel.com)
 [![Latest Stable Version](https://poser.pugx.org/yajra/laravel-datatables-oracle/v/stable)](https://packagist.org/packages/yajra/laravel-datatables-oracle)
-[![Build Status](https://travis-ci.org/yajra/laravel-datatables.svg?branch=master)](https://travis-ci.org/yajra/laravel-datatables)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yajra/{{package}}/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yajra/{{package}}/?branch=master)
+
 [![Total Downloads](https://poser.pugx.org/yajra/laravel-datatables-oracle/downloads)](https://packagist.org/packages/yajra/laravel-datatables-oracle)
 
 Laravel DataTables is a package that handles the [server-side](https://www.datatables.net/manual/server-side) works of [DataTables](http://datatables.net) using [Laravel](http://laravel.com).
