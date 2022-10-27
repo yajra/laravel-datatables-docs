@@ -39,24 +39,25 @@ Route::get('users', function(DataTables $dataTable) {
 ## Html Builder Example
 
 ```php filename=routes/web.php
-use DataTables;
+use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
 use Yajra\DataTables\Html\Column;
+use App\Models\User;
 
 Route::get('users', function(Builder $builder) {
-	if (request()->ajax()) {
+    if (request()->ajax()) {
         return DataTables::of(User::query())->toJson();
     }
 
-	$html = $builder->columns([
-	        	Column::make('id),
-	        	Column::make('name),
-	        	Column::make('email),
-	        	Column::make('created_at),
-	        	Column::make('updated_at),
-	        ]);
+    $html = $builder->columns([
+        Column::make('id'),
+        Column::make('name'),
+        Column::make('email'),
+        Column::make('created_at'),
+        Column::make('updated_at'),
+    ]);
 
-	return view('users.index', compact('html'));
+    return view('users.index', compact('html'));
 });
 ```
 
