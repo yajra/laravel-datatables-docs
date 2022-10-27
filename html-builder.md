@@ -11,6 +11,7 @@ You can use the `Builder` class by using Dependency Injection.
 use Yajra\DataTables\Html\Builder;
 
 Route::get('users', function(Builder $builder) {
+	//
 });
 ```
 
@@ -37,9 +38,10 @@ Route::get('users', function(DataTables $dataTable) {
 <a name="example"></a>
 ## Html Builder Example
 
-```php
+```php filename=routes/web.php
 use DataTables;
 use Yajra\DataTables\Html\Builder;
+use Yajra\DataTables\Html\Column;
 
 Route::get('users', function(Builder $builder) {
 	if (request()->ajax()) {
@@ -47,27 +49,26 @@ Route::get('users', function(Builder $builder) {
     }
 
 	$html = $builder->columns([
-	        	['data' => 'id', 'name' => 'id', 'title' => 'Id'],
-		        ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
-		        ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
-		        ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Created At'],
-		        ['data' => 'updated_at', 'name' => 'updated_at', 'title' => 'Updated At'],
+	        	Column::make('id),
+	        	Column::make('name),
+	        	Column::make('email),
+	        	Column::make('created_at),
+	        	Column::make('updated_at),
 	        ]);
 
 	return view('users.index', compact('html'));
 });
 ```
 
-On your `resources/views/users/index.blade.php`.
 
-```php
+```php filename=resources/views/users/index.blade.php
 @extends('app')
 
 @section('contents')
-    {!! $html->table() !!}
+    {{ $html->table() }}
 @endsection
 
 @push('scripts')
-    {!! $html->scripts() !!}
+    {{ $html->scripts() }}
 @endpush
 ```
