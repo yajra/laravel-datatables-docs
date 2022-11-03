@@ -1,56 +1,56 @@
-- Prologue
+- ## Prologue
 	- [Release Notes](/docs/{{package}}/{{version}}/releases)
 	- [Upgrade Guide](/docs/{{package}}/{{version}}/upgrade)
 	- [Contribution Guide](/docs/{{package}}/{{version}}/contributing)
     - [Security Issues](/docs/{{package}}/{{version}}/security)
 	- [API Documentation](http://yajra.github.io/{{package}}/api/{{version}})
-- Setup
+- ## Setup
 	- [Installation](/docs/{{package}}/{{version}}/installation)
-- Getting Started
+- ## Getting Started
     - [Introduction](/docs/{{package}}/{{version}}/introduction)
     - [Demo Application](https://datatables.yajrabox.com/)
-- Tutorials
+- ## Tutorials
 	- [Quick Starter](https://datatables.yajrabox.com/starter)
 	- [Service Implementation](https://datatables.yajrabox.com/service)
-- Configuration
+- ## Configuration
     - [General Settings](/docs/{{package}}/{{version}}/general-settings)
     - [Debugging Mode](/docs/{{package}}/{{version}}/debugger)
     - [Error Handler](/docs/{{package}}/{{version}}/error-handler)
-- Engines & Data Sources
+- ## Engines & Data Sources
 	- [Eloquent](/docs/{{package}}/{{version}}/engine-eloquent)
 	- [Query Builder](/docs/{{package}}/{{version}}/engine-query)
 	- [Collection](/docs/{{package}}/{{version}}/engine-collection)
-- Response
+- ## Response
 	- [Array Response](/docs/{{package}}/{{version}}/response-array)
 	- [Object Response](/docs/{{package}}/{{version}}/response-object)
 	- [Fractal Transformer](/docs/{{package}}/{{version}}/response-fractal)
 	- [Fractal Serializer](/docs/{{package}}/{{version}}/response-fractal-serializer)
 	- [Additional Data Response](/docs/{{package}}/{{version}}/response-with)
-- Column Editing
+- ## Column Editing
 	- [Add Column](/docs/{{package}}/{{version}}/add-column)
 	- [Edit Column](/docs/{{package}}/{{version}}/edit-column)
 	- [Remove Column](/docs/{{package}}/{{version}}/remove-column)
 	- [Index Column](/docs/{{package}}/{{version}}/index-column)
 	- [Raw Columns](/docs/{{package}}/{{version}}/raw-columns)
-- Row Editing
+- ## Row Editing
 	- [Row Options](/docs/{{package}}/{{version}}/row-options)
 	- [Row ID](/docs/{{package}}/{{version}}/row-options#row-id)
 	- [Row Class](/docs/{{package}}/{{version}}/row-options#row-class)
 	- [Row Data](/docs/{{package}}/{{version}}/row-options#row-data)
 	- [Row Attributes](/docs/{{package}}/{{version}}/row-options#row-attributes)
-- Searching
+- ## Searching
 	- [Manual Search](/docs/{{package}}/{{version}}/manual-search)
 	- [Filter Column](/docs/{{package}}/{{version}}/filter-column)
 	- [Query Builder Extension](/docs/{{package}}/{{version}}/query-builder)
 	- [Regex Search](/docs/{{package}}/{{version}}/regex)
 	- [Smart Search](/docs/{{package}}/{{version}}/smart-search)
 	- [Relationships](/docs/{{package}}/{{version}}/relationships)
-- Sorting/Ordering
+- ## Sorting/Ordering
 	- [Manual Order](/docs/{{package}}/{{version}}/manual-order)
 	- [Order Column](/docs/{{package}}/{{version}}/order-column)
 	- [Order Columns](/docs/{{package}}/{{version}}/order-columns)
 	- [Order By Nulls Last](/docs/{{package}}/{{version}}/order-by-nulls-last)
-- Utilities
+- ## Utilities
 	- [XSS filtering](/docs/{{package}}/{{version}}/xss)
 	- [Blacklist Columns](/docs/{{package}}/{{version}}/blacklist)
 	- [Whitelist Columns](/docs/{{package}}/{{version}}/whitelist)
@@ -61,7 +61,7 @@
 
 ### PLUGINS
 
-- HTML Builder
+- ## HTML Builder
 	- [Installation](/docs/{{package}}/{{version}}/html-installation)
 	- [Builder](/docs/{{package}}/{{version}}/html-builder)
 	- [Table](/docs/{{package}}/{{version}}/html-builder-table)
@@ -77,7 +77,7 @@
 	- [Add Index](/docs/{{package}}/{{version}}/html-builder-index)
 	- [Github](https://github.com/yajra/laravel-datatables-html)
 
-- Buttons
+- ## Buttons
 	- [Installation](/docs/{{package}}/{{version}}/buttons-installation)
 	- [Configuration](/docs/{{package}}/{{version}}/buttons-config)
 	- [Quick Starter](/docs/{{package}}/{{version}}/buttons-starter)
