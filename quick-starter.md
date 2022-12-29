@@ -170,7 +170,7 @@ class UsersController extends Controller
 {
     public function index(UsersDataTable $dataTable)
     {
-        return $dataTable->render('users.index');
+        return $dataTable->render('users.index', ['attributes' => ['type' => 'module']]);
     }
 }
 ```
@@ -209,7 +209,7 @@ Create new file: `resources/views/users/index.blade.php`.
 @endsection
 
 @push('scripts')
-    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+    {{ $dataTable->scripts('attributes') }}
 @endpush
 ```
 
