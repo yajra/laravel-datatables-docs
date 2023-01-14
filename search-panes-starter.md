@@ -1,4 +1,4 @@
-# SearchPanes Extension
+# Getting Started
 
 [SearchPanes](https://datatables.net/extensions/searchpanes/) ([example](https://datatables.net/extensions/searchpanes/examples/initialisation/simple.html))
 allow the user to quickly filter the datatable after predefined filters.
