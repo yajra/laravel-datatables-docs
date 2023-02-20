@@ -1,4 +1,4 @@
-# Creating a Laravel Full CRUD with DataTables Editor.
+# Laravel 10 CRUD with DataTables Editor.
 
 Before we begin, please be reminded that the Editor library that we are going to use here requires a paid license.
 See [DataTables Editor](https://editor.datatables.net/purchase/index) for details.
@@ -91,9 +91,7 @@ class UsersDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        return (new EloquentDataTable($query))
-            ->addColumn('action', 'users.action')
-            ->setRowId('id');
+        return (new EloquentDataTable($query))->setRowId('id');
     }
 
     /**
