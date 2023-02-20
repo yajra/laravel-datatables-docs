@@ -19,7 +19,7 @@ cd datatables
 composer require laravel/ui --dev
 php artisan ui bootstrap --auth
 
-composer require yajra/laravel-datatables:^9.0
+composer require yajra/laravel-datatables
 ```
 
 For simplicity, you may use SQLite to store your application's data. To instruct Laravel to use SQLite instead of MySQL, update your new application's `.env` file and remove all of the `DB_*` environment variables except for the `DB_CONNECTION` variable, which should be set to `sqlite`:
