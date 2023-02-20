@@ -5,11 +5,13 @@ See [DataTables Editor](https://editor.datatables.net/purchase/index) for detail
 
 ## Pre-requisites
 
-This tutorial requires https://yajrabox.com/docs/laravel-datatables/master/quick-starter.
+This tutorial requires https://yajrabox.com/docs/laravel-datatables/10.0/quick-starter.
 
 ## Install DataTables Editor assets.
 
-    yarn add datatables.net-editor datatables.net-editor-bs4 datatables.net-select-bs4
+```sh
+npm i datatables.net-editor datatables.net-editor-bs5
+```
 
 ## Editor License
 
@@ -17,107 +19,158 @@ Copy and rename your `Editor.XX.zip` to `Editor.zip` and move it to project fold
 
 ## Register postinstall script to package.json
 
+```json
     "scripts": {
-        "postinstall": "node ./node_modules/datatables.net-editor/install.js ./Editor.zip",
-        "dev": "npm run development",
-        .....
+        "dev": "vite",
+        "build": "vite build",
+        "postinstall": "node node_modules/datatables.net-editor/install.js ./Editor.zip"
     },
+```
 
-## Register editor script on `resources/js/bootstrap.js`
+## Register editor script on `resources/js/app.js`
 
-    try {
-        window.Popper = require('popper.js').default;
-        window.$ = window.jQuery = require('jquery');
+```js
+import './bootstrap';
+import 'laravel-datatables-vite';
 
-        require('bootstrap');
-        require('datatables.net-bs4');
-        require('datatables.net-buttons-bs4');
-        require('datatables.net-select-bs4');
-        require('datatables.net-editor-bs4');
-    } catch (e) {}
-
+import "datatables.net-editor";
+import Editor from "datatables.net-editor-bs5";
+Editor(window, $);
+```
 
 ## Add editor styles on `resources/sass/app.scss`.
 
-    @import "~datatables.net-select-bs4/css/select.bootstrap4.css";
-    @import "~datatables.net-editor-bs4/css/editor.bootstrap4.css";
+```css
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// DataTables
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "datatables.net-bs5/css/dataTables.bootstrap5.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.css";
+@import "datatables.net-editor-bs5/css/editor.bootstrap5.css";
+@import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+```
 
 ## Recompile assets.
 
-    yarn
-    yarn watch / dev / prod
-
-
-## Update UsersDataTable and register the Editor buttons.
-
-> Note: CREATE button is in conflict with `buttons.server-side.js`. You need to remove the create button or rename it to something else like `add` button.
-
-    DataTable.ext.buttons.add = {
-        className: 'buttons-add',
-
-        text: function (dt) {
-            return '<i class="fa fa-plus"></i> ' + dt.i18n('buttons.add', 'Create');
-        },
-
-        action: function (e, dt, button, config) {
-            window.location = window.location.href.replace(/\/+$/, "") + '/create';
-        }
-    };
+```sh
+npm run dev
+```
 
 ### UsersDataTable.php
 
 Create a new editor instance and add some fields for name and email.
 
 ```php
+namespace App\DataTables;
+
+use App\Models\User;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Services\DataTable;
 
-...
+class UsersDataTable extends DataTable
+{
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @param  QueryBuilder  $query  Results from query() method.
+     * @return \Yajra\DataTables\EloquentDataTable
      */
-    public function dataTable($query)
+    public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        return datatables()
-            ->eloquent($query)
-            ->setRowId('id') // Set the RowID
-            ...
+        return (new EloquentDataTable($query))
+            ->addColumn('action', 'users.action')
+            ->setRowId('id');
     }
 
-    public function html()
+    /**
+     * Get query source of dataTable.
+     *
+     * @param  \App\Models\User  $model
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function query(User $model): QueryBuilder
+    {
+        return $model->newQuery();
+    }
+
+    /**
+     * Optional method if you want to use html builder.
+     *
+     * @return \Yajra\DataTables\Html\Builder
+     */
+    public function html(): HtmlBuilder
     {
         return $this->builder()
                     ->setTableId('users-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
                     ->orderBy(1)
-                    ->buttons(
+                    ->selectStyleSingle()
+                    ->editors([
+                        Editor::make()
+                              ->fields([
+                                  Fields\Text::make('name'),
+                                  Fields\Text::make('email'),
+                              ]),
+                    ])
+                    ->buttons([
                         Button::make('create')->editor('editor'),
                         Button::make('edit')->editor('editor'),
                         Button::make('remove')->editor('editor'),
-                        Button::make('export'),
+                        Button::make('excel'),
+                        Button::make('csv'),
+                        Button::make('pdf'),
                         Button::make('print'),
                         Button::make('reset'),
-                        Button::make('reload')
-                    )
-                    ->editor(
-                        Editor::make()
-                            ->fields([
-                                Fields\Text::make('name'),
-                                Fields\Text::make('email'),
-                                Fields\Password::make('password'),
-                            ])
-                    );
+                        Button::make('reload'),
+                    ]);
     }
+
+    /**
+     * Get the dataTable columns definition.
+     *
+     * @return array
+     */
+    public function getColumns(): array
+    {
+        return [
+            Column::make('id'),
+            Column::make('name'),
+            Column::make('email'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
+        ];
+    }
+
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
+    protected function filename(): string
+    {
+        return 'Users_'.date('YmdHis');
+    }
+}
 ```
 
 ## Create Editor Class to handle CRUD actions.
 
-```
+```sh
 php artisan datatables:editor Users
 ```
 
@@ -125,13 +178,13 @@ php artisan datatables:editor Users
 
 Edit `routes/web.php` and register the store user route.
 
-```
+```php
 Route::post('/users', 'UsersController@store')->name('users.store');
 ```
 
 ## Update users controller
 
-```
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
