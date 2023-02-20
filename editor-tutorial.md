@@ -179,7 +179,8 @@ php artisan datatables:editor Users
 Edit `routes/web.php` and register the store user route.
 
 ```php
-Route::post('/users', 'UsersController@store')->name('users.store');
+Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
+Route::post('/users', [App\Http\Controllers\UsersController::class, 'store'])->name('users.store');
 ```
 
 ## Update users controller
