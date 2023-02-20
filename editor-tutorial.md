@@ -7,12 +7,6 @@ See [DataTables Editor](https://editor.datatables.net/purchase/index) for detail
 
 This tutorial requires https://yajrabox.com/docs/laravel-datatables/10.0/quick-starter.
 
-## Install DataTables Editor assets.
-
-```sh
-npm i datatables.net-editor datatables.net-editor-bs5
-```
-
 ## Editor License
 
 Copy and rename your `Editor.XX.zip` to `Editor.zip` and move it to project folder.
@@ -25,6 +19,12 @@ Copy and rename your `Editor.XX.zip` to `Editor.zip` and move it to project fold
         "build": "vite build",
         "postinstall": "node node_modules/datatables.net-editor/install.js ./Editor.zip"
     },
+```
+
+## Install DataTables Editor assets.
+
+```sh
+npm i datatables.net-editor datatables.net-editor-bs5
 ```
 
 ## Register editor script on `resources/js/app.js`
