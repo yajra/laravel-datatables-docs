@@ -21,19 +21,19 @@ Laravel DataTables can be installed with [Composer](http://getcomposer.org/doc/0
 
 Run the following command in your project to get the latest version of the package:
 
-#### Laravel 9
-
-```bash
-composer require yajra/laravel-datatables-oracle:"^9.0"
-```
-
-#### Laravel 10
-
 ```bash
 composer require yajra/laravel-datatables-oracle:"^10.0"
 ```
 
 If you are using most of the DataTables plugins like Buttons & Html, you can alternatively use the all-in-one installer package.
+
+#### Laravel 9
+
+```bash
+composer require yajra/laravel-datatables:"^9.0"
+```
+
+#### Laravel 10
 
 ```bash
 composer require yajra/laravel-datatables:^10.0
