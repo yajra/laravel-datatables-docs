@@ -196,6 +196,34 @@ use App\Http\Controllers\UsersController;
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 ```
 
+### Use ViteJs / script type defaults to module
+
+You can also set DataTable to use vitejs by default by registering `Builder::useVite()` inside the `AppServiceProvider`.
+
+```php
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Yajra\DataTables\Html\Builder;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        Builder::useVite();
+    }
+}
+```
+
+Upon registering, you can now use scripts and without the need to set the type to module.
+
+```php
+@push('scripts')
+    {{ $dataTable->scripts() }}
+@endpush
+```
+
+
 <a name="update-default-layout"></a>
 ## <b>05.</b> Update the default app layout
 
