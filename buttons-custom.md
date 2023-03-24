@@ -15,15 +15,17 @@ use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
-    protected $actions = ['print', 'excel', 'myCustomAction'];
+    protected array $actions = ['print', 'excel', 'myCustomAction'];
 
     public function html()
     {
         return $this->builder()
                     ->columns($this->getColumns())
-                    ->parameters([
-                        'dom'          => 'Bfrtip',
-                        'buttons'      => ['print', 'excel', 'myCustomAction'],
+                    ->dom('Bfrtip')
+                    ->buttons([
+                        'print',
+                        'excel',
+                        'myCustomAction',
                     ]);
     }
 
