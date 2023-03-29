@@ -23,72 +23,84 @@ This will create a `PostsDataTable` class in the `app\DataTables` directory.
 ```php
 namespace App\DataTables;
 
-use App\User;
+use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class PostsDataTable extends DataTable
 {
     /**
-     * Build DataTable class.
+     * Build the DataTable class.
      *
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @param QueryBuilder $query Results from query() method.
      */
-    public function dataTable()
+    public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        return $this->datatables
-            ->eloquent($this->query())
-            ->addColumn('action', 'path.to.action.view');
+        return (new EloquentDataTable($query))
+            ->addColumn('action', 'posts.action')
+            ->setRowId('id');
     }
 
     /**
-     * Get the query object to be processed by dataTables.
-     *
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
+     * Get the query source of dataTable.
      */
-    public function query()
+    public function query(Post $model): QueryBuilder
     {
-        $query = User::query();
-
-        return $this->applyScopes($query);
+        return $model->newQuery();
     }
 
     /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
+     * Optional method if you want to use the html builder.
      */
-    public function html()
+    public function html(): HtmlBuilder
     {
         return $this->builder()
+                    ->setTableId('posts-table')
                     ->columns($this->getColumns())
-                    ->ajax('')
-                    ->addAction(['width' => '80px'])
-                    ->parameters($this->getBuilderParameters());
+                    ->minifiedAjax()
+                    //->dom('Bfrtip')
+                    ->orderBy(1)
+                    ->selectStyleSingle()
+                    ->buttons([
+                        Button::make('excel'),
+                        Button::make('csv'),
+                        Button::make('pdf'),
+                        Button::make('print'),
+                        Button::make('reset'),
+                        Button::make('reload')
+                    ]);
     }
 
     /**
-     * Get columns.
-     *
-     * @return array
+     * Get the dataTable columns definition.
      */
-    protected function getColumns()
+    public function getColumns(): array
     {
         return [
-            'id',
-            // add your columns
-            'created_at',
-            'updated_at',
+            Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+            Column::make('id'),
+            Column::make('add your columns'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
         ];
     }
 
     /**
-     * Get filename for export.
-     *
-     * @return string
+     * Get the filename for export.
      */
-    protected function filename()
+    protected function filename(): string
     {
-        return 'posts_' . time();
+        return 'Posts_' . date('YmdHis');
     }
 }
 ```
@@ -103,81 +115,6 @@ php artisan datatables:make Posts --model
 
 This will generate an `App\DataTables\PostsDataTable` class that uses `App\Post` as the base model for our query. 
 The exported filename will also be set to `posts_(timestamp)`.
-
-```php
-<?php
-
-namespace App\DataTables;
-
-use App\Post;
-use Yajra\DataTables\Services\DataTable;
-
-class PostsDataTable extends DataTable
-{
-    /**
-     * Build DataTable class.
-     *
-     * @return \Yajra\DataTables\DataTableAbstract
-     */
-    public function dataTable()
-    {
-        return $this->datatables
-            ->eloquent($this->query())
-            ->addColumn('action', 'path.to.action.view');
-    }
-
-    /**
-     * Get the query object to be processed by dataTables.
-     *
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
-     */
-    public function query()
-    {
-        $query = Post::query();
-
-        return $this->applyScopes($query);
-    }
-
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->ajax('')
-                    ->addAction(['width' => '80px'])
-                    ->parameters($this->getBuilderParameters());
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            'id',
-            // add your columns
-            'created_at',
-            'updated_at',
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'posts_' . time();
-    }
-}
-```
 
 
 ### Model Namespace Option
