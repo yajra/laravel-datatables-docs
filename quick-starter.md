@@ -52,7 +52,7 @@ Edit `resources/scss/app.scss` and add the following:
     @import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
     @import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
     @import '~datatables.net-select-bs4/css/select.dataTables.css';
-    @import '~datatables.net-searchpanes-dt/css/searchPanes.dataTables.css';
+    @import '~datatables.net-searchpanes-bs4/css/searchPanes.bootstrap4.css';
 
 ## Compile assets
 
