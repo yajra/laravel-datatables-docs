@@ -30,7 +30,7 @@ $column = Column::make('id')
         ->title('Id')
         ->searchable(true)
         ->orderable(true)
-       ->render('\'<div class="editor-attiva" >\' + (full[\'deleted_at\'] == null ? \'<i class="fas fa-check-circle client-is-active"></i>Attivo\' : \'<i class="fas fa-times-circle"></i>Disattivo\') + \'</div>\';\'\'' )
+        ->render('\'<div class="editor-active" >\' + (full[\'deleted_at\'] == null ? \'<i class="fas fa-check-circle client-is-active"></i>Active\' : \'<i class="fas fa-times-circle"></i>Inactive\') + \'</div>\';\'\'' )
         ->footer('Id')
         ->exportable(true)
         ->printable(true);
