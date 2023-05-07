@@ -47,6 +47,10 @@ Orderable attribute will toggle the `ordering` ability for the defined column. D
 ### Render (Optional)
 Render attribute is a `js` script string that you can use to modify the way the column is being rendered via `javascript`.
 
+### Export Render (Optional)
+Export Render attribute is a `php callback function` that you can use to modify the way the column is being rendered via `print` or `export (CSV/Excel/PDF)`.
+
+
 ### Footer (Optional)
 Footer attribute will be as your `tables` column's `footer` content `<tfoot></tfoot>`.
 
