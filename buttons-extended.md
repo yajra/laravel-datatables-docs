@@ -4,8 +4,8 @@ We can now extend and reuse our DataTable class inside our controller by using `
 
 > IMPORTANT: Extended DataTable is only applicable on `^1.1` and above.
 
-
 ## Upgrading from v1.0 to v1.1
+
 - Upgrade to `laravel-datatables-buttons:^1.1`
 - Rename `ajax()` method to `dataTable()`
 - Remove `->toJson()` from the method chain.
@@ -33,6 +33,7 @@ TO
 ```
 
 ## Quick Example:
+
 ```php
 Route::get('datatable', function(RolesDataTable $dataTable){
    return $dataTable->before(function (\Yajra\DataTables\DataTableAbstract $dataTable) {
@@ -52,5 +53,21 @@ Route::get('datatable', function(RolesDataTable $dataTable){
     'key3' => 'value3',
    ])
    ->render('path.to.view');
+});
+```
+
+## Passing data to DataTable class
+
+You can pass data from Controller to DataTable class using `with` api.
+
+```php
+Route::get('datatable', function(RolesDataTable $dataTable){
+   return $dataTable
+       ->with('key', 'value')
+       ->with([
+        'key2' => 'value2',
+        'key3' => 'value3',
+       ])
+       ->render('path.to.view');
 });
 ```
