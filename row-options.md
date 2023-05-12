@@ -49,7 +49,7 @@ Setting row class via `blade` string.
 <a name="row-data"></a>
 ## Row Data
 
-Setting row class via `closure`.
+Setting row data via `closure`.
 
 ```php
 ->setRowData([
@@ -62,7 +62,7 @@ Setting row class via `closure`.
 ])
 ```
 
-Setting row class via `blade` string.
+Setting row data via `blade` string.
 
 ```php
 ->setRowData([
@@ -74,7 +74,7 @@ Setting row class via `blade` string.
 <a name="row-attributes"></a>
 ## Row Attributes
 
-Setting row class via `closure`.
+Setting row attribute via `closure`.
 
 ```php
 ->setRowAttr([
@@ -84,7 +84,7 @@ Setting row class via `closure`.
 ])
 ```
 
-Setting row class via `blade` string.
+Setting row attribute via `blade` string.
 
 ```php
 ->setRowAttr([
