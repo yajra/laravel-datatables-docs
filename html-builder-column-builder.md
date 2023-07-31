@@ -31,7 +31,7 @@ $column = Column::make('id')
         ->searchable(true)
         ->orderable(true)
         ->render('\'<div class="editor-active" >\' + (full[\'deleted_at\'] == null ? \'<i class="fas fa-check-circle client-is-active"></i>Active\' : \'<i class="fas fa-times-circle"></i>Inactive\') + \'</div>\';\'\'' )
-        ->render(function($row,$data){return $data == 1 ? 'Active' : 'Inactive'})
+        ->exportRender(function($row,$data){return $data == 1 ? 'Active' : 'Inactive'})
         ->footer('Id')
         ->exportable(true)
         ->printable(true);
