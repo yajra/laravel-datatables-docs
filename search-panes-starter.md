@@ -106,10 +106,7 @@ public function dataTable($query) : Yajra\DataTables\DataTableAbstract
              * values are always given in an array even if just one is selected
              */
             function (\Illuminate\Database\Eloquent\Builder $query, array $values) {
-                return $query
-                    ->whereIn(
-                        'id',
-                        $values);
+                return $query->whereIn('id', $values);
             }
         );
 }
