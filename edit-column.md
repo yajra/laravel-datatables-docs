@@ -46,14 +46,46 @@ Route::get('user-data', function() {
 	$model = App\User::query();
 
 	return DataTables::eloquent($model)
-				->editColumn('name', 'users.datatables.into')
+				->editColumn('name', 'users.datatables.name')
 				->toJson();
+	
 });
 ```
 
 Then create your view on `resources/views/users/datatables/name.blade.php`.
+
 ```php
 Hi {{ $name }}!
+```
+
+<a name="view-with-data"></a>
+## Edit Column with View and Data
+
+> {tip} You can use view to render your added column by passing the view path as the second argument on `editColumn` api.
+
+```php
+use DataTables;
+
+Route::get('user-data', function() {
+	$model = App\User::query();
+
+	$externalData = 'External';
+
+	return DataTables::eloquent($model)
+				->editColumn('name', ['users.datatables.name', [
+					'externalData' => $externalData,
+				]])
+				->toJson();
+	
+});
+```
+
+Then create your view on `resources/views/users/datatables/name.blade.php`.
+
+```php
+Hi {{ $name }}!
+
+Here is some external data: {{ $externalData }}.
 ```
 
 
