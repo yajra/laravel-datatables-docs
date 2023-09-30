@@ -34,6 +34,19 @@ public function html() : \Yajra\DataTables\Html\Builder
             ],
         ])
         ->dom('PBfrtip');
+
+    // Displaying specific column indexes
+    return $this->builder()
+        ->searchPanes(SearchPane::make()->columns([1, 2]))
+        ->addColumnDef([
+            'targets' => '_all',
+            'searchPanes' => [
+                'show' => true,
+                'vieTotal' => false,
+                'viewCount' => false,
+            ],
+        ])
+        ->dom('PBfrtip');
     
     // Alternatively set the dom with parameters
     return $this->builder()
