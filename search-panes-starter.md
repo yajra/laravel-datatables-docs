@@ -25,11 +25,27 @@ public function html() : \Yajra\DataTables\Html\Builder
     // Setting the dom string directly
     return $this->builder()
         ->searchPanes(SearchPane::make())
+        ->addColumnDef([
+            'targets' => '_all',
+            'searchPanes' => [
+                'show' => true,
+                'vieTotal' => false,
+                'viewCount' => false,
+            ],
+        ])
         ->dom('PBfrtip');
     
     // Alternatively set the dom with parameters
     return $this->builder()
         ->searchPanes(SearchPane::make())
+        ->addColumnDef([
+            'targets' => '_all',
+            'searchPanes' => [
+                'show' => true,
+                'vieTotal' => false,
+                'viewCount' => false,
+            ],
+        ])
         ->parameters([
             'dom' => 'PBfrtip'
         ]);
@@ -47,6 +63,14 @@ public function html() : \Yajra\DataTables\Html\Builder
     // Adding via class
     return $this->builder()
         ->searchPanes(SearchPane::make())
+        ->addColumnDef([
+            'targets' => '_all',
+            'searchPanes' => [
+                'show' => true,
+                'vieTotal' => false,
+                'viewCount' => false,
+            ],
+        ])
         ->buttons([
             \Yajra\DataTables\Html\Button::make('searchPanes')
             // other buttons...
@@ -55,6 +79,14 @@ public function html() : \Yajra\DataTables\Html\Builder
     // Alternatively set the buttons with options
     return $this->builder()
         ->searchPanes(SearchPane::make())
+        ->addColumnDef([
+            'targets' => '_all',
+            'searchPanes' => [
+                'show' => true,
+                'vieTotal' => false,
+                'viewCount' => false,
+            ],
+        ])
         ->parameters([
             'buttons' => ['searchPanes', /*other buttons...*/]
         ]);
