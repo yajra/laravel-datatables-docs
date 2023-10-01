@@ -28,7 +28,7 @@ composer require yajra/laravel-datatables-oracle:^7.0
 <a name="configuration"></a>
 ### Configuration
 
-Open the file ```config/app.php``` and then add following service provider.
+Open the file ```config/app.php``` and then add the following service provider.
 
 ```php
 'providers' => [
