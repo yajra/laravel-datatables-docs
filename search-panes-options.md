@@ -18,6 +18,7 @@ public function html() : \Yajra\DataTables\Html\Builder
                         // SearchPane::make()...
                     ]
                 )
+                ->collapse(false)
                 ->dtOpts( // Sets the options for the datatables inside the searchpanes
                     [
                         'paging' => true, 
