@@ -75,7 +75,6 @@ public function html() : \Yajra\DataTables\Html\Builder
 {
     // Adding via class
     return $this->builder()
-        ->searchPanes(SearchPane::make())
         ->addColumnDef([
             'targets' => '_all',
             'searchPanes' => [
@@ -91,7 +90,6 @@ public function html() : \Yajra\DataTables\Html\Builder
     
     // Alternatively set the buttons with options
     return $this->builder()
-        ->searchPanes(SearchPane::make())
         ->addColumnDef([
             'targets' => '_all',
             'searchPanes' => [
