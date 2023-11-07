@@ -53,6 +53,7 @@
 	- [Smart Search](/docs/{{package}}/{{version}}/smart-search)
 	- [Starts With Search](/docs/{{package}}/{{version}}/starts-with-search)
 	- [Relationships](/docs/{{package}}/{{version}}/relationships)
+	- [Scout Search](/docs/{{package}}/{{version}}/scout-search)
 
 - ## Sorting/Ordering
 	- [Manual Order](/docs/{{package}}/{{version}}/manual-order)
