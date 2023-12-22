@@ -66,6 +66,9 @@ Route::get('user-data', function() {
 
 	return DataTables::eloquent($model)
 				->withQuery('count', function($filteredQuery) {
+					// remove limit and offset firstly
+					$filteredQuery->limit = null;
+					$filteredQuery->offset = null;
 					return $filteredQuery->count();
 				})
 				->toJson();
