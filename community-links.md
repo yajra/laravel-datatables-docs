@@ -6,6 +6,7 @@ You may use the links below to further understand the Laravel Datatables.
 ## Articles
 - [Laravel Datatables Tutorial With Example](https://appdividend.com/2018/04/16/laravel-datatables-tutorial-with-example/)
 - [How to implement DataTables server-side in laravel](https://medium.com/justlaravel/how-to-implement-datatables-server-side-in-laravel-bcacf8472d70)
+- [How to get started with DataTables in Laravel](https://dev.to/alphaolomi/how-to-get-started-with-datatables-in-laravel-9-5c39)
 
 <a name="videos"></a>
 ## Videos
