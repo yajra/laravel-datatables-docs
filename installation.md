@@ -43,7 +43,7 @@ composer require yajra/laravel-datatables:^10.0
 ### Configuration
 > This step is optional if you are using Laravel 5.5+
 
-Open the file ```config/app.php``` and then add following service provider.
+Open the file ```config/app.php``` or ```bootstrap/providers.php``` for Laravel 11 then add following service provider.
 
 ```php
 'providers' => [
