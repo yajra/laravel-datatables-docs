@@ -9,14 +9,14 @@ FastExcel integration uses cursor behind the scene thus eager loaded columns wil
 ## Usage
 
 1. Install `fast-excel` using `composer require rap2hpoutre/fast-excel`.
-2. Create a dataTable class `php artisan datatables:make Users`
+2. Create a dataTable class `php artisan datatables:make Users`.
 3. Adjust `UsersDataTable` as needed.
 4. Set property `$fastExcel = true`.
 
 ```php
 class UsersDataTable extends DataTable
 {
-    protected $fastExcel = true;
+    protected bool $fastExcel = true;
 
     ...
 }
@@ -33,7 +33,7 @@ class UsersDataTable extends DataTable
 class UsersDataTable extends DataTable
 {
     protected $fastExcel = true;
-    protected $fastExcelCallback = false;
+    protected bool $fastExcelCallback = false;
 
 ```
 
@@ -46,9 +46,9 @@ Just override the `fastExcelCallback` method:
 ```php
 class UsersDataTable extends DataTable
 {
-    protected $fastExcel = true;
+    protected bool $fastExcel = true;
 
-    public function fastExcelCallback()
+    public function fastExcelCallback() \Closure
     {
         return function ($row) {
             return [
