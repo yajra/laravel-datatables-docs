@@ -32,12 +32,12 @@ class UsersDataTable extends DataTable
 ```php
 class UsersDataTable extends DataTable
 {
-    protected $fastExcel = true;
+    protected bool $fastExcel = true;
     protected bool $fastExcelCallback = false;
 
 ```
 
-2. Exported file will now be based on how your query was structured. No header formatting and all selected columns in sql will be included in the output.
+2. The exported file will now be based on your query's structure. No header formatting and all selected columns in sql will be included in the output.
 
 ## Using custom callback
 
