@@ -11,14 +11,14 @@ A [premium license](https://editor.datatables.net/purchase/index) is required to
 
 Run the following command in your project to get the latest version of the plugin:
 
-`composer require yajra/laravel-datatables-editor:^1.0`
+`composer require yajra/laravel-datatables-editor:^11.0`
 
 <a name="configuration"></a>
 ## Configuration
 
 > This step is optional if you are using Laravel 5.5
 
-Open the file ```config/app.php``` and then add following service provider.
+Open the file ```config/app.php``` and then add the following service provider.
 
 ```php
 'providers' => [
