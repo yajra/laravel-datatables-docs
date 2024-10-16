@@ -12,7 +12,7 @@
 ### Requirements
 
 - [Laravel 11](https://github.com/laravel/framework)
-- [jQuery DataTables v1.10.x](http://datatables.net/)
+- [DataTables v2.x](http://datatables.net/)
 
 <a name="installing-laravel-datatables"></a>
 ### Installing Laravel DataTables
@@ -25,7 +25,7 @@ Run the following command in your project to get the latest version of the packa
 composer require yajra/laravel-datatables-oracle:"^11.0"
 ```
 
-If you are using most of the DataTables plugins like Buttons & Html, you can alternatively use the all-in-one installer package.
+If you use most of the DataTables plugins like Buttons & HTML, you can use the all-in-one installer package.
 
 ```bash
 composer require yajra/laravel-datatables:^11.0
@@ -35,7 +35,7 @@ composer require yajra/laravel-datatables:^11.0
 ### Configuration
 > This step is optional if you are using Laravel 5.5+
 
-Open the file ```config/app.php``` or ```bootstrap/providers.php``` for Laravel 11 then add following service provider.
+Open the file ```config/app.php``` or ```bootstrap/providers.php``` for Laravel 11 then add the following service provider.
 
 ```php
 'providers' => [
