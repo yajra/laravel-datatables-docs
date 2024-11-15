@@ -207,7 +207,7 @@ Create new file: `resources/views/users/index.blade.php`.
 Update `routes/web.php`.
 
 ```php
-Route::get('/users', 'UsersController@index')->name('users.index');
+Route::get('/users', [UsersController::class,'index'])->name('users.index');
 ```
 
 ## Create dummy data using tinker
@@ -216,7 +216,7 @@ Route::get('/users', 'UsersController@index')->name('users.index');
 php artisan tinker
 
 Psy Shell v0.9.9 (PHP 7.2.22 — cli) by Justin Hileman
->>> factory('App\User', 100)->create()
+>>> User::factory()->count(100)->create();
 ```
 
 ## Access Users DataTables
