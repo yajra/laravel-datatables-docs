@@ -1,5 +1,5 @@
 # Installation
-
+    
 - [Installation](#installation)
 	- [Requirements](#requirements)
     - [Installing Laravel-DataTables](#installing-laravel-datatables)
