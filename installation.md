@@ -28,7 +28,7 @@ composer require yajra/laravel-datatables-oracle:"^11.0"
 If you use most of the DataTables plugins like Buttons & HTML, you can use the all-in-one installer package.
 
 ```bash
-composer require yajra/laravel-datatables:^11.0
+composer require yajra/laravel-datatables:"^11.0"
 ```
 
 <a name="configuration"></a>
