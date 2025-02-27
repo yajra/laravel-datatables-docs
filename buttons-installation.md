@@ -7,8 +7,8 @@ A Laravel DataTables plugin for handling server-side exporting of table as csv, 
 
 Run the following command in your project to get the latest version of the plugin:
 
-```shell
-composer require yajra/laravel-datatables-buttons:^11.0
+```bash
+composer require yajra/laravel-datatables-buttons:"^12.0"
 ```
 
 <a name="configuratio"></a>
@@ -28,6 +28,6 @@ Open the file ```config/app.php``` and then add following service provider.
 
 After completing the step above, use the following command to publish configuration & assets:
 
-```shell
+```bash
 php artisan vendor:publish --tag=datatables-buttons
 ```
