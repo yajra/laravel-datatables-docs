@@ -11,7 +11,9 @@ A [premium license](https://editor.datatables.net/purchase/index) is required to
 
 Run the following command in your project to get the latest version of the plugin:
 
-`composer require yajra/laravel-datatables-editor:^11.0`
+```bash
+composer require yajra/laravel-datatables-editor:"^12.0"
+```
 
 <a name="configuration"></a>
 ## Configuration

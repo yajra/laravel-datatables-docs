@@ -6,7 +6,9 @@ Github: https://github.com/yajra/laravel-datatables-html
 
 Run the following command in your project to get the latest version of the plugin:
 
-`composer require yajra/laravel-datatables-html:^11.0`
+```bash
+composer require yajra/laravel-datatables-html:"^12.0"
+```
 
 ## Configuration
 
