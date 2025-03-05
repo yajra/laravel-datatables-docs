@@ -7,7 +7,7 @@ This package is a plugin of Laravel DataTables for handling server-side exportin
 ## Quick Installation
 
 ```
-composer require yajra/laravel-datatables-export -W
+composer require yajra/laravel-datatables-export:"^12.0"
 ```
 
 The package also requires batch job:
