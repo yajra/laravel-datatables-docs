@@ -83,6 +83,7 @@
     - [Config](/docs/{{package}}/{{version}}/html-builder-config)
     - [Columns](/docs/{{package}}/{{version}}/html-builder-column)
     - [Column Builder](/docs/{{package}}/{{version}}/html-builder-column-builder)
+    - [Column Control](/docs/{{package}}/{{version}}/html-builder-column-control)
     - [Macro](/docs/{{package}}/{{version}}/html-builder-macro)
     - [Ajax](/docs/{{package}}/{{version}}/html-builder-ajax)
     - [Minified Ajax](/docs/{{package}}/{{version}}/html-builder-minified-ajax)
