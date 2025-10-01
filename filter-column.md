@@ -4,11 +4,12 @@ In some cases, we need to implement a custom search for a specific column.
 To achieve this, you can use `filterColumn` api.
 
 ```php
-use DataTables;
-use DB;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
+use App\User;
 
 Route::get('user-data', function() {
-	$model = App\User::select([
+	$model = User::query()->select([
 			'id',
             DB::raw("CONCAT(users.first_name,'-',users.last_name) as fullname"),
             'email',
