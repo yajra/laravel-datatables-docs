@@ -1,7 +1,3 @@
----
-title: Documentation
-description: Documentation structure and navigation
----
 
 
 - ## Prologue

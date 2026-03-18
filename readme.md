@@ -1,7 +1,3 @@
----
-title: README
-description: Laravel DataTables package README
----
 
 
 # Laravel DataTables Documentation
