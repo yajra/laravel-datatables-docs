@@ -1,23 +1,62 @@
 ---
 title: Order By Nulls Last
-description: Order null values at the end
+description: Order null values at the end of results
 ---
 
+# Order By Nulls Last
 
-# Order by NULLS LAST
+This API will set DataTables to perform ordering with `NULLS LAST` option.
 
-This api will set DataTables to perform ordering with `NULLS LAST` option.
+---
+
+## Basic Usage
 
 ```php
-use DataTables;
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
 
 Route::get('user-data', function() {
-	$model = App\User::query();
+    $model = User::query();
 
-	return DataTables::eloquent($model)
-			->orderByNullsLast()
-			->toJson();
+    return DataTables::eloquent($model)
+        ->orderByNullsLast()
+        ->toJson();
 });
 ```
 
-> You must update [nulls_last_sql](/docs/{{package}}/{{version}}/general-settings#nulls-last-sql) config and use a pattern that matches your DB Driver.
+---
+
+## Configuration
+
+> [!IMPORTANT]
+> You must update the [nulls_last_sql](/docs/{{package}}/{{version}}/general-settings#nulls-last-sql) config to use a pattern that matches your database driver.
+
+### MySQL Configuration
+
+MySQL treats NULL values as smaller than non-NULL values, so NULLS LAST is the default behavior.
+
+```php
+// config/datatables.php
+'nulls_last_sql' => '%s %s',
+```
+
+### PostgreSQL Configuration
+
+```php
+// config/datatables.php
+'nulls_last_sql' => '%s %s NULLS LAST',
+```
+
+### Oracle Configuration
+
+```php
+// config/datatables.php
+'nulls_last_sql' => '%s %s NULLS LAST',
+```
+
+---
+
+## See Also
+
+- [Order Column](/docs/{{package}}/{{version}}/order-column) - Single column ordering
+- [General Settings](/docs/{{package}}/{{version}}/general-settings) - Configuration reference

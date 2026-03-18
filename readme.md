@@ -1,7 +1,7 @@
-
-
+<a name="laravel-datatables-documentation"></a>
 # Laravel DataTables Documentation
 
+<a name="contribution-guidelines"></a>
 ## Contribution Guidelines
 
 If you are submitting documentation for the **current stable release**, submit it to the corresponding branch.

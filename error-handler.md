@@ -3,59 +3,69 @@ title: Error Handler
 description: Configure error handling for DataTables
 ---
 
-
 # Error Handler
 
-Laravel DataTables allows you to configure how you want to handle server-side errors when processing your request. 
-Below are the options available for error handling.
+Laravel DataTables allows you to configure how you want to handle server-side errors when processing your request.
 
-## ERROR CONFIGURATIONS
-Configuration is located at `config/datatables.php` under `error` key. 
-You can also configure via env by setting `DATATABLES_ERROR` key appropriately.
+---
+
+## Configuration
+
+Configuration is located at `config/datatables.php` under `error` key. You can also configure via env by setting `DATATABLES_ERROR` key appropriately.
 
 The default configuration is `env('DATATABLES_ERROR', null)`.
 
+---
 
-- [NULL](#null-error) : `'error' => null`
-- [THROW](#throw-error) : `'error' => 'throw'`
-- [CUSTOM MESSAGE](#custom-message) : `'error' => 'Any custom friendly message'`
-- [TRANSLATION](#custom-message) : `'error' => 'translation.key'`
+## Available Options
 
-<a name="null-error"></a>
-## NULL Error
-If set to `null`, the actual exception message will be used on error response.
+| Option | Description |
+|--------|-------------|
+| `null` | Display the actual exception message |
+| `'throw'` | Throw a `\Yajra\DataTables\Exception` |
+| Custom message | Display a custom friendly message |
+| Translation key | Use a translation key for localization |
+
+---
+
+## NULL Error (Default)
+
+If set to `null`, the actual exception message will be used on error response:
 
 ```json
 {
-	"draw": 24,
-	"recordsTotal": 200,
-	"recordsFiltered": 0,
-	"data": [],
-	"error": "Exception Message:\n\nSQLSTATE[42S22]: Column not found: 1054 Unknown column 'xxx' in 'order clause' (SQL: select * from `users` where `users`.`deleted_at` is null order by `xxx` asc limit 10 offset 0)"
+    "draw": 24,
+    "recordsTotal": 200,
+    "recordsFiltered": 0,
+    "data": [],
+    "error": "Exception Message:\n\nSQLSTATE[42S22]: Column not found: 1054 Unknown column 'xxx' in 'order clause'"
 }
 ```
 
-<a name="throw-error"></a>
+---
+
 ## THROW Error
-If set to `'throw'`, the package will throw a `\Yajra\DataTables\Exception`. 
-You can then use your custom error handler if needed.
 
-**Example Error Handler**
-
-Update `app\Exceptions\Handler.php` and register dataTables error exception handler.
+If set to `'throw'`, the package will throw a `\Yajra\DataTables\Exception`. You can then use your custom error handler if needed:
 
 ```php
+<?php
+// app/Exceptions/Handler.php
+
+namespace App\Exceptions;
+
+use Exception;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+
+class Handler extends ExceptionHandler
+{
     /**
      * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
         if ($exception instanceof \Yajra\DataTables\Exception) {
-            return response([
+            return response()->json([
                 'draw'            => 0,
                 'recordsTotal'    => 0,
                 'recordsFiltered' => 0,
@@ -66,20 +76,28 @@ Update `app\Exceptions\Handler.php` and register dataTables error exception hand
 
         return parent::render($request, $exception);
     }
-```
-
-<a name="custom-message"></a>
-## Custom Message
-If set to `'any custom message'` or `'translation.key'`, this message will be used when an error occurs when processing the request.
-
-```json
-{
-	"draw": 24,
-	"recordsTotal": 200,
-	"recordsFiltered": 0,
-	"data": [],
-	"error": "any custom message"
 }
 ```
 
+---
 
+## Custom Message
+
+If set to `'any custom message'` or `'translation.key'`, this message will be used when an error occurs:
+
+```json
+{
+    "draw": 24,
+    "recordsTotal": 200,
+    "recordsFiltered": 0,
+    "data": [],
+    "error": "any custom message"
+}
+```
+
+---
+
+## See Also
+
+- [Debugging Mode](/docs/{{package}}/{{version}}/debugger) - Enable debug mode
+- [General Settings](/docs/{{package}}/{{version}}/general-settings) - Configuration options

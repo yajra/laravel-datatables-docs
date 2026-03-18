@@ -1,23 +1,75 @@
 ---
 title: Make Columns Hidden
-description: Hide specific columns from the response
+description: Hide specific columns from the DataTables response
 ---
 
-
-# Hide attributes from Json
+# Hide Attributes from JSON
 
 When you are working with Eloquent Object, you can apply the `makeHidden()` ([Laravel documentation](https://laravel.com/docs/master/eloquent-serialization#hiding-attributes-from-json)) function before converting your object toArray().
 
-It can prevent overriding attributes to be compute and increase the performance of converting the object into an array.
+This can prevent overriding attributes to be computed and increase the performance of converting the object into an array.
+
+---
+
+## Basic Usage
 
 ```php
-use DataTables;
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
 
 Route::get('user-data', function() {
-	$model = App\User::with('posts.comment')->query();
+    $model = User::with('posts.comment')->query();
 
-	return DataTables::eloquent($model)
-				->makeHidden('posts')
-				->toJson();
+    return DataTables::eloquent($model)
+        ->makeHidden('posts')
+        ->toJson();
 });
 ```
+
+---
+
+## Common Use Cases
+
+### Hide Sensitive Data
+
+```php
+return DataTables::eloquent(User::query())
+    ->makeHidden(['password', 'api_token', 'remember_token'])
+    ->toJson();
+```
+
+### Hide Large Relationships
+
+```php
+return DataTables::eloquent(Post::query())
+    ->makeHidden(['comments', 'metadata'])
+    ->toJson();
+```
+
+### Combine with Make Visible
+
+```php
+return DataTables::eloquent(User::query())
+    ->makeHidden('posts')  // Hide from serialization
+    ->makeVisible('secret_field')  // Force visible
+    ->toJson();
+```
+
+---
+
+## Performance Benefits
+
+| Method | Performance | Use Case |
+|--------|-------------|----------|
+| `makeHidden` | ✅ Faster | Prevent attribute computation |
+| `makeHidden` | ✅ Better | Large relationships |
+
+> [!TIP]
+> Using `makeHidden` at the model level is more performant than filtering columns after serialization.
+
+---
+
+## See Also
+
+- [Remove Column](/docs/{{package}}/{{version}}/remove-column) - Remove columns from response
+- [Raw Columns](/docs/{{package}}/{{version}}/raw-columns) - Allow HTML rendering
