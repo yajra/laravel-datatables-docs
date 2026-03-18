@@ -1,3 +1,8 @@
+---
+title: HTML Builder
+description: Build DataTables HTML and JavaScript using a fluent API
+---
+
 
 # HTML Builder
 

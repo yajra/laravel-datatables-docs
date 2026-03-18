@@ -1,3 +1,8 @@
+---
+title: Add Column
+description: Add custom computed columns to your DataTables response
+---
+
 # Add Column
 
 You can add custom columns to your DataTables response using the `addColumn` API. Added columns are computed columns and are not part of the database, so search and sort are disabled by default.

@@ -1,3 +1,8 @@
+---
+title: Filter Column
+description: Implement custom column filtering for DataTables
+---
+
 
 # Filter Column
 

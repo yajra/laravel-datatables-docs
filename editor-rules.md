@@ -1,14 +1,18 @@
+---
+title: DataTables Editor Rules
+description: Validation rules for DataTables Editor CRUD operations
+---
+
 # DataTables Editor Rules
 
-<a name="editor-rules"></a>
+> [!NOTE]
+> Validation rules define what data is allowed when creating, editing, or removing records.
 
-> {info} Validation rules define what data is allowed when creating, editing, or removing records.
-
-> {tip} The type hint `Model` is used, but the actual model type is inferred from the generics (`/** @extends DataTablesEditor<User> **/`) for static analysis.
+> [!TIP]
+> The type hint `Model` is used, but the actual model type is inferred from the generics (`/** @extends DataTablesEditor<User> **/`) for static analysis.
 
 ---
 
-<a name="overview"></a>
 ## Overview
 
 DataTables Editor requires validation rules for three main actions:
@@ -22,10 +26,10 @@ DataTables Editor requires validation rules for three main actions:
 
 ---
 
-<a name="create-rules"></a>
 ## Create Rules
 
-> {tip} Use these rules when validating data for new records being created.
+> [!TIP]
+> Use these rules when validating data for new records being created.
 
 ```php
 public function createRules(): array
@@ -40,10 +44,10 @@ public function createRules(): array
 
 ---
 
-<a name="edit-rules"></a>
 ## Edit Rules
 
-> {warning} When editing, you must ignore the current record in unique validation rules.
+> [!WARNING]
+> When editing, you must ignore the current record in unique validation rules.
 
 ```php
 use Illuminate\Validation\Rule;
@@ -78,10 +82,10 @@ public function editRules(Model $model): array
 
 ---
 
-<a name="remove-rules"></a>
 ## Remove Rules
 
-> {info} `DT_RowId` is always submitted in the request and contains the row's data DT_RowId value (e.g., `row_1`). It should be validated as required and must exist in the database.
+> [!NOTE]
+> `DT_RowId` is always submitted in the request and contains the row's data DT_RowId value (e.g., `row_1`). It should be validated as required and must exist in the database.
 
 ```php
 public function removeRules(Model $model): array
@@ -106,7 +110,6 @@ public function removeRules(Model $model): array
 
 ---
 
-<a name="upload-rules"></a>
 ## Upload Rules
 
 ```php
@@ -121,7 +124,6 @@ public function uploadRules(): array
 
 ---
 
-<a name="rule-parameters"></a>
 ## Rule Parameters
 
 The `$model` parameter in `editRules()` and `removeRules()` provides:
@@ -134,7 +136,6 @@ The `$model` parameter in `editRules()` and `removeRules()` provides:
 
 ---
 
-<a name="common-validation-rules"></a>
 ## Common Validation Rules
 
 | Rule | Usage | Description |
@@ -149,7 +150,6 @@ The `$model` parameter in `editRules()` and `removeRules()` provides:
 
 ---
 
-<a name="related-documentation"></a>
 ## Related Documentation
 
 - [Laravel Validation](https://laravel.com/docs/validation) - Full validation documentation

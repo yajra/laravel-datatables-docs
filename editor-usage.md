@@ -1,3 +1,8 @@
+---
+title: Using DataTables Editor
+description: Integrate DataTables Editor with routes and frontend
+---
+
 
 # Using DataTables Editor
 

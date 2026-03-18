@@ -1,3 +1,8 @@
+---
+title: Query Builder Data Source
+description: Use Laravel Query Builder as data source for DataTables
+---
+
 
 # Query Builder Data Source
 

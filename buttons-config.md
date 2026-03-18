@@ -1,3 +1,8 @@
+---
+title: Buttons Configurations
+description: Configure the Buttons plugin for DataTables export functionality
+---
+
 
 # Buttons Configurations
 

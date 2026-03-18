@@ -1,6 +1,13 @@
+---
+title: HTML Builder Event Callbacks
+description: Configure JavaScript callbacks for DataTables events
+---
+
 # HTML Builder Event Callbacks
 
 Callbacks are JavaScript functions that DataTables executes at specific events during the table's lifecycle.
+
+---
 
 ## Available Callbacks
 
@@ -16,19 +23,27 @@ Callbacks are JavaScript functions that DataTables executes at specific events d
 | `preDrawCallback` | Pre-draw callback |
 | `rowCallback` | Row draw callback |
 
+---
+
 ## Basic Usage
 
 ```php
+use Yajra\DataTables\Html\Builder;
+
 $html = $builder
     ->drawCallback('function() { alert("Table Drawn"); }')
     ->createdRow('function(row, data) { ... }');
 ```
+
+---
 
 ## Complete Examples
 
 ### drawCallback
 
 ```php
+use Yajra\DataTables\Html\Builder;
+
 $html = $builder->drawCallback('function() {
     console.log("Table redrawn");
     $(".dataTables_wrapper .btn").addClass("btn-sm");
@@ -38,6 +53,8 @@ $html = $builder->drawCallback('function() {
 ### createdRow
 
 ```php
+use Yajra\DataTables\Html\Builder;
+
 $html = $builder->createdRow('function(row, data, dataIndex) {
     $(row).addClass("user-row");
     $(row).attr("data-id", data.id);
@@ -47,6 +64,8 @@ $html = $builder->createdRow('function(row, data, dataIndex) {
 ### footerCallback
 
 ```php
+use Yajra\DataTables\Html\Builder;
+
 $html = $builder->footerCallback('function(tfoot, data, start, end, display) {
     var api = this.api();
     var total = api.column(3).data().reduce(function(a, b) {
@@ -56,6 +75,20 @@ $html = $builder->footerCallback('function(tfoot, data, start, end, display) {
 }');
 ```
 
+### initComplete
+
+```php
+use Yajra\DataTables\Html\Builder;
+
+$html = $builder->initComplete('function(settings, json) {
+    console.log("DataTables initialized");
+    $("#dataTable_filter input").addClass("form-control");
+}');
+```
+
+---
+
 ## See Also
 
-- [Html Builder](/docs/{{package}}/{{version}}/html-builder)
+- [HTML Builder](/docs/{{package}}/{{version}}/html-builder) - Main HTML Builder documentation
+- [HTML Builder Parameters](/docs/{{package}}/{{version}}/html-builder-parameters) - Configuration options

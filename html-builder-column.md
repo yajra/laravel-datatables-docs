@@ -1,3 +1,8 @@
+---
+title: HTML Builder Column
+description: Configure columns in the DataTables HTML Builder
+---
+
 
 # HTML Builder Column
 

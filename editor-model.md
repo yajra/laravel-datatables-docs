@@ -1,12 +1,15 @@
+---
+title: DataTables Editor Model
+description: Configure the Eloquent model for DataTables Editor
+---
+
 # DataTables Editor Model
 
-<a name="editor-model"></a>
-
-> {info} The Editor Model is the Eloquent model that will be used for all CRUD operations.
+> [!NOTE]
+> The Editor Model is the Eloquent model that will be used for all CRUD operations.
 
 ---
 
-<a name="overview"></a>
 ## Overview
 
 Every Editor class requires a model to perform CRUD operations. The model handles:
@@ -14,11 +17,11 @@ Every Editor class requires a model to perform CRUD operations. The model handle
 - Attribute assignment
 - Data retrieval and storage
 
-> {tip} All CRUD operations are automatically wrapped in database transactions.
+> [!TIP]
+> All CRUD operations are automatically wrapped in database transactions.
 
 ---
 
-<a name="setup-model"></a>
 ## Setup Model
 
 ### Basic Configuration
@@ -26,6 +29,9 @@ Every Editor class requires a model to perform CRUD operations. The model handle
 Set the `$model` property in your Editor class:
 
 ```php
+<?php
+// app/DataTables/UsersDataTableEditor.php
+
 namespace App\DataTables;
 
 use App\Models\User;
@@ -41,6 +47,9 @@ class UsersDataTableEditor extends DataTablesEditor
 ### With Custom Namespace
 
 ```php
+<?php
+// app/DataTables/UsersDataTableEditor.php
+
 namespace App\DataTables;
 
 use App\Entities\User;
@@ -55,14 +64,17 @@ class UsersDataTableEditor extends DataTablesEditor
 
 ---
 
-<a name="fillable-property"></a>
 ## Fillable Property
 
-> {warning} The Editor relies on `$fillable` to mass-assign attributes. Always define this property.
+> [!WARNING]
+> The Editor relies on `$fillable` to mass-assign attributes. Always define this property.
 
 ### Basic Fillable
 
 ```php
+<?php
+// app/Models/User.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -80,6 +92,9 @@ class User extends Model
 ### With Guarded
 
 ```php
+<?php
+// app/Models/User.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -96,7 +111,6 @@ class User extends Model
 
 ---
 
-<a name="model-requirements"></a>
 ## Model Requirements
 
 | Requirement | Description |
@@ -107,7 +121,6 @@ class User extends Model
 
 ---
 
-<a name="common-patterns"></a>
 ## Common Patterns
 
 ### With Relationships
@@ -115,7 +128,14 @@ class User extends Model
 For advanced operations involving relationships, use [Event Hooks](/docs/{{package}}/{{version}}/editor-events):
 
 ```php
+<?php
+// app/DataTables/PostsDataTableEditor.php
+
+namespace App\DataTables;
+
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Model;
+use Yajra\DataTables\DataTablesEditor;
 
 /** @extends DataTablesEditor<Post> **/
 class PostsDataTableEditor extends DataTablesEditor
@@ -128,7 +148,7 @@ class PostsDataTableEditor extends DataTablesEditor
         if (isset($data['tags'])) {
             $model->tags()->sync($data['tags']);
         }
-        
+
         return $model;
     }
 }
@@ -137,6 +157,9 @@ class PostsDataTableEditor extends DataTablesEditor
 ### With Accessors & Mutators
 
 ```php
+<?php
+// app/Models/User.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -166,6 +189,9 @@ class User extends Model
 ### Soft Deletes
 
 ```php
+<?php
+// app/Models/User.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -186,7 +212,6 @@ class User extends Model
 
 ---
 
-<a name="validation-with-model"></a>
 ## Validation with Model
 
 Use the model instance in your validation rules:
@@ -216,7 +241,6 @@ public function editRules(Model $model): array
 
 ---
 
-<a name="related-documentation"></a>
 ## Related Documentation
 
 | Documentation | Description |

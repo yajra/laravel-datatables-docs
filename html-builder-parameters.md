@@ -1,6 +1,13 @@
+---
+title: HTML Builder Parameters
+description: Configure DataTables JavaScript behavior with fluent methods
+---
+
 # HTML Builder Parameters
 
 Use fluent methods to configure DataTables JavaScript behavior.
+
+---
 
 ## Basic Usage
 
@@ -11,6 +18,8 @@ $html = $builder
     ->info(false)
     ->searchDelay(350);
 ```
+
+---
 
 ## Available Parameters
 
@@ -39,9 +48,13 @@ $html = $builder
 |-----------|------|-------------|
 | `language` | object | Language configuration |
 
+---
+
 ## Complete Example
 
 ```php
+use Yajra\DataTables\Html\Builder;
+
 $html = $builder
     ->paging(true)
     ->searching(true)
@@ -53,6 +66,9 @@ $html = $builder
     ->serverSide(true);
 ```
 
+---
+
 ## See Also
 
-- [Html Builder](/docs/{{package}}/{{version}}/html-builder)
+- [HTML Builder](/docs/{{package}}/{{version}}/html-builder) - Main HTML Builder documentation
+- [HTML Builder Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks) - JavaScript callbacks

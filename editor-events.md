@@ -1,14 +1,18 @@
+---
+title: DataTables Editor Event Hooks
+description: Intercept and modify data during CRUD operations with event hooks
+---
+
 # DataTables Editor Event Hooks
 
-<a name="editor-events"></a>
+> [!NOTE]
+> Event hooks allow you to intercept and modify data during CRUD operations.
 
-> {info} Event hooks allow you to intercept and modify data during CRUD operations.
-
-> {tip} The type hint `Model` is used, but the actual model type is inferred from the generics (`/** @extends DataTablesEditor<User> **/`) for static analysis.
+> [!TIP]
+> The type hint `Model` is used, but the actual model type is inferred from the generics (`/** @extends DataTablesEditor<User> **/`) for static analysis.
 
 ---
 
-<a name="overview"></a>
 ## Overview
 
 In addition to Laravel's model events, DataTables Editor provides pre and post event hooks for all CRUD actions:
@@ -27,12 +31,11 @@ In addition to Laravel's model events, DataTables Editor provides pre and post e
 
 ---
 
-<a name="create-events"></a>
 ## Create Events
 
 ### `creating` - Before Record Creation
 
-Fired **before** a new record is saved to the database.
+Fired **before** a new record is saved to the database:
 
 ```php
 /**
@@ -44,17 +47,17 @@ public function creating(Model $model, array $data): array
 {
     // Hash password before saving
     $data['password'] = bcrypt($data['password']);
-    
+
     // Set default values
     $data['created_by'] = auth()->id();
-    
+
     return $data;
 }
 ```
 
 ### `created` - After Record Creation
 
-Fired **after** a new record is successfully created.
+Fired **after** a new record is successfully created:
 
 ```php
 /**
@@ -66,22 +69,21 @@ public function created(Model $model, array $data): Model
 {
     // Log the creation
     activity()->log('User created: ' . $model->name);
-    
+
     // Send welcome email
     Mail::to($model)->send(new WelcomeEmail($model));
-    
+
     return $model;
 }
 ```
 
 ---
 
-<a name="edit-events"></a>
 ## Edit Events
 
 ### `updating` - Before Record Update
 
-Fired **before** changes are saved to the database.
+Fired **before** changes are saved to the database:
 
 ```php
 /**
@@ -93,20 +95,20 @@ public function updating(Model $model, array $data): array
 {
     // Track who made changes
     $data['updated_by'] = auth()->id();
-    
+
     // Log old vs new values
     Log::info('Updating user', [
         'old' => $model->toArray(),
         'new' => $data,
     ]);
-    
+
     return $data;
 }
 ```
 
 ### `updated` - After Record Update
 
-Fired **after** a record is successfully updated.
+Fired **after** a record is successfully updated:
 
 ```php
 /**
@@ -118,21 +120,21 @@ public function updated(Model $model, array $data): Model
 {
     // Clear caches
     Cache::forget("user_{$model->id}");
-    
+
     return $model;
 }
 ```
 
 ---
 
-<a name="save-events"></a>
 ## Save Events
 
 ### `saving` - Before Database Save
 
-Fired **after** `creating`/`updating` but **before** the database save.
+Fired **after** `creating`/`updating` but **before** the database save:
 
-> {tip} Use this hook to modify data for both create and edit operations.
+> [!TIP]
+> Use this hook to modify data for both create and edit operations.
 
 ```php
 /**
@@ -144,14 +146,14 @@ public function saving(Model $model, array $data): array
 {
     // Sanitize input
     $data['name'] = strip_tags($data['name']);
-    
+
     return $data;
 }
 ```
 
 ### `saved` - After Database Save
 
-Fired **after** `created`/`updated` for both create and edit operations.
+Fired **after** `created`/`updated` for both create and edit operations:
 
 ```php
 /**
@@ -163,21 +165,21 @@ public function saved(Model $model, array $data): Model
 {
     // Actions for both create and edit
     Cache::tags(['users'])->flush();
-    
+
     return $model;
 }
 ```
 
 ---
 
-<a name="remove-events"></a>
 ## Remove Events
 
 ### `deleting` - Before Record Deletion
 
-Fired **before** the record is deleted from the database.
+Fired **before** the record is deleted from the database:
 
-> {warning} The record still exists in the database at this point.
+> [!WARNING]
+> The record still exists in the database at this point.
 
 ```php
 /**
@@ -188,10 +190,10 @@ public function deleting(Model $model, array $data): void
 {
     // Delete related files
     Storage::delete($model->avatar_path);
-    
+
     // Delete child records
     $model->posts()->delete();
-    
+
     // Log the deletion
     activity()->log('User deleted: ' . $model->name);
 }
@@ -199,9 +201,10 @@ public function deleting(Model $model, array $data): void
 
 ### `deleted` - After Record Deletion
 
-Fired **after** the record is deleted from the database.
+Fired **after** the record is deleted from the database:
 
-> {tip} The `$model` instance still contains the original data.
+> [!TIP]
+> The `$model` instance still contains the original data.
 
 ```php
 /**
@@ -211,20 +214,17 @@ Fired **after** the record is deleted from the database.
 public function deleted(Model $model, array $data): void
 {
     // Clean up related resources
-    Notification::find()->where('user_id', $model->id)->delete();
-    
-    return $model;
+    Notification::where('user_id', $model->id)->delete();
 }
 ```
 
 ---
 
-<a name="upload-events"></a>
 ## Upload Events
 
 ### `uploaded` - After File Upload
 
-Fired **after** a file is successfully uploaded.
+Fired **after** a file is successfully uploaded:
 
 ```php
 /**
@@ -235,19 +235,19 @@ public function uploaded(string $id): string
 {
     // Generate thumbnail
     Image::make($id)->resize(100, 100)->save();
-    
+
     return $id;
 }
 ```
 
 ---
 
-<a name="complete-example"></a>
 ## Complete Example
 
-Here's a full Editor class demonstrating all event hooks:
-
 ```php
+<?php
+// app/DataTables/UsersDataTableEditor.php
+
 namespace App\DataTables;
 
 use App\Models\User;
@@ -317,7 +317,6 @@ class UsersDataTableEditor extends DataTablesEditor
 
 ---
 
-<a name="related-documentation"></a>
 ## Related Documentation
 
 - [Editor Rules](/docs/{{package}}/{{version}}/editor-rules) - Validation rules

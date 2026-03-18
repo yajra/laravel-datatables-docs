@@ -1,19 +1,21 @@
+---
+title: DataTables Editor Tutorial
+description: Complete tutorial for building CRUD interfaces with DataTables Editor
+---
+
 # DataTables Editor Tutorial
 
-<a name="editor-tutorial"></a>
-
-> {info} This tutorial guides you through building a complete CRUD interface using Laravel DataTables Editor with **Laravel 13**. Estimated time: **15-20 minutes**.
+> [!NOTE]
+> This tutorial guides you through building a complete CRUD interface using Laravel DataTables Editor with **Laravel 13**. Estimated time: **15-20 minutes**.
 
 ---
 
-<a name="prerequisites"></a>
 ## Prerequisites
 
 This tutorial assumes you have completed the [Quick Starter](/docs/{{package}}/{{version}}/quick-starter) guide and have a working DataTables setup.
 
 ---
 
-<a name="overview"></a>
 ## Overview
 
 By the end of this tutorial, you will have:
@@ -23,10 +25,10 @@ By the end of this tutorial, you will have:
 
 ---
 
-<a name="step-1-obtain-editor-license"></a>
 ## Step 1: Obtain Editor License
 
-> {warning} The Editor library requires a [paid license](https://editor.datatables.net/purchase/index).
+> [!WARNING]
+> The Editor library requires a [paid license](https://editor.datatables.net/purchase/index).
 
 1. Purchase a license from DataTables Editor
 2. Download the Editor package from your account
@@ -35,7 +37,6 @@ By the end of this tutorial, you will have:
 
 ---
 
-<a name="step-2-configure-package-json"></a>
 ## Step 2: Configure Package.json
 
 Register the postinstall script in your `package.json` to automatically install Editor assets:
@@ -52,7 +53,6 @@ Register the postinstall script in your `package.json` to automatically install 
 
 ---
 
-<a name="step-3-install-editor-assets"></a>
 ## Step 3: Install Editor Assets
 
 ```bash
@@ -61,23 +61,22 @@ npm i datatables.net-editor datatables.net-editor-bs5
 
 ---
 
-<a name="step-4-register-editor-scripts"></a>
 ## Step 4: Register Editor Scripts
 
 Update your `resources/js/app.js`:
 
-```js
+```javascript
 import './bootstrap';
 import 'laravel-datatables-vite';
 
 import "datatables.net-editor";
 import Editor from "datatables.net-editor-bs5";
+
 Editor(window, $);
 ```
 
 ---
 
-<a name="step-5-add-editor-styles"></a>
 ## Step 5: Add Editor Styles
 
 Update `resources/sass/app.scss`:
@@ -102,7 +101,6 @@ Update `resources/sass/app.scss`:
 
 ---
 
-<a name="step-6-recompile-assets"></a>
 ## Step 6: Recompile Assets
 
 ```bash
@@ -111,12 +109,14 @@ npm run dev
 
 ---
 
-<a name="step-7-create-datatable-class"></a>
 ## Step 7: Create DataTable Class
 
 Create or update `app/DataTables/UsersDataTable.php`:
 
 ```php
+<?php
+// app/DataTables/UsersDataTable.php
+
 namespace App\DataTables;
 
 use App\Models\User;
@@ -189,7 +189,6 @@ class UsersDataTable extends DataTable
 
 ---
 
-<a name="step-8-create-editor-class"></a>
 ## Step 8: Create Editor Class
 
 Generate the Editor class using artisan:
@@ -198,28 +197,32 @@ Generate the Editor class using artisan:
 php artisan datatables:editor Users --model
 ```
 
-> {tip} This creates `app/DataTables/UsersDataTableEditor.php` with basic CRUD methods and generics.
+> [!TIP]
+> This creates `app/DataTables/UsersDataTableEditor.php` with basic CRUD methods and generics.
 
 ---
 
-<a name="step-9-register-routes"></a>
 ## Step 9: Register Routes
 
 Edit `routes/web.php`:
 
 ```php
+<?php
+// routes/web.php
+
 use App\DataTables\UsersDataTable;
 use App\DataTables\UsersDataTableEditor;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/users', UsersDataTable::class)->name('users.index');
 Route::post('/users', UsersDataTableEditor::class)->name('users.store');
 ```
 
-> {info} For simple routes, you can pass the class directly. CSRF token is automatically handled by the DataTable scripts.
+> [!NOTE]
+> For simple routes, you can pass the class directly. CSRF token is automatically handled by the DataTable scripts.
 
 ---
 
-<a name="step-10-create-blade-view"></a>
 ## Step 10: Create Blade View
 
 Create `resources/views/users/index.blade.php`:
@@ -240,7 +243,6 @@ Create `resources/views/users/index.blade.php`:
 
 ---
 
-<a name="next-steps"></a>
 ## Next Steps
 
 Now that you have a working CRUD interface:

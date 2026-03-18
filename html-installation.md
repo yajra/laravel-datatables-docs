@@ -1,3 +1,8 @@
+---
+title: HTML Builder Installation
+description: Install and configure the Laravel DataTables HTML Builder plugin
+---
+
 
 # HTML Builder Installation
 
