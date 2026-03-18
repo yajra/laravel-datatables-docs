@@ -70,7 +70,7 @@ Then, follow the [Editor Usage](/docs/{{package}}/{{version}}/editor-usage) docu
 > - **Always use database transactions** - The Editor automatically wraps operations in transactions
 > - **Set fillable attributes** - Ensure your model has proper `$fillable` property
 > - **Use validation rules** - Always define validation rules for create, edit, and remove actions
-> - **Return the model** - In event hooks (v1.8.0+), always return the `$model` instance
+> - **Return the model** - In event hooks (creating, updating), return an array. In event hooks (created, updated, saved, deleted), return the `$model` instance
 > - **DT_RowId for remove** - Always validate `DT_RowId` in `removeRules()` as `required|exists:table,id`
 
 ---

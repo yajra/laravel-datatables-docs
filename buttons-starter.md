@@ -3,25 +3,31 @@ title: Buttons Quick Starter
 description: Get started with DataTables Buttons plugin
 ---
 
-
 # Buttons Quick Starter
 
-<a name="create-users-datatable"></a>
+This guide helps you get started with the DataTables Buttons plugin.
+
+---
+
 ## Create Users DataTable
 
 ```bash
 php artisan datatables:make Users
 ```
 
-<a name="update-users-datatable"></a>
+---
+
 ## Update UsersDataTable
 
-Update `UsersDataTable` class and set the columns and parameters needed to render our dataTable.
+Update `UsersDataTable` class and set the columns and parameters needed to render our DataTable:
 
 ```php
+<?php
+// app/DataTables/UsersDataTable.php
+
 namespace App\DataTables;
 
-use App\User;
+use App\Models\User;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Services\DataTable;
@@ -59,30 +65,44 @@ class UsersDataTable extends DataTable
 }
 ```
 
-<a name="example-route"></a>
+---
+
 ## Example Route
 
 ```php
+<?php
+// routes/web.php
+
 use App\DataTables\UsersDataTable;
+use Illuminate\Support\Facades\Route;
 
 Route::get('users', function(UsersDataTable $dataTable) {
     return $dataTable->render('users.index');
 });
 ```
 
-<a name="example-view"></a>
+---
+
 ## Example View
 
-Our `users.index` view located at `resources/views/users/index.blade.php`.
+Create a view at `resources/views/users/index.blade.php`:
 
 ```blade
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
-{!! $dataTable->table() !!}
+    {!! $dataTable->table() !!}
 @endsection
 
 @push('scripts')
-{!! $dataTable->scripts() !!}
+    {!! $dataTable->scripts() !!}
 @endpush
 ```
+
+---
+
+## See Also
+
+- [Buttons Installation](/docs/{{package}}/{{version}}/buttons-installation) - Install buttons plugin
+- [Buttons Export](/docs/{{package}}/{{version}}/buttons-export) - Export options
+- [Buttons Custom](/docs/{{package}}/{{version}}/buttons-custom) - Custom buttons

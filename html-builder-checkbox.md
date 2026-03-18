@@ -3,24 +3,31 @@ title: Add Checkbox Column
 description: Add checkbox column for row selection
 ---
 
-
 # HTML Builder Checkbox Column
 
 The `addCheckbox()` method provides a quick way to add a checkbox column to your DataTable.
 
+---
+
 ## Basic Usage
 
 ```php
+use Yajra\DataTables\Html\Builder;
+
 $html = $builder->addCheckbox();
 ```
 
 ### With Custom Attributes
 
 ```php
+use Yajra\DataTables\Html\Builder;
+
 $html = $builder->addCheckbox([
     'title' => '<input type="checkbox" id="dataTablesCheckbox"/>',
 ]);
 ```
+
+---
 
 ## Default Attributes
 
@@ -38,6 +45,20 @@ $html = $builder->addCheckbox([
 ]
 ```
 
+---
+
+## Common Use Cases
+
+### Bulk Actions
+
+```javascript
+// Get selected row IDs
+var selectedRows = table.rows({ selected: true }).ids().toArray();
+```
+
+---
+
 ## See Also
 
-- [Html Builder](/docs/{{package}}/{{version}}/html-builder)
+- [HTML Builder](/docs/{{package}}/{{version}}/html-builder) - Main HTML Builder documentation
+- [HTML Builder Column](/docs/{{package}}/{{version}}/html-builder-column) - Column configuration
