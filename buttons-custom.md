@@ -21,10 +21,13 @@ class UsersDataTable extends DataTable
     {
         return $this->builder()
                     ->columns($this->getColumns())
-                    ->parameters([
-                        'dom'          => 'Bfrtip',
-                        'buttons'      => ['print', 'excel', 'myCustomAction'],
-                    ]);
+                    ->layout([
+                        'topStart' => 'buttons',
+                        'topEnd' => 'search',
+                        'bottomStart' => 'info',
+                        'bottomEnd' => 'paging',
+                    ])
+                    ->buttons(['print', 'excel', 'myCustomAction']);
     }
 
     public function myCustomAction()

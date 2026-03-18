@@ -41,33 +41,9 @@ Before installing this plugin, ensure you have:
 composer require yajra/laravel-datatables-editor:"^13.0"
 ```
 
-### Step 2: Register the Service Provider
-
-> {note} This step is optional if you are using Laravel 5.5+ with package auto-discovery enabled.
-
-Open `config/app.php` and add the following service provider:
-
-```php
-'providers' => [
-    // ...
-    Yajra\DataTables\EditorServiceProvider::class,
-],
-```
-
-### Step 3: Install Editor Assets
+### Step 2: Install Editor Assets
 
 Follow the [Editor Tutorial](/docs/{{package}}/{{version}}/editor-tutorial) for detailed instructions on setting up the frontend assets.
-
----
-
-<a name="configuration"></a>
-## Configuration
-
-The plugin works out of the box with sensible defaults. However, you can publish the configuration file if you need customizations:
-
-```bash
-php artisan vendor:publish --tag=datatables-editor-config
-```
 
 ---
 

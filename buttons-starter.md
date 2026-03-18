@@ -25,10 +25,13 @@ class UsersDataTable extends DataTable
     {
         return $this->builder()
                     ->columns($this->getColumns())
-                    ->parameters([
-                        'dom'          => 'Bfrtip',
-                        'buttons'      => ['export', 'print', 'reset', 'reload'],
-                    ]);
+                    ->layout([
+                        'topStart' => 'buttons',
+                        'topEnd' => 'search',
+                        'bottomStart' => 'info',
+                        'bottomEnd' => 'paging',
+                    ])
+                    ->buttons(['export', 'print', 'reset', 'reload']);
     }
 
     protected function getColumns()

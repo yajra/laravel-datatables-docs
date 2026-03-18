@@ -1,16 +1,15 @@
 # HTML Builder Parameters
 
-Parameters are the options you pass to configure DataTables JavaScript behavior.
+Use fluent methods to configure DataTables JavaScript behavior.
 
 ## Basic Usage
 
 ```php
-$html = $builder->parameters([
-    'paging' => true,
-    'searching' => true,
-    'info' => false,
-    'searchDelay' => 350,
-]);
+$html = $builder
+    ->paging(true)
+    ->searching(true)
+    ->info(false)
+    ->searchDelay(350);
 ```
 
 ## Available Parameters
@@ -43,16 +42,15 @@ $html = $builder->parameters([
 ## Complete Example
 
 ```php
-$html = $builder->parameters([
-    'paging' => true,
-    'searching' => true,
-    'info' => true,
-    'lengthChange' => true,
-    'pageLength' => 25,
-    'searchDelay' => 350,
-    'processing' => true,
-    'serverSide' => true,
-]);
+$html = $builder
+    ->paging(true)
+    ->searching(true)
+    ->info(true)
+    ->lengthChange(true)
+    ->pageLength(25)
+    ->searchDelay(350)
+    ->processing(true)
+    ->serverSide(true);
 ```
 
 ## See Also

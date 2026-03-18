@@ -18,17 +18,6 @@ Callbacks are JavaScript functions that DataTables executes at specific events d
 
 ## Basic Usage
 
-### Using parameters()
-
-```php
-$html = $builder->parameters([
-    'drawCallback' => 'function() { alert("Table Drawn"); }',
-    'createdRow' => 'function(row, data) { ... }',
-]);
-```
-
-### Using Fluent Methods
-
 ```php
 $html = $builder
     ->drawCallback('function() { alert("Table Drawn"); }')

@@ -17,21 +17,18 @@ SearchPanes can be added to a table via the dom string, in it, they are marked w
 are using `Bfrtip` as dom you can use `PBfrtip` to display the SearchPanes at the top of the datatable, or `BfrtipP`
 to display them at the very bottom.
 
-Setting the dom String with the `\Yajra\DataTables\Html\Builder`:
+Setting the layout with the `\Yajra\DataTables\Html\Builder`:
 
 ```php
 public function html() : \Yajra\DataTables\Html\Builder
 {
-    // Setting the dom string directly
     return $this->builder()
         ->searchPanes(SearchPane::make())
-        ->dom('PBfrtip');
-    
-    // Alternatively set the dom with parameters
-    return $this->builder()
-        ->searchPanes(SearchPane::make())
-        ->parameters([
-            'dom' => 'PBfrtip'
+        ->layout([
+            'topStart' => 'buttons',
+            'topEnd' => 'search',
+            'bottomStart' => 'info',
+            'bottomEnd' => 'paging',
         ]);
 }
 ```
@@ -55,9 +52,13 @@ public function html() : \Yajra\DataTables\Html\Builder
     // Alternatively set the buttons with options
     return $this->builder()
         ->searchPanes(SearchPane::make())
-        ->parameters([
-            'buttons' => ['searchPanes', /*other buttons...*/]
-        ]);
+        ->layout([
+            'topStart' => 'buttons',
+            'topEnd' => 'search',
+            'bottomStart' => 'info',
+            'bottomEnd' => 'paging',
+        ])
+        ->buttons(['searchPanes', /*other buttons...*/]);
 }
 ```
 

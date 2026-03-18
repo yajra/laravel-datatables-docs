@@ -196,29 +196,11 @@ $html = $builder->ajax([
 Configure DataTables options:
 
 ```php
-$html = $builder->parameters([
-    'paging' => true,
-    'searching' => true,
-    'info' => false,
-    'searchDelay' => 350,
-]);
-```
-
-## Event Callbacks
-
-```php
-$html = $builder->parameters([
-    'drawCallback' => 'function() { ... }',
-    'createdRow' => 'function(row, data) { ... }',
-]);
-```
-
-Or use fluent methods:
-
-```php
 $html = $builder
-    ->drawCallback('function() { ... }')
-    ->createdRow('function(row, data) { ... }');
+    ->paging(true)
+    ->searching(true)
+    ->info(false)
+    ->searchDelay(350);
 ```
 
 ## Plugins

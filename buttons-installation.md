@@ -14,19 +14,7 @@ composer require yajra/laravel-datatables-buttons:"^12.0"
 <a name="configuratio"></a>
 ## Configuration
 
-> This step is optional if you are using Laravel 5.5+
-
-Open the file ```config/app.php``` and then add following service provider.
-
-```php
-'providers' => [
-    // ...
-    Yajra\DataTables\DataTablesServiceProvider::class,
-    Yajra\DataTables\ButtonsServiceProvider::class,
-],
-```
-
-After completing the step above, use the following command to publish configuration & assets:
+> {note} This step is optional.
 
 ```bash
 php artisan vendor:publish --tag=datatables-buttons

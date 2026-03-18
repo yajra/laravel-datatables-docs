@@ -11,7 +11,7 @@
 <a name="requirements"></a>
 ### Requirements
 
-- [Laravel 12](https://github.com/laravel/framework)
+- [Laravel 13](https://github.com/laravel/framework)
 - [DataTables 1.x|2.x](http://datatables.net/)
 
 <a name="installing-laravel-datatables"></a>
@@ -22,29 +22,19 @@ Laravel DataTables can be installed with [Composer](http://getcomposer.org/doc/0
 Run the following command in your project to get the latest version of the package:
 
 ```bash
-composer require yajra/laravel-datatables-oracle:"^12.0"
+composer require yajra/laravel-datatables-oracle:"^13.0"
 ```
 
 If you use most of the DataTables plugins like Buttons & HTML, you can use the all-in-one installer package.
 
 ```bash
-composer require yajra/laravel-datatables:"^12.0"
+composer require yajra/laravel-datatables:"^13.0"
 ```
 
 <a name="configuration"></a>
 ### Configuration
-> This step is optional if you are using Laravel 5.5+
 
-Open the file ```config/app.php``` or ```bootstrap/providers.php``` for Laravel 12 then add following service provider.
-
-```php
-'providers' => [
-    // ...
-    Yajra\DataTables\DataTablesServiceProvider::class,
-],
-```
-
-After completing the step above, use the following command to publish configuration & assets:
+> {note} This step is optional.
 
 ```bash
 php artisan vendor:publish --tag=datatables
