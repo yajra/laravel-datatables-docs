@@ -1,35 +1,84 @@
-# Html Builder Post Ajax
+# HTML Builder Post AJAX
 
-Use post method to submit the dataTables ajax request.
+The `postAjax()` method configures DataTables to use POST method for fetching data from the server. This is useful when you need to send larger amounts of data or when you want to avoid URL length limitations.
 
-See [datatables.net](https://datatables.net/) official documentation for [`ajax option`](https://datatables.net/reference/option/ajax) for details.
+## Basic Usage
 
-**Syntax**
+### Using a Route
+
 ```php
-$builder->postAjax($attributes);
+$html = $builder->postAjax(route('users.data'));
 ```
 
-## Post Ajax Parameter
-Ajax parameter (`$attributes`) can either be a string or an array.
-
-**String Attributes**
-
-When the attribute passed is a `string`. The builder will treat this as the `URL` where we fetch our data.
+### Using a URL
 
 ```php
-$builder->postAjax(route('users.data'));
+$html = $builder->postAjax(url('users/data'));
 ```
 
-> {tip} Setting ajax to `null` or `empty string` will use the current url where DataTables was used.
-
-**Array Attributes**
-
-Attributes are the same with the `ajax()` method request valid parameters.
+### Using Current URL
 
 ```php
-$builder->postAjax([
+// Uses the current URL
+$html = $builder->postAjax('');
+```
+
+## POST AJAX Configuration
+
+### Array Configuration
+
+```php
+$html = $builder->postAjax([
     'url' => route('users.data'),
-])
+]);
 ```
 
+### With Custom Data
 
+```php
+$html = $builder->postAjax([
+    'url' => route('users.data'),
+    'data' => 'function(d) { d.key = "value"; }',
+]);
+```
+
+## Complete Examples
+
+### Basic POST AJAX
+
+```php
+Route::get('users', function(Builder $builder) {
+    if (request()->ajax()) {
+        return DataTables::of(User::query())->toJson();
+    }
+
+    $html = $builder
+        ->columns([...])
+        ->postAjax(route('users.data'));
+
+    return view('users.index', compact('html'));
+});
+```
+
+### POST AJAX with Custom Data
+
+```php
+$html = $builder->postAjax([
+    'url' => route('users.data'),
+    'data' => 'function(d) {
+        d.status = "active";
+        d.role = "admin";
+    }',
+]);
+```
+
+### POST AJAX with Form Data
+
+```php
+$html = $builder->postAjaxWithForm(route('users.data'), '#search-form');
+```
+
+## See Also
+
+- [Html Builder](/docs/{{package}}/{{version}}/html-builder)
+- [Html Builder AJAX](/docs/{{package}}/{{version}}/html-builder-ajax)
