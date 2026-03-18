@@ -1,8 +1,9 @@
-# Sending parameter to DataTable class
-You can send a parameter from controller to dataTable class using `with` api.
+# Sending Parameter to DataTable Class
 
+You can send a parameter from controller to DataTable class using the `with` API.
 
-## Example:
+<a name="example"></a>
+## Example
 
 ```php
 Route::get('datatable/{id}', function(UsersDataTable $dataTable, $id){
@@ -15,11 +16,13 @@ Route::get('datatable/{id}', function(UsersDataTable $dataTable, $id){
 });
 ```
 
-You can then get the variable as a local property of the class.
+You can then access the variable as a class property:
 
 ```php
-class UsersDataTable {
-    public function query() {
+class UsersDataTable extends DataTable
+{
+    public function query()
+    {
         return User::where('id', $this->id);
     }
 }

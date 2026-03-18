@@ -1,26 +1,27 @@
 # Buttons Quick Starter
 
+<a name="create-users-datatable"></a>
 ## Create Users DataTable
 
-```
+```bash
 php artisan datatables:make Users
 ```
 
+<a name="update-users-datatable"></a>
 ## Update UsersDataTable
 
 Update `UsersDataTable` class and set the columns and parameters needed to render our dataTable.
-
 
 ```php
 namespace App\DataTables;
 
 use App\User;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
-	//...some default stubs deleted for simplicity.
-
     public function html()
     {
         return $this->builder()
@@ -31,23 +32,29 @@ class UsersDataTable extends DataTable
                         'bottomStart' => 'info',
                         'bottomEnd' => 'paging',
                     ])
-                    ->buttons(['export', 'print', 'reset', 'reload']);
+                    ->buttons([
+                        Button::make('export'),
+                        Button::make('print'),
+                        Button::make('reset'),
+                        Button::make('reload'),
+                    ]);
     }
 
-    protected function getColumns()
+    protected function getColumns(): array
     {
         return [
-            'id',
-            'name',
-            'email',
-            'created_at',
-            'updated_at',
+            Column::make('id'),
+            Column::make('name'),
+            Column::make('email'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
         ];
     }
 }
 ```
 
-## Example Route:
+<a name="example-route"></a>
+## Example Route
 
 ```php
 use App\DataTables\UsersDataTable;
@@ -57,8 +64,8 @@ Route::get('users', function(UsersDataTable $dataTable) {
 });
 ```
 
-
-## Example View:
+<a name="example-view"></a>
+## Example View
 
 Our `users.index` view located at `resources/views/users/index.blade.php`.
 
@@ -70,9 +77,6 @@ Our `users.index` view located at `resources/views/users/index.blade.php`.
 @endsection
 
 @push('scripts')
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
-<script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
-<script src="/vendor/datatables/buttons.server-side.js"></script>
 {!! $dataTable->scripts() !!}
 @endpush
 ```

@@ -1,22 +1,19 @@
 # Custom Actions
 
-You can enable custom actions on your buttons as follows:
+You can enable custom actions on your buttons by overloading the `buttons` method in your DataTable class.
 
-Update `UsersDataTable` class and overload the `actions` property. Here we are
-disabling the `csv` and `pdf` actions (so they cannot be fired by hijacking their
-request) and enabling a `myCustomAction`.
-
+<a name="creating-custom-action"></a>
+## Creating a Custom Action
 
 ```php
 namespace App\DataTables;
 
 use App\User;
+use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
-    protected array $actions = ['print', 'excel', 'myCustomAction'];
-
     public function html()
     {
         return $this->builder()
@@ -27,15 +24,25 @@ class UsersDataTable extends DataTable
                         'bottomStart' => 'info',
                         'bottomEnd' => 'paging',
                     ])
-                    ->buttons(['print', 'excel', 'myCustomAction']);
+                    ->buttons([
+                        Button::make('print'),
+                        Button::make('excel'),
+                        Button::make('myCustomAction'),
+                    ]);
     }
 
     public function myCustomAction()
     {
         //...your code here.
     }
-
 }
 ```
 
-Take a look at `Yajra\DataTables\Services\DataTable` to see how to fetch and manipulate the data (functions `excel`, `csv`, `pdf`).
+Take a look at `Yajra\DataTables\Services\DataTable` to see how to fetch and manipulate data (see `excel`, `csv`, `pdf` methods).
+
+<a name="see-also"></a>
+## See Also
+
+- [Buttons Console](buttons-console.md) - Artisan commands for generating DataTables
+- [Buttons Export](buttons-export.md) - Export button options
+- [Buttons Starter](buttons-starter.md) - Quick start guide

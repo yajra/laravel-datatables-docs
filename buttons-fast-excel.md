@@ -1,54 +1,48 @@
 # Fast Excel Integration
 
-[Fast-Excel](https://github.com/rap2hpoutre/fast-excel) is recommended when exporting bulk records. 
+[Fast-Excel](https://github.com/rap2hpoutre/fast-excel) is recommended when exporting bulk records.
 
-## LIMITATIONS! 
+> **Important**: FastExcel integration uses cursor behind the scene thus eager loaded columns will not work on export. You MUST use join statements if you want to export related columns.
 
-FastExcel integration uses cursor behind the scene thus eager loaded columns will not work on export. You MUST use join statements if you want to export related columns. Also, column value formatting like converting boolean to Yes or No should be done on SQL LEVEL.
-
+<a name="usage"></a>
 ## Usage
 
-1. Install `fast-excel` using `composer require rap2hpoutre/fast-excel`.
-2. Create a dataTable class `php artisan datatables:make Users`.
-3. Adjust `UsersDataTable` as needed.
-4. Set property `$fastExcel = true`.
+1. Install `fast-excel` using `composer require rap2hpoutre/fast-excel`
+2. Create a dataTable class `php artisan datatables:make Users`
+3. Adjust `UsersDataTable` as needed
+4. Set property `$fastExcel = true`
 
 ```php
 class UsersDataTable extends DataTable
 {
     protected bool $fastExcel = true;
-
-    ...
 }
 ```
 
-5. DataTables will now export csv & excel using `fast-excel` package.
+<a name="disabling-callback"></a>
+## Disabling Callback
 
-
-## Faster export by disabling the fast-excel callback
-
-1. Just set property `$fastExcelCallback = false`. This is enabled by default for a better formatted output of exported file.
+Set property `$fastExcelCallback = false` to disable header formatting. The exported file will be based on your query's structure.
 
 ```php
 class UsersDataTable extends DataTable
 {
     protected bool $fastExcel = true;
     protected bool $fastExcelCallback = false;
-
+}
 ```
 
-2. The exported file will now be based on your query's structure. No header formatting and all selected columns in sql will be included in the output.
+<a name="custom-callback"></a>
+## Custom Callback
 
-## Using custom callback
-
-Just override the `fastExcelCallback` method:
+Override the `fastExcelCallback` method:
 
 ```php
 class UsersDataTable extends DataTable
 {
     protected bool $fastExcel = true;
 
-    public function fastExcelCallback() \Closure
+    public function fastExcelCallback(): \Closure
     {
         return function ($row) {
             return [
@@ -57,6 +51,12 @@ class UsersDataTable extends DataTable
             ];
         };
     }
-
-...
+}
 ```
+
+<a name="see-also"></a>
+## See Also
+
+- [Fast Excel Docs](https://github.com/rap2hpoutre/fast-excel) - Official Fast Excel documentation
+- [Laravel Excel](buttons-laravel-excel.md) - Alternative Excel export method
+- [Export Options](exports-options.md) - Customize export formatting

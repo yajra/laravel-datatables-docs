@@ -8,10 +8,10 @@ A Laravel DataTables plugin for handling server-side exporting of table as csv, 
 Run the following command in your project to get the latest version of the plugin:
 
 ```bash
-composer require yajra/laravel-datatables-buttons:"^12.0"
+composer require yajra/laravel-datatables-buttons:"^13.0"
 ```
 
-<a name="configuratio"></a>
+<a name="configuration"></a>
 ## Configuration
 
 > {note} This step is optional.

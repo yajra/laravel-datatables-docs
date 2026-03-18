@@ -1,7 +1,8 @@
 # Laravel Excel Integration
 
-[Laravel Excel](https://github.com/Maatwebsite/Laravel-Excel) is the default package used when exporting DataTables to Excel and CSV.
+[Laravel Excel](https://docs.laravel-excel.com) is the default package used when exporting DataTables to Excel and CSV.
 
+<a name="using-export-class"></a>
 ## Using Export Class
 
 1. Create an export class `php artisan make:export UsersExport`
@@ -14,7 +15,6 @@ use Yajra\DataTables\Exports\DataTablesCollectionExport;
 
 class UsersExport extends DataTablesCollectionExport
 {
-
 }
 ```
 
@@ -23,12 +23,13 @@ class UsersExport extends DataTablesCollectionExport
 ```php
 class UsersDataTable extends DataTable
 {
-    protected $exportClass = UsersExport::class;
-
+    protected string $exportClass = UsersExport::class;
+}
 ```
 
 4. Update your export class as needed. See official package docs: https://docs.laravel-excel.com/3.1/exports/collection.html
 
+<a name="example-export-class"></a>
 ## Example Export Class
 
 ```php
@@ -56,4 +57,11 @@ class UsersExport extends DataTablesCollectionExport implements WithMapping
     }
 }
 ```
+
+<a name="see-also"></a>
+## See Also
+
+- [Laravel Excel Docs](https://docs.laravel-excel.com) - Official Laravel Excel documentation
+- [Buttons Fast Excel](buttons-fast-excel.md) - Alternative Excel export method
+- [Export Options](exports-options.md) - Customize export formatting
 
