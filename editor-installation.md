@@ -1,7 +1,3 @@
----
-title: DataTables Editor Plugin Installation
-description: Install and configure the DataTables Editor plugin for inline CRUD operations
----
 
 # DataTables Editor Plugin Installation
 

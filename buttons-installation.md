@@ -1,7 +1,3 @@
----
-title: Buttons Plugin Installation
-description: Install and configure the Buttons plugin for DataTables export functionality
----
 
 # Buttons Plugin Installation
 

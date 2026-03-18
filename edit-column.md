@@ -1,7 +1,3 @@
----
-title: Edit Column
-description: Edit or modify existing columns in your DataTables response
----
 
 # Edit Column
 

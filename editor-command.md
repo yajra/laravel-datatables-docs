@@ -1,12 +1,15 @@
+---
+title: DataTables Editor Command
+description: Artisan command to generate DataTables Editor classes
+---
+
 # DataTables Editor Command
 
-<a name="editor-command"></a>
-
-> {info} The `datatables:editor` artisan command generates a complete Editor class with all required methods.
+> [!NOTE]
+> The `datatables:editor` artisan command generates a complete Editor class with all required methods.
 
 ---
 
-<a name="overview"></a>
 ## Overview
 
 The Editor command creates a new `DataTablesEditor` class with:
@@ -16,7 +19,6 @@ The Editor command creates a new `DataTablesEditor` class with:
 
 ---
 
-<a name="basic-usage"></a>
 ## Basic Usage
 
 ### List All Commands
@@ -37,7 +39,6 @@ php artisan datatables:editor {name}
 
 ---
 
-<a name="command-options"></a>
 ## Command Options
 
 | Option | Description |
@@ -47,7 +48,6 @@ php artisan datatables:editor {name}
 
 ---
 
-<a name="examples"></a>
 ## Examples
 
 ### Example 1: Basic Editor
@@ -59,12 +59,15 @@ php artisan datatables:editor Posts
 Creates `app/DataTables/PostsDataTableEditor.php`:
 
 ```php
+<?php
+// app/DataTables/PostsDataTableEditor.php
+
 namespace App\DataTables;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
-use App\User;
 
 /** @extends DataTablesEditor<User> **/
 class PostsDataTableEditor extends DataTablesEditor
@@ -104,17 +107,21 @@ class PostsDataTableEditor extends DataTablesEditor
 php artisan datatables:editor Posts --model
 ```
 
-> {tip} The `--model` option uses the singular form (`Post`) as the model class and includes generics.
+> [!TIP]
+> The `--model` option uses the singular form (`Post`) as the model class and includes generics.
 
 Creates `app/DataTables/PostsDataTableEditor.php` with `App\Post` model:
 
 ```php
+<?php
+// app/DataTables/PostsDataTableEditor.php
+
 namespace App\DataTables;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
-use App\Post;
 
 /** @extends DataTablesEditor<Post> **/
 class PostsDataTableEditor extends DataTablesEditor
@@ -154,15 +161,19 @@ class PostsDataTableEditor extends DataTablesEditor
 php artisan datatables:editor Posts --model-namespace="Entities"
 ```
 
-> {info} This option implicitly activates `--model` and uses `App\Entities\Post` as the model.
+> [!NOTE]
+> This option implicitly activates `--model` and uses `App\Entities\Post` as the model.
 
 ```php
+<?php
+// app/DataTables/PostsDataTableEditor.php
+
 namespace App\DataTables;
 
+use App\Entities\Post;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
-use App\Entities\Post;
 
 /** @extends DataTablesEditor<Post> **/
 class PostsDataTableEditor extends DataTablesEditor
@@ -175,7 +186,6 @@ class PostsDataTableEditor extends DataTablesEditor
 
 ---
 
-<a name="generated-file-location"></a>
 ## Generated File Location
 
 | Input | Generated File |
@@ -185,7 +195,6 @@ class PostsDataTableEditor extends DataTablesEditor
 
 ---
 
-<a name="next-steps"></a>
 ## Next Steps
 
 After generating your Editor class:

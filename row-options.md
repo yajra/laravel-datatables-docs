@@ -1,68 +1,93 @@
-# Row Editing Options
+---
+title: Row Options
+description: Configure DataTables row attributes like ID, class, and data
+---
 
-- [Row Id](#row-id)
-- [Row Class](#row-class)
-- [Row Data](#row-data)
-- [Row Attributes](#row-attributes)
+# Row Options
 
-<a name="row-id"></a>
+You can configure various row attributes in your DataTables including row ID, class, data, and custom attributes.
+
+---
+
 ## Row Id
 
-Setting row id via `column` name.
+### Setting Row ID via Column Name
 
 ```php
 ->setRowId('id')
 ```
 
-Setting row id via `closure`.
+### Setting Row ID via Closure
 
 ```php
-->setRowId(function ($user) {
-    return $user->id;
-})
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
+
+Route::get('user-data', function() {
+    return DataTables::eloquent(User::query())
+        ->setRowId(function ($user) {
+            return $user->id;
+        })
+        ->toJson();
+});
 ```
 
-Setting row id via `blade` string.
+### Setting Row ID via Blade String
 
 ```php
 ->setRowId('{{$id}}')
 ```
 
-<a name="row-class"></a>
+---
+
 ## Row Class
 
-Setting row class via `closure`.
+### Setting Row Class via Closure
 
 ```php
-->setRowClass(function ($user) {
-    return $user->id % 2 == 0 ? 'alert-success' : 'alert-warning';
-})
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
+
+Route::get('user-data', function() {
+    return DataTables::eloquent(User::query())
+        ->setRowClass(function ($user) {
+            return $user->id % 2 == 0 ? 'alert-success' : 'alert-warning';
+        })
+        ->toJson();
+});
 ```
 
-Setting row class via `blade` string.
+### Setting Row Class via Blade String
 
 ```php
 ->setRowClass('{{ $id % 2 == 0 ? "alert-success" : "alert-warning" }}')
 ```
 
+---
 
-<a name="row-data"></a>
 ## Row Data
 
-Setting row data via `closure`.
+### Setting Row Data via Closure
 
 ```php
-->setRowData([
-    'data-id' => function($user) {
-    	return 'row-' . $user->id;
-    },
-    'data-name' => function($user) {
-    	return 'row-' . $user->name;
-    },
-])
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
+
+Route::get('user-data', function() {
+    return DataTables::eloquent(User::query())
+        ->setRowData([
+            'data-id' => function($user) {
+                return 'row-' . $user->id;
+            },
+            'data-name' => function($user) {
+                return 'row-' . $user->name;
+            },
+        ])
+        ->toJson();
+});
 ```
 
-Setting row data via `blade` string.
+### Setting Row Data via Blade String
 
 ```php
 ->setRowData([
@@ -71,23 +96,38 @@ Setting row data via `blade` string.
 ])
 ```
 
-<a name="row-attributes"></a>
+---
+
 ## Row Attributes
 
-Setting row attribute via `closure`.
+### Setting Row Attribute via Closure
 
 ```php
-->setRowAttr([
-    'color' => function($user) {
-    	return $user->color;
-    },
-])
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
+
+Route::get('user-data', function() {
+    return DataTables::eloquent(User::query())
+        ->setRowAttr([
+            'color' => function($user) {
+                return $user->color;
+            },
+        ])
+        ->toJson();
+});
 ```
 
-Setting row attribute via `blade` string.
+### Setting Row Attribute via Blade String
 
 ```php
 ->setRowAttr([
     'color' => '{{$color}}',
 ])
 ```
+
+---
+
+## See Also
+
+- [Row Id](/docs/{{package}}/{{version}}/row-id) - Setting row IDs
+- [Row Class](/docs/{{package}}/{{version}}/row-class) - Setting row classes

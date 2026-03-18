@@ -1,51 +1,107 @@
-# XSS filtering
+---
+title: XSS Filtering
+description: Protect against XSS attacks with column escaping
+---
 
-Since v7.0, all dataTable response are encoded to prevent XSS attack. In case you need to display html on your columns, you can use `rawColumns` api.
+# XSS Filtering
 
-> `action` column is allowed as raw by default.
+Since v7.0, all DataTable responses are encoded to prevent XSS attacks. In case you need to display HTML on your columns, you can use the `rawColumns` API.
 
-<a name="raw"></a>
+> [!NOTE]
+> The `action` column is allowed as raw by default.
+
+---
 
 ## Raw Columns
+
 ```php
-return DataTables::eloquent(Role::select())
-		    ->rawColumns(['name', 'action'])
-		    ->toJson();
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\Role;
+
+Route::get('role-data', function() {
+    return DataTables::eloquent(Role::select())
+        ->rawColumns(['name', 'action'])
+        ->toJson();
+});
 ```
 
-# Other XSS methods
+---
 
-<a name="selected"></a>
-## Escape selected fields
-
-```php
-return DataTables::eloquent(Role::select())
-		    ->escapeColumns(['name'])
-		    ->toJson();
-```
-<a name="all"></a>
-## Escape all columns
+## Escape Selected Fields
 
 ```php
-return DataTables::eloquent(Role::select())
-		    ->escapeColumns()
-		    ->toJson();
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\Role;
+
+Route::get('role-data', function() {
+    return DataTables::eloquent(Role::select())
+        ->escapeColumns(['name'])
+        ->toJson();
+});
 ```
 
-<a name="none"></a>
-## Remove escaping of all columns
+---
+
+## Escape All Columns
 
 ```php
-return DataTables::eloquent(Role::select())
-		    ->escapeColumns([])
-		    ->toJson();
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\Role;
+
+Route::get('role-data', function() {
+    return DataTables::eloquent(Role::select())
+        ->escapeColumns()
+        ->toJson();
+});
 ```
 
-<a name="index"></a>
-## Escape by output index
+---
+
+## Remove Escaping of All Columns
 
 ```php
-return DataTables::eloquent(Role::select())
-		    ->escapeColumns([0])
-		    ->make();
- ```
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\Role;
+
+Route::get('role-data', function() {
+    return DataTables::eloquent(Role::select())
+        ->escapeColumns([])
+        ->toJson();
+});
+```
+
+> [!WARNING]
+> Disabling escaping for all columns is dangerous and may expose your application to XSS attacks. Only use this option when you fully control the content.
+
+---
+
+## Escape by Output Index
+
+```php
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\Role;
+
+Route::get('role-data', function() {
+    return DataTables::eloquent(Role::select())
+        ->escapeColumns([0])
+        ->make();
+});
+```
+
+---
+
+## Security Best Practices
+
+| Practice | Description |
+|----------|-------------|
+| Use `rawColumns` sparingly | Only allow HTML in columns that need it |
+| Sanitize user input | Always sanitize data before rendering as HTML |
+| Use `e()` helper | Laravel's `e()` function for explicit escaping |
+| Review exported data | Check exports for potential XSS vectors |
+
+---
+
+## See Also
+
+- [Raw Columns](/docs/{{package}}/{{version}}/raw-columns) - Allow HTML in columns
+- [Security](/docs/{{package}}/{{version}}/security) - Security best practices

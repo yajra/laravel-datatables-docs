@@ -1,7 +1,3 @@
----
-title: HTML Builder
-description: Generate DataTables HTML markup with a fluent interface
----
 
 # HTML Builder
 

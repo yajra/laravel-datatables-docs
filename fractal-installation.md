@@ -1,7 +1,3 @@
----
-title: Fractal Plugin Installation
-description: Install and configure the Fractal plugin for API response transformation
----
 
 # Fractal Plugin Installation
 

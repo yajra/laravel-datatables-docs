@@ -1,7 +1,3 @@
----
-title: Collection Data Source
-description: Use Laravel Collections as data source for DataTables
----
 
 # Collection Data Source
 

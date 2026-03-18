@@ -1,7 +1,3 @@
----
-title: Eloquent Data Source
-description: Use Laravel Eloquent models as data source for DataTables
----
 
 # Eloquent Data Source
 

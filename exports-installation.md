@@ -1,7 +1,3 @@
----
-title: Export Plugin Installation
-description: Install and configure the Export plugin for queue-based DataTables exports
----
 
 # Export Plugin Installation
 
