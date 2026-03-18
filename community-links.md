@@ -1,3 +1,9 @@
+---
+title: Community Links
+description: Articles, tutorials, and community resources
+---
+
+
 # Community Links
 
 You may use the links below to further understand the Laravel DataTables.

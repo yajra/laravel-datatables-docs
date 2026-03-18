@@ -1,3 +1,9 @@
+---
+title: Skip Paging
+description: Disable pagination for DataTables
+---
+
+
 # Skip Paging
 
 To skip paging of `DataTables`, we can use `skipPaging` api or just set `paging: false` on our javascript.

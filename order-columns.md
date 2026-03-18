@@ -1,3 +1,9 @@
+---
+title: Order Columns
+description: Configure column ordering options
+---
+
+
 # Order Columns
 
 In some cases, you may want to use a custom order sql for a set of columns. To achieve this, you can use `orderColumns` api.

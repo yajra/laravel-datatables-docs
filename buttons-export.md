@@ -1,3 +1,9 @@
+---
+title: Buttons Export
+description: Export buttons configuration and options
+---
+
+
 # DataTable Buttons - Export
 
 This guide covers the export buttons available in the main DataTables package. For queue-based exports with Livewire, see the [Export Usage](exports-usage.md) guide.

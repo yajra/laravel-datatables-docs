@@ -1,3 +1,9 @@
+---
+title: Skip Total Records
+description: Skip total records count query
+---
+
+
 # Skip Total Records
 
 > Note: This is deprecated on v10. Just use setTotalRecords instead.

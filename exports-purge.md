@@ -1,3 +1,9 @@
+---
+title: Export Purge
+description: Purge old export files
+---
+
+
 # Export Purge
 
 This guide explains how to automatically clean up old export files from your storage disk.

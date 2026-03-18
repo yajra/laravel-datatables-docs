@@ -1,3 +1,9 @@
+---
+title: Error Handler
+description: Configure error handling for DataTables
+---
+
+
 # Error Handler
 
 Laravel DataTables allows you to configure how you want to handle server-side errors when processing your request. 

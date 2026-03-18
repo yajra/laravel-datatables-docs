@@ -1,3 +1,9 @@
+---
+title: Print Column
+description: Configure columns for print view
+---
+
+
 # Print Column
 
 You can print a column customised header if manually set.

@@ -1,3 +1,9 @@
+---
+title: Release Notes
+description: Changelog and release information
+---
+
+
 # Release Notes
 
 - [Laravel DataTables 7.0](#7.0)

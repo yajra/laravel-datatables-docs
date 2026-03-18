@@ -1,3 +1,9 @@
+---
+title: Fast Excel Export
+description: Export DataTables using Fast Excel
+---
+
+
 # Fast Excel Integration
 
 [Fast-Excel](https://github.com/rap2hpoutre/fast-excel) is recommended when exporting bulk records.

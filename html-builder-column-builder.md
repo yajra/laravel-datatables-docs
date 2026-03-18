@@ -1,3 +1,9 @@
+---
+title: Column Builder
+description: Build columns using the Column builder
+---
+
+
 # HTML Builder - Column Builder
 
 The Column Builder is a fluent interface for building column definitions.

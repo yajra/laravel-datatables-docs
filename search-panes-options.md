@@ -1,3 +1,9 @@
+---
+title: SearchPanes Options
+description: SearchPanes configuration options
+---
+
+
 # Further SearchPanes options
 
 ```php

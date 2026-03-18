@@ -1,3 +1,9 @@
+---
+title: Minified Ajax
+description: Configure minified AJAX requests
+---
+
+
 # HTML Builder Minified AJAX
 
 The `minifiedAjax()` method generates a shortened URL for DataTables AJAX requests.

@@ -1,3 +1,9 @@
+---
+title: HTML Builder Macro
+description: Create custom HTML builder macros
+---
+
+
 # HTML Builder Macro
 
 The `macro()` method allows you to extend the HTML Builder with custom functionality.

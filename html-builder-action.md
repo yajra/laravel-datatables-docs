@@ -1,3 +1,9 @@
+---
+title: Add Action Column
+description: Add action buttons to DataTables
+---
+
+
 # HTML Builder Action Column
 
 The `addAction()` method provides a quick way to add an action column to your DataTable.

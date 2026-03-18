@@ -1,3 +1,9 @@
+---
+title: Export Options
+description: Configuration options for exports
+---
+
+
 # Export Options
 
 This guide covers advanced customization options for exports including export types, sheet names, and column formatting.

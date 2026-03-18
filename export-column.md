@@ -1,3 +1,9 @@
+---
+title: Export Column
+description: Configure columns for export functionality
+---
+
+
 # Export Columns
 
 This guide explains how to configure which columns are included in exports and how to customize their headers.

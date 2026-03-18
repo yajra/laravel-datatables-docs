@@ -1,3 +1,9 @@
+---
+title: Manual Order
+description: Implement custom ordering logic
+---
+
+
 # Manual Order
 
 You may optionally disable the default ordering function of DataTables and write you own using `order` api.

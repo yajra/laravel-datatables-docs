@@ -1,3 +1,9 @@
+---
+title: Extended DataTable
+description: Extend DataTable with additional functionality
+---
+
+
 # Extended DataTable
 
 We can extend and reuse our DataTable class inside our controller by using `before` and `response` callback.

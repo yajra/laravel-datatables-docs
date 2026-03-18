@@ -1,3 +1,9 @@
+---
+title: Post Ajax
+description: Configure POST AJAX requests
+---
+
+
 # HTML Builder Post AJAX
 
 Use POST method to submit the DataTables AJAX request.

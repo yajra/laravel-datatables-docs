@@ -1,3 +1,9 @@
+---
+title: Buttons With Parameters
+description: Pass parameters to export actions
+---
+
+
 # Sending Parameter to DataTable Class
 
 You can send a parameter from controller to DataTable class using the `with` API.

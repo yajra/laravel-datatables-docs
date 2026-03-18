@@ -1,3 +1,9 @@
+---
+title: Custom Buttons
+description: Create custom button actions for DataTables
+---
+
+
 # Custom Actions
 
 You can enable custom actions on your buttons by overloading the `buttons` method in your DataTable class.

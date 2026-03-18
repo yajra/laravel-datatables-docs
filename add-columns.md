@@ -1,3 +1,9 @@
+---
+title: Add Columns
+description: Add multiple columns to your DataTables response
+---
+
+
 # Add Columns
 
 Add mutated / hidden columns.

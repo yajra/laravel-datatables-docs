@@ -1,3 +1,9 @@
+---
+title: Add Checkbox Column
+description: Add checkbox column for row selection
+---
+
+
 # HTML Builder Checkbox Column
 
 The `addCheckbox()` method provides a quick way to add a checkbox column to your DataTable.

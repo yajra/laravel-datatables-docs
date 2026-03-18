@@ -1,3 +1,9 @@
+---
+title: Add Index Column
+description: Add index/row number column
+---
+
+
 # HTML Builder Index Column
 
 The `addIndex()` method provides a quick way to add an index column to your DataTable.

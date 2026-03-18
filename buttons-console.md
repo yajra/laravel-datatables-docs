@@ -1,3 +1,9 @@
+---
+title: DataTables Console
+description: Artisan commands for DataTables
+---
+
+
 # DataTable Console Commands
 
 <a name="introduction"></a>

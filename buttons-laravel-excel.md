@@ -1,3 +1,9 @@
+---
+title: Laravel Excel Export
+description: Export DataTables using Laravel Excel
+---
+
+
 # Laravel Excel Integration
 
 [Laravel Excel](https://docs.laravel-excel.com) is the default package used when exporting DataTables to Excel and CSV.

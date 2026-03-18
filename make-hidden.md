@@ -1,3 +1,9 @@
+---
+title: Make Columns Hidden
+description: Hide specific columns from the response
+---
+
+
 # Hide attributes from Json
 
 When you are working with Eloquent Object, you can apply the `makeHidden()` ([Laravel documentation](https://laravel.com/docs/master/eloquent-serialization#hiding-attributes-from-json)) function before converting your object toArray().

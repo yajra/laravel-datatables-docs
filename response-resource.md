@@ -1,3 +1,9 @@
+---
+title: Response Resource
+description: Use Laravel API Resources with DataTables
+---
+
+
 # Resource Response
 
 DataTables response using laravel model resource.

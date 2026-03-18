@@ -1,3 +1,9 @@
+---
+title: Set Total Records
+description: Manually set total records count
+---
+
+
 # Set Total Records
 
 In some cases, we need to manually set the total records of our `DataTables` and skip its internal counting functionality.

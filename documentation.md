@@ -1,3 +1,9 @@
+---
+title: Documentation
+description: Documentation structure and navigation
+---
+
+
 - ## Prologue
 	- [Release Notes](/docs/{{package}}/{{version}}/releases)
 	- [Upgrade Guide](/docs/{{package}}/{{version}}/upgrade)

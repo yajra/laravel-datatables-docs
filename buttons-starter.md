@@ -1,3 +1,9 @@
+---
+title: Buttons Quick Starter
+description: Get started with DataTables Buttons plugin
+---
+
+
 # Buttons Quick Starter
 
 <a name="create-users-datatable"></a>

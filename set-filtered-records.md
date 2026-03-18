@@ -1,3 +1,9 @@
+---
+title: Set Filtered Records
+description: Manually set filtered records count
+---
+
+
 # Set Filtered Records
 
 In some cases, we need to manually set the filtered records count of our `DataTables` and skip its internal counting functionality.
