@@ -14,6 +14,8 @@ use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
+    protected array $actions = ['print', 'excel', 'myCustomAction'];
+
     public function html()
     {
         return $this->builder()
