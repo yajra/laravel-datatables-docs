@@ -5,7 +5,7 @@
 <a name="7.0"></a>
 ## Laravel DataTables 7.0
 
-Laravel DataTables 7.0 splits Laravel DataTables 6.x into a main package and plugins packages for more flexibile and pluggable design.
+Laravel DataTables 7.0 splits Laravel DataTables 6.x into a main package and plugins packages for more flexible and pluggable design.
 
 ### Buttons Plugin
 On Laravel DataTables 7.0, service classes and files are extracted into a separate package to reduce its complexity and dependencies on other packages by default.

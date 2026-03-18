@@ -1,6 +1,13 @@
+---
+title: HTML Builder Column
+description: Configure columns with the Column class in DataTables HTML Builder
+---
+
 # HTML Builder Column
 
 The `Column` class provides a fluent interface for defining table columns with various attributes and options.
+
+---
 
 ## Creating Columns
 
@@ -12,21 +19,26 @@ use Yajra\DataTables\Html\Column;
 Column::make('id')
     ->title('ID')
     ->data('id')
-    ->name('id');
+    ->name('id')
 ```
 
 ### Using Column::computed()
 
+Computed columns are generated on the client-side with data from the server:
+
 ```php
+use Yajra\DataTables\Html\Column;
+
 Column::computed('action', 'Action')
     ->orderable(false)
     ->searchable(false)
-    ->render('function(data, type, row) { ... }');
 ```
 
 ### Using Column::checkbox()
 
 ```php
+use Yajra\DataTables\Html\Column;
+
 Column::checkbox()
     ->title('<input type="checkbox" id="dataTablesCheckbox"/>');
 ```
@@ -34,9 +46,13 @@ Column::checkbox()
 ### Using Column::formatted()
 
 ```php
+use Yajra\DataTables\Html\Column;
+
 Column::formatted('name')
     ->render('full.name_formatted');
 ```
+
+---
 
 ## Column Attributes
 
@@ -54,6 +70,8 @@ Column::formatted('name')
 | `className` | string | `''` | CSS class name |
 | `width` | string | `''` | Column width |
 | `visible` | bool | `true` | Show/hide column |
+
+---
 
 ## Fluent Methods
 
@@ -78,9 +96,13 @@ Column::formatted('name')
 | `type()` | Set column type |
 | `createdCell()` | Set cell callback |
 
+---
+
 ## Complete Example
 
 ```php
+use Yajra\DataTables\Html\Column;
+
 Column::make('user.name')
     ->title('User Name')
     ->data('user.name')
@@ -97,6 +119,10 @@ Column::make('user.name')
     }');
 ```
 
+---
+
 ## See Also
 
-- [Html Builder](/docs/{{package}}/{{version}}/html-builder)
+- [HTML Builder](/docs/{{package}}/{{version}}/html-builder) - Main HTML Builder documentation
+- [HTML Builder Parameters](/docs/{{package}}/{{version}}/html-builder-parameters) - All available parameters
+- [HTML Builder Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks) - JavaScript callbacks

@@ -1,26 +1,31 @@
-# Getting Started
+---
+title: SearchPanes Getting Started
+description: Add SearchPanes for quick filtering of DataTables
+---
 
-[SearchPanes](https://datatables.net/extensions/searchpanes/) ([example](https://datatables.net/extensions/searchpanes/examples/initialisation/simple.html))
-allow the user to quickly filter the datatable after predefined filters.
+# SearchPanes Getting Started
 
-> {note} To use datatables you need to make sure that the npm packages `datatables.net-select-bs4` and `datatables.net-searchpanes-bs4` are installed and added to your `app.js`/`app.css` files.
+[SearchPanes](https://datatables.net/extensions/searchpanes/) allows the user to quickly filter the DataTable after predefined filters.
 
-## Adding SearchPanes to the frontend
+> [!NOTE]
+> To use SearchPanes, you need to ensure that the npm packages `datatables.net-select-bs5` and `datatables.net-searchpanes-bs5` are installed and added to your `app.js`/`app.css` files.
 
-To be able to see SearchPanes you need to either add them fixed in the dom (displayed at all time) or add a button which
-opens them as popup.
+---
 
-<a name="dom"></a>
-### Adding SearchPanes fixed in the dom 
+## Adding SearchPanes to the Frontend
 
-SearchPanes can be added to a table via the dom string, in it, they are marked with a `P` if you for example
-are using `Bfrtip` as dom you can use `PBfrtip` to display the SearchPanes at the top of the datatable, or `BfrtipP`
-to display them at the very bottom.
+To see SearchPanes, you can either add them fixed in the DOM (displayed at all times) or add a button which opens them as a popup.
+
+### Adding SearchPanes Fixed in the DOM
+
+SearchPanes can be added to a table via the DOM string, marked with a `P`. For example, if you are using `Bfrtip` as DOM, you can use `PBfrtip` to display SearchPanes at the top, or `BfrtipP` at the bottom.
 
 Setting the layout with the `\Yajra\DataTables\Html\Builder`:
 
 ```php
-public function html() : \Yajra\DataTables\Html\Builder
+use Yajra\DataTables\Html\SearchPane;
+
+public function html(): \Yajra\DataTables\Html\Builder
 {
     return $this->builder()
         ->searchPanes(SearchPane::make())
@@ -33,22 +38,25 @@ public function html() : \Yajra\DataTables\Html\Builder
 }
 ```
 
-<a name="button"></a>
-### Adding SearchPanes with a button
+### Adding SearchPanes with a Button
 
-To add a button which opens the SearchPanes you need to make one extending `searchPanes`:
+To add a button which opens the SearchPanes, make one extending `searchPanes`:
 
 ```php
-public function html() : \Yajra\DataTables\Html\Builder
+use Yajra\DataTables\Html\Builder;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\SearchPane;
+
+public function html(): Builder
 {
     // Adding via class
     return $this->builder()
         ->searchPanes(SearchPane::make())
         ->buttons([
-            \Yajra\DataTables\Html\Button::make('searchPanes')
+            Button::make('searchPanes'),
             // other buttons...
         ]);
-    
+
     // Alternatively set the buttons with options
     return $this->builder()
         ->searchPanes(SearchPane::make())
@@ -62,29 +70,29 @@ public function html() : \Yajra\DataTables\Html\Builder
 }
 ```
 
-<a name="backend"></a>
-## Adding SearchPanes to the backend
+---
 
-The SearchPanes can be filled in the datatables declaration via the `searchPane()` method. The method takes the column
-for which the SearchPane is, as well as the options of the SearchPane. It also allows you to set custom processing for
-the options.
+## Adding SearchPanes to the Backend
 
+The SearchPanes can be filled via the `searchPane()` method. The method takes the column for the SearchPane, options for the SearchPane, and allows custom processing for the options.
 
 ```php
-public function dataTable($query) : Yajra\DataTables\DataTableAbstract
+use Yajra\DataTables\DataTablesAbstract;
+use App\Models\User;
+
+public function dataTable($query): DataTablesAbstract
 {
     return datatables()
         ->eloquent($query)
         // Adding the SearchPane
         ->searchPane(
             /*
-             * This is the column for which this SearchPane definition is for 
+             * This is the column for which this SearchPane definition is for
              */
             'user_id',
-            
+
             /*
-             * Here we define the options for our SearchPane. This should be either a collection or an array with the
-             * form:
+             * Here we define the options for our SearchPane. This should be either a collection or an array with the form:
              * [
              *     [
              *          'value' => 1,
@@ -92,26 +100,39 @@ public function dataTable($query) : Yajra\DataTables\DataTableAbstract
              *          'total' => 5, // optional
              *          'count' => 3 // optional
              *     ],
-             *     [
-             *          'value' => 2,
-             *          'label' => 'display value 2',
-             *          'total' => 6, // optional
-             *          'count' => 5 // optional
-             *     ],
+             *     ...
              * ]
              */
             fn() => User::query()->select('id as value', 'name as label')->get(),
-            
+
             /*
-             * This is the filter that gets executed when the user selects one or more values on the SearchPane. The
-             * values are always given in an array even if just one is selected
+             * This is the filter that gets executed when the user selects one or more values on the SearchPane.
+             * The values are always given in an array even if just one is selected.
              */
             function (\Illuminate\Database\Eloquent\Builder $query, array $values) {
-                return $query
-                    ->whereIn(
-                        'id',
-                        $values);
+                return $query->whereIn('id', $values);
             }
         );
 }
 ```
+
+---
+
+## SearchPanes Options
+
+### Option Structure
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `value` | mixed | Yes | The value to filter by |
+| `label` | string | Yes | The display label |
+| `total` | int | No | Total count of records |
+| `count` | int | No | Filtered count |
+
+---
+
+## See Also
+
+- [SearchPanes Options](/docs/{{package}}/{{version}}/search-panes-options) - More configuration options
+- [SearchPanes Hide Columns](/docs/{{package}}/{{version}}/search-panes-hide-columns) - Control which columns appear in SearchPanes
+- [Filter Column](/docs/{{package}}/{{version}}/filter-column) - Custom column filtering

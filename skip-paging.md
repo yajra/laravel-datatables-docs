@@ -16,7 +16,7 @@ Route::get('user-data', function() {
 ```
 
 ## Using Javascript
-```
+```javascript
 <script>
 $(document).ready(function() {
 	$('#example').DataTable({

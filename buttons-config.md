@@ -1,74 +1,109 @@
+---
+title: Buttons Configurations
+description: Configure the Buttons plugin for DataTables export functionality
+---
+
 # Buttons Configurations
 
-<a name="artisan-console"></a>
+---
+
 ## Artisan Console Configurations
-Namespace configuration is used by the datatables command generator.
+
+Namespace configuration is used by the datatables command generator:
 
 ```php
-'namespace' => [
-    'base'  => 'DataTables',
-    'model' => '',
-],
+<?php
+
+return [
+    'namespace' => [
+        'base'  => 'DataTables',
+        'model' => '',
+    ],
+];
 ```
 
-<a name="base-namespace"></a>
 ### DataTable Base Namespace/Directory
-This is the base namespace/directory to be created when a new DataTable is called.
-This directory is appended to the default Laravel namespace.
+
+This is the base namespace/directory to be created when a new DataTable is called. This directory is appended to the default Laravel namespace.
 
 **Usage:**
-```php artisan datatables:make User```
 
-**Output:**
-```App\DataTables\UserDataTable```
+```bash
+php artisan datatables:make User
+```
 
-**Export filename:** ```users_(timestamp)```
+**Output:** `App\DataTables\UserDataTable`
 
-<a name="model-option-config"></a>
+**Export filename:** `users_(timestamp)`
+
 ### Model Option
-This is the base namespace/directory where your models are located.
-This directory is appended to the default Laravel namespace.
-**Usage:** ```php artisan datatables:make Post --model```
+
+This is the base namespace/directory where your models are located:
+
+**Usage:**
+
+```bash
+php artisan datatables:make Post --model
+```
+
 **Output:** `App\DataTables\PostDataTable`
+
 **With Model:** `App\Post`
+
 **Export filename:** `posts_(timestamp)`
 
-<a name="pdf-generator"></a>
+---
+
 ## PDF Generator
-Set the PDF generator to be used when converting your dataTable to PDF.
+
+Set the PDF generator to be used when converting your DataTable to PDF:
+
+```php
+'pdf_generator' => 'excel', // or 'snappy'
+```
 
 Available generators are: `excel`, `snappy`
 
-<a name="excel-generator"></a>
 ### Excel Generator
+
 When `excel` is used as the generator, the package will use [`maatwebsite/excel`](http://www.maatwebsite.nl/laravel-excel/docs) to generate the PDF.
 
-> To export files to pdf, you will have to include "dompdf/dompdf": "~0.6.1", "mpdf/mpdf": "~5.7.3" or "tecnick.com/tcpdf": "~6.0.0" in your composer.json and change the export.pdf.driver config setting accordingly.
+> [!NOTE]
+> To export files to PDF, you will have to include `dompdf/dompdf`, `mpdf/mpdf`, or `tecnick.com/tcpdf` in your `composer.json` and change the `export.pdf.driver` config setting accordingly.
 
-<a name="snappy-generator"></a>
 ### Snappy Generator
-When `snappy` is used as the generator, you need to install [`barryvdh/laravel-snappy`](https://github.com/barryvdh/laravel-snappy)
 
-<a name="snappy-pdf-options"></a>
-### Snappy PDF Options
-These are the options passed to `laravel-snappy` when exporting the pdf file.
+When `snappy` is used as the generator, you need to install [`barryvdh/laravel-snappy`](https://github.com/barryvdh/laravel-snappy):
 
-```php
-'snappy'          => [
-    'options'     => [
-        'no-outline'    => true,
-        'margin-left'   => '0',
-        'margin-right'  => '0',
-        'margin-top'    => '10mm',
-        'margin-bottom' => '10mm',
-    ],
-    'orientation' => 'landscape',
-],
+```bash
+composer require barryvdh/laravel-snappy
 ```
 
-<a name="see-also"></a>
+### Snappy PDF Options
+
+These are the options passed to `laravel-snappy` when exporting the PDF file:
+
+```php
+<?php
+
+return [
+    'snappy' => [
+        'options' => [
+            'no-outline'    => true,
+            'margin-left'   => '0',
+            'margin-right'  => '0',
+            'margin-top'    => '10mm',
+            'margin-bottom' => '10mm',
+        ],
+        'orientation' => 'landscape',
+    ],
+];
+```
+
+---
+
 ## See Also
 
-- [Buttons Installation](buttons-installation.md) - Setup the buttons package
-- [Buttons Export](buttons-export.md) - Export button options
-- [Buttons Custom](buttons-custom.md) - Custom button actions
+- [Buttons Installation](/docs/{{package}}/{{version}}/buttons-installation) - Setup the buttons package
+- [Buttons Export](/docs/{{package}}/{{version}}/buttons-export) - Export button options
+- [Buttons Custom](/docs/{{package}}/{{version}}/buttons-custom) - Custom button actions

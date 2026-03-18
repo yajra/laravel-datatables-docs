@@ -1,6 +1,13 @@
+---
+title: HTML Builder
+description: Generate DataTables HTML markup with a fluent interface
+---
+
 # HTML Builder
 
 The HTML Builder is a fluent interface for generating DataTables HTML markup and JavaScript configuration. It provides a clean, expressive way to define your table structure, columns, and options.
+
+---
 
 ## Installation
 
@@ -13,6 +20,8 @@ After installation, publish the configuration:
 ```bash
 php artisan vendor:publish --tag=datatables-html
 ```
+
+---
 
 ## Basic Usage
 
@@ -41,6 +50,8 @@ Route::get('users', function(Builder $builder) {
 ### Via IoC Container
 
 ```php
+use Yajra\DataTables\Facades\DataTables;
+
 Route::get('users', function() {
     $builder = app('datatables.html');
 });
@@ -49,25 +60,31 @@ Route::get('users', function() {
 ### From DataTables Instance
 
 ```php
-use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Facades\DataTables;
 
 Route::get('users', function(DataTables $dataTable) {
     $builder = $dataTable->getHtmlBuilder();
 });
 ```
 
+---
+
 ## Configuration
 
 Edit `config/datatables-html.php` to set default table attributes:
 
 ```php
+<?php
+
 return [
     'table' => [
         'class' => 'table table-bordered',
-        'id' => 'dataTable',
-    ]
+        'id'    => 'dataTable',
+    ],
 ];
 ```
+
+---
 
 ## Column Types
 
@@ -124,6 +141,8 @@ Or use the helper method:
 $builder->addAction()
 ```
 
+---
+
 ## Column Attributes
 
 | Attribute | Type | Description |
@@ -140,6 +159,8 @@ $builder->addAction()
 | `className` | string | CSS class name |
 | `width` | string | Column width |
 | `visible` | bool | Show/hide column |
+
+---
 
 ## Table Configuration
 
@@ -167,6 +188,8 @@ echo $html->table(['class' => 'table'], true);
 echo $html->table([], false, true);
 ```
 
+---
+
 ## AJAX Configuration
 
 ### Basic AJAX
@@ -191,6 +214,8 @@ $html = $builder->ajax([
 ]);
 ```
 
+---
+
 ## Parameters
 
 Configure DataTables options:
@@ -202,6 +227,8 @@ $html = $builder
     ->info(false)
     ->searchDelay(350);
 ```
+
+---
 
 ## Plugins
 
@@ -237,6 +264,8 @@ $html = $builder->searchPanes(true);
 $html = $builder->responsive(true);
 ```
 
+---
+
 ## Scripts Generation
 
 ```php
@@ -247,8 +276,11 @@ echo $html->scripts();
 echo $html->scripts([], ['type' => 'module']);
 ```
 
+---
+
 ## See Also
 
-- [Columns Documentation](/docs/{{package}}/{{version}}/add-columns)
-- [Buttons Plugin](/docs/{{package}}/{{version}}/buttons-installation)
-- [Editor Integration](/docs/{{package}}/{{version}}/editor-installation)
+- [HTML Builder Column](/docs/{{package}}/{{version}}/html-builder-column) - Column configuration options
+- [HTML Builder Parameters](/docs/{{package}}/{{version}}/html-builder-parameters) - All available parameters
+- [HTML Builder Callbacks](/docs/{{package}}/{{version}}/html-builder-callbacks) - JavaScript callbacks
+- [Buttons Plugin](/docs/{{package}}/{{version}}/buttons-installation) - Export button options

@@ -1,6 +1,6 @@
-# White listing columns
+# White Listing Columns
 
-Sorting and searching will only work on columns explicitly defined as whitelist.
+The whitelist feature allows you to explicitly define which columns can be used for sorting and searching. Only columns defined in the whitelist will be searchable and sortable.
 
 ```php
 use DataTables;

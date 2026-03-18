@@ -1,10 +1,13 @@
+---
+title: Fractal Plugin Installation
+description: Install and configure the Fractal plugin for API response transformation
+---
+
 # Fractal Plugin Installation
 
-<a name="installation"></a>
-## Installation
+---
 
-- [Installing Laravel DataTables Fractal](#installing-laravel-datatables-fractal)
-### Installing Laravel DataTables Fractal
+## Installation
 
 Run the following command in your project to get the latest version of the plugin:
 
@@ -12,13 +15,22 @@ Run the following command in your project to get the latest version of the plugi
 composer require yajra/laravel-datatables-fractal:"^13.0"
 ```
 
-> {note} This step is optional.
+---
+
+## Configuration
+
+> [!NOTE]
+> This step is optional. The package works with default configuration out of the box.
+
+Publish the configuration file:
 
 ```bash
 php artisan vendor:publish --tag=datatables-fractal
 ```
 
+---
+
 ## See Also
 
-- [Response using Transformer](/docs/response-fractal) - Learn how to transform DataTables responses using Fractal transformers
-- [Fractal Transformer Serializer](/docs/response-fractal-serializer) - Configure custom serializers for Fractal transformers
+- [Response using Transformer](/docs/{{package}}/{{version}}/response-fractal) - Learn how to transform DataTables responses using Fractal transformers
+- [Fractal Transformer Serializer](/docs/{{package}}/{{version}}/response-fractal-serializer) - Configure custom serializers for Fractal transformers

@@ -1,21 +1,29 @@
+---
+title: Quick Starter
+description: Build your first DataTable in 15 minutes with this complete guide
+---
+
 # Quick Starter
 
-<a name="installation"></a>
-## <b>01.</b> Installing Laravel & DataTables
+This guide will walk you through building a complete DataTable in 15 minutes.
+
+---
+
+## Step 1: Installing Laravel & DataTables
 
 ### Quick Installation
 
-If you have already installed [Laravel Installer](https://laravel.com/docs#your-first-laravel-project) on your local machine, you may create a new project via laravel command:
+If you have already installed [Laravel Installer](https://laravel.com/docs#your-first-laravel-project) on your local machine, you may create a new project via Laravel command:
 
-```shell
+```bash
 laravel new datatables
 ```
 
-After the project has been created, we will then install [Laravel UI](https://github.com/laravel/ui) and [Yajra DataTables](https://github.com/yajra/laravel-datatables)
+After the project has been created, we will then install [Laravel UI](https://github.com/laravel/ui) and [Yajra DataTables](https://github.com/yajra/laravel-datatables):
 
-```shell
+```bash
 cd datatables
- 
+
 composer require laravel/ui --dev
 php artisan ui bootstrap --auth
 
@@ -24,39 +32,40 @@ composer require yajra/laravel-datatables
 
 For simplicity, you may use SQLite to store your application's data. To instruct Laravel to use SQLite instead of MySQL, update your new application's `.env` file and remove all of the `DB_*` environment variables except for the `DB_CONNECTION` variable, which should be set to `sqlite`:
 
-```shell
+```bash
 touch database/database.sqlite
 ```
 
-```dotenv filename=.env
+```env filename=.env
 DB_CONNECTION=sqlite
 ```
 
-<a name="datatables-with-vite"></a>
-## <b>02.</b> Install Laravel DataTables Vite
+---
 
-Next, we will install [Laravel DataTables Vite](https://github.com/yajra/laravel-datatables-vite) to simplify our frontend setup.
+## Step 2: Install Laravel DataTables Vite
 
-```shell
+Next, we will install [Laravel DataTables Vite](https://github.com/yajra/laravel-datatables-vite) to simplify our frontend setup:
+
+```bash
 npm i laravel-datatables-vite --save-dev
 ```
 
 This will install the following packages:
 
 ```
-  - Bootstrap Icons
-  - DataTables with Buttons and Select plugins for Bootstrap 5
-  - Laravel DataTables custom scripts
+- Bootstrap Icons
+- DataTables with Buttons and Select plugins for Bootstrap 5
+- Laravel DataTables custom scripts
 ```
 
-Once installed, we can now configure our scripts and css needed for our application.
+Once installed, we can now configure our scripts and CSS needed for our application:
 
 ```js filename=resources/js/app.js
 import './bootstrap';
 import 'laravel-datatables-vite';
 ```
 
-```postcss filename=resources/sass/app.scss
+```scss filename=resources/sass/app.scss
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
@@ -75,22 +84,25 @@ import 'laravel-datatables-vite';
 
 We just need to start the Vite development server to automatically recompile our JS, CSS and refresh the browser when we make changes to our Blade templates:
 
-```shell
+```bash
 npm run dev
 ```
 
-<a name="setup-users-datatable"></a>
-## <b>03.</b> Setup a Users DataTable
+---
+
+## Step 3: Setup a Users DataTable
 
 Open a new terminal in your `datatables` project directory and run the following command:
 
-```shell
+```bash
 php artisan datatables:make Users
 ```
 
-Next, we will configure our `UsersDataTable` and add the columns that we want to display.
+Next, we will configure our `UsersDataTable` and add the columns that we want to display:
 
 ```php filename=app/DataTables/UsersDataTable.php
+<?php
+
 namespace App\DataTables;
 
 use App\Models\User;
@@ -150,14 +162,17 @@ class UsersDataTable extends DataTable
 }
 ```
 
-<a name="setup-users-controller"></a>
-## <b>04.</b> Setup a Users Controller, View & Route
+---
 
-```shell
+## Step 4: Setup a Users Controller, View & Route
+
+```bash
 php artisan make:controller UsersController
 ```
 
 ```php filename=app/Http/Controllers/UsersController.php
+<?php
+
 namespace App\Http\Controllers;
 
 use App\DataTables\UsersDataTable;
@@ -191,18 +206,32 @@ class UsersController extends Controller
 ```
 
 ```php filename=routes/web.php
+<?php
+
 use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 ```
 
-<a name="update-default-layout"></a>
-## <b>05.</b> Update the default app layout
+---
 
-To be able to load our custom scripts, we need to add `@stack('scripts')` before the end of `body` tag in our `app.blade.php` layout.
+## Step 5: Update the Default App Layout
+
+To be able to load our custom scripts, we need to add `@stack('scripts')` before the end of `body` tag in our `app.blade.php` layout:
 
 ```blade filename=resources/views/layouts/app.blade.php
-....
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- ... other head content ... -->
+</head>
+<body>
+    <div id="app">
         <main class="py-4">
             @yield('content')
         </main>
@@ -212,10 +241,11 @@ To be able to load our custom scripts, we need to add `@stack('scripts')` before
 </html>
 ```
 
-<a name="migrate-and-seed"></a>
-## <b>06.</b> Migrate and Seed Test Data
+---
 
-```shell
+## Step 6: Migrate and Seed Test Data
+
+```bash
 php artisan migrate
 php artisan tinker
 ```
@@ -225,14 +255,22 @@ Psy Shell v0.9.9 (PHP 7.2.22 — cli) by Justin Hileman
 >>> User::factory(100)->create()
 ```
 
-Our application should now be ready to run.
+Our application should now be ready to run:
 
-```shell
+```bash
 php artisan serve
 ```
 
-Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000]([http://localhost:8000).
+Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000](http://localhost:8000).
 
 We can now visit our [`/users`](http://localhost:8000/users) route and see our users table.
 
 <img src="https://yajrabox.com/img/screenshots/quick-starter.png" alt="Laravel DataTables Users" class="rounded-lg border dark:border-none shadow-lg mb-6" />
+
+---
+
+## See Also
+
+- [HTML Builder](/docs/{{package}}/{{version}}/html-builder) - More advanced table configuration
+- [Buttons Plugin](/docs/{{package}}/{{version}}/buttons-installation) - Add export functionality
+- [Eloquent Data Source](/docs/{{package}}/{{version}}/engine-eloquent) - Working with Eloquent models

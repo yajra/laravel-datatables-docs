@@ -1,14 +1,22 @@
+---
+title: Export Plugin Installation
+description: Install and configure the Export plugin for queue-based DataTables exports
+---
+
 # Export Plugin Installation
 
 > **GitHub**: [yajra/laravel-datatables-export](https://github.com/yajra/laravel-datatables-export)
 
 This package is a plugin for Laravel DataTables that handles server-side exporting using Queue, OpenSpout, and Livewire. It allows you to export large datasets without timing out by processing exports in background jobs.
 
+> [!NOTE]
 > **Requirements:**
 > - PHP 8.3+
 > - Laravel 13.x
 > - Livewire 3.x
 > - A queue worker (Redis, Database, SQS, etc.)
+
+---
 
 ## Quick Installation
 
@@ -18,7 +26,8 @@ Install the package via Composer:
 composer require yajra/laravel-datatables-export:"^13.0"
 ```
 
-<a name="queue-setup"></a>
+---
+
 ## Queue Setup
 
 The export package uses Laravel's job batching feature. You need to set up the queue and batch jobs tables:
@@ -34,10 +43,12 @@ php artisan queue:batches-table
 php artisan migrate
 ```
 
-<a name="configuration"></a>
+---
+
 ## Configuration
 
-> {note} This step is optional.
+> [!NOTE]
+> This step is optional. The package works with default configuration out of the box.
 
 Publish the configuration file and views to customize the export behavior:
 
@@ -45,36 +56,50 @@ Publish the configuration file and views to customize the export behavior:
 php artisan vendor:publish --tag=datatables-export --force
 ```
 
-<a name="configuration-options"></a>
-## Configuration Options
+### Configuration Options
 
 After publishing, you can customize the export behavior in `config/datatables-export.php`:
 
 ```php
+<?php
+
 return [
-    // Query iteration method: 'lazy' (recommended for large datasets) or 'cursor'
+    /*
+     * Query iteration method: 'lazy' (recommended for large datasets) or 'cursor'
+     */
     'method' => 'lazy',
-    
-    // Chunk size when using lazy method
+
+    /*
+     * Chunk size when using lazy method
+     */
     'chunk' => 1000,
-    
-    // Storage disk for export files
+
+    /*
+     * Storage disk for export files
+     */
     'disk' => 'local',
-    
-    // Optional S3 disk for final destination
+
+    /*
+     * Optional S3 disk for final destination
+     */
     's3_disk' => '',
-    
-    // Default date format for exports
+
+    /*
+     * Default date format for exports
+     */
     'default_date_format' => 'yyyy-mm-dd',
-    
-    // Auto-purge exports older than X days
+
+    /*
+     * Auto-purge exports older than X days
+     */
     'purge' => [
         'days' => 1,
     ],
 ];
 ```
 
-<a name="next-steps"></a>
+---
+
 ## Next Steps
 
 - [Export Usage](exports-usage.md) - Learn how to use the export functionality

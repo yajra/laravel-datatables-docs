@@ -1,12 +1,21 @@
+---
+title: Fractal Transformer Serializer
+description: Configure custom serializers for Fractal transformers
+---
+
 # Fractal Transformer Serializer
 
-You can set the serializer to be used by DataTables using `setSerializer` api. Serializer should be used with `setTransformer` api.
+You can set the serializer to be used by DataTables using the `setSerializer` API. Serializer should be used with `setTransformer` API.
+
+---
+
+## Basic Usage
 
 ```php
-use DataTables;
+use Yajra\DataTables\Facades\DataTables;
 
 Route::get('user-data', function () {
-    $model = App\User::query();
+    $model = App\Models\User::query();
 
     return DataTables::eloquent($model)
         ->setTransformer(new App\Transformers\UserTransformer)
@@ -15,17 +24,26 @@ Route::get('user-data', function () {
 });
 ```
 
-### Available Serializers
+---
+
+## Available Serializers
 
 The Fractal package provides several built-in serializers:
 
-- **DataArraySerializer** - Returns data as a plain array (default)
-- **ArraySerializer** - Returns data wrapped in a data key
-- **JsonApiSerializer** - Returns data in JSON API format
+| Serializer | Description |
+|------------|-------------|
+| `DataArraySerializer` | Returns data as a plain array (default) |
+| `ArraySerializer` | Returns data wrapped in a data key |
+| `JsonApiSerializer` | Returns data in JSON API format |
 
-### Creating a Custom Serializer
+---
+
+## Creating a Custom Serializer
 
 ```php
+<?php
+// app/Serializers/CustomSerializer.php
+
 namespace App\Serializers;
 
 use League\Fractal\Serializer\ArraySerializer;
@@ -36,7 +54,28 @@ class CustomSerializer extends ArraySerializer
 }
 ```
 
+---
+
+## Example with JSON API
+
+```php
+use Yajra\DataTables\Facades\DataTables;
+use App\Transformers\UserTransformer;
+use League\Fractal\Serializer\JsonApiSerializer;
+
+Route::get('user-data', function () {
+    $model = App\Models\User::query();
+
+    return DataTables::eloquent($model)
+        ->setTransformer(new UserTransformer)
+        ->setSerializer(new JsonApiSerializer)
+        ->toJson();
+});
+```
+
+---
+
 ## See Also
 
-- [Fractal Plugin Installation](/docs/fractal-installation) - Get started with the Fractal plugin
-- [Response using Transformer](/docs/response-fractal) - Learn how to transform DataTables responses using Fractal transformers
+- [Fractal Plugin Installation](/docs/{{package}}/{{version}}/fractal-installation) - Get started with the Fractal plugin
+- [Response using Transformer](/docs/{{package}}/{{version}}/response-fractal) - Learn how to transform DataTables responses using Fractal transformers

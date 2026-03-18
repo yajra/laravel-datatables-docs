@@ -69,7 +69,7 @@ Route::get('users', function(UsersDataTable $dataTable) {
 
 Our `users.index` view located at `resources/views/users/index.blade.php`.
 
-```php
+```blade
 @extends('app')
 
 @section('content')

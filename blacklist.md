@@ -1,6 +1,6 @@
-# Black listing columns
+# Black Listing Columns
 
-Sorting and searching will not work on columns explicitly defined as blacklisted.
+The blacklist feature allows you to explicitly disable sorting and searching on specific columns. Columns defined in the blacklist will be excluded from sorting and searching operations.
 
 ```php
 use DataTables;

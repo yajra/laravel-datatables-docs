@@ -1,29 +1,32 @@
-# DataTables Editor Plugin
+---
+title: DataTables Editor Plugin Installation
+description: Install and configure the DataTables Editor plugin for inline CRUD operations
+---
 
-<a name="editor-installation"></a>
+# DataTables Editor Plugin Installation
 
-> {tip} Special thanks to [@bellwood](https://github.com/bellwood) and [@DataTables](https://github.com/datatables) for being [generous](https://github.com/yajra/laravel-datatables/issues/1548) for providing a license to support the development of this package.
+> [!NOTE]
+> Special thanks to [@bellwood](https://github.com/bellwood) and [@DataTables](https://github.com/datatables) for being [generous](https://github.com/yajra/laravel-datatables/issues/1548) for providing a license to support the development of this package.
 
 ---
 
-<a name="overview"></a>
 ## Overview
 
 The DataTables Editor plugin integrates the powerful [DataTables Editor](https://editor.datatables.net/) library with Laravel DataTables. It provides a complete CRUD (Create, Read, Update, Delete) interface for your DataTables, handling all the backend logic including validation, database transactions, and event hooks.
 
 This plugin is particularly useful when you need an **inline editing experience** directly within your DataTables, allowing users to edit table data without navigating to separate forms.
 
-> {warning} A [premium license](https://editor.datatables.net/purchase/index) is required to use the DataTables Editor library. Please purchase a license before using this plugin.
+> [!WARNING]
+> A [premium license](https://editor.datatables.net/purchase/index) is required to use the DataTables Editor library. Please purchase a license before using this plugin.
 
 ---
 
-<a name="prerequisites"></a>
 ## Prerequisites
 
 Before installing this plugin, ensure you have:
 
 | Requirement | Version | Notes |
-|------------|---------|-------|
+|-------------|---------|-------|
 | Laravel | 13.x or later | Required |
 | PHP | 8.3+ | Required for Laravel 13 |
 | yajra/laravel-datatables | 13.x | Core package must be installed first |
@@ -32,7 +35,6 @@ Before installing this plugin, ensure you have:
 
 ---
 
-<a name="installation"></a>
 ## Installation
 
 ### Step 1: Install the Package
@@ -47,7 +49,6 @@ Follow the [Editor Tutorial](/docs/{{package}}/{{version}}/editor-tutorial) for 
 
 ---
 
-<a name="quick-start"></a>
 ## Quick Start
 
 Once installed, you can quickly create an editor class using the artisan command:
@@ -60,20 +61,19 @@ Then, follow the [Editor Usage](/docs/{{package}}/{{version}}/editor-usage) docu
 
 ---
 
-<a name="best-practices"></a>
 ## Best Practices
 
-> {tip} **Pro Tips for Success**
-
-- **Always use database transactions** - The Editor automatically wraps operations in transactions
-- **Set fillable attributes** - Ensure your model has proper `$fillable` property
-- **Use validation rules** - Always define validation rules for create, edit, and remove actions
-- **Return the model** - In event hooks (v1.8.0+), always return the `$model` instance
-- **DT_RowId for remove** - Always validate `DT_RowId` in `removeRules()` as `required|exists:table,id`
+> [!TIP]
+> **Pro Tips for Success**
+>
+> - **Always use database transactions** - The Editor automatically wraps operations in transactions
+> - **Set fillable attributes** - Ensure your model has proper `$fillable` property
+> - **Use validation rules** - Always define validation rules for create, edit, and remove actions
+> - **Return the model** - In event hooks (v1.8.0+), always return the `$model` instance
+> - **DT_RowId for remove** - Always validate `DT_RowId` in `removeRules()` as `required|exists:table,id`
 
 ---
 
-<a name="related-documentation"></a>
 ## Related Documentation
 
 | Documentation | Description |

@@ -1,12 +1,15 @@
+---
+title: Using DataTables Editor
+description: Integrate DataTables Editor with routes and frontend
+---
+
 # Using DataTables Editor
 
-<a name="using-editor"></a>
-
-> {info} This guide shows how to integrate your Editor class with routes and frontend.
+> [!NOTE]
+> This guide shows how to integrate your Editor class with routes and frontend.
 
 ---
 
-<a name="overview"></a>
 ## Overview
 
 DataTables Editor processes all actions (create, edit, remove) via **POST requests**. The Editor handles:
@@ -16,7 +19,6 @@ DataTables Editor processes all actions (create, edit, remove) via **POST reques
 
 ---
 
-<a name="complete-setup-flow"></a>
 ## Complete Setup Flow
 
 ```
@@ -40,7 +42,6 @@ DataTables Editor processes all actions (create, edit, remove) via **POST reques
 
 ---
 
-<a name="step-1-create-editor"></a>
 ## Step 1: Create Your Editor
 
 Generate using the artisan command:
@@ -52,7 +53,9 @@ php artisan datatables:editor Users --model
 Or create manually:
 
 ```php
+<?php
 // app/DataTables/UsersDataTableEditor.php
+
 namespace App\DataTables;
 
 use App\Models\User;
@@ -89,13 +92,14 @@ class UsersDataTableEditor extends DataTablesEditor
 
 ---
 
-<a name="step-2-setup-editor-model"></a>
 ## Step 2: Setup Editor Model
 
 Configure your model with fillable attributes:
 
 ```php
+<?php
 // app/Models/User.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -110,39 +114,36 @@ class User extends Model
 }
 ```
 
-> {tip} See [Editor Model](/docs/{{package}}/{{version}}/editor-model) for detailed configuration.
+> [!TIP]
+> See [Editor Model](/docs/{{package}}/{{version}}/editor-model) for detailed configuration.
 
 ---
 
-<a name="step-3-register-route"></a>
 ## Step 3: Register Route
 
 Add a POST route to handle all Editor actions:
 
 ```php
+<?php
 // routes/web.php
+
 use App\DataTables\UsersDataTable;
 use App\DataTables\UsersDataTableEditor;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/users', UsersDataTable::class)->name('users.index');
 Route::post('/users', UsersDataTableEditor::class)->name('users.store');
 ```
 
-> {tip} For simple use cases with no additional transformations, you can pass the class directly to the route.
+> [!TIP]
+> For simple use cases with no additional transformations, you can pass the class directly to the route.
 
 Or with a controller for more control:
 
 ```php
-use App\Http\Controllers\UserController;
-
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::post('/users', [UserController::class, 'store'])->name('users.store');
-```
-
-Full controller example:
-
-```php
+<?php
 // app/Http/Controllers/UserController.php
+
 namespace App\Http\Controllers;
 
 use App\DataTables\UsersDataTable;
@@ -164,19 +165,25 @@ class UserController extends Controller
 
 ---
 
-<a name="step-4-csrf-token"></a>
 ## Step 4: CSRF Token
 
-> {info} CSRF token is automatically handled by `$dataTable->scripts()`, no additional configuration needed.
+> [!NOTE]
+> CSRF token is automatically handled by `$dataTable->scripts()`, no additional configuration needed.
 
 ---
 
-<a name="step-5-configure-editor-buttons"></a>
-## Step 5: Configure DataTable Editor Buttons
+## Step 5: Configure Editor Buttons
 
 Update your DataTable HTML builder:
 
 ```php
+<?php
+// app/DataTables/UsersDataTable.php
+
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Editor;
+
 public function html(): HtmlBuilder
 {
     return $this->builder()
@@ -202,7 +209,6 @@ public function html(): HtmlBuilder
 
 ---
 
-<a name="step-6-render-in-blade"></a>
 ## Step 6: Render in Blade
 
 Add the DataTable to your Blade view:
@@ -221,14 +227,15 @@ Add the DataTable to your Blade view:
 @endpush
 ```
 
-> {info} The Editor initialization script is automatically included in `$dataTable->scripts()`.
+> [!NOTE]
+> The Editor initialization script is automatically included in `$dataTable->scripts()`.
 
 ---
 
-<a name="frontend-generator"></a>
 ## Frontend Generator
 
-> {tip} Use the [DataTables Editor Generator](https://editor.datatables.net/generator/index) to quickly generate frontend code.
+> [!TIP]
+> Use the [DataTables Editor Generator](https://editor.datatables.net/generator/index) to quickly generate frontend code.
 
 1. Visit the [Editor Generator](https://editor.datatables.net/generator/index)
 2. Configure your table fields
@@ -237,7 +244,6 @@ Add the DataTable to your Blade view:
 
 ---
 
-<a name="related-documentation"></a>
 ## Related Documentation
 
 | Guide | Description |
