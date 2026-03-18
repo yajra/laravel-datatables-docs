@@ -1,38 +1,62 @@
 # DataTables Editor Command
 
-## Introduction
+<a name="editor-command"></a>
 
-Artisan is the command-line interface included with Laravel.
-It provides a number of helpful commands that can assist you while you build your application.
-To view a list of all available Artisan commands, you may use the list command:
+> {info} The `datatables:editor` artisan command generates a complete Editor class with all required methods.
+
+---
+
+<a name="overview"></a>
+## Overview
+
+The Editor command creates a new `DataTablesEditor` class with:
+- Pre-configured model property
+- Validation rules for create, edit, and remove
+- Ready for customization
+
+---
+
+<a name="basic-usage"></a>
+## Basic Usage
+
+### List All Commands
 
 ```bash
-php artisan list
+php artisan list | grep datatables
 ```
 
-<a name="editor-command"></a>
-## Editor Command
+### Create Editor Class
 
 ```bash
 php artisan datatables:editor {name}
 ```
 
-<a name="editor-command-options"></a>
-## Editor Command Options
+| Argument | Description |
+|----------|-------------|
+| `name` | The base name for your editor class (e.g., `Users` creates `UsersDataTableEditor`) |
 
-- `--model` : The name given will be used as the model is singular form.
-- `--model-namespace` : The namespace of the model to be used.
+---
 
-<a name="editor-command-example"></a>
-## Creating a DataTables Editor class
+<a name="command-options"></a>
+## Command Options
 
-In this example, we will create a DataTable Editor class.
+| Option | Description |
+|--------|-------------|
+| `--model` | Use singular form as the model name |
+| `--model-namespace="namespace"` | Set custom model namespace |
+
+---
+
+<a name="examples"></a>
+## Examples
+
+### Example 1: Basic Editor
 
 ```bash
 php artisan datatables:editor Posts
 ```
 
-This will create a `PostsDataTableEditor` class on `app\DataTables` directory.
+Creates `app/DataTables/PostsDataTableEditor.php`:
 
 ```php
 namespace App\DataTables;
@@ -42,16 +66,12 @@ use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
 use App\User;
 
+/** @extends DataTablesEditor<User> **/
 class PostsDataTableEditor extends DataTablesEditor
 {
     protected $model = User::class;
 
-    /**
-     * Get create action validation rules.
-     *
-     * @return array
-     */
-    public function createRules()
+    public function createRules(): array
     {
         return [
             'email' => 'required|email',
@@ -59,13 +79,7 @@ class PostsDataTableEditor extends DataTablesEditor
         ];
     }
 
-    /**
-     * Get edit action validation rules.
-     *
-     * @param Model $model
-     * @return array
-     */
-    public function editRules(Model $model)
+    public function editRules(Model $model): array
     {
         return [
             'email' => 'sometimes|required|email|' . Rule::unique($model->getTable())->ignore($model->getKey()),
@@ -73,30 +87,26 @@ class PostsDataTableEditor extends DataTablesEditor
         ];
     }
 
-    /**
-     * Get remove action validation rules.
-     *
-     * @param Model $model
-     * @return array
-     */
-    public function removeRules(Model $model)
+    public function removeRules(Model $model): array
     {
-        return [];
+        return [
+            'DT_RowId' => 'required|exists:' . $model->getTable() . ',id',
+        ];
     }
 }
 ```
 
-<a name="editor-command-model-option"></a>
-### Model Option
+---
 
-In this example, we will pass a `--model` option to set the model to be used by our DataTable.
+### Example 2: With Model Option
 
 ```bash
 php artisan datatables:editor Posts --model
 ```
 
-This will generate a `App\DataTables\PostsDataTable` class that uses `App\Post` as the base model for our query.
-The exported filename will also be set to `posts_(timestamp)`.
+> {tip} The `--model` option uses the singular form (`Post`) as the model class and includes generics.
+
+Creates `app/DataTables/PostsDataTableEditor.php` with `App\Post` model:
 
 ```php
 namespace App\DataTables;
@@ -106,16 +116,12 @@ use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
 use App\Post;
 
+/** @extends DataTablesEditor<Post> **/
 class PostsDataTableEditor extends DataTablesEditor
 {
     protected $model = Post::class;
 
-    /**
-     * Get create action validation rules.
-     *
-     * @return array
-     */
-    public function createRules()
+    public function createRules(): array
     {
         return [
             'email' => 'required|email',
@@ -123,13 +129,7 @@ class PostsDataTableEditor extends DataTablesEditor
         ];
     }
 
-    /**
-     * Get edit action validation rules.
-     *
-     * @param Model $model
-     * @return array
-     */
-    public function editRules(Model $model)
+    public function editRules(Model $model): array
     {
         return [
             'email' => 'sometimes|required|email|' . Rule::unique($model->getTable())->ignore($model->getKey()),
@@ -137,27 +137,60 @@ class PostsDataTableEditor extends DataTablesEditor
         ];
     }
 
-    /**
-     * Get remove action validation rules.
-     *
-     * @param Model $model
-     * @return array
-     */
-    public function removeRules(Model $model)
+    public function removeRules(Model $model): array
     {
-        return [];
+        return [
+            'DT_RowId' => 'required|exists:' . $model->getTable() . ',id',
+        ];
     }
 }
 ```
 
-<a name="editor-command-model-namespace-option"></a>
-### Model Namespace Option
+---
 
-In this example, we will pass a `--model-namespace` option to set the model namespace to be used by our DataTable.
+### Example 3: With Custom Model Namespace
 
 ```bash
 php artisan datatables:editor Posts --model-namespace="Entities"
 ```
 
-It will implicitly activate `--model` option and override the `model` parameter in `datatables-buttons` config file.
-This will allow to use a non-standard namespace if front-end and back-end models are in separate namespace for example.
+> {info} This option implicitly activates `--model` and uses `App\Entities\Post` as the model.
+
+```php
+namespace App\DataTables;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
+use Yajra\DataTables\DataTablesEditor;
+use App\Entities\Post;
+
+/** @extends DataTablesEditor<Post> **/
+class PostsDataTableEditor extends DataTablesEditor
+{
+    protected $model = Post::class;
+
+    // ... rules methods
+}
+```
+
+---
+
+<a name="generated-file-location"></a>
+## Generated File Location
+
+| Input | Generated File |
+|-------|---------------|
+| `datatables:editor Users` | `app/DataTables/UsersDataTableEditor.php` |
+| `datatables:editor Posts --model` | `app/DataTables/PostsDataTableEditor.php` |
+
+---
+
+<a name="next-steps"></a>
+## Next Steps
+
+After generating your Editor class:
+
+1. **[Editor Model](/docs/{{package}}/{{version}}/editor-model)** - Configure your model's fillable properties
+2. **[Editor Rules](/docs/{{package}}/{{version}}/editor-rules)** - Update validation rules for your fields
+3. **[Editor Events](/docs/{{package}}/{{version}}/editor-events)** - Add business logic with event hooks
+4. **[Editor Usage](/docs/{{package}}/{{version}}/editor-usage)** - Set up routes and frontend

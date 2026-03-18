@@ -1,33 +1,70 @@
-# Laravel 10 CRUD with DataTables Editor.
+# DataTables Editor Tutorial
 
-Before we begin, please be reminded that the Editor library that we are going to use here requires a paid license.
-See [DataTables Editor](https://editor.datatables.net/purchase/index) for details.
+<a name="editor-tutorial"></a>
 
-## Pre-requisites
+> {info} This tutorial guides you through building a complete CRUD interface using Laravel DataTables Editor with **Laravel 13**. Estimated time: **15-20 minutes**.
 
-This tutorial requires https://yajrabox.com/docs/laravel-datatables/10.0/quick-starter.
+---
 
-## Editor License
+<a name="prerequisites"></a>
+## Prerequisites
 
-Copy and rename your `Editor.XX.zip` to `Editor.zip` and move it to project folder.
+This tutorial assumes you have completed the [Quick Starter](/docs/{{package}}/{{version}}/quick-starter) guide and have a working DataTables setup.
 
-## Register postinstall script to package.json
+---
+
+<a name="overview"></a>
+## Overview
+
+By the end of this tutorial, you will have:
+- A DataTable with inline Create, Edit, and Delete functionality
+- Backend processing with validation
+- A fully working CRUD interface
+
+---
+
+<a name="step-1-obtain-editor-license"></a>
+## Step 1: Obtain Editor License
+
+> {warning} The Editor library requires a [paid license](https://editor.datatables.net/purchase/index).
+
+1. Purchase a license from DataTables Editor
+2. Download the Editor package from your account
+3. Copy and rename your `Editor.XX.zip` to `Editor.zip`
+4. Move it to your project root folder
+
+---
+
+<a name="step-2-configure-package-json"></a>
+## Step 2: Configure Package.json
+
+Register the postinstall script in your `package.json` to automatically install Editor assets:
 
 ```json
+{
     "scripts": {
         "dev": "vite",
         "build": "vite build",
         "postinstall": "node node_modules/datatables.net-editor/install.js ./Editor.zip"
-    },
+    }
+}
 ```
 
-## Install DataTables Editor assets.
+---
 
-```sh
+<a name="step-3-install-editor-assets"></a>
+## Step 3: Install Editor Assets
+
+```bash
 npm i datatables.net-editor datatables.net-editor-bs5
 ```
 
-## Register editor script on `resources/js/app.js`
+---
+
+<a name="step-4-register-editor-scripts"></a>
+## Step 4: Register Editor Scripts
+
+Update your `resources/js/app.js`:
 
 ```js
 import './bootstrap';
@@ -38,9 +75,14 @@ import Editor from "datatables.net-editor-bs5";
 Editor(window, $);
 ```
 
-## Add editor styles on `resources/sass/app.scss`.
+---
 
-```css
+<a name="step-5-add-editor-styles"></a>
+## Step 5: Add Editor Styles
+
+Update `resources/sass/app.scss`:
+
+```scss
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
@@ -58,15 +100,21 @@ Editor(window, $);
 @import 'datatables.net-select-bs5/css/select.bootstrap5.css';
 ```
 
-## Recompile assets.
+---
 
-```sh
+<a name="step-6-recompile-assets"></a>
+## Step 6: Recompile Assets
+
+```bash
 npm run dev
 ```
 
-### UsersDataTable.php
+---
 
-Create a new editor instance and add some fields for name and email.
+<a name="step-7-create-datatable-class"></a>
+## Step 7: Create DataTable Class
+
+Create or update `app/DataTables/UsersDataTable.php`:
 
 ```php
 namespace App\DataTables;
@@ -83,33 +131,16 @@ use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
 {
-    /**
-     * Build DataTable class.
-     *
-     * @param  QueryBuilder  $query  Results from query() method.
-     * @return \Yajra\DataTables\EloquentDataTable
-     */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))->setRowId('id');
     }
 
-    /**
-     * Get query source of dataTable.
-     *
-     * @param  \App\Models\User  $model
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
     public function query(User $model): QueryBuilder
     {
         return $model->newQuery();
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
     public function html(): HtmlBuilder
     {
         return $this->builder()
@@ -138,11 +169,6 @@ class UsersDataTable extends DataTable
                     ]);
     }
 
-    /**
-     * Get the dataTable columns definition.
-     *
-     * @return array
-     */
     public function getColumns(): array
     {
         return [
@@ -154,54 +180,71 @@ class UsersDataTable extends DataTable
         ];
     }
 
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
     protected function filename(): string
     {
-        return 'Users_'.date('YmdHis');
+        return 'Users_' . date('YmdHis');
     }
 }
 ```
 
-## Create Editor Class to handle CRUD actions.
+---
 
-```sh
-php artisan datatables:editor Users
+<a name="step-8-create-editor-class"></a>
+## Step 8: Create Editor Class
+
+Generate the Editor class using artisan:
+
+```bash
+php artisan datatables:editor Users --model
 ```
 
-## Register Editor Route
+> {tip} This creates `app/DataTables/UsersDataTableEditor.php` with basic CRUD methods and generics.
 
-Edit `routes/web.php` and register the store user route.
+---
 
-```php
-Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
-Route::post('/users', [App\Http\Controllers\UsersController::class, 'store'])->name('users.store');
-```
+<a name="step-9-register-routes"></a>
+## Step 9: Register Routes
 
-## Update users controller
+Edit `routes/web.php`:
 
 ```php
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\DataTables\UsersDataTable;
 use App\DataTables\UsersDataTableEditor;
 
-class UsersController extends Controller
-{
-    public function index(UsersDataTable $dataTable)
-    {
-        return $dataTable->render('users.index');
-    }
-
-    public function store(UsersDataTableEditor $editor)
-    {
-        return $editor->process(request());
-    }
-}
+Route::get('/users', UsersDataTable::class)->name('users.index');
+Route::post('/users', UsersDataTableEditor::class)->name('users.store');
 ```
 
-## See your editor in action.
+> {info} For simple routes, you can pass the class directly. CSRF token is automatically handled by the DataTable scripts.
+
+---
+
+<a name="step-10-create-blade-view"></a>
+## Step 10: Create Blade View
+
+Create `resources/views/users/index.blade.php`:
+
+```blade
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    {{ $dataTable->table() }}
+</div>
+@endsection
+
+@push('scripts')
+{{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush
+```
+
+---
+
+<a name="next-steps"></a>
+## Next Steps
+
+Now that you have a working CRUD interface:
+
+1. **[Editor Rules](/docs/{{package}}/{{version}}/editor-rules)** - Add validation rules for your fields
+2. **[Editor Events](/docs/{{package}}/{{version}}/editor-events)** - Hook into create, update, and delete operations
+3. **[Editor Model](/docs/{{package}}/{{version}}/editor-model)** - Configure your model for Editor
