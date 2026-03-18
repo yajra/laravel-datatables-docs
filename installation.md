@@ -1,21 +1,7 @@
 # Installation
 
-- [Installation](#installation)
-	- [Requirements](#requirements)
-    - [Installing Laravel-DataTables](#installing-laravel-datatables)
-    - [Configuration](#configuration)
-
 <a name="installation"></a>
 ## Installation
-
-<a name="requirements"></a>
-### Requirements
-
-- [Laravel 13](https://github.com/laravel/framework)
-- [DataTables 1.x|2.x](http://datatables.net/)
-
-<a name="installing-laravel-datatables"></a>
-### Installing Laravel DataTables
 
 Laravel DataTables can be installed with [Composer](http://getcomposer.org/doc/00-intro.md). More details about this package in Composer can be found [here](https://packagist.org/packages/yajra/laravel-datatables-oracle).
 
@@ -31,8 +17,13 @@ If you use most of the DataTables plugins like Buttons & HTML, you can use the a
 composer require yajra/laravel-datatables:"^13.0"
 ```
 
+> **Requirements:**
+> - Laravel 13.x
+> - PHP 8.3+
+> - [DataTables 1.x|2.x](http://datatables.net/)
+
 <a name="configuration"></a>
-### Configuration
+## Configuration
 
 > {note} This step is optional.
 

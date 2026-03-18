@@ -4,13 +4,11 @@
 
 This package is a plugin for Laravel DataTables that handles server-side exporting using Queue, OpenSpout, and Livewire. It allows you to export large datasets without timing out by processing exports in background jobs.
 
-<a name="requirements"></a>
-## Requirements
-
-- PHP 8.3+
-- Laravel 13.x
-- Livewire 3.x
-- A queue worker (Redis, Database, SQS, etc.)
+> **Requirements:**
+> - PHP 8.3+
+> - Laravel 13.x
+> - Livewire 3.x
+> - A queue worker (Redis, Database, SQS, etc.)
 
 ## Quick Installation
 
