@@ -19,6 +19,7 @@ This package is a plugin for Laravel DataTables that handles server-side exporti
 
 ---
 
+<a name="installation"></a>
 ## Quick Installation
 
 Install the package via Composer:
@@ -29,6 +30,8 @@ composer require yajra/laravel-datatables-export:"^13.0"
 
 ---
 
+<a name="queue-setup"></a>
+<a name="queue"></a>
 ## Queue Setup
 
 The export package uses Laravel's job batching feature. You need to set up the queue and batch jobs tables:
@@ -46,6 +49,7 @@ php artisan migrate
 
 ---
 
+<a name="configuration"></a>
 ## Configuration
 
 > [!NOTE]

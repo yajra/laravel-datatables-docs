@@ -9,6 +9,7 @@ Some columns you might not want in your SearchPanes. To hide them, add `->search
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

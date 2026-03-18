@@ -9,6 +9,7 @@ description: Export DataTables using Laravel Excel
 
 ---
 
+<a name="export-class"></a>
 ## Using Export Class
 
 1. Create an export class `php artisan make:export UsersExport`

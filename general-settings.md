@@ -9,6 +9,7 @@ You can change the package behavior by updating the configuration file. The conf
 
 ---
 
+<a name="smart"></a>
 ## Smart Search
 
 Smart search will enclose search keyword with wildcard string `"%keyword%"`. The SQL generated will be like `column LIKE "%keyword%"` when set to `true`.

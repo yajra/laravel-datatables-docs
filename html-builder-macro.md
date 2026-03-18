@@ -9,6 +9,7 @@ The `macro()` method allows you to extend the HTML Builder with custom functiona
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

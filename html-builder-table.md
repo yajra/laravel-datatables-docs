@@ -9,6 +9,7 @@ The `table()` method generates the HTML table markup for your DataTable.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ### Simple Table

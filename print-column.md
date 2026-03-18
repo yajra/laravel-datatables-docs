@@ -9,6 +9,7 @@ You can print a column with a customized header if manually set.
 
 ---
 
+<a name="custom-title"></a>
 ## Print Columns with Custom Title
 
 ```php

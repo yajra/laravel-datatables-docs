@@ -9,6 +9,7 @@ You can remove columns from your DataTables response using the `removeColumn` AP
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 Remove a single column:

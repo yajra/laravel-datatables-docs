@@ -9,6 +9,7 @@ This guide explains how to integrate the export functionality into your DataTabl
 
 ---
 
+<a name="prerequisites"></a>
 ## Prerequisites
 
 Before using exports, ensure you have:
@@ -19,6 +20,7 @@ Before using exports, ensure you have:
 
 ---
 
+<a name="setup"></a>
 ## Basic Setup
 
 ### Step 1: Add the Export Button Component

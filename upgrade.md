@@ -9,6 +9,7 @@ This guide covers migrating from previous versions of Laravel DataTables.
 
 ---
 
+<a name="v13"></a>
 ## Upgrading to v13.x
 
 > [!NOTE]
@@ -154,6 +155,7 @@ $model = User::query()->withTrashed(); // Native Laravel
 
 ---
 
+<a name="v7-to-v8"></a>
 ## Upgrading from v7.x to v8.x
 
 ### Core Package
@@ -186,6 +188,7 @@ php artisan vendor:publish --tag=datatables-fractal --force
 
 ---
 
+<a name="v6-to-v7"></a>
 ## Upgrading from v6.x to v7.x
 
 ```bash
@@ -209,6 +212,7 @@ php artisan vendor:publish --tag=datatables-html --force
 
 ---
 
+<a name="v5-to-v6"></a>
 ## Upgrading from v5.x to v6.x
 
 1. Change all occurrences of `yajra\Datatables` to `Yajra\Datatables`

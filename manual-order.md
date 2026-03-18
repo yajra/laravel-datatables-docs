@@ -9,6 +9,7 @@ You may optionally disable the default ordering function of DataTables and write
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

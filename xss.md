@@ -12,6 +12,7 @@ Since v7.0, all DataTable responses are encoded to prevent XSS attacks. In case 
 
 ---
 
+<a name="raw"></a>
 ## Raw Columns
 
 ```php

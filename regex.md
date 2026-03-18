@@ -12,6 +12,7 @@ DataTables has the ability to perform searches using regular expressions for mor
 
 ---
 
+<a name="regex"></a>
 ## Enable Regex Search
 
 To enable regex, you need to explicitly set it in your JavaScript:

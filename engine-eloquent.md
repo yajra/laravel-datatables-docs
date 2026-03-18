@@ -10,6 +10,7 @@ You can use Laravel's Eloquent Model as data source for your DataTables. The `Ya
 
 ---
 
+<a name="methods"></a>
 ## Usage Methods
 
 ### Method 1: Factory Pattern
@@ -78,6 +79,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="relationships"></a>
 ## With Relationships
 
 You can eager load relationships:
@@ -98,6 +100,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="scopes"></a>
 ## With Query Scopes
 
 Apply model scopes for filtered results:

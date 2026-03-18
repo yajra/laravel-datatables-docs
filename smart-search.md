@@ -11,6 +11,7 @@ Default value is `true`.
 
 ---
 
+<a name="disable"></a>
 ## Disable Smart Search
 
 ```php

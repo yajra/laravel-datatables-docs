@@ -10,6 +10,7 @@ The `Column` class provides a fluent interface for defining table columns with v
 
 ---
 
+<a name="creating"></a>
 ## Creating Columns
 
 ### Using Column::make()

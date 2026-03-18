@@ -9,6 +9,7 @@ description: Configuration options for exports
 This guide covers advanced customization options for exports including export types, sheet names, and column formatting.
 
 <a name="export-types"></a>
+<a name="types"></a>
 ## Export Types
 
 You can set the export file type using the `type` property. Available options are `xlsx` (Excel) and `csv`. The default is `xlsx`.

@@ -13,6 +13,7 @@ description: Validation rules for DataTables Editor CRUD operations
 
 ---
 
+<a name="overview"></a>
 ## Overview
 
 DataTables Editor requires validation rules for three main actions:
@@ -26,6 +27,7 @@ DataTables Editor requires validation rules for three main actions:
 
 ---
 
+<a name="create-rules"></a>
 ## Create Rules
 
 > [!TIP]
@@ -44,6 +46,7 @@ public function createRules(): array
 
 ---
 
+<a name="edit-rules"></a>
 ## Edit Rules
 
 > [!WARNING]
@@ -82,6 +85,7 @@ public function editRules(Model $model): array
 
 ---
 
+<a name="remove-rules"></a>
 ## Remove Rules
 
 > [!NOTE]

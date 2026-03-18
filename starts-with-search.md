@@ -9,6 +9,7 @@ Starts with search feature allows the package to search our tables with records 
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

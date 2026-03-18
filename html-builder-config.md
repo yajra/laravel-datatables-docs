@@ -9,6 +9,7 @@ The HTML Builder configuration allows you to set default table attributes.
 
 ---
 
+<a name="installation"></a>
 ## Installation
 
 ```bash

@@ -12,6 +12,7 @@ description: Add SearchPanes for quick filtering of DataTables
 
 ---
 
+<a name="frontend"></a>
 ## Adding SearchPanes to the Frontend
 
 To see SearchPanes, you can either add them fixed in the DOM (displayed at all times) or add a button which opens them as a popup.
@@ -72,6 +73,7 @@ public function html(): Builder
 
 ---
 
+<a name="backend"></a>
 ## Adding SearchPanes to the Backend
 
 The SearchPanes can be filled via the `searchPane()` method. The method takes the column for the SearchPane, options for the SearchPane, and allows custom processing for the options.

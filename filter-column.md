@@ -10,6 +10,7 @@ In some cases, you need to implement custom search logic for a specific column. 
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

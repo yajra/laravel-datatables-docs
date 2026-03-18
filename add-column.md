@@ -12,6 +12,7 @@ You can add custom columns to your DataTables response using the `addColumn` API
 
 ---
 
+<a name="blade"></a>
 ## Method 1: Blade String Syntax
 
 Use Blade-style string interpolation:
@@ -31,6 +32,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="closure"></a>
 ## Method 2: Closure
 
 Use a closure for more complex logic:
@@ -52,6 +54,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="view"></a>
 ## Method 3: Blade View
 
 Render the column using a Blade view:
@@ -77,6 +80,7 @@ Hi {{ $name }}!
 
 ---
 
+<a name="order"></a>
 ## Column Ordering
 
 Position the column at a specific index by passing order as the third argument:
@@ -96,6 +100,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="multiple"></a>
 ## Multiple Columns
 
 Add multiple columns by chaining:

@@ -9,6 +9,7 @@ The blacklist feature allows you to explicitly disable sorting and searching on 
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

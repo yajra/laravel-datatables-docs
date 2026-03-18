@@ -9,6 +9,7 @@ This document contains historical release notes. For the latest changes, please 
 
 ---
 
+<a name="v13"></a>
 ## v13.x
 
 Laravel DataTables v13.x is the latest major version with Laravel 13 support.
@@ -21,6 +22,7 @@ Laravel DataTables v13.x is the latest major version with Laravel 13 support.
 
 ---
 
+<a name="v7"></a>
 ## v7.0
 
 Laravel DataTables 7.0 splits Laravel DataTables 6.x into a main package and plugins packages for more flexible and pluggable design.

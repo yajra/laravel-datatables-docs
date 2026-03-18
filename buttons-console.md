@@ -9,6 +9,7 @@ Artisan is the command-line interface included with Laravel. It provides a numbe
 
 ---
 
+<a name="list"></a>
 ## List Available Commands
 
 ```bash
@@ -17,6 +18,7 @@ php artisan list
 
 ---
 
+<a name="create"></a>
 ## Creating a DataTable Service Class
 
 Create a DataTable service class:
@@ -29,6 +31,7 @@ This will create a `PostsDataTable` class in the `app/DataTables` directory.
 
 ---
 
+<a name="example"></a>
 ## DataTable Class Example
 
 ```php

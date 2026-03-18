@@ -12,6 +12,7 @@ description: Export DataTables using Fast Excel
 
 ---
 
+<a name="usage"></a>
 ## Usage
 
 1. Install `fast-excel` using `composer require rap2hpoutre/fast-excel`
@@ -46,6 +47,7 @@ protected bool $fastExcelCallback = false;
 
 ---
 
+<a name="callback"></a>
 ## Custom Callback
 
 Override the `fastExcelCallback` method:

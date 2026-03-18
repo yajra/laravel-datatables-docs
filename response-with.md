@@ -9,6 +9,7 @@ You can add additional server data to your response using the `with` API.
 
 ---
 
+<a name="key-value"></a>
 ## Adding Response using Key and Value
 
 ```php

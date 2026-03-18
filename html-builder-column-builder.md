@@ -9,6 +9,7 @@ The Column Builder is a fluent interface for building column definitions.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

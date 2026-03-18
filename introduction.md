@@ -9,6 +9,7 @@ Laravel DataTables is a powerful package that bridges server-side processing cap
 
 ---
 
+<a name="overview"></a>
 ## Quick Overview
 
 | Component | Description |
@@ -19,6 +20,7 @@ Laravel DataTables is a powerful package that bridges server-side processing cap
 
 ---
 
+<a name="laravel"></a>
 ## What is Laravel?
 
 Laravel is a web application framework with expressive, elegant syntax. It attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
@@ -34,6 +36,7 @@ Laravel is a web application framework with expressive, elegant syntax. It attem
 
 ---
 
+<a name="datatables"></a>
 ## What is DataTables?
 
 DataTables is a plug-in for the [jQuery](https://jquery.com/) JavaScript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, that adds advanced interaction controls to any HTML table.
@@ -51,6 +54,7 @@ DataTables is a plug-in for the [jQuery](https://jquery.com/) JavaScript library
 
 ---
 
+<a name="package"></a>
 ## What is Laravel DataTables?
 
 [![License](https://poser.pugx.org/yajra/laravel-datatables-oracle/license)](https://packagist.org/packages/yajra/laravel-datatables-oracle)

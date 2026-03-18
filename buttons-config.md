@@ -8,6 +8,7 @@ description: Configure the Buttons plugin for DataTables export functionality
 
 ---
 
+<a name="console"></a>
 ## Artisan Console Configurations
 
 Namespace configuration is used by the datatables command generator:
@@ -55,6 +56,7 @@ php artisan datatables:make Post --model
 
 ---
 
+<a name="pdf-generator"></a>
 ## PDF Generator
 
 Set the PDF generator to be used when converting your DataTable to PDF:

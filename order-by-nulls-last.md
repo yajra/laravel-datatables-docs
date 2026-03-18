@@ -9,6 +9,7 @@ This API will set DataTables to perform ordering with `NULLS LAST` option.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

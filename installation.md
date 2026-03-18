@@ -9,6 +9,7 @@ This guide covers how to install Laravel DataTables packages using Composer.
 
 ---
 
+<a name="requirements"></a>
 ## Requirements
 
 | Requirement | Version | Notes |
@@ -19,6 +20,7 @@ This guide covers how to install Laravel DataTables packages using Composer.
 
 ---
 
+<a name="installation"></a>
 ## Installation Methods
 
 ### Option 1: Core Package Only

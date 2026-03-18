@@ -9,6 +9,7 @@ The `addIndex()` method provides a quick way to add an index column to your Data
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

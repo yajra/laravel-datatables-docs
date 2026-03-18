@@ -31,6 +31,7 @@ In addition to Laravel's model events, DataTables Editor provides pre and post e
 
 ---
 
+<a name="create-events"></a>
 ## Create Events
 
 ### `creating` - Before Record Creation
@@ -79,6 +80,7 @@ public function created(Model $model, array $data): Model
 
 ---
 
+<a name="edit-events"></a>
 ## Edit Events
 
 ### `updating` - Before Record Update
@@ -127,6 +129,7 @@ public function updated(Model $model, array $data): Model
 
 ---
 
+<a name="save-events"></a>
 ## Save Events
 
 ### `saving` - Before Database Save
@@ -172,6 +175,7 @@ public function saved(Model $model, array $data): Model
 
 ---
 
+<a name="remove-events"></a>
 ## Remove Events
 
 ### `deleting` - Before Record Deletion

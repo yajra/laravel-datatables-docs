@@ -10,6 +10,7 @@ You can modify existing columns in your DataTables response using the `editColum
 
 ---
 
+<a name="blade"></a>
 ## Method 1: Blade String Syntax
 
 Use Blade-style string interpolation:
@@ -29,6 +30,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="closure"></a>
 ## Method 2: Closure
 
 Use a closure for dynamic values:
@@ -50,6 +52,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="view"></a>
 ## Method 3: Blade View
 
 Render the column using a Blade view:

@@ -12,6 +12,7 @@ Skip total records aims to improve DataTables response time by skipping the tota
 
 ---
 
+<a name="example"></a>
 ## Example
 
 ```php

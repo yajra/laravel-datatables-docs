@@ -12,6 +12,7 @@ In some cases, you may want to use a custom order SQL for a specific column. To 
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 In this example, we will order the column name with nulls as last result:
@@ -31,6 +32,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="closure"></a>
 ## Using Closure
 
 ```php

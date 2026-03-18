@@ -10,6 +10,7 @@ You can use Laravel's Query Builder as data source for your DataTables. The `Yaj
 
 ---
 
+<a name="methods"></a>
 ## Usage Methods
 
 ### Method 1: Factory Pattern
@@ -79,6 +80,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="joins"></a>
 ## With Join Statements
 
 ```php

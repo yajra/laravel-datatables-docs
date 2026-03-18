@@ -8,6 +8,7 @@ description: Install and configure the Fractal plugin for API responses
 
 ---
 
+<a name="installation"></a>
 ## Installation
 
 Run the following command in your project to get the latest version of the plugin:
@@ -18,6 +19,7 @@ composer require yajra/laravel-datatables-fractal:"^13.0"
 
 ---
 
+<a name="configuration"></a>
 ## Configuration
 
 > [!NOTE]

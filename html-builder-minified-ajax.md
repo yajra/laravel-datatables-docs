@@ -9,6 +9,7 @@ The `minifiedAjax()` method generates a shortened URL for DataTables AJAX reques
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

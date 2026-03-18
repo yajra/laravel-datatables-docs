@@ -10,6 +10,7 @@ description: Artisan command to generate DataTables Editor classes
 
 ---
 
+<a name="overview"></a>
 ## Overview
 
 The Editor command creates a new `DataTablesEditor` class with:
@@ -19,6 +20,7 @@ The Editor command creates a new `DataTablesEditor` class with:
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ### List All Commands

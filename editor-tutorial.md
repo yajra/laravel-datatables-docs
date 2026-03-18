@@ -10,6 +10,7 @@ description: Complete tutorial for building CRUD interfaces with DataTables Edit
 
 ---
 
+<a name="prerequisites"></a>
 ## Prerequisites
 
 This tutorial assumes you have completed the [Quick Starter](/docs/{{package}}/{{version}}/quick-starter) guide and have a working DataTables setup.
@@ -25,6 +26,7 @@ By the end of this tutorial, you will have:
 
 ---
 
+<a name="step-1"></a>
 ## Step 1: Obtain Editor License
 
 > [!WARNING]
@@ -37,6 +39,7 @@ By the end of this tutorial, you will have:
 
 ---
 
+<a name="step-2"></a>
 ## Step 2: Configure Package.json
 
 Register the postinstall script in your `package.json` to automatically install Editor assets:
@@ -53,6 +56,7 @@ Register the postinstall script in your `package.json` to automatically install 
 
 ---
 
+<a name="step-3"></a>
 ## Step 3: Install Editor Assets
 
 ```bash

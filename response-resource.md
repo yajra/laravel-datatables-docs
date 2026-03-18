@@ -9,6 +9,7 @@ DataTables response using Laravel model resource.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

@@ -9,6 +9,7 @@ The `addCheckbox()` method provides a quick way to add a checkbox column to your
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

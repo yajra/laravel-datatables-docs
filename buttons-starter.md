@@ -9,6 +9,8 @@ This guide helps you get started with the DataTables Buttons plugin.
 
 ---
 
+<a name="create-users-datatable"></a>
+<a name="create"></a>
 ## Create Users DataTable
 
 ```bash
@@ -17,6 +19,8 @@ php artisan datatables:make Users
 
 ---
 
+<a name="update-users-datatable"></a>
+<a name="update"></a>
 ## Update UsersDataTable
 
 Update `UsersDataTable` class and set the columns and parameters needed to render our DataTable:
@@ -67,6 +71,8 @@ class UsersDataTable extends DataTable
 
 ---
 
+<a name="example-route"></a>
+<a name="route"></a>
 ## Example Route
 
 ```php
@@ -83,6 +89,8 @@ Route::get('users', function(UsersDataTable $dataTable) {
 
 ---
 
+<a name="example-view"></a>
+<a name="view"></a>
 ## Example View
 
 Create a view at `resources/views/users/index.blade.php`:

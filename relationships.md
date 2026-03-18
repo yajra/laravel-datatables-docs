@@ -9,6 +9,7 @@ DataTables supports searching and sorting of eager loaded relationships when usi
 
 ---
 
+<a name="basic"></a>
 ## Basic Setup
 
 To enable search on relationships, we need to eager load the relationship using Laravel's `with()` API:
@@ -82,6 +83,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="nested"></a>
 ## Nested Relationships
 
 > [!NOTE]

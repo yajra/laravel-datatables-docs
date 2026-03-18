@@ -12,6 +12,7 @@ When using transformers, all response manipulations must be done via transformer
 
 ---
 
+<a name="closure"></a>
 ## Using Closure
 
 You can pass a closure which will receive an item of the result collection and should return an array:

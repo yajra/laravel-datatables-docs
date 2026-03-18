@@ -9,6 +9,7 @@ Use fluent methods to configure DataTables JavaScript behavior.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

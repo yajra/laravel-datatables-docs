@@ -10,6 +10,7 @@ description: Configure the Eloquent model for DataTables Editor
 
 ---
 
+<a name="overview"></a>
 ## Overview
 
 Every Editor class requires a model to perform CRUD operations. The model handles:
@@ -64,6 +65,7 @@ class UsersDataTableEditor extends DataTablesEditor
 
 ---
 
+<a name="fillable"></a>
 ## Fillable Property
 
 > [!WARNING]

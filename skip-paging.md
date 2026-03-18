@@ -9,6 +9,7 @@ To skip paging of DataTables, we can use the `skipPaging` API or just set `pagin
 
 ---
 
+<a name="php"></a>
 ## Using PHP
 
 ```php
@@ -26,6 +27,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="javascript"></a>
 ## Using JavaScript
 
 ```javascript

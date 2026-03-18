@@ -11,6 +11,7 @@ description: Integrate DataTables Editor with routes and frontend
 
 ---
 
+<a name="overview"></a>
 ## Overview
 
 DataTables Editor processes all actions (create, edit, remove) via **POST requests**. The Editor handles:
@@ -20,6 +21,7 @@ DataTables Editor processes all actions (create, edit, remove) via **POST reques
 
 ---
 
+<a name="complete-setup-flow"></a>
 ## Complete Setup Flow
 
 ```
@@ -43,6 +45,7 @@ DataTables Editor processes all actions (create, edit, remove) via **POST reques
 
 ---
 
+<a name="step-1"></a>
 ## Step 1: Create Your Editor
 
 Generate using the artisan command:
@@ -93,6 +96,7 @@ class UsersDataTableEditor extends DataTablesEditor
 
 ---
 
+<a name="step-2"></a>
 ## Step 2: Setup Editor Model
 
 Configure your model with fillable attributes:
@@ -120,6 +124,7 @@ class User extends Model
 
 ---
 
+<a name="step-3"></a>
 ## Step 3: Register Route
 
 Add a POST route to handle all Editor actions:

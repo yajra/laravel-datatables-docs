@@ -9,6 +9,7 @@ You can configure various row attributes in your DataTables including row ID, cl
 
 ---
 
+<a name="row-id"></a>
 ## Row Id
 
 ### Setting Row ID via Column Name
@@ -40,6 +41,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="row-class"></a>
 ## Row Class
 
 ### Setting Row Class via Closure
@@ -65,6 +67,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="row-data"></a>
 ## Row Data
 
 ### Setting Row Data via Closure
@@ -98,6 +101,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="row-attributes"></a>
 ## Row Attributes
 
 ### Setting Row Attribute via Closure

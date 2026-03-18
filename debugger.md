@@ -12,6 +12,7 @@ To enable debugging mode, set `APP_DEBUG=true` in your environment. The package 
 
 ---
 
+<a name="setup"></a>
 ## Setup
 
 1. Set `APP_DEBUG=true` in your `.env` file

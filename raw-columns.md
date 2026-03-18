@@ -9,6 +9,7 @@ By default, Laravel DataTables protects you from XSS attacks by escaping all out
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

@@ -9,6 +9,7 @@ The `ajax()` method configures how DataTables fetches data from the server.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ### Using a Route

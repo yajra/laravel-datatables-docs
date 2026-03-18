@@ -8,6 +8,7 @@ description: Install and configure the Laravel DataTables HTML Builder plugin
 
 The HTML Builder plugin provides a fluent interface for generating DataTables HTML markup and JavaScript configuration.
 
+<a name="overview"></a>
 ## Overview
 
 The HTML Builder allows you to:
@@ -19,6 +20,7 @@ The HTML Builder allows you to:
 
 ---
 
+<a name="installation"></a>
 ## Installation
 
 Install the HTML Builder package:
@@ -167,4 +169,3 @@ public function html(): HtmlBuilder
 - [HTML Builder Overview](/docs/{{package}}/{{version}}/html-builder) - Complete reference
 - [Column Configuration](/docs/{{package}}/{{version}}/html-builder-column) - Column options
 - [AJAX Setup](/docs/{{package}}/{{version}}/html-builder-ajax) - Server-side processing
-

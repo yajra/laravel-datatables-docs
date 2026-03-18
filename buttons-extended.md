@@ -9,6 +9,7 @@ We can extend and reuse our DataTable class inside our controller by using `befo
 
 ---
 
+<a name="quick"></a>
 ## Quick Example
 
 ```php
@@ -43,6 +44,7 @@ Route::get('datatable', function(RolesDataTable $dataTable) {
 
 ---
 
+<a name="callbacks"></a>
 ## Available Callbacks
 
 ### before Callback

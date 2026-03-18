@@ -9,6 +9,7 @@ The whitelist feature allows you to explicitly define which columns can be used 
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

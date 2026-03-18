@@ -9,6 +9,7 @@ The `addAction()` method provides a quick way to add an action column to your Da
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

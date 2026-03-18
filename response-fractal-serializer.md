@@ -9,6 +9,7 @@ You can set the serializer to be used by DataTables using the `setSerializer` AP
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

@@ -13,6 +13,7 @@ You can use Laravel's Collection as data source for your DataTables. The `Yajra\
 
 ---
 
+<a name="methods"></a>
 ## Usage Methods
 
 ### Method 1: Factory Pattern
@@ -94,6 +95,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="eloquent"></a>
 ## With Eloquent Models
 
 Convert Eloquent models to collection:

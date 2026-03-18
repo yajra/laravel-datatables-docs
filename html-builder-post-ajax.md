@@ -9,6 +9,7 @@ Use POST method to submit the DataTables AJAX request.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

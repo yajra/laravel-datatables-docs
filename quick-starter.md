@@ -9,7 +9,8 @@ This guide will walk you through building a complete DataTable in 15 minutes.
 
 ---
 
-## Step 1: Installing Laravel & DataTables
+<a name="step-1"></a>
+## Step 1: Installing Laravel ## Step 1: Installing Laravel & DataTables DataTables
 
 ### Quick Installation
 
@@ -42,6 +43,7 @@ DB_CONNECTION=sqlite
 
 ---
 
+<a name="step-2"></a>
 ## Step 2: Install Laravel DataTables Vite
 
 Next, we will install [Laravel DataTables Vite](https://github.com/yajra/laravel-datatables-vite) to simplify our frontend setup:
@@ -90,6 +92,7 @@ npm run dev
 
 ---
 
+<a name="step-3"></a>
 ## Step 3: Setup a Users DataTable
 
 Open a new terminal in your `datatables` project directory and run the following command:
@@ -164,7 +167,8 @@ class UsersDataTable extends DataTable
 
 ---
 
-## Step 4: Setup a Users Controller, View & Route
+<a name="step-4"></a>
+## Step 4: Setup a Users Controller, View ## Step 4: Setup a Users Controller, View & Route Route
 
 ```bash
 php artisan make:controller UsersController
@@ -216,6 +220,7 @@ Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 
 ---
 
+<a name="step-5"></a>
 ## Step 5: Update the Default App Layout
 
 To be able to load our custom scripts, we need to add `@stack('scripts')` before the end of `body` tag in our `app.blade.php` layout:

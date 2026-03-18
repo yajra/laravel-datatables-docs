@@ -9,6 +9,7 @@ This guide covers advanced SearchPanes configuration options.
 
 ---
 
+<a name="basic"></a>
 ## Basic Configuration
 
 ```php

@@ -9,6 +9,7 @@ In some cases, we need to manually set the total records of our DataTables and s
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

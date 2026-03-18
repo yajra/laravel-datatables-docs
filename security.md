@@ -9,6 +9,7 @@ If you discover any security related issues, please email [aqangeles@gmail.com](
 
 ---
 
+<a name="xss"></a>
 ## XSS Protection
 
 Laravel DataTables escapes all column data by default to protect against Cross-Site Scripting (XSS) attacks.

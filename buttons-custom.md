@@ -9,6 +9,7 @@ description: Create custom button actions for DataTables
 You can enable custom actions on your buttons by overloading the `buttons` method in your DataTable class.
 
 <a name="creating-custom-action"></a>
+<a name="custom"></a>
 ## Creating a Custom Action
 
 ```php

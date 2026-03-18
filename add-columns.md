@@ -9,6 +9,7 @@ Add mutated or hidden columns to your DataTables response.
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

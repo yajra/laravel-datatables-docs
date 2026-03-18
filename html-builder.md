@@ -10,6 +10,7 @@ The HTML Builder is a fluent interface for generating DataTables HTML markup and
 
 ---
 
+<a name="installation"></a>
 ## Installation
 
 ```bash
@@ -24,6 +25,7 @@ php artisan vendor:publish --tag=datatables-html
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ### Via Dependency Injection

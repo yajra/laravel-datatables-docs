@@ -9,6 +9,7 @@ The default response of Laravel DataTables is a JSON object. Use `toJson()` to c
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

@@ -9,6 +9,7 @@ In some cases, we need to manually set the filtered records count of our DataTab
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php

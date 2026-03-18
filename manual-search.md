@@ -9,6 +9,7 @@ You can optionally write your own manual filtering functions and disable global 
 
 ---
 
+<a name="manual"></a>
 ## Manual Searching without Global Search
 
 ```php

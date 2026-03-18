@@ -11,6 +11,7 @@ description: Install and configure the DataTables Editor plugin for inline CRUD 
 
 ---
 
+<a name="overview"></a>
 ## Overview
 
 The DataTables Editor plugin integrates the powerful [DataTables Editor](https://editor.datatables.net/) library with Laravel DataTables. It provides a complete CRUD (Create, Read, Update, Delete) interface for your DataTables, handling all the backend logic including validation, database transactions, and event hooks.
@@ -22,6 +23,7 @@ This plugin is particularly useful when you need an **inline editing experience*
 
 ---
 
+<a name="prerequisites"></a>
 ## Prerequisites
 
 Before installing this plugin, ensure you have:
@@ -36,6 +38,7 @@ Before installing this plugin, ensure you have:
 
 ---
 
+<a name="installation"></a>
 ## Installation
 
 ### Step 1: Install the Package
@@ -50,6 +53,7 @@ Follow the [Editor Tutorial](/docs/{{package}}/{{version}}/editor-tutorial) for 
 
 ---
 
+<a name="quick-start"></a>
 ## Quick Start
 
 Once installed, you can quickly create an editor class using the artisan command:
@@ -62,6 +66,7 @@ Then, follow the [Editor Usage](/docs/{{package}}/{{version}}/editor-usage) docu
 
 ---
 
+<a name="best-practices"></a>
 ## Best Practices
 
 > [!TIP]

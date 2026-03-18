@@ -9,6 +9,7 @@ You can send a parameter from controller to DataTable class using the `with` API
 
 ---
 
+<a name="basic"></a>
 ## Basic Usage
 
 ```php
