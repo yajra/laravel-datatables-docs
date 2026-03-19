@@ -109,6 +109,8 @@ Route::get('order-data', function() {
 ### Truncate Text
 
 ```php
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 Route::get('product-data', function() {

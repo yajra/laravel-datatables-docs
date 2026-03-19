@@ -80,7 +80,6 @@ Hi {{ $name }}!
 
 ---
 
-<a name="order"></a>
 ## Column Ordering
 
 Position the column at a specific index by passing order as the third argument:
@@ -169,6 +168,9 @@ Route::get('user-data', function() {
 | Sort | ❌ Disabled | ✅ Enabled |
 | Database Column | ❌ Not required | ✅ Required |
 | Use Case | Computed values | Modifying existing |
+
+> [!TIP]
+> Need both search/sort AND multiple columns? Use `editColumn` to modify existing columns and chain multiple calls.
 
 ---
 

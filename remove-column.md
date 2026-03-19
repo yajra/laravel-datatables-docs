@@ -16,9 +16,10 @@ Remove a single column:
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
 
 Route::get('user-data', function() {
-    $model = App\User::query();
+    $model = User::query();
 
     return DataTables::eloquent($model)
         ->removeColumn('password')

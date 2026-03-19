@@ -9,8 +9,14 @@ You can print a column with a customized header if manually set.
 
 ---
 
-<a name="custom-title"></a>
-## Print Columns with Custom Title
+Configure which columns appear when users print the DataTable.
+
+---
+
+<a name="property"></a>
+## Using $printColumns Property
+
+Define which columns to include in print output:
 
 ```php
 <?php
@@ -29,25 +35,13 @@ class UsersDataTable extends DataTable
 }
 ```
 
----
-
-## Print Columns
+Or use simple string keys when the data key equals the title:
 
 ```php
-<?php
-
-namespace App\DataTables;
-
-use App\Models\User;
-use Yajra\DataTables\Services\DataTable;
-
-class UsersDataTable extends DataTable
-{
-    protected $printColumns = [
-        'name',
-        'email',
-    ];
-}
+protected $printColumns = [
+    'name',
+    'email',
+];
 ```
 
 ---
