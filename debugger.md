@@ -5,24 +5,39 @@ description: Enable debugging to see queries and inputs used in DataTables
 
 # Debugging Mode
 
-To enable debugging mode, set `APP_DEBUG=true` in your environment. The package will then include the queries and inputs used when processing the table.
-
-> [!WARNING]
-> Please make sure that `APP_DEBUG` is set to `false` when your app is in production. Exposing query information can be a security risk.
+Laravel DataTables includes a debugging mode that helps you inspect the SQL queries and request parameters being used when processing DataTables requests.
 
 ---
 
 <a name="setup"></a>
 ## Setup
 
-1. Set `APP_DEBUG=true` in your `.env` file
-2. Update the [Error Handler](/docs/{{package}}/{{version}}/error-handler) config appropriately
+1. Set `APP_DEBUG=true` in your `.env` file:
+
+```env
+APP_DEBUG=true
+```
+
+2. Make sure `APP_ENV` is set to `local` or `testing` in development environments.
+
+> [!WARNING]
+> Never enable `APP_DEBUG=true` in production. Exposing SQL queries and application internals is a security risk.
 
 ---
 
+## How It Works
+
+When `APP_DEBUG=true`, Laravel DataTables automatically intercepts the response and appends debugging information. The debug data is only included when:
+- `APP_DEBUG` is `true`
+- The request is an AJAX/DataTables request
+- The response is in JSON format
+
+---
+
+<a name="example"></a>
 ## Example Response
 
-When debugging is enabled, your JSON response will include additional `queries` and `input` fields:
+When debugging is enabled, your JSON response includes additional `queries` and `input` fields:
 
 ```json
 {
@@ -82,12 +97,39 @@ When debugging is enabled, your JSON response will include additional `queries` 
 
 ---
 
+<a name="fields"></a>
 ## Debug Output Fields
 
 | Field | Description |
 |-------|-------------|
 | `queries` | Array of executed SQL queries with bindings and execution time |
-| `input` | The complete DataTables request input including columns, order, and search parameters |
+| `input` | The complete DataTables request parameters including columns, order, and search settings |
+
+### Query Object Structure
+
+Each query object contains:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `query` | string | The SQL query string with placeholder bindings |
+| `bindings` | array | Parameter values bound to the query |
+| `time` | float | Execution time in milliseconds |
+
+---
+
+## Disabling Debug Output Per-Request
+
+If you need to disable debug output for specific requests while `APP_DEBUG=true`, you can manually hide the debug data:
+
+```php
+use Yajra\DataTables\Facades\DataTables;
+
+Route::get('users', function () {
+    return DataTables::of(User::query())
+        ->hideDebugInfo()  // Exclude queries from response
+        ->toJson();
+});
+```
 
 ---
 

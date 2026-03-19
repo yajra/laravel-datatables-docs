@@ -5,14 +5,22 @@ description: Configure Laravel DataTables behavior with configuration options
 
 # General Settings
 
-You can change the package behavior by updating the configuration file. The configuration file can be found at `config/datatables.php`.
+You can customize Laravel DataTables by updating the configuration file. The configuration file is published to `config/datatables.php` when you run:
+
+```bash
+php artisan vendor:publish --tag=datatables
+```
 
 ---
 
 <a name="smart"></a>
 ## Smart Search
 
-Smart search will enclose search keyword with wildcard string `"%keyword%"`. The SQL generated will be like `column LIKE "%keyword%"` when set to `true`.
+Smart search automatically encloses the search keyword with wildcards (`"%keyword%"`). When enabled, the generated SQL looks like:
+
+```sql
+column LIKE "%keyword%"
+```
 
 ```php
 'smart' => true,
@@ -20,9 +28,14 @@ Smart search will enclose search keyword with wildcard string `"%keyword%"`. The
 
 ---
 
-## Case Sensitive Search
+<a name="case-insensitive"></a>
+## Case Insensitive Search
 
-Case insensitive will search the keyword in lower case format. The SQL generated will be like `LOWER(column) LIKE LOWER(keyword)` when set to `true`.
+Case insensitive search converts both the column values and search keyword to lowercase before comparison. The generated SQL looks like:
+
+```sql
+LOWER(column) LIKE LOWER('%keyword%')
+```
 
 ```php
 'case_insensitive' => true,
@@ -30,19 +43,28 @@ Case insensitive will search the keyword in lower case format. The SQL generated
 
 ---
 
-## Wild Card Search
+<a name="wildcard"></a>
+## Wildcard Search
 
-Wild card will add `%` in between every characters of the keyword. The SQL generated will be like `column LIKE "%k%e%y%w%o%r%d%"` when set to `true`.
+Wildcard search adds `%` between every character of the keyword. The generated SQL looks like:
+
+```sql
+column LIKE "%k%e%y%w%o%r%d%"
+```
 
 ```php
 'use_wildcards' => false,
 ```
 
+> [!TIP]
+> When using wildcards with `smart` search, you only need to add a trailing `%`: `%keyword%`
+
 ---
 
+<a name="index-column"></a>
 ## Index Column
 
-DataTables internal index id response column name:
+The index column name used for DataTables internal row numbering:
 
 ```php
 'index_column' => 'DT_RowIndex',
@@ -50,24 +72,59 @@ DataTables internal index id response column name:
 
 ---
 
-## Engines
+<a name="error"></a>
+## Error Handling
 
-A list of available engines. This is where you can register your custom DataTables engine:
+Configure how DataTables handles server-side errors. See the [Error Handler documentation](/docs/{{package}}/{{version}}/error-handler) for full details.
+
+```php
+'error' => env('DATATABLES_ERROR', null),
+```
+
+**Available options:**
+- `null` - Display the actual exception message
+- `'throw'` - Throw a `\Yajra\DataTables\Exception`
+- Custom string - Display a custom friendly message
+- Translation key - Use a translation key for localization
+
+---
+
+<a name="nulls-last"></a>
+## NULLS LAST SQL
+
+SQL pattern for ordering NULL values last, used by PostgreSQL & Oracle databases:
+
+```php
+'nulls_last_sql' => '%s %s NULLS LAST',
+```
+
+> [!TIP]
+> For MySQL, use `'-%s %s'` as the SQL pattern to push NULLs to the end.
+
+---
+
+<a name="engines"></a>
+## Engines (Advanced)
+
+A list of available DataTables engines. You can register custom engines here:
 
 ```php
 'engines' => [
     'eloquent'   => Yajra\DataTables\Engines\EloquentEngine::class,
     'query'      => Yajra\DataTables\Engines\QueryBuilderEngine::class,
     'collection' => Yajra\DataTables\Engines\CollectionEngine::class,
-    // add your custom engine
 ],
 ```
 
+> [!NOTE]
+> Most users don't need to modify engine settings. Only change these if you're creating a custom DataTables engine.
+
 ---
 
-## Builders
+<a name="builders"></a>
+## Builders (Advanced)
 
-A list of accepted data source / builders of DataTables with their corresponding engine handler:
+Maps data source types to their corresponding engines:
 
 ```php
 'builders' => [
@@ -75,51 +132,49 @@ A list of accepted data source / builders of DataTables with their corresponding
     Illuminate\Database\Eloquent\Builder::class           => 'eloquent',
     Illuminate\Database\Query\Builder::class              => 'query',
     Illuminate\Support\Collection::class                  => 'collection',
-    // add your data source to custom engine handler
 ],
 ```
 
 ---
 
-## Fractal Includes
+## Complete Configuration Reference
 
-Request key name to parse includes on fractal:
-
-```php
-'includes' => 'include',
-```
-
----
-
-## Fractal Serializer
-
-Default fractal serializer to be used when serializing the response:
+Here's a complete example of the `config/datatables.php` file:
 
 ```php
-'serializer' => League\Fractal\Serializer\DataArraySerializer::class,
-```
+<?php
 
----
+return [
+    /*
+     * Smart search adds wildcards automatically
+     */
+    'smart' => true,
 
-## Script Template
+    /*
+     * Case insensitive searching
+     */
+    'case_insensitive' => true,
 
-DataTables HTML builder script blade template. If published, the file will be installed on `resources/views/vendor/datatables/script.blade.php`:
+    /*
+     * Wild card character for partial matching
+     */
+    'use_wildcards' => false,
 
-```php
-'script_template' => 'datatables::script',
-```
+    /*
+     * DataTables internal index column name
+     */
+    'index_column' => 'DT_RowIndex',
 
----
+    /*
+     * Error message configuration
+     */
+    'error' => env('DATATABLES_ERROR', null),
 
-## NULLS LAST SQL
-
-Nulls last SQL pattern for PostgreSQL & Oracle:
-
-> [!TIP]
-> For MySQL, use `'-%s %s'` as the SQL pattern.
-
-```php
-'nulls_last_sql' => '%s %s NULLS LAST',
+    /*
+     * NULLS LAST SQL pattern for PostgreSQL & Oracle
+     */
+    'nulls_last_sql' => '%s %s NULLS LAST',
+];
 ```
 
 ---
@@ -127,4 +182,5 @@ Nulls last SQL pattern for PostgreSQL & Oracle:
 ## See Also
 
 - [Installation](/docs/{{package}}/{{version}}/installation) - Install and configure the package
+- [Error Handler](/docs/{{package}}/{{version}}/error-handler) - Configure error handling
 - [Eloquent Data Source](/docs/{{package}}/{{version}}/engine-eloquent) - Using Eloquent engine
