@@ -87,7 +87,7 @@ use Illuminate\Support\Str;
 
 Route::get('user-data', function() {
     return DataTables::eloquent(User::query())
-        ->editColumn('created_at', function ($user) {
+        ->editColumn('created_at', function (User $user) {
             return $user->created_at->format('M d, Y');
         })
         ->toJson();
@@ -99,7 +99,7 @@ Route::get('user-data', function() {
 ```php
 Route::get('order-data', function() {
     return DataTables::eloquent(Order::query())
-        ->editColumn('price', function ($order) {
+        ->editColumn('price', function (Order $order) {
             return '$' . number_format($order->price, 2);
         })
         ->toJson();
@@ -115,7 +115,7 @@ use Illuminate\Support\Str;
 
 Route::get('product-data', function() {
     return DataTables::eloquent(Product::query())
-        ->editColumn('description', function ($product) {
+        ->editColumn('description', function (Product $product) {
             return Str::limit($product->description, 50);
         })
         ->toJson();
@@ -130,7 +130,7 @@ use App\Models\User;
 
 Route::get('user-data', function() {
     return DataTables::eloquent(User::query())
-        ->editColumn('status', function ($user) {
+        ->editColumn('status', function (User $user) {
             $color = $user->is_active ? 'success' : 'secondary';
             return '<span class="badge bg-'.$color.'">'.$user->status.'</span>';
         })

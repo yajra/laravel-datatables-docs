@@ -15,13 +15,15 @@ Use the `filter()` API when you need complete control over how queries are filte
 Disable global search and implement your own filtering:
 
 ```php
+use Illuminate\Database\Eloquent\Builder;
+
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filter(function ($query) {
-            $query->when(request('name'), fn($q) => 
+        ->filter(function (Builder $query) {
+            $query->when(request('name'), fn(Builder $q) => 
                 $q->where('name', 'like', "%" . request('name') . "%")
             );
-            $query->when(request('email'), fn($q) => 
+            $query->when(request('email'), fn(Builder $q) => 
                 $q->where('email', 'like', "%" . request('email') . "%")
             );
         })
@@ -36,10 +38,12 @@ Route::get('user-data', function () {
 Enable global search alongside your custom filters by passing `true` as the second argument:
 
 ```php
+use Illuminate\Database\Eloquent\Builder;
+
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filter(function ($query) {
-            $query->when(request('name'), fn($q) => 
+        ->filter(function (Builder $query) {
+            $query->when(request('name'), fn(Builder $q) => 
                 $q->where('name', 'like', "%" . request('name') . "%")
             );
         }, true) // Keep global search enabled
@@ -54,19 +58,21 @@ Route::get('user-data', function () {
 ### Filter by Multiple Criteria
 
 ```php
+use Illuminate\Database\Eloquent\Builder;
+
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filter(function ($query) {
-            $query->when(request('status'), fn($q, $v) => 
+        ->filter(function (Builder $query) {
+            $query->when(request('status'), fn(Builder $q, $v) => 
                 $q->where('status', $v)
             );
-            $query->when(request('from_date'), fn($q, $v) => 
+            $query->when(request('from_date'), fn(Builder $q, $v) => 
                 $q->whereDate('created_at', '>=', $v)
             );
-            $query->when(request('to_date'), fn($q, $v) => 
+            $query->when(request('to_date'), fn(Builder $q, $v) => 
                 $q->whereDate('created_at', '<=', $v)
             );
-            $query->when(request('has_posts'), fn($q) => 
+            $query->when(request('has_posts'), fn(Builder $q) => 
                 $q->has('posts')
             );
         })
@@ -79,11 +85,13 @@ Route::get('user-data', function () {
 Search across multiple columns with OR logic:
 
 ```php
+use Illuminate\Database\Eloquent\Builder;
+
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filter(function ($query) {
-            $query->when(request('search'), function ($q, $search) {
-                $q->where(fn($q) => $q
+        ->filter(function (Builder $query) {
+            $query->when(request('search'), function (Builder $q, $search) {
+                $q->where(fn(Builder $q) => $q
                     ->where('name', 'like', "%{$search}%")
                     ->orWhere('email', 'like', "%{$search}%")
                 );

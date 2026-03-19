@@ -44,7 +44,7 @@ $dataTable->setRowId('id');
 ### Using a Closure
 
 ```php
-$dataTable->setRowId(function ($row) {
+$dataTable->setRowId(function (User $row) {
     return 'user_' . $row->id;
 });
 ```
@@ -76,7 +76,7 @@ $dataTable->setRowClass('my-custom-class');
 ### Dynamic Class with Closure
 
 ```php
-$dataTable->setRowClass(function ($row) {
+$dataTable->setRowClass(function (User $row) {
     return match($row->status) {
         'active'   => 'table-success',
         'inactive' => 'table-secondary',
@@ -177,16 +177,16 @@ class UsersDataTable extends DataTable
             ->setTableId('users-table')
             ->columns($this->getColumns())
             ->setRowId('id')
-            ->setRowClass(function ($row) {
+            ->setRowClass(function (User $row) {
                 return $row->is_active ? 'table-success' : 'table-secondary';
             })
             ->setRowData([
                 'user-id'   => 'id',
                 'user-name' => 'name',
-                'role'      => fn($row) => $row->role?->name ?? 'guest',
+                'role'      => fn(User $row) => $row->role?->name ?? 'guest',
             ])
             ->setRowAttr([
-                'color' => fn($row) => $row->preference_color,
+                'color' => fn(User $row) => $row->preference_color,
             ]);
     }
 }

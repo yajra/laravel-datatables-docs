@@ -21,7 +21,7 @@ Route::get('user-data', function () {
     return DataTables::eloquent(User::with('posts'))
         ->addColumn('posts', fn (User $user) =>
             $user->posts
-                ->map(fn($post) => Str::limit($post->title, 30, '...'))
+                ->map(fn(Post $post) => Str::limit($post->title, 30, '...'))
                 ->implode('<br>')
         )
         ->toJson();

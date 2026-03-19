@@ -277,9 +277,9 @@ Route::get('user-data', function() {
 
     // Only show salary to managers
     if (auth()->user()->isManager()) {
-        $datatable->addColumn('salary', fn($user) => $user->salary);
+        $datatable->addColumn('salary', fn(User $user) => $user->salary);
     } else {
-        $datatable->editColumn('salary', fn($user) => '****'); // Masked
+        $datatable->editColumn('salary', fn(User $user) => '****'); // Masked
     }
 
     return $datatable->toJson();

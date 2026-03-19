@@ -42,7 +42,7 @@ use App\Http\Resources\UserResource;
 
 Route::get('user-data', function() {
     return DataTables::eloquent(User::query())
-        ->setTransformer(function ($item) {
+        ->setTransformer(function (User $item) {
             return UserResource::make($item)->resolve();
         })
         ->toJson();

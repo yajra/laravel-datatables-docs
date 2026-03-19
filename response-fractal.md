@@ -25,7 +25,7 @@ Route::get('user-data', function () {
     $model = User::query();
 
     return DataTables::eloquent($model)
-        ->setTransformer(function ($item) {
+        ->setTransformer(function (User $item) {
             return [
                 'id'         => (int) $item->id,
                 'name'       => $item->name,
@@ -49,7 +49,7 @@ Route::get('user-data', function () {
     $model = User::query();
 
     return DataTables::eloquent($model)
-        ->setTransformer(function ($item) {
+        ->setTransformer(function (User $item) {
             return UserResource::make($item)->resolve();
         })
         ->toJson();

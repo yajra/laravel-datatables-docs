@@ -38,12 +38,13 @@ Route::get('user-data', function() {
 ```php
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 
 Route::get('user-data', function() {
     $model = User::query();
 
     return DataTables::eloquent($model)
-        ->orderColumn('name', function ($query, $order) {
+        ->orderColumn('name', function (Builder $query, $order) {
             $query->orderBy('status', $order);
         })
         ->toJson();
@@ -82,8 +83,10 @@ return DataTables::eloquent($model)
 ### Custom Direction Mapping
 
 ```php
+use Illuminate\Database\Eloquent\Builder;
+
 return DataTables::eloquent($model)
-    ->orderColumn('status', function ($query, $order) {
+    ->orderColumn('status', function (Builder $query, $order) {
         // Map ascending/descending to custom status order
         $direction = $order === 'asc' ? 'desc' : 'asc';
         $query->orderBy('priority', $direction);

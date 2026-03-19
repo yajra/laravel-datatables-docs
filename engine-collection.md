@@ -65,7 +65,7 @@ Route::get('user-data', function() {
     $collection = User::all();
 
     return DataTables::collection($collection)
-        ->addColumn('full_name', function ($user) {
+        ->addColumn('full_name', function (User $user) {
             return $user->first_name . ' ' . $user->last_name;
         })
         ->toJson();
@@ -85,7 +85,7 @@ use App\Models\User;
 
 Route::get('user-data', function() {
     $collection = User::all()
-        ->filter(function ($user) {
+        ->filter(function (User $user) {
             return $user->is_active;
         });
 

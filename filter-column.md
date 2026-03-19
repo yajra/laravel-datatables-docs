@@ -24,7 +24,7 @@ Route::get('user-data', function () {
     ]);
 
     return DataTables::eloquent($model)
-        ->filterColumn('fullname', fn($query, $keyword) =>
+        ->filterColumn('fullname', fn(Builder $query, $keyword) =>
             $query->whereRaw(
                 "CONCAT(first_name, ' ', last_name) LIKE ?",
                 ["%{$keyword}%"]
@@ -50,13 +50,13 @@ Define custom filters for different columns:
 ```php
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filterColumn('name', fn($query, $keyword) =>
+        ->filterColumn('name', fn(Builder $query, $keyword) =>
             $query->where('name', 'like', "%{$keyword}%")
         )
-        ->filterColumn('email', fn($query, $keyword) =>
+        ->filterColumn('email', fn(Builder $query, $keyword) =>
             $query->where('email', 'like', "%{$keyword}%")
         )
-        ->filterColumn('status', fn($query, $keyword) =>
+        ->filterColumn('status', fn(Builder $query, $keyword) =>
             $query->where('status', $keyword)
         )
         ->toJson();
@@ -72,8 +72,8 @@ Search across multiple columns with OR logic:
 ```php
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filterColumn('name', function ($query, $keyword) {
-            $query->where(fn($q) => $q
+        ->filterColumn('name', function (Builder $query, $keyword) {
+            $query->where(fn(Builder $q) => $q
                 ->where('first_name', 'like', "%{$keyword}%")
                 ->orWhere('last_name', 'like', "%{$keyword}%")
                 ->orWhereRaw(
@@ -95,7 +95,7 @@ Filter using comparison operators:
 ```php
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filterColumn('price', fn($query, $keyword) =>
+        ->filterColumn('price', fn(Builder $query, $keyword) =>
             $query->where('price', '>=', $keyword)
         )
         ->toJson();
@@ -111,7 +111,7 @@ Parse and filter date values:
 ```php
 Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
-        ->filterColumn('created_at', fn($query, $keyword) =>
+        ->filterColumn('created_at', fn(Builder $query, $keyword) =>
             $query->whereDate('created_at', Carbon::parse($keyword)->startOfDay())
         )
         ->toJson();
@@ -129,7 +129,7 @@ Route::get('user-data', function () {
     $model = DB::table('users as u')->select('u.*');
 
     return DataTables::query($model)
-        ->filterColumn('user_name', fn($query, $keyword) =>
+        ->filterColumn('user_name', fn(Builder $query, $keyword) =>
             $query->whereRaw(
                 "CONCAT(u.first_name, ' ', u.last_name) LIKE ?",
                 ["%{$keyword}%"]
@@ -148,7 +148,7 @@ Route::get('user-data', function () {
 
 | Need | Solution |
 |------|----------|
-| Custom logic for specific columns | `->filterColumn('name', fn($q, $k) => ...)` |
+| Custom logic for specific columns | `->filterColumn('name', fn(Builder $q, $k) => ...)` |
 | Complete query control | [Manual Search](/docs/{{package}}/{{version}}/manual-search) |
 | Simple wildcard matching | [Smart Search](/docs/{{package}}/{{version}}/smart-search) |
 | Pattern-based matching | [Regex Search](/docs/{{package}}/{{version}}/regex) |

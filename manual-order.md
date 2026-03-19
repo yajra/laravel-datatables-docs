@@ -15,12 +15,13 @@ You may optionally disable the default ordering function of DataTables and write
 ```php
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 
 Route::get('user-data', function() {
     $model = User::query();
 
     return DataTables::eloquent($model)
-        ->order(function ($query) {
+        ->order(function (Builder $query) {
             if (request()->has('name')) {
                 $query->orderBy('name', 'asc');
             }
@@ -42,7 +43,7 @@ Route::get('user-data', function() {
 
 ```php
 return DataTables::eloquent(User::query())
-    ->order(function ($query) {
+    ->order(function (Builder $query) {
         // Primary sort
         $query->orderBy('status', 'asc');
         // Secondary sort
@@ -55,7 +56,7 @@ return DataTables::eloquent(User::query())
 
 ```php
 return DataTables::eloquent(User::query())
-    ->order(function ($query) {
+    ->order(function (Builder $query) {
         $sortColumn = request('sort', 'created_at');
         $sortDirection = request('direction', 'desc');
 
