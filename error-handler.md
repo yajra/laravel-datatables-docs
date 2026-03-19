@@ -75,21 +75,17 @@ Register an exception handler in `bootstrap/app.php`:
 ```php
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
-use Yajra\DataTables\Exceptions\Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Yajra\DataTables\Exceptions\Exception;
 
 return Application::configure(basePath: dirname(__DIR__))
-    ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
-    )
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (Exception $e, Request $request) {
             if ($request->expectsJson() || $request->is('datatables/*')) {
-                return Response::json([
+                return response()->json([
                     'draw'            => 0,
                     'recordsTotal'    => 0,
                     'recordsFiltered' => 0,
@@ -98,7 +94,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 ], 500);
             }
         });
-    })->toSymfonyApplication();
+    })->create();
 ```
 
 ### Custom HTTP Exceptions
@@ -109,7 +105,7 @@ You can also handle specific HTTP exceptions:
 ->withExceptions(function (Exceptions $exceptions): void {
     $exceptions->render(function (HttpException $e, Request $request) {
         if ($request->is('datatables/*')) {
-            return Response::json([
+            return response()->json([
                 'draw'            => 0,
                 'recordsTotal'    => 0,
                 'recordsFiltered' => 0,
