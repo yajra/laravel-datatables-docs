@@ -68,7 +68,7 @@ When set to `null`, the actual exception message is returned in the response:
 
 When set to `'throw'`, the package throws a `\Yajra\DataTables\Exceptions\Exception`. This allows you to catch and handle the error with your own logic.
 
-### Laravel 13 / 12 / 11+
+### Laravel 13
 
 Register an exception handler in `bootstrap/app.php`:
 
