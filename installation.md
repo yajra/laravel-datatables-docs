@@ -133,6 +133,7 @@ laravel-datatables/
 
 ---
 
+<a name="next-steps"></a>
 ## Next Steps
 
 <div class="grid md:grid-cols-2 gap-4">

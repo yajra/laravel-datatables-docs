@@ -27,6 +27,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="how-it-works"></a>
 ## How It Works
 
 Using `addIndexColumn` will add another column on your response with a column name that is set in the [`index_column`](/docs/{{package}}/{{version}}/general-settings#index-column) configuration.
@@ -35,6 +36,7 @@ The default index column name is `DT_RowIndex`.
 
 ---
 
+<a name="customizing-row-id"></a>
 ## Customizing Row ID
 
 If you want to customize the index used by the `DT_RowIndex`, you can use `setRowId('COLUMN')` to change the index number:
@@ -57,6 +59,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="example-response"></a>
 ## Example Response
 
 ```json
@@ -83,6 +86,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="see-also"></a>
 ## See Also
 
 - [Row Options](/docs/{{package}}/{{version}}/row-options) - More row configuration options

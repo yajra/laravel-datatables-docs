@@ -10,6 +10,7 @@ description: Add multiple columns from model attributes to your DataTables respo
 
 ---
 
+<a name="quick-example"></a>
 ## Quick Example
 
 ```php

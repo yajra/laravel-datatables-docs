@@ -9,6 +9,7 @@ Use the `filterColumn()` API when you need custom search logic for a specific co
 
 ---
 
+<a name="basic-usage"></a>
 ## Basic Usage
 
 Filter a computed column that combines multiple fields:

@@ -68,12 +68,14 @@ composer test
 
 ---
 
+<a name="security"></a>
 ## Security
 
 If you discover any security related issues, please email [aqangeles@gmail.com](mailto:aqangeles@gmail.com) instead of using the issue tracker.
 
 ---
 
+<a name="license"></a>
 ## License
 
 Laravel DataTables is open-sourced software licensed under the [MIT license](LICENSE).

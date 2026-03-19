@@ -9,6 +9,7 @@ Use the `filter()` API when you need complete control over how queries are filte
 
 ---
 
+<a name="manual-search-only"></a>
 ## Manual Search Only
 
 Disable global search and implement your own filtering:

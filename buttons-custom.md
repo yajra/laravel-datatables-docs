@@ -15,7 +15,7 @@ You can enable custom actions on your buttons by overloading the `buttons` metho
 ```php
 namespace App\DataTables;
 
-use App\User;
+use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Services\DataTable;
 

@@ -99,6 +99,7 @@ Laravel DataTables is a package that handles the [server-side](https://www.datat
 
 ---
 
+<a name="see-also"></a>
 ## See Also
 
 - [Installation](/docs/{{package}}/{{version}}/installation) - Get started with Laravel DataTables

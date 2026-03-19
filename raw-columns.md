@@ -29,6 +29,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="common-use-cases"></a>
 ## Common Use Cases
 
 ### Action Buttons

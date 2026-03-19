@@ -9,6 +9,7 @@ Smart search controls how DataTables matches search keywords against your data. 
 
 ---
 
+<a name="search-modes-overview"></a>
 ## Search Modes Overview
 
 | Mode | Behavior | Use Case |
@@ -75,6 +76,7 @@ When searching "John":
 
 ---
 
+<a name="how-smart-search-works"></a>
 ## How Smart Search Works
 
 Smart search automatically transforms user input:
@@ -89,6 +91,7 @@ Smart search automatically transforms user input:
 
 ---
 
+<a name="global-configuration"></a>
 ## Global Configuration
 
 Configure defaults in `config/datatables.php`:
@@ -108,6 +111,7 @@ return [
 
 ---
 
+<a name="when-to-use"></a>
 ## When to Use
 
 - **Use Smart Search (default)**: When you want users to find results by typing any part of a word
@@ -116,6 +120,7 @@ return [
 
 ---
 
+<a name="see-also"></a>
 ## See Also
 
 - [Filter Column](/docs/{{package}}/{{version}}/filter-column) - Custom column filtering

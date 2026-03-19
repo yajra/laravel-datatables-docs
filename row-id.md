@@ -10,6 +10,7 @@ DataTables allows you to customize the HTML attributes of each `<tr>` row using 
 
 ---
 
+<a name="setting-the-row-id"></a>
 ## Setting the Row ID (`setRowId`)
 
 Use the `setRowId` method to set the `id` attribute of each table row. You can pass a string, column name, or a closure for dynamic values.
@@ -26,6 +27,7 @@ $dataTable->setRowId(function($row) {
 
 ---
 
+<a name="setting-the-row-class"></a>
 ## Setting the Row Class (`setRowClass`)
 
 Use the `setRowClass` method to add a CSS class to each row. Accepts a string, column name, or a closure for dynamic classes.
@@ -42,6 +44,7 @@ $dataTable->setRowClass(function($row) {
 
 ---
 
+<a name="setting-row-data-attributes"></a>
 ## Setting Row Data Attributes (`setRowData` and `addRowData`)
 
 Use `setRowData` to set multiple `data-*` attributes for each row, or `addRowData` to add them one by one. Values can be static or generated via closure.
@@ -60,6 +63,7 @@ $dataTable->addRowData('dynamic', function($row) { return $row->some_value; });
 
 ---
 
+<a name="how-it-works"></a>
 ## How It Works
 
 These methods set templates that are compiled for each row. You can use column names or closures for dynamic values. The resulting HTML will look like:
@@ -72,6 +76,7 @@ These methods set templates that are compiled for each row. You can use column n
 
 ---
 
+<a name="summary-table"></a>
 ## Summary Table
 
 | Method         | Purpose                | Example Usage                                  |

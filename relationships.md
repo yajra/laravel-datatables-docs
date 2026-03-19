@@ -9,6 +9,7 @@ DataTables supports searching and sorting on eager loaded Eloquent relationships
 
 ---
 
+<a name="setup-and-searching"></a>
 ## Setup and Searching
 
 ### Backend: Eager Load Relationships

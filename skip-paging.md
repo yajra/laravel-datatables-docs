@@ -43,6 +43,7 @@ $(document).ready(function() {
 
 ---
 
+<a name="use-cases"></a>
 ## Use Cases
 
 | Use Case | Recommendation |

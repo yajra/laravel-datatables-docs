@@ -25,6 +25,7 @@ APP_DEBUG=true
 
 ---
 
+<a name="how-it-works"></a>
 ## How It Works
 
 When `APP_DEBUG=true`, Laravel DataTables automatically intercepts the response and appends debugging information. The debug data is only included when:

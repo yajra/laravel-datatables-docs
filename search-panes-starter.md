@@ -120,8 +120,10 @@ public function dataTable($query): DataTablesAbstract
 
 ---
 
+<a name="searchpanes-options"></a>
 ## SearchPanes Options
 
+<a name="option-structure"></a>
 ### Option Structure
 
 | Property | Type | Required | Description |

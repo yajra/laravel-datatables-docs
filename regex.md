@@ -12,6 +12,7 @@ Enable regular expression (regex) search for advanced pattern matching beyond si
 
 ---
 
+<a name="frontend-configuration"></a>
 ## Frontend Configuration
 
 Enable regex in your DataTables JavaScript initialization:
@@ -35,6 +36,7 @@ $('#users-table').DataTable({
 
 ---
 
+<a name="case-sensitivity"></a>
 ## Case Sensitivity
 
 By default, regex patterns are case-sensitive. Enable case-insensitive matching:
@@ -48,6 +50,7 @@ search: {
 
 ---
 
+<a name="backend-configuration"></a>
 ## Backend Configuration
 
 No special backend configuration is required. The package automatically handles regex patterns:
@@ -59,6 +62,7 @@ Route::get('user-data', fn () => DataTables::eloquent(User::query())->toJson());
 
 ---
 
+<a name="common-patterns"></a>
 ## Common Patterns
 
 ### Email Addresses

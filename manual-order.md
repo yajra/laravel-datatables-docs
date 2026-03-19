@@ -35,6 +35,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="advanced-ordering"></a>
 ## Advanced Ordering
 
 ### Multiple Column Ordering

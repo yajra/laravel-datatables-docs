@@ -27,6 +27,7 @@ You may use the links below to further understand the Laravel DataTables.
 
 ---
 
+<a name="see-also"></a>
 ## See Also
 
 - [Introduction](/docs/{{package}}/{{version}}/introduction) - Overview of Laravel DataTables

@@ -29,6 +29,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="common-use-cases"></a>
 ## Common Use Cases
 
 ### Hide Sensitive Data
@@ -58,6 +59,7 @@ return DataTables::eloquent(User::query())
 
 ---
 
+<a name="performance-benefits"></a>
 ## Performance Benefits
 
 | Method | Performance | Use Case |

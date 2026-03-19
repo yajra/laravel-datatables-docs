@@ -27,6 +27,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="common-use-cases"></a>
 ## Common Use Cases
 
 ### Limit Searchable Columns
@@ -48,6 +49,7 @@ return DataTables::eloquent(User::query())
 
 ---
 
+<a name="see-also"></a>
 ## See Also
 
 - [Black Listing Columns](/docs/{{package}}/{{version}}/blacklist) - Disable sorting/searching on specific columns

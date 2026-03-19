@@ -29,6 +29,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="remove-multiple-columns"></a>
 ## Remove Multiple Columns
 
 Chain multiple removes or pass an array:
@@ -50,6 +51,7 @@ return DataTables::eloquent($model)
 
 ---
 
+<a name="common-use-cases"></a>
 ## Common Use Cases
 
 ### Remove Sensitive Data
@@ -87,6 +89,7 @@ return DataTables::eloquent($model)
 
 ---
 
+<a name="alternative-make-hidden"></a>
 ## Alternative: Make Hidden
 
 You can also use Laravel's `makeHidden` method on Eloquent models:
