@@ -29,9 +29,6 @@ DATATABLES_ERROR=throw
 
 # Display a custom message
 DATATABLES_ERROR="An error occurred while loading data"
-
-# Use a translation key
-DATATABLES_ERROR="datatables.error_message"
 ```
 
 ---
@@ -41,9 +38,8 @@ DATATABLES_ERROR="datatables.error_message"
 | Option | Description |
 |--------|-------------|
 | `null` | Display the actual exception message (default) |
-| `'throw'` | Throw a `\Yajra\DataTables\Exception` for custom handling |
+| `'throw'` | Throw a `\Yajra\DataTables\Exceptions\Exception` for custom handling |
 | Custom string | Display a custom friendly message |
-| Translation key | Use a translation key for localization |
 
 ---
 
@@ -70,86 +66,59 @@ When set to `null`, the actual exception message is returned in the response:
 <a name="throw"></a>
 ## THROW Error
 
-When set to `'throw'`, the package throws a `\Yajra\DataTables\Exception`. This allows you to catch and handle the error with your own logic.
+When set to `'throw'`, the package throws a `\Yajra\DataTables\Exceptions\Exception`. This allows you to catch and handle the error with your own logic.
 
 ### Laravel 13 / 12 / 11+
 
-In modern Laravel versions, register an exception handler in `bootstrap/app.php`:
+Register an exception handler in `bootstrap/app.php`:
 
 ```php
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+<?php
+
+use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Exception;
-use Throwable;
+use Illuminate\Support\Facades\Response;
+use Yajra\DataTables\Exceptions\Exception;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
-    ->withExceptions(function (ExceptionHandler $exceptions) {
+    ->withRouting(
+        web: __DIR__.'/../routes/web.php',
+        commands: __DIR__.'/../routes/console.php',
+    )
+    ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (Exception $e, Request $request) {
             if ($request->expectsJson() || $request->is('datatables/*')) {
-                return response()->json([
+                return Response::json([
                     'draw'            => 0,
                     'recordsTotal'    => 0,
                     'recordsFiltered' => 0,
                     'data'            => [],
-                    'error'           => 'An error occurred while loading the data.',
+                    'error'           => $e->getMessage(),
                 ], 500);
             }
-        })->stop();
-    })->create()->bind('app', Application::class);
+        });
+    })->toSymfonyApplication();
 ```
 
-### Alternative: Separate Handler Class
+### Custom HTTP Exceptions
 
-For cleaner organization, create a dedicated handler class:
+You can also handle specific HTTP exceptions:
 
-**app/Exceptions/DataTableExceptionHandler.php**
 ```php
-<?php
-
-namespace App\Exceptions;
-
-use App\Http\Responses\DataTableErrorResponse;
-use Illuminate\Http\Request;
-use Yajra\DataTables\Exception;
-use Throwable;
-
-class DataTableExceptionHandler
-{
-    public function handle(Throwable $e, Request $request): ?JsonResponse
-    {
-        if (! $e instanceof Exception) {
-            return null;
-        }
-
-        if ($request->expectsJson() || $request->is('datatables/*')) {
-            return response()->json([
+->withExceptions(function (Exceptions $exceptions): void {
+    $exceptions->render(function (HttpException $e, Request $request) {
+        if ($request->is('datatables/*')) {
+            return Response::json([
                 'draw'            => 0,
                 'recordsTotal'    => 0,
                 'recordsFiltered' => 0,
                 'data'            => [],
-                'error'           => 'An error occurred while loading the data.',
-            ], 500);
+                'error'           => $e->getMessage(),
+            ], $e->getStatusCode());
         }
-
-        return null;
-    }
-}
-```
-
-Then register it in `bootstrap/app.php`:
-
-```php
-return Application::configure(basePath: dirname(__DIR__))
-    ->withExceptions(function (ExceptionHandler $exceptions) {
-        $exceptions->handle(function (Throwable $e, Request $request) {
-            $handler = new DataTableExceptionHandler();
-            $response = $handler->handle($e, $request);
-            
-            if ($response !== null) {
-                return $response;
-            }
-        });
-    })->create()->bind('app', Application::class);
+    });
+})
 ```
 
 ---
@@ -167,26 +136,6 @@ If set to any custom string, that message will be displayed instead of the excep
     "data": [],
     "error": "any custom message"
 }
-```
-
-### Using Translation Keys
-
-You can also use translation keys for localization:
-
-```php
-// config/datatables.php
-'error' => 'datatables.error.generic',
-```
-
-```php
-// resources/lang/en/datatables.php
-return [
-    'error' => [
-        'generic' => 'An error occurred while loading the data. Please try again.',
-        'not_found' => 'The requested data could not be found.',
-        'unauthorized' => 'You are not authorized to view this data.',
-    ],
-];
 ```
 
 ---
