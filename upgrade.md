@@ -12,8 +12,12 @@ This guide covers migrating from previous versions of Laravel DataTables.
 <a name="v13"></a>
 ## Upgrading to v13.x
 
-> [!NOTE]
-> Laravel DataTables v13.x requires Laravel 13.x and PHP 8.3+.
+Laravel DataTables v13.x is a straightforward upgrade with **no breaking changes**. This release adds support for Laravel 13 and PHP 8.3+.
+
+> [!IMPORTANT]
+> **Requirements:**
+> - Laravel 13.x
+> - PHP 8.3+
 
 ### Core Package
 
@@ -57,95 +61,19 @@ composer require yajra/laravel-datatables-editor:"^13.0"
 php artisan vendor:publish --tag=datatables-editor --force
 ```
 
----
+### What's New in v13
 
-## v13 Breaking Changes
-
-### Namespace Changes
-
-All packages now use the `Yajra\DataTables` namespace. Previous `Yajra\Datatables` namespace is no longer supported.
-
-```php
-// Old (no longer works)
-use Yajra\Datatables\Facades\Datatables;
-
-// New
-use Yajra\DataTables\Facades\DataTables;
-```
-
-### Facade Changes
-
-```php
-// Old (no longer works)
-Datatables::of($query)->toJson();
-
-// New
-DataTables::of($query)->toJson();
-```
-
-### Service Class Changes
-
-The `dataTable()` method should return a new instance directly:
-
-```php
-// Old
-public function dataTable() {
-    return $this->datatables->eloquent($this->query());
-}
-
-// New
-use Yajra\DataTables\EloquentDataTable;
-
-public function dataTable($query): EloquentDataTable
-{
-    return new EloquentDataTable($query);
-}
-```
-
-Or with dependency injection:
-
-```php
-// Alternative: method injection
-use Yajra\DataTables\DataTables;
-
-public function dataTable($query, DataTables $dataTables)
-{
-    return $dataTables->eloquent($query);
-}
-```
-
-### XSS Protection
-
-All columns are now escaped by default to protect against XSS attacks. To allow HTML content in columns, use `rawColumns`:
-
-```php
-// Old
-DataTables::of(User::query())
-    ->addColumn('href', '<a href="#">Html Content</a>')
-    ->toJson();
-
-// New
-DataTables::of(User::query())
-    ->addColumn('href', '<a href="#">Html Content</a>')
-    ->rawColumns(['href'])
-    ->toJson();
-```
-
-### Soft Deletes
-
-`withTrashed()` and `onlyTrashed()` are removed. Use Laravel's native soft delete filtering instead:
-
-```php
-// Old
-DataTables::eloquent($model)->withTrashed();
-
-// New - use scopes or query filters
-$model = User::query()->withTrashed(); // Native Laravel
-```
+- **Laravel 13 Support**: Full compatibility with Laravel 13
+- **PHP 8.3 Support**: Compatible with PHP 8.3+
+- **Seamless Upgrade**: No breaking changes from v9
 
 ---
 
-## v8 to v9 Changes
+<a name="v8-to-v9"></a>
+## Upgrading from v8.x to v9.x
+
+> [!NOTE]
+> This section is kept for historical reference when upgrading from v8.
 
 ### Removed Methods
 
@@ -157,6 +85,9 @@ $model = User::query()->withTrashed(); // Native Laravel
 
 <a name="v7-to-v8"></a>
 ## Upgrading from v7.x to v8.x
+
+> [!NOTE]
+> This section is kept for historical reference when upgrading from v7.
 
 ### Core Package
 
@@ -191,6 +122,9 @@ php artisan vendor:publish --tag=datatables-fractal --force
 <a name="v6-to-v7"></a>
 ## Upgrading from v6.x to v7.x
 
+> [!NOTE]
+> This section is kept for historical reference when upgrading from v6.
+
 ```bash
 composer require yajra/laravel-datatables-oracle:^7.0
 php artisan vendor:publish --tag=datatables --force
@@ -214,6 +148,9 @@ php artisan vendor:publish --tag=datatables-html --force
 
 <a name="v5-to-v6"></a>
 ## Upgrading from v5.x to v6.x
+
+> [!NOTE]
+> This section is kept for historical reference when upgrading from v5.
 
 1. Change all occurrences of `yajra\Datatables` to `Yajra\Datatables`
 2. Remove `Datatables` facade registration
