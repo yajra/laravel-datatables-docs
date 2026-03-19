@@ -3,30 +3,14 @@ title: Query Builder Data Source
 description: Use Laravel Query Builder as data source for DataTables
 ---
 
-
 # Query Builder Data Source
 
-You can use Laravel's Query Builder as data source for your DataTables. The `Yajra\DataTables\QueryDataTable` class handles the conversion of your Query Builder into a DataTables-compatible response.
+Use Laravel's Query Builder as the data source for your DataTables. The `Yajra\DataTables\QueryDataTable` class handles the conversion of your Query Builder into a DataTables-compatible response.
 
 ---
 
-<a name="methods"></a>
-## Usage Methods
-
-### Method 1: Factory Pattern
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB;
-
-Route::get('user-data', function() {
-    $query = DB::table('users');
-
-    return DataTables::of($query)->toJson();
-});
-```
-
-### Method 2: Facade with Query
+<a name="quick-start"></a>
+## Quick Start
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -39,20 +23,12 @@ Route::get('user-data', function() {
 });
 ```
 
-### Method 3: Dependency Injection
+---
 
-```php
-use Yajra\DataTables\DataTables;
-use Illuminate\Support\Facades\DB;
+<a name="custom-columns"></a>
+## Adding Custom Columns
 
-Route::get('user-data', function(DataTables $dataTables) {
-    $query = DB::table('users');
-
-    return $dataTables->query($query)->toJson();
-});
-```
-
-### Method 4: IoC Container
+Add computed columns with closures:
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -61,20 +37,37 @@ use Illuminate\Support\Facades\DB;
 Route::get('user-data', function() {
     $query = DB::table('users');
 
-    return app('datatables')->query($query)->toJson();
+    return DataTables::query($query)
+        ->addColumn('full_name', function ($row) {
+            return $row->first_name . ' ' . $row->last_name;
+        })
+        ->addColumn('action', function ($row) {
+            return '<button>Edit</button>';
+        })
+        ->toJson();
 });
 ```
 
-### Method 5: Direct Instance
+> [!NOTE]
+> Added columns are computed and not part of the database, so search and sort are disabled by default. Use `editColumn` if you need search/sort functionality.
+
+---
+
+<a name="filtering"></a>
+## Filtering
+
+Filter results in your query before passing to DataTables:
 
 ```php
-use Yajra\DataTables\QueryDataTable;
+use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB;
 
 Route::get('user-data', function() {
-    $query = DB::table('users');
+    $query = DB::table('users')
+        ->where('active', true)
+        ->where('email_verified_at', '!=', null);
 
-    return (new QueryDataTable($query))->toJson();
+    return DataTables::query($query)->toJson();
 });
 ```
 
@@ -82,6 +75,8 @@ Route::get('user-data', function() {
 
 <a name="joins"></a>
 ## With Join Statements
+
+Join related tables when building your query:
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -99,85 +94,7 @@ Route::get('user-data', function() {
 
 ---
 
-## With Raw Expressions
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB;
-
-Route::get('user-data', function() {
-    $query = DB::table('users')
-        ->select([
-            'id',
-            DB::raw("CONCAT(first_name, ' ', last_name) as full_name"),
-            'email',
-            DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d') as created_date"),
-        ]);
-
-    return DataTables::query($query)->toJson();
-});
-```
-
----
-
-## With Subqueries
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB;
-
-Route::get('user-data', function() {
-    $query = DB::table('users')
-        ->select('users.*')
-        ->selectSub(function ($query) {
-            $query->from('posts')
-                  ->selectRaw('COUNT(*)')
-                  ->whereColumn('user_id', 'users.id');
-        }, 'post_count');
-
-    return DataTables::query($query)->toJson();
-});
-```
-
----
-
-## Filtering Results
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB;
-
-Route::get('user-data', function() {
-    $query = DB::table('users')
-        ->where('active', true)
-        ->where('email_verified_at', '!=', null);
-
-    return DataTables::query($query)->toJson();
-});
-```
-
----
-
-## Response Structure
-
-```json
-{
-    "draw": 1,
-    "recordsTotal": 100,
-    "recordsFiltered": 50,
-    "data": [
-        {
-            "id": 1,
-            "name": "John Doe",
-            "email": "john@example.com",
-            "created_at": "2024-01-01 00:00:00"
-        }
-    ]
-}
-```
-
----
-
+<a name="when-to-use"></a>
 ## When to Use Query Builder
 
 | Use Case | Recommendation |

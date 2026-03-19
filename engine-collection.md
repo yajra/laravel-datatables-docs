@@ -3,36 +3,17 @@ title: Collection Data Source
 description: Use Laravel Collections as data source for DataTables
 ---
 
-
 # Collection Data Source
 
-You can use Laravel's Collection as data source for your DataTables. The `Yajra\DataTables\CollectionDataTable` class handles the conversion of your Collection into a DataTables-compatible response.
+Use Laravel's Collection as the data source for your DataTables. The `Yajra\DataTables\CollectionDataTable` class handles the conversion of your Collection into a DataTables-compatible response.
 
 > [!NOTE]
 > Collections are best suited for smaller datasets. For large datasets, consider using Eloquent or Query Builder engines.
 
 ---
 
-<a name="methods"></a>
-## Usage Methods
-
-### Method 1: Factory Pattern
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-
-Route::get('user-data', function() {
-    $collection = collect([
-        ['id' => 1, 'name' => 'John'],
-        ['id' => 2, 'name' => 'Jane'],
-        ['id' => 3, 'name' => 'James'],
-    ]);
-
-    return DataTables::of($collection)->toJson();
-});
-```
-
-### Method 2: Facade with Collection
+<a name="quick-start"></a>
+## Quick Start
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -48,57 +29,12 @@ Route::get('user-data', function() {
 });
 ```
 
-### Method 3: Dependency Injection
-
-```php
-use Yajra\DataTables\DataTables;
-
-Route::get('user-data', function(DataTables $dataTables) {
-    $collection = collect([
-        ['id' => 1, 'name' => 'John'],
-        ['id' => 2, 'name' => 'Jane'],
-        ['id' => 3, 'name' => 'James'],
-    ]);
-
-    return $dataTables->collection($collection)->toJson();
-});
-```
-
-### Method 4: IoC Container
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-
-Route::get('user-data', function() {
-    $collection = collect([
-        ['id' => 1, 'name' => 'John'],
-        ['id' => 2, 'name' => 'Jane'],
-        ['id' => 3, 'name' => 'James'],
-    ]);
-
-    return app('datatables')->collection($collection)->toJson();
-});
-```
-
-### Method 5: Direct Instance
-
-```php
-use Yajra\DataTables\CollectionDataTable;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $collection = User::all();
-
-    return (new CollectionDataTable($collection))->toJson();
-});
-```
-
 ---
 
 <a name="eloquent"></a>
-## With Eloquent Models
+## With Model Collections
 
-Convert Eloquent models to collection:
+Load models and pass as collection:
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -111,29 +47,15 @@ Route::get('user-data', function() {
 });
 ```
 
----
-
-## With Filtering
-
-Apply collection methods before passing to DataTables:
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $collection = User::all()
-        ->filter(function ($user) {
-            return $user->is_active;
-        });
-
-    return DataTables::collection($collection)->toJson();
-});
-```
+> [!NOTE]
+> This approach loads all models into memory first. For large datasets, consider using the [Eloquent Engine](/docs/{{package}}/{{version}}/engine-eloquent) instead.
 
 ---
 
+<a name="custom-columns"></a>
 ## Adding Custom Columns
+
+Add computed columns with closures:
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -152,25 +74,31 @@ Route::get('user-data', function() {
 
 ---
 
-## Response Structure
+<a name="filtering"></a>
+## Filtering
 
-```json
-{
-    "draw": 1,
-    "recordsTotal": 100,
-    "recordsFiltered": 50,
-    "data": [
-        {
-            "id": 1,
-            "name": "John Doe",
-            "email": "john@example.com"
-        }
-    ]
-}
+Apply collection methods before passing to DataTables:
+
+```php
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
+
+Route::get('user-data', function() {
+    $collection = User::all()
+        ->filter(function ($user) {
+            return $user->is_active;
+        });
+
+    return DataTables::collection($collection)->toJson();
+});
 ```
+
+> [!TIP]
+> When using collection filtering with DataTables, the entire dataset is filtered in PHP memory. For large datasets, consider filtering at the database level using Eloquent or Query Builder engines.
 
 ---
 
+<a name="when-to-use"></a>
 ## When to Use Collections
 
 | Use Case | Recommendation |

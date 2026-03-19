@@ -17,14 +17,35 @@ DataTables response using Laravel model resource.
 
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\User;
+
+Route::get('user-data', function() {
+    return DataTables::eloquent(User::query())
+        ->toJson();
+});
+```
+
+> [!TIP]
+> When using Laravel API Resources with DataTables, you can wrap the result of `UserResource::collection()` and pass it to `DataTables::of()`. However, for most use cases with Eloquent models, using `DataTables::eloquent()` directly is recommended as it handles pagination, sorting, and filtering automatically.
+
+---
+
+## Using with API Resources
+
+If you need to transform your response using Laravel API Resources:
+
+```php
+<?php
+
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
 use App\Http\Resources\UserResource;
 
 Route::get('user-data', function() {
-    $users = User::paginate(10);
-
-    $resource = UserResource::collection($users);
-
-    return DataTables::of($resource)->toJson();
+    return DataTables::eloquent(User::query())
+        ->setTransformer(function ($item) {
+            return UserResource::make($item)->resolve();
+        })
+        ->toJson();
 });
 ```
 

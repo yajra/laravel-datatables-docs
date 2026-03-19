@@ -3,30 +3,14 @@ title: Eloquent Data Source
 description: Use Laravel Eloquent models as data source for DataTables
 ---
 
-
 # Eloquent Data Source
 
-You can use Laravel's Eloquent Model as data source for your DataTables. The `Yajra\DataTables\EloquentDataTable` class handles the conversion of your Eloquent Model into a DataTables-compatible response.
+Use Laravel's Eloquent Model as the data source for your DataTables. The `Yajra\DataTables\EloquentDataTable` class handles the conversion of your Eloquent Model into a DataTables-compatible response.
 
 ---
 
-<a name="methods"></a>
-## Usage Methods
-
-### Method 1: Factory Pattern
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $model = User::query();
-
-    return DataTables::of($model)->toJson();
-});
-```
-
-### Method 2: Facade with Eloquent
+<a name="quick-start"></a>
+## Quick Start
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -39,50 +23,12 @@ Route::get('user-data', function() {
 });
 ```
 
-### Method 3: Dependency Injection
-
-```php
-use Yajra\DataTables\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function(DataTables $dataTables) {
-    $model = User::query();
-
-    return $dataTables->eloquent($model)->toJson();
-});
-```
-
-### Method 4: IoC Container
-
-```php
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $model = User::query();
-
-    return app('datatables')->eloquent($model)->toJson();
-});
-```
-
-### Method 5: Direct Instance
-
-```php
-use Yajra\DataTables\EloquentDataTable;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $model = User::query();
-
-    return (new EloquentDataTable($model))->toJson();
-});
-```
-
 ---
 
 <a name="relationships"></a>
 ## With Relationships
 
-You can eager load relationships:
+Eager load relationships when building your query:
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
@@ -118,6 +64,7 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="custom-columns"></a>
 ## Adding Custom Columns
 
 Add computed columns with closures:
@@ -145,16 +92,18 @@ Route::get('user-data', function() {
 
 ---
 
-## With Soft Deletes
+<a name="filtering"></a>
+## Filtering
 
-Include soft-deleted records:
+Filter results using Eloquent where clauses:
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\User;
 
 Route::get('user-data', function() {
-    $model = User::withTrashed();
+    $model = User::where('active', true)
+        ->whereNotNull('email_verified_at');
 
     return DataTables::eloquent($model)->toJson();
 });
@@ -162,25 +111,15 @@ Route::get('user-data', function() {
 
 ---
 
-## Response Structure
+<a name="when-to-use"></a>
+## When to Use Eloquent
 
-The Eloquent engine returns:
-
-```json
-{
-    "draw": 1,
-    "recordsTotal": 100,
-    "recordsFiltered": 50,
-    "data": [
-        {
-            "id": 1,
-            "name": "John Doe",
-            "email": "john@example.com",
-            "created_at": "2024-01-01T00:00:00.000000Z"
-        }
-    ]
-}
-```
+| Use Case | Recommendation |
+|----------|----------------|
+| Standard CRUD tables | ✅ Perfect for Eloquent |
+| Relationships | ✅ Automatic eager loading |
+| Model scopes | ✅ Clean, reusable filtering |
+| Complex JOINs | Consider Query Builder |
 
 ---
 

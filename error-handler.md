@@ -68,10 +68,6 @@ When set to `null`, the actual exception message is returned in the response:
 
 When set to `'throw'`, the package throws a `\Yajra\DataTables\Exceptions\Exception`. This allows you to catch and handle the error with your own logic.
 
-### Laravel 13
-
-Register an exception handler in `bootstrap/app.php`:
-
 ```php
 <?php
 
@@ -104,7 +100,7 @@ You can also handle specific HTTP exceptions:
 ```php
 ->withExceptions(function (Exceptions $exceptions): void {
     $exceptions->render(function (HttpException $e, Request $request) {
-        if ($request->is('datatables/*')) {
+        if ($request->expectsJson() || $request->is('datatables/*')) {
             return response()->json([
                 'draw'            => 0,
                 'recordsTotal'    => 0,
