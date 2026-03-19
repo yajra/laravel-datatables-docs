@@ -3,7 +3,6 @@ title: Contributing Guide
 description: Contribute to Laravel DataTables
 ---
 
-
 # Contributing
 
 Contributions are **welcome** and will be fully **credited**.
@@ -15,37 +14,56 @@ We accept contributions via Pull Requests on [GitHub](https://github.com/yajra/l
 <a name="pull-requests"></a>
 ## Pull Requests
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer):
-
-  ```bash
-  composer require --dev squizlabs/php_codesniffer
-  ```
-
-- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
-
-- **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not an option.
-
-- **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please squash them before submitting.
+- **Run static analysis and tests** - Ensure all checks pass before submitting (see Coding Standards below)
+- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date
+- **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not an option
+- **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please squash them before submitting
 
 ---
 
 <a name="coding-standards"></a>
 ## Coding Standards
 
-### Running PHP Code Sniffer
+This project uses Laravel Pint for code style, PHPStan for static analysis, and Rector for automated code modernization.
+
+### Laravel Pint (Code Style)
 
 ```bash
-# Check coding standards
-./vendor/bin/phpcs
+# Fix code style issues
+./vendor/bin/pint
 
-# Auto-fix coding standards
-./vendor/bin/phpcbf
+# Run without modifying files (preview only)
+./vendor/bin/pint --test
 ```
 
-### Running Tests
+### PHPStan (Static Analysis)
 
 ```bash
+# Run static analysis
+./vendor/bin/phpstan analyse
+
+# Run with specific memory limit
+./vendor/bin/phpstan analyse --memory-limit=512M
+```
+
+### Rector (Automated Modernization)
+
+```bash
+# Preview code changes
+./vendor/bin/rector process --dry-run
+
+# Apply code changes
+./vendor/bin/rector process
+```
+
+### Running All Checks
+
+```bash
+# Run tests with coverage
 composer test
+
+# Or run all checks manually
+./vendor/bin/pint && ./vendor/bin/phpstan analyse && composer test
 ```
 
 ---
