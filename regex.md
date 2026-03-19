@@ -1,80 +1,48 @@
 ---
-title: Regex Searching
-description: Enable regular expression search in DataTables
+title: Regex Search
+description: Enable regular expression pattern matching in DataTables search
 ---
 
-# Regex Searching
+# Regex Search
 
-DataTables has the ability to perform searches using regular expressions for more advanced pattern matching.
+Enable regular expression (regex) search for advanced pattern matching beyond simple wildcards.
 
 > [!NOTE]
-> Regex search only works and tested on the following Laravel DB drivers: MySQL, SQLite, and Oracle.
+> Regex search is supported on Laravel DB drivers: **MySQL**, **SQLite**, and **Oracle**.
 
 ---
 
-<a name="regex"></a>
-## Enable Regex Search
+## Frontend Configuration
 
-To enable regex, you need to explicitly set it in your JavaScript:
+Enable regex in your DataTables JavaScript initialization:
 
 ```javascript
-$(document).ready(function() {
-    $('#example').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '',
-        columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'}
-        ],
-        search: {
-            "regex": true
-        }
-    });
+$('#users-table').DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: '/user-data',
+    columns: [
+        { data: 'id', name: 'id' },
+        { data: 'name', name: 'name' },
+        { data: 'email', name: 'email' },
+        { data: 'created_at', name: 'created_at' }
+    ],
+    search: {
+        regex: true
+    }
 });
-```
-
----
-
-## Common Patterns
-
-### Search for Emails
-
-```
-.*@example\.com$
-```
-
-### Search for Numbers in Range
-
-```
-^([1-9]|[1-7][0-9]|80)$
-```
-
-### Search Starting with Pattern
-
-```
-^John
-```
-
-### Search Ending with Pattern
-
-```
-\.pdf$
 ```
 
 ---
 
 ## Case Sensitivity
 
-Regex patterns are case-sensitive by default. Use the `i` flag for case-insensitive matching:
+By default, regex patterns are case-sensitive. Enable case-insensitive matching:
 
 ```javascript
 search: {
-    "regex": true,
-    "caseInsensitive": true
+    regex: true,
+    caseInsensitive: true
 }
 ```
 
@@ -82,17 +50,72 @@ search: {
 
 ## Backend Configuration
 
-You may also need to configure your DataTables service to handle regex searches:
+No special backend configuration is required. The package automatically handles regex patterns:
 
 ```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    return DataTables::eloquent(User::query())
-        ->toJson();
-});
+// Works automatically - no changes needed
+Route::get('user-data', fn () => DataTables::eloquent(User::query())->toJson());
 ```
+
+---
+
+## Common Patterns
+
+### Email Addresses
+
+Match emails from a specific domain:
+
+```regex
+.*@example\.com$
+```
+
+**Example search:** `.*@example\.com$` → matches "john@example.com", "jane@example.com"
+
+### Numbers in Range (1-80)
+
+Match numbers from 1 to 80:
+
+```regex
+^([1-9]|[1-7][0-9]|80)$
+```
+
+| Matches | Does NOT Match |
+|---------|----------------|
+| 1, 5, 42, 80 | 0, 81, 100, abc |
+
+### Starts With
+
+Match values beginning with specific text:
+
+```regex
+^John
+```
+
+**Example search:** `^John` → matches "John", "Johnny", "John Doe"
+
+### Ends With
+
+Match values ending with specific text:
+
+```regex
+\.pdf$
+```
+
+**Example search:** `\.pdf$` → matches "document.pdf", "file.pdf"
+
+---
+
+## Quick Reference
+
+| Need | Solution |
+|------|----------|
+| Complex pattern matching | Regex with `search: { regex: true }` |
+| Simple wildcard matching | [Smart Search](/docs/{{package}}/{{version}}/smart-search) |
+| Column-specific custom logic | [Filter Column](/docs/{{package}}/{{version}}/filter-column) |
+| Complete query control | [Manual Search](/docs/{{package}}/{{version}}/manual-search) |
+
+> [!NOTE]
+> Supported drivers: **MySQL**, **SQLite**, **Oracle**. Not available for PostgreSQL.
 
 ---
 

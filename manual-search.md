@@ -5,111 +5,103 @@ description: Implement custom filtering logic in DataTables
 
 # Manual Search
 
-You can optionally write your own manual filtering functions and disable global search of the package. To achieve this, use the `filter` API.
+Use the `filter()` API when you need complete control over how queries are filtered, bypassing the package's automatic search handling.
 
 ---
 
-<a name="manual"></a>
-## Manual Searching without Global Search
+## Manual Search Only
+
+Disable global search and implement your own filtering:
 
 ```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $model = User::query();
-
-    return DataTables::eloquent($model)
-        ->filter(function ($query) {
-            if (request()->has('name')) {
-                $query->where('name', 'like', "%" . request('name') . "%");
-            }
-
-            if (request()->has('email')) {
-                $query->where('email', 'like', "%" . request('email') . "%");
-            }
-        })
-        ->toJson();
-});
-```
-
----
-
-## Manual Searching with Global Search
-
-> [!TIP]
-> To enable global search with filter API, set the 2nd argument to `true`.
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $model = User::query();
-
-    return DataTables::eloquent($model)
-        ->filter(function ($query) {
-            if (request()->has('name')) {
-                $query->where('name', 'like', "%" . request('name') . "%");
-            }
-
-            if (request()->has('email')) {
-                $query->where('email', 'like', "%" . request('email') . "%");
-            }
-        }, true) // Enable global search
-        ->toJson();
-});
-```
-
----
-
-## Advanced Filtering
-
-### Filter by Status
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function() {
+Route::get('user-data', function () {
     return DataTables::eloquent(User::query())
         ->filter(function ($query) {
-            // Filter by status
-            if (request('status')) {
-                $query->where('status', request('status'));
-            }
-
-            // Filter by date range
-            if (request('from_date')) {
-                $query->whereDate('created_at', '>=', request('from_date'));
-            }
-            if (request('to_date')) {
-                $query->whereDate('created_at', '<=', request('to_date'));
-            }
-
-            // Filter by relationship count
-            if (request('has_posts')) {
-                $query->has('posts');
-            }
+            $query->when(request('name'), fn($q) => 
+                $q->where('name', 'like', "%" . request('name') . "%")
+            );
+            $query->when(request('email'), fn($q) => 
+                $q->where('email', 'like', "%" . request('email') . "%")
+            );
         })
         ->toJson();
 });
 ```
 
-### Filter with OR Conditions
+---
+
+## Manual Search with Global Search
+
+Enable global search alongside your custom filters by passing `true` as the second argument:
 
 ```php
-return DataTables::eloquent(User::query())
-    ->filter(function ($query) {
-        if ($search = request('search')) {
-            $query->where(function ($q) use ($search) {
-                $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('email', 'like', "%{$search}%");
-            });
-        }
-    })
-    ->toJson();
+Route::get('user-data', function () {
+    return DataTables::eloquent(User::query())
+        ->filter(function ($query) {
+            $query->when(request('name'), fn($q) => 
+                $q->where('name', 'like', "%" . request('name') . "%")
+            );
+        }, true) // Keep global search enabled
+        ->toJson();
+});
 ```
+
+---
+
+## Advanced Filtering Examples
+
+### Filter by Multiple Criteria
+
+```php
+Route::get('user-data', function () {
+    return DataTables::eloquent(User::query())
+        ->filter(function ($query) {
+            $query->when(request('status'), fn($q, $v) => 
+                $q->where('status', $v)
+            );
+            $query->when(request('from_date'), fn($q, $v) => 
+                $q->whereDate('created_at', '>=', $v)
+            );
+            $query->when(request('to_date'), fn($q, $v) => 
+                $q->whereDate('created_at', '<=', $v)
+            );
+            $query->when(request('has_posts'), fn($q) => 
+                $q->has('posts')
+            );
+        })
+        ->toJson();
+});
+```
+
+### OR Conditions
+
+Search across multiple columns with OR logic:
+
+```php
+Route::get('user-data', function () {
+    return DataTables::eloquent(User::query())
+        ->filter(function ($query) {
+            $query->when(request('search'), function ($q, $search) {
+                $q->where(fn($q) => $q
+                    ->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                );
+            });
+        })
+        ->toJson();
+});
+```
+
+---
+
+## Quick Reference
+
+| Need | Solution |
+|------|----------|
+| Complete query control | `->filter()` without second argument |
+| Custom filters + global search | `->filter(..., true)` |
+| Specific column logic | [Filter Column](/docs/{{package}}/{{version}}/filter-column) |
+| Wildcard matching | [Smart Search](/docs/{{package}}/{{version}}/smart-search) |
 
 ---
 

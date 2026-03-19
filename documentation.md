@@ -58,9 +58,8 @@
 - ## Searching
 	- [Manual Search](/docs/{{package}}/{{version}}/manual-search)
 	- [Filter Column](/docs/{{package}}/{{version}}/filter-column)
-	- [Regex Search](/docs/{{package}}/{{version}}/regex)
+    - [Regex Search](/docs/{{package}}/{{version}}/regex)
 	- [Smart Search](/docs/{{package}}/{{version}}/smart-search)
-	- [Starts With Search](/docs/{{package}}/{{version}}/starts-with-search)
 	- [Relationships](/docs/{{package}}/{{version}}/relationships)
 
 <a name="sorting-ordering"></a>

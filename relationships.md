@@ -1,79 +1,64 @@
 ---
-title: Eager Loading Relationships
-description: Search and sort eager loaded relationships in DataTables
+title: Search Eloquent Relationships
+description: Enable search and sort on eager loaded relationships in DataTables
 ---
 
-# Eager Loading Relationships
+# Search Eloquent Relationships
 
-DataTables supports searching and sorting of eager loaded relationships when using `Eloquent`. This example shows how to setup eager loading search using the `EloquentEngine`.
+DataTables supports searching and sorting on eager loaded Eloquent relationships using dot notation.
 
 ---
 
-<a name="basic"></a>
-## Basic Setup
+## Setup and Searching
 
-To enable search on relationships, we need to eager load the relationship using Laravel's `with()` API:
+### Backend: Eager Load Relationships
+
+Use Laravel's `with()` to eager load relationships:
 
 ```php
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Str;
-use App\Models\User;
-
-Route::get('user-data', function() {
-    $model = User::with('posts');
-
-    return DataTables::eloquent($model)
-        ->addColumn('posts', function (User $user) {
-            return $user->posts->map(function($post) {
-                return Str::limit($post->title, 30, '...');
-            })->implode('<br>');
-        })
+Route::get('user-data', function () {
+    return DataTables::eloquent(User::with('posts'))
+        ->addColumn('posts', fn (User $user) =>
+            $user->posts
+                ->map(fn($post) => Str::limit($post->title, 30, '...'))
+                ->implode('<br>')
+        )
         ->toJson();
 });
 ```
 
----
+### Frontend: Use Dot Notation for Searching
 
-## Searching Relationship Columns
-
-To trigger search on `posts` relationship, specify the `relation.column_name` as the `name` attribute in your JavaScript:
+Use `relation.column` syntax in the `name` attribute:
 
 ```javascript
-$(document).ready(function() {
-    $('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '{{ url("collection/basic-object-data") }}',
-        columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-            {data: 'posts', name: 'posts.title'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'}
-        ]
-    });
+$('#users-table').DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: '/user-data',
+    columns: [
+        { data: 'id', name: 'id' },
+        { data: 'name', name: 'name' },
+        { data: 'email', name: 'email' },
+        { data: 'posts', name: 'posts.title' },
+        { data: 'created_at', name: 'created_at' }
+    ]
 });
 ```
 
 > [!NOTE]
-> When using `{data: 'posts', name: 'posts.title'}`:
-> - `data: posts` represents the data key (`data.posts`) that will be displayed on the table.
-> - `name: posts.title` represents the `User` model relationship (`posts`) and the column to perform the search (`title`).
+> - `data: 'posts'` - display key shown in the table
+> - `name: 'posts.title'` - relationship.column for searching/sorting
 
 ---
 
-## Using Table Aliases
+## Table Aliases
 
 > [!WARNING]
-> It is advised that you include `select('table.*')` on your query to avoid issues where the id from a related model replaces the id of the main model.
+> Include `select('table.*')` in your query to prevent id column conflicts from related models.
 
 ```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-use App\Models\Post;
-
-Route::get('user-data', function() {
+Route::get('user-data', function () {
     // Use table alias to prevent id conflicts
     $model = Post::with('user')->select('posts.*');
 
@@ -83,27 +68,31 @@ Route::get('user-data', function() {
 
 ---
 
-<a name="nested"></a>
 ## Nested Relationships
 
-> [!NOTE]
-> Same strategy goes for nested relationships, but ordering is not yet fully tested on nested relationships.
+Search through deeply nested relationships:
 
 ```php
-use Yajra\DataTables\Facades\DataTables;
-use App\Models\User;
-
-Route::get('user-data', function() {
+Route::get('user-data', function () {
     $model = User::with(['posts.comments', 'roles']);
 
     return DataTables::eloquent($model)->toJson();
 });
 ```
 
+In JavaScript, reference nested columns with dot notation:
+
+```javascript
+{ data: 'comments', name: 'posts.comments.content' }
+```
+
+> [!WARNING]
+> Nested relationship **sorting** may have limitations. Searching is fully supported.
+
 ---
 
 ## See Also
 
-- [Eloquent Data Source](/docs/{{package}}/{{version}}/engine-eloquent) - Basic Eloquent usage
+- [Eloquent Engine](/docs/{{package}}/{{version}}/engine-eloquent) - Basic Eloquent usage
 - [Filter Column](/docs/{{package}}/{{version}}/filter-column) - Custom column filtering
 - [Add Column](/docs/{{package}}/{{version}}/add-column) - Adding custom columns
