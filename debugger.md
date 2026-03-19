@@ -117,22 +117,6 @@ Each query object contains:
 
 ---
 
-## Disabling Debug Output Per-Request
-
-If you need to disable debug output for specific requests while `APP_DEBUG=true`, you can manually hide the debug data:
-
-```php
-use Yajra\DataTables\Facades\DataTables;
-
-Route::get('users', function () {
-    return DataTables::of(User::query())
-        ->hideDebugInfo()  // Exclude queries from response
-        ->toJson();
-});
-```
-
----
-
 ## See Also
 
 - [Error Handler](/docs/{{package}}/{{version}}/error-handler) - Configure error handling
