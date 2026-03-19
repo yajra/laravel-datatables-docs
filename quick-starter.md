@@ -10,7 +10,7 @@ This guide will walk you through building a complete DataTable in 15 minutes.
 ---
 
 <a name="step-1"></a>
-## Step 1: Installing Laravel ## Step 1: Installing Laravel & DataTables DataTables
+## Step 1: Installing Laravel & DataTables
 
 ### Quick Installation
 
@@ -30,6 +30,8 @@ php artisan ui bootstrap --auth
 
 composer require yajra/laravel-datatables
 ```
+
+> **Note**: Laravel UI is compatible with Laravel 10 and below. For Laravel 11+, consider using [Laravel Breeze](https://laravel.com/docs/starter-kits#breeze) instead.
 
 For simplicity, you may use SQLite to store your application's data. To instruct Laravel to use SQLite instead of MySQL, update your new application's `.env` file and remove all of the `DB_*` environment variables except for the `DB_CONNECTION` variable, which should be set to `sqlite`:
 
@@ -67,22 +69,18 @@ import './bootstrap';
 import 'laravel-datatables-vite';
 ```
 
-```scss filename=resources/sass/app.scss
-// Fonts
+```css filename=resources/css/app.css
+/* Fonts */
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
-// Variables
-@import 'variables';
-
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
-
-// DataTables
+/* DataTables */
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
 @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
 @import 'datatables.net-select-bs5/css/select.bootstrap5.css';
 ```
+
+> **Note**: Laravel 11+ uses Vite with CSS by default. If you prefer SCSS, install the `sass` package: `npm i -D sass`
 
 We just need to start the Vite development server to automatically recompile our JS, CSS and refresh the browser when we make changes to our Blade templates:
 
@@ -168,7 +166,7 @@ class UsersDataTable extends DataTable
 ---
 
 <a name="step-4"></a>
-## Step 4: Setup a Users Controller, View ## Step 4: Setup a Users Controller, View & Route Route
+## Step 4: Setup a Users Controller, View & Route
 
 ```bash
 php artisan make:controller UsersController
@@ -256,7 +254,6 @@ php artisan tinker
 ```
 
 ```php
-Psy Shell v0.9.9 (PHP 7.2.22 — cli) by Justin Hileman
 >>> User::factory(100)->create()
 ```
 
