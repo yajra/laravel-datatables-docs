@@ -116,7 +116,7 @@ Route::get('user-data', function() {
             return $user->first_name . ' ' . $user->last_name;
         })
         ->addColumn('posts_count', function (User $user) {
-            return $user->posts->count();
+            return $user->posts_count;
         })
         ->addColumn('status_badge', function (User $user) {
             return $user->is_active ? 'Active' : 'Inactive';
@@ -141,8 +141,9 @@ Route::get('user-data', function() {
 ### Computed Values
 
 ```php
+// addColumn for money values - return raw number
 ->addColumn('total_amount', function (Order $order) {
-    return '$' . number_format($order->items->sum('price'), 2);
+    return $order->items_sum_price ?? 0;
 })
 ```
 

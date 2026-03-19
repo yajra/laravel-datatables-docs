@@ -79,7 +79,7 @@ You can customize how columns are formatted in exports using the `exportFormat()
 Use text format for IDs, phone numbers, or any value where leading zeroes should be preserved:
 
 ```php
-Column::make('id')->exportFormat('@'),
+Column::make('id'),  // Text format for ID
 Column::make('mobile')->exportFormat('00000000000'),
 Column::make('phone')->exportFormat(NumberFormat::FORMAT_TEXT),
 ```
@@ -169,9 +169,6 @@ You can provide a custom callback for exporting specific column values:
 ```php
 Column::make('status')
     ->exportRender(fn ($model, $value) => ucfirst($value)),
-
-Column::make('price')
-    ->exportRender(fn ($model, $value) => number_format($value, 2)),
 ```
 
 <a name="complete-example"></a>
@@ -202,15 +199,15 @@ class OrdersDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('id')->exportFormat('@'), // Text format for ID
             Column::make('order_number')->exportFormat('@'),
             Column::make('customer_name'),
-            Column::make('total')->exportFormat('$#,##0.00'), // Currency format
+            Column::make('total')->exportFormat('$#,##0.00'),
             Column::make('quantity')->exportFormat('#,##0'),
             Column::make('order_date')->exportFormat('mm/dd/yyyy'),
             Column::make('created_at')->exportFormat(NumberFormat::FORMAT_DATE_DATETIME),
             Column::make('status')
                 ->exportRender(fn ($model, $value) => ucfirst($value)),
+            Column::make('id'),
         ];
     }
 }

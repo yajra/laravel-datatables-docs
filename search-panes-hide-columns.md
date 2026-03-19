@@ -27,11 +27,11 @@ public function html(): Builder
 protected function getColumns(): array
 {
     return [
-        Column::make('id')
-            ->searchPanes(false),  // Exclude from SearchPanes
         Column::make('name'),
         Column::make('email'),
         Column::make('status'),
+        Column::make('id')
+            ->searchPanes(false),  // Exclude from SearchPanes
     ];
 }
 ```
@@ -41,6 +41,8 @@ protected function getColumns(): array
 ## Common Use Cases
 
 ### Exclude ID Column
+
+For ID columns, use `Column::make('id')` with `->searchPanes(false)`:
 
 ```php
 Column::make('id')

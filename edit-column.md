@@ -94,16 +94,13 @@ Route::get('user-data', function() {
 });
 ```
 
-### Add Currency Symbol
+### Money Formatting
+
+For money values, use `Column::make()` with `exportFormat()` for exports:
 
 ```php
-Route::get('order-data', function() {
-    return DataTables::eloquent(Order::query())
-        ->editColumn('price', function (Order $order) {
-            return '$' . number_format($order->price, 2);
-        })
-        ->toJson();
-});
+// Use Column::make() for decimal/float columns
+Column::make('price', 'orders.price')
 ```
 
 ### Truncate Text

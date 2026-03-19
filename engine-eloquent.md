@@ -46,6 +46,45 @@ Route::get('user-data', function() {
 
 ---
 
+<a name="with-count"></a>
+## With Count (and Sum)
+
+Use `withCount()` and `withSum()` to efficiently load relation counts and sums, avoiding N+1 queries:
+
+```php
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\User;
+
+Route::get('user-data', function() {
+    $model = User::withCount('posts'); // Results in posts_count attribute
+
+    return DataTables::eloquent($model)
+        ->addColumn('full_name', function (User $user) {
+            return $user->first_name . ' ' . $user->last_name;
+        })
+        ->toJson();
+});
+```
+
+When defining the column for count/sum values, use `orderable(true)` and `searchable(false)`:
+
+```php
+// In your Html builder:
+Column::make('posts_count', 'posts_count')
+    ->orderable(true)
+    ->searchable(false),
+
+// For sums, use Column::make with the sum attribute name:
+Column::make('posts_sum_amount', 'posts_sum_amount')
+    ->orderable(true)
+    ->searchable(false),
+```
+
+> [!WARNING]
+> Never use `$user->posts()->count()` or `$user->posts()->sum('amount')` in addColumn — this causes N+1 queries. Always use `withCount()`/`withSum()` in the query and access the preloaded attribute.
+
+---
+
 <a name="scopes"></a>
 ## With Query Scopes
 
@@ -67,21 +106,18 @@ Route::get('user-data', function() {
 <a name="custom-columns"></a>
 ## Adding Custom Columns
 
-Add computed columns with closures:
+Add computed columns with closures. Use a variable name matching the model (e.g., `$user` for `User`):
 
 ```php
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\User;
 
 Route::get('user-data', function() {
-    $model = User::query();
+    $model = User::withCount('posts'); // Use withCount to avoid N+1
 
     return DataTables::eloquent($model)
         ->addColumn('full_name', function (User $user) {
             return $user->first_name . ' ' . $user->last_name;
-        })
-        ->addColumn('posts_count', function (User $user) {
-            return $user->posts->count();
         })
         ->toJson();
 });

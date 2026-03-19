@@ -104,6 +104,7 @@
     - [Add Action](/docs/{{package}}/{{version}}/html-builder-action)
     - [Add Checkbox](/docs/{{package}}/{{version}}/html-builder-checkbox)
     - [Add Index](/docs/{{package}}/{{version}}/html-builder-index)
+    - [Custom Columns](/docs/{{package}}/{{version}}/custom-columns)
     - [Github](https://github.com/yajra/laravel-datatables-html)
 
 <a name="buttons"></a>

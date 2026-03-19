@@ -15,10 +15,19 @@ The Column Builder is a fluent interface for building column definitions.
 ```php
 use Yajra\DataTables\Html\Column;
 
+Column::make('name')
+    ->title('Name')
+    ->data('name')
+    ->name('name')
+```
+
+### ID Columns
+
+For ID columns, use `Column::make('id')`:
+
+```php
 Column::make('id')
     ->title('ID')
-    ->data('id')
-    ->name('id')
 ```
 
 ### Using Column::computed()

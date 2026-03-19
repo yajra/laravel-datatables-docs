@@ -79,9 +79,9 @@ Route::get('users', function(Builder $builder) {
     }
 
     $html = $builder->columns([
-        Column::make('id'),
         Column::make('name'),
         Column::make('email'),
+        Column::make('id'),
     ]);
 
     return view('users.index', compact('html'));

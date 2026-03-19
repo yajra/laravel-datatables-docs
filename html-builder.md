@@ -33,6 +33,7 @@ php artisan vendor:publish --tag=datatables-html
 ```php
 use Yajra\DataTables\Html\Builder;
 use Yajra\DataTables\Facades\DataTables;
+use Yajra\DataTables\Html\Column;
 use App\Models\User;
 
 Route::get('users', function(Builder $builder) {
@@ -41,9 +42,9 @@ Route::get('users', function(Builder $builder) {
     }
 
     $html = $builder->columns([
-        Column::make('id'),
         Column::make('name'),
         Column::make('email'),
+        Column::make('id'),
     ]);
 
     return view('users.index', compact('html'));
@@ -94,10 +95,19 @@ return [
 ### Standard Columns
 
 ```php
+Column::make('name')
+    ->title('Name')
+    ->data('name')
+    ->name('name')
+```
+
+### ID Columns
+
+Use `Column::make('id')` for the ID field:
+
+```php
 Column::make('id')
     ->title('ID')
-    ->data('id')
-    ->name('id')
 ```
 
 ### Computed Columns

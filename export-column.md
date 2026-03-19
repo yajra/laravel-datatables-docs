@@ -74,6 +74,7 @@ protected $exportColumns = [
 namespace App\DataTables;
 
 use App\Models\User;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\WithExportQueue;
 
@@ -98,7 +99,6 @@ class UsersDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('id'),
             Column::make('name'),
             Column::make('email'),
             Column::make('role'),
@@ -107,6 +107,7 @@ class UsersDataTable extends DataTable
                 ->title('Actions')
                 ->exportable(false)  // Exclude from export
                 ->printable(false),
+            Column::make('id'),
         ];
     }
 
@@ -161,9 +162,6 @@ Column::make('status')
 
 Column::make('is_active')
     ->exportRender(fn ($model, $value) => $value ? 'Yes' : 'No'),
-
-Column::make('price')
-    ->exportRender(fn ($model, $value) => '$' . number_format($value, 2)),
 ```
 
 <a name="relationship-columns"></a>
@@ -189,10 +187,10 @@ For more complex relationship exports:
 protected function getColumns(): array
 {
     return [
-        Column::make('id'),
         Column::make('name'),
         Column::make('department.name')->title('Department'),
         Column::make('company.name')->title('Company'),
+        Column::make('id'),
     ];
 }
 
@@ -212,7 +210,6 @@ protected $exportColumns = [
 
 ```php
 protected $exportColumns = [
-    ['data' => 'id', 'title' => 'ID'],
     ['data' => 'name', 'title' => 'Name'],
     ['data' => 'email', 'title' => 'Email'],
     ['data' => 'created_at', 'title' => 'Created'],
@@ -227,15 +224,15 @@ protected $exportColumns = [
 protected function getColumns(): array
 {
     return [
-        Column::make('id'),
         Column::make('name'),
         Column::make('actions')
             ->title('')
             ->exportable(false),
+        Column::make('id'),
     ];
 }
 
-// Export (no actions column)
+// Export columns
 protected $exportColumns = [
     ['data' => 'id', 'title' => 'ID'],
     ['data' => 'name', 'title' => 'Name'],

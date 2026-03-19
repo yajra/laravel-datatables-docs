@@ -61,10 +61,10 @@ Route::get('users', function(Builder $builder) {
 
     // Build HTML for initial page load
     $html = $builder->columns([
-        Column::make('id'),
         Column::make('name'),
         Column::make('email'),
         Column::make('created_at'),
+        Column::make('id'),
     ]);
 
     return view('users.index', compact('html'));

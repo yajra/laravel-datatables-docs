@@ -75,9 +75,9 @@ class PostsDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('id'),
             Column::make('created_at'),
             Column::make('updated_at'),
+            Column::make('id'),
         ];
     }
 
@@ -145,9 +145,9 @@ class PostsDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            Column::make('id'),
             Column::make('created_at'),
             Column::make('updated_at'),
+            Column::make('id'),
         ];
     }
 
