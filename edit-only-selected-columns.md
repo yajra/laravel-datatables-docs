@@ -19,8 +19,8 @@ use App\Models\User;
 Route::get('user-data', function() {
     return DataTables::eloquent(User::query())
         ->editOnlySelectedColumns()
-        ->editColumn('name', fn($user) => strtoupper($user->name))
-        ->editColumn('email', fn($user) => strtolower($user->email))
+        ->editColumn('name', fn(User $user) => strtoupper($user->name))
+        ->editColumn('email', fn(User $user) => strtolower($user->email))
         ->toJson();
 });
 ```

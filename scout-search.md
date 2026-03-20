@@ -64,7 +64,7 @@ use App\Models\User;
 Route::get('user-data', function() {
     return DataTables::eloquent(User::query())
         ->enableScoutSearch(User::class)
-        ->scoutFilter(function ($keyword) {
+        ->scoutFilter(function (string $keyword) {
             // Add Scout filters based on request parameters
             $filters = [];
             

@@ -20,7 +20,7 @@ Route::get('user-data', function() {
     $query = DB::table('users')->select('*');
 
     return DataTables::query($query)
-        ->limit(function ($builder) {
+        ->limit(function (Builder $builder) {
             // Custom LIMIT logic
             $builder->limit(100);
         })
@@ -51,7 +51,7 @@ Route::get('user-data', function() {
     }
 
     return DataTables::query($query)
-        ->limit(function ($builder) {
+        ->limit(function (Builder $builder) {
             $builder->limit(50);
         })
         ->toJson();
@@ -82,7 +82,7 @@ Route::get('activity-data', function() {
     }
 
     return DataTables::query($query)
-        ->limit(function ($builder) {
+        ->limit(function (Builder $builder) {
             $builder->limit(25);
         })
         ->toJson();

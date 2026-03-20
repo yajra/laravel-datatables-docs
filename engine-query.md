@@ -38,10 +38,10 @@ Route::get('user-data', function() {
     $query = DB::table('users');
 
     return DataTables::query($query)
-        ->addColumn('full_name', function ($row) {
+        ->addColumn('full_name', function (object $row) {
             return $row->first_name . ' ' . $row->last_name;
         })
-        ->addColumn('action', function ($row) {
+        ->addColumn('action', function (object $row) {
             return '<button>Edit</button>';
         })
         ->toJson();

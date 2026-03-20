@@ -66,7 +66,7 @@ class UsersDataTable extends DataTable
 
     public function fastExcelCallback(): \Closure
     {
-        return function ($row) {
+        return function (array $row) {
             return [
                 'Name' => $row['name'],
                 'Email' => $row['email'],
