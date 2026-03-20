@@ -24,8 +24,10 @@
 <a name="datatables-classes"></a>
 - ## DataTables Classes
 	- [Eloquent](/docs/{{package}}/{{version}}/engine-eloquent)
+	- [Enable Eager Join Aliases](/docs/{{package}}/{{version}}/enable-eager-join-aliases)
 	- [Query Builder](/docs/{{package}}/{{version}}/engine-query)
 	- [Collection](/docs/{{package}}/{{version}}/engine-collection)
+	- [Set Collection Offset](/docs/{{package}}/{{version}}/set-collection-offset)
 
 <a name="response"></a>
 - ## Response
@@ -40,6 +42,7 @@
 	- [Add Column](/docs/{{package}}/{{version}}/add-column)
 	- [Add Columns](/docs/{{package}}/{{version}}/add-columns)
 	- [Edit Column](/docs/{{package}}/{{version}}/edit-column)
+	- [Format Column](/docs/{{package}}/{{version}}/format-column)
 	- [Remove Column](/docs/{{package}}/{{version}}/remove-column)
 	- [Index Column](/docs/{{package}}/{{version}}/index-column)
 	- [Raw Columns](/docs/{{package}}/{{version}}/raw-columns)
@@ -58,8 +61,12 @@
 - ## Searching
 	- [Manual Search](/docs/{{package}}/{{version}}/manual-search)
 	- [Filter Column](/docs/{{package}}/{{version}}/filter-column)
+	- [Has Filter Column](/docs/{{package}}/{{version}}/has-filter-column)
+	- [Column Control Search](/docs/{{package}}/{{version}}/column-control-search)
     - [Regex Search](/docs/{{package}}/{{version}}/regex)
 	- [Smart Search](/docs/{{package}}/{{version}}/smart-search)
+	- [Min Search Length](/docs/{{package}}/{{version}}/min-search-length)
+	- [Scout Search](/docs/{{package}}/{{version}}/scout-search)
 	- [Relationships](/docs/{{package}}/{{version}}/relationships)
 
 <a name="sorting-ordering"></a>
@@ -72,6 +79,7 @@
 <a name="searchpanes"></a>
 - ## SearchPanes
     - [SearchPanes Extension](/docs/{{package}}/{{version}}/search-panes-starter)
+    - [SearchPanes API](/docs/{{package}}/{{version}}/search-panes-api)
     - [Hide Columns in SearchPanes](/docs/{{package}}/{{version}}/search-panes-hide-columns)
     - [Further options](/docs/{{package}}/{{version}}/search-panes-options)
 
@@ -84,6 +92,10 @@
 	- [Skip Total Records](/docs/{{package}}/{{version}}/skip-total-records)
 	- [Set Filtered Records](/docs/{{package}}/{{version}}/set-filtered-records)
 	- [Skip Paging](/docs/{{package}}/{{version}}/skip-paging)
+	- [Limit Pagination](/docs/{{package}}/{{version}}/limit-pagination)
+	- [Ignore Getters](/docs/{{package}}/{{version}}/ignore-getters)
+	- [Edit Only Selected Columns](/docs/{{package}}/{{version}}/edit-only-selected-columns)
+	- [Get Filtered Query](/docs/{{package}}/{{version}}/get-filtered-query)
 
 ### PLUGINS
 
