@@ -154,7 +154,7 @@ The `$model` parameter in `editRules()` and `removeRules()` provides:
 
 ---
 
-## Related Documentation
+## See Also
 
 - [Laravel Validation](https://laravel.com/docs/validation) - Full validation documentation
 - [Editor Events](/docs/{{package}}/{{version}}/editor-events) - Modify data before/after validation

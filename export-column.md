@@ -250,8 +250,8 @@ Column::make('full_name')
 ```
 
 <a name="related-documentation"></a>
-## Related Documentation
+## See Also
 
-- [Installation](exports-installation.md) - Initial setup
-- [Export Usage](exports-usage.md) - Basic usage guide
-- [Export Options](exports-options.md) - Column formatting options
+- [Installation](exports-installation) - Initial setup
+- [Export Usage](exports-usage) - Basic usage guide
+- [Export Options](exports-options) - Column formatting options

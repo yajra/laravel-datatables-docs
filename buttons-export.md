@@ -6,12 +6,11 @@ description: Export buttons configuration and options
 
 # DataTable Buttons - Export
 
-This guide covers the export buttons available in the main DataTables package. For queue-based exports with Livewire, see the [Export Usage](exports-usage.md) guide.
+This guide covers the export buttons available in the main DataTables package. For queue-based exports with Livewire, see the [Export Usage](exports-usage) guide.
 
-> **Note**: These buttons use client-side or server-side export functionality with yajra/DataTables Buttons plugin. For large datasets, consider using the [Queue Export Package](exports-installation.md) instead.
+> **Note**: These buttons use client-side or server-side export functionality with yajra/DataTables Buttons plugin. For large datasets, consider using the [Queue Export Package](exports-installation) instead.
 
 <a name="export-button-group"></a>
-<a name="export"></a>
 ## Export Button Group
 
 Enable the complete export button group (Excel, CSV, and PDF buttons) with a single setting:
@@ -43,7 +42,6 @@ class UsersDataTable extends DataTable
 ```
 
 <a name="individual-export-buttons"></a>
-<a name="individual"></a>
 ## Individual Export Buttons
 
 <a name="export-as-excel"></a>
@@ -113,7 +111,6 @@ public function html()
 ```
 
 <a name="post-method-export"></a>
-<a name="post"></a>
 ## POST Method Export
 
 For large datasets or when using Internet Explorer, use POST method exports to avoid URL length limitations:
@@ -307,9 +304,9 @@ public function html()
 | Setup complexity | Simple | Requires queue setup |
 
 <a name="related-documentation"></a>
-## Related Documentation
+## See Also
 
-- [Export Installation](exports-installation.md) - Queue export package setup
-- [Export Usage](exports-usage.md) - Queue export usage
-- [Export Options](exports-options.md) - Customize export formatting
-- [Export Columns](export-column.md) - Configure export columns
+- [Export Installation](exports-installation) - Queue export package setup
+- [Export Usage](exports-usage) - Queue export usage
+- [Export Options](exports-options) - Customize export formatting
+- [Export Columns](export-column) - Configure export columns

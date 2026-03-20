@@ -107,7 +107,7 @@ return [
 
 ## Next Steps
 
-- [Export Usage](exports-usage.md) - Learn how to use the export functionality
-- [Export Options](exports-options.md) - Customize export types, sheet names, and column formatting
-- [Export Columns](export-column.md) - Configure which columns to include in exports
-- [Export Purge](exports-purge.md) - Automate cleanup of old export files
+- [Export Usage](exports-usage) - Learn how to use the export functionality
+- [Export Options](exports-options) - Customize export types, sheet names, and column formatting
+- [Export Columns](export-column) - Configure which columns to include in exports
+- [Export Purge](exports-purge) - Automate cleanup of old export files

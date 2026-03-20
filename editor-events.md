@@ -321,7 +321,7 @@ class UsersDataTableEditor extends DataTablesEditor
 
 ---
 
-## Related Documentation
+## See Also
 
 - [Editor Rules](/docs/{{package}}/{{version}}/editor-rules) - Validation rules
 - [Editor Model](/docs/{{package}}/{{version}}/editor-model) - Model configuration

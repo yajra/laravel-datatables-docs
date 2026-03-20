@@ -239,8 +239,8 @@ return [
 ```
 
 <a name="related-documentation"></a>
-## Related Documentation
+## See Also
 
-- [Installation](exports-installation.md) - Initial setup
-- [Export Usage](exports-usage.md) - Basic usage guide
-- [Export Columns](export-column.md) - Configure export-specific columns
+- [Installation](exports-installation) - Initial setup
+- [Export Usage](exports-usage) - Basic usage guide
+- [Export Columns](export-column) - Configure export-specific columns

@@ -80,7 +80,7 @@ Then, follow the [Editor Usage](/docs/{{package}}/{{version}}/editor-usage) docu
 
 ---
 
-## Related Documentation
+## See Also
 
 | Documentation | Description |
 |--------------|-------------|

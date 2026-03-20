@@ -243,7 +243,7 @@ public function editRules(Model $model): array
 
 ---
 
-## Related Documentation
+## See Also
 
 | Documentation | Description |
 |---------------|-------------|

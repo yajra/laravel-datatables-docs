@@ -75,7 +75,7 @@ The purge command:
 - Running the command multiple times is safe (idempotent)
 
 <a name="related-documentation"></a>
-## Related Documentation
+## See Also
 
-- [Installation](exports-installation.md) - Initial setup
-- [Export Usage](exports-usage.md) - How exports work
+- [Installation](exports-installation) - Initial setup
+- [Export Usage](exports-usage) - How exports work

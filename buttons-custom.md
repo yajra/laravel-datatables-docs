@@ -52,6 +52,6 @@ Take a look at `Yajra\DataTables\Services\DataTable` to see how to fetch and man
 <a name="see-also"></a>
 ## See Also
 
-- [Buttons Console](buttons-console.md) - Artisan commands for generating DataTables
-- [Buttons Export](buttons-export.md) - Export button options
-- [Buttons Starter](buttons-starter.md) - Quick start guide
+- [Buttons Console](buttons-console) - Artisan commands for generating DataTables
+- [Buttons Export](buttons-export) - Export button options
+- [Buttons Starter](buttons-starter) - Quick start guide

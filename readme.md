@@ -1,3 +1,8 @@
+---
+title: README
+description: Contribution guidelines for Laravel DataTables documentation
+---
+
 <a name="laravel-datatables-documentation"></a>
 # Laravel DataTables Documentation
 

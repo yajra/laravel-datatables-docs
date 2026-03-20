@@ -14,7 +14,7 @@ This guide explains how to integrate the export functionality into your DataTabl
 
 Before using exports, ensure you have:
 
-1. Installed the export package (see [Installation](exports-installation.md))
+1. Installed the export package (see [Installation](exports-installation))
 2. Configured your queue driver in `config/queue.php`
 3. Running queue worker: `php artisan queue:work`
 
@@ -238,8 +238,8 @@ Ensure Livewire 3.x is installed and the `@livewireScripts` directive is include
 
 ---
 
-## Related Documentation
+## See Also
 
-- [Export Options](exports-options.md) - Column formatting and advanced options
-- [Export Columns](export-column.md) - Configure export-specific columns
-- [Export Purge](exports-purge.md) - Automate cleanup of old export files
+- [Export Options](exports-options) - Column formatting and advanced options
+- [Export Columns](export-column) - Configure export-specific columns
+- [Export Purge](exports-purge) - Automate cleanup of old export files

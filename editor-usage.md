@@ -250,7 +250,7 @@ Add the DataTable to your Blade view:
 
 ---
 
-## Related Documentation
+## See Also
 
 | Guide | Description |
 |-------|-------------|
