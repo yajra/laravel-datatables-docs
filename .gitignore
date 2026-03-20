@@ -5,10 +5,4 @@ master
 /.cocoindex_code/
 
 # Package Sources
-/html
-/buttons
-/editor
-/fractal
-/export
-/core
-/installer
+src/
