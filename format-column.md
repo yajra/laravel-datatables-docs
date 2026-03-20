@@ -19,11 +19,12 @@ Create a class that implements the `Yajra\DataTables\Contracts\Formatter` interf
 
 namespace App\DataTables\Formatters;
 
+use App\Models\User;
 use Yajra\DataTables\Contracts\Formatter;
 
 class StatusFormatter implements Formatter
 {
-    public function format(mixed $value, $row): string
+    public function format(mixed $value, User $row): string
     {
         return match ($value) {
             'active' => '<span class="badge bg-success">Active</span>',
@@ -82,7 +83,26 @@ use App\Models\User;
 
 Route::get('user-data', function() {
     return DataTables::eloquent(User::query())
-        ->formatColumn('status', function ($value, $row) {
+        ->formatColumn('status', function (mixed $value, User $row) {
+            return ucfirst($value);
+        })
+        ->toJson();
+});
+
+---
+
+<a name="query-builder-closure"></a>
+### Query Builder / Collection
+
+For Query Builder or Collection data sources, use `object` type for `$row`:
+
+```php
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
+
+Route::get('user-data', function() {
+    return DataTables::query(DB::table('users'))
+        ->formatColumn('status', function (mixed $value, object $row) {
             return ucfirst($value);
         })
         ->toJson();
