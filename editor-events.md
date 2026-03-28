@@ -25,6 +25,8 @@ In addition to Laravel's model events, DataTables Editor provides pre and post e
 │  Create:    creating → saving → [DB SAVE] → saved → created     │
 │  Edit:      updating → saving → [DB SAVE] → saved → updated     │
 │  Remove:    deleting → [DB DELETE] → deleted                     │
+│  Force Delete: deleting → [DB FORCE DELETE] → deleted            │
+│  Restore:     updating → saving → [DB RESTORE] → saved → updated │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -286,6 +288,32 @@ class UsersDataTableEditor extends DataTablesEditor
     public function updated(Model $model, array $data): Model
     {
         Cache::forget("user_{$model->id}");
+        return $model;
+    }
+
+    public function deleting(Model $model, array $data): void
+    {
+        // Delete related files before removing user
+        Storage::delete($model->avatar_path);
+    }
+
+    public function forceDeleting(Model $model, array $data): void
+    {
+        // Additional cleanup for force delete
+        $model->posts()->forceDelete();
+    }
+
+    public function restore(Model $model, array $data): array
+    {
+        // Prepare data before restoring
+        $data['restored_by'] = auth()->id();
+        return $data;
+    }
+
+    public function restored(Model $model, array $data): Model
+    {
+        // Actions after restoring
+        Notification::send($model, new AccountRestored($model));
         return $model;
     }
 
