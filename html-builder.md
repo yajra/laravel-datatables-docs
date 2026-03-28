@@ -241,6 +241,59 @@ $html = $builder
     ->searchDelay(350);
 ```
 
+### Display Options
+
+```php
+$html = $builder
+    ->autoWidth(true)           // Enable auto width calculation
+    ->deferRender(true)         // Defer rendering for better performance
+    ->scrollX(true)             // Enable horizontal scrolling
+    ->scrollY('500px')          // Enable vertical scrolling with height
+    ->scrollCollapse(true)      // Collapse table when scrolling
+    ->pagingType('simple_numbers')  // Pagination style
+    ->pageLength(25)            // Default page length
+    ->lengthMenu([10, 25, 50, 100])  // Available page lengths
+    ->stripeClasses(['odd', 'even'])  // CSS classes for row striping
+    ->tabIndex(0)               // Keyboard navigation tab index
+    ->renderer('bootstrap')     // Bootstrap renderer
+    ->retrieve(false)           // Retrieve existing instance
+    ->destroy(true)             // Destroy existing instance before creating new
+    ->displayStart(0)          // Initial display start index
+    ->deferLoading(100)        // Deferred loading with known total
+    ->tabIndex(0);              // Keyboard navigation
+```
+
+### Ordering Options
+
+```php
+$html = $builder
+    ->ordering(true)            // Enable column ordering
+    ->orderBy(0, 'desc')        // Default order by column 0 descending
+    ->orderByFixed(1, 'asc')    // Fixed order (always applied)
+    ->orderMulti(true)          // Enable multi-column sorting
+    ->orderCellsTop(true)      // Order only on first cell click
+    ->orderClasses(true)        // Highlight ordered column
+    ->orders([[0, 'desc'], [1, 'asc']]);  // Multiple default orders
+```
+
+### Search Options
+
+```php
+$html = $builder
+    ->searching(true)           // Enable search
+    ->searchDelay(400)         // Search delay in milliseconds
+    ->search(['regex' => false, 'search' => '']);  // Initial search settings
+```
+
+### State Options
+
+```php
+$html = $builder
+    ->stateSave(true)          // Save table state
+    ->stateDuration(-1)        // State duration (-1 = session, 0 = forever)
+    ->rowId('DT_RowId');      // Row ID attribute
+```
+
 ---
 
 ## Plugins
@@ -287,6 +340,60 @@ echo $html->scripts();
 
 // With module type (for Vite)
 echo $html->scripts([], ['type' => 'module']);
+```
+
+### Vite/Webpack Configuration
+
+Set the default script type globally:
+
+```php
+// Use module type (for Vite)
+Builder::useVite();
+
+// Use text/javascript (for Webpack/Laravel Mix)
+Builder::useWebpack();
+```
+
+### Script Output Options
+
+```php
+// Generate DataTable options as a variable
+echo $builder->asOptions();
+
+// Wrap as a function
+echo $builder->asFunction();
+
+// Get the template being used
+$builder->getTemplate();
+```
+
+### Additional Scripts
+
+Add extra scripts to the DataTables initialization:
+
+```php
+// Add additional script view
+$html = $builder->addScript('datatables::custom-script');
+
+// Conditional script loading
+$html = $builder->addScriptIfCan('delete', 'datatables::delete-button');
+$html = $builder->addScriptIf($condition, 'datatables::conditional-script');
+$html = $builder->addScriptIfCannot('admin', 'datatables::readonly-script');
+```
+
+### Template Data
+
+Pass custom data to the script template:
+
+```php
+$html = $builder->setTemplateData([
+    'customVar' => 'value',
+]);
+
+// Or use a closure
+$html = $builder->setTemplateData(function ($builder) {
+    return ['id' => $builder->getTableId()];
+});
 ```
 
 ---
