@@ -100,7 +100,71 @@ return [
         ],
         'orientation' => 'landscape',
     ],
+
+    /*
+     * Default html builder parameters.
+     */
+    'parameters' => [
+        'dom' => 'Bfrtip',
+        'order' => [[0, 'desc']],
+        'buttons' => [
+            'excel',
+            'csv',
+            'pdf',
+            'print',
+            'reset',
+            'reload',
+        ],
+    ],
+
+    /*
+     * Generator command default options.
+     */
+    'generator' => [
+        'columns' => 'id,add your columns,created_at,updated_at',
+        'buttons' => 'excel,csv,pdf,print,reset,reload',
+        'dom' => 'Bfrtip',
+    ],
 ];
+```
+
+---
+
+<a name="parameters-config"></a>
+## Default Builder Parameters
+
+The `parameters` config sets default DataTables HTML builder options:
+
+```php
+'parameters' => [
+    'dom' => 'Bfrtip',
+    'order' => [[0, 'desc']],
+    'buttons' => [
+        'excel',
+        'csv',
+        'pdf',
+        'print',
+        'reset',
+        'reload',
+    ],
+],
+```
+
+- `dom`: DataTables layout structure
+- `order`: Default column ordering
+- `buttons`: Default buttons to display
+
+<a name="generator-config"></a>
+## Generator Options
+
+The `generator` config sets default options for the `datatables:make` command:
+
+```php
+'generator' => [
+    'columns' => 'id,add your columns,created_at,updated_at',
+    'buttons' => 'excel,csv,pdf,print,reset,reload',
+    'dom' => 'Bfrtip',
+],
 ```
 
 ---

@@ -94,18 +94,106 @@ Column::formatted('name')
 | `searchable()` | Enable/disable search |
 | `orderable()` | Enable/disable ordering |
 | `render()` | Set render function |
+| `renderJs()` | Use built-in JS renderer |
+| `renderRaw()` | Set raw render value |
+| `exportRender()` | Set export render callback |
 | `footer()` | Set footer content |
 | `exportable()` | Enable/disable export |
 | `printable()` | Enable/disable print |
 | `className()` | Add CSS class |
+| `addClass()` | Append CSS class |
 | `width()` | Set column width |
 | `visible()` | Show/hide column |
+| `hidden()` | Hide column |
 | `orderData()` | Set order data |
 | `orderDataType()` | Set order data type |
 | `orderSequence()` | Set order sequence |
 | `cellType()` | Set cell type |
 | `type()` | Set column type |
 | `createdCell()` | Set cell callback |
+| `contentPadding()` | Set content padding |
+| `responsivePriority()` | Set responsive priority |
+| `titleAttr()` | Set title attribute |
+| `exportFormat()` | Set export format |
+| `defaultContent()` | Set default content |
+| `editField()` | Set edit field |
+
+---
+
+<a name="visibility"></a>
+## Visibility
+
+```php
+// Hide column
+Column::make('secret')->hidden();
+
+// Show/hide column
+Column::make('visible_col')->visible(true);
+Column::make('hidden_col')->visible(false);
+
+// Set responsive priority (higher = more important)
+Column::make('name')->responsivePriority(1);
+```
+
+---
+
+<a name="rendering"></a>
+## Rendering
+
+### Built-in Renderers
+
+```php
+// Use DataTables built-in renderers
+Column::make('price')->renderJs('number');
+
+// With parameters
+Column::make('date')->renderJs('moment', 'YYYY-MM-DD');
+Column::make('datetime')->renderJs('datetime', 'yyyy-MM-dd HH:mm:ss');
+```
+
+### Custom Render Functions
+
+```php
+Column::make('name')->render('function(data, type, row) {
+    return "<strong>" + data + "</strong>";
+}');
+
+// Raw renderer (for arrays/objects)
+Column::make('details')->renderRaw('data.details');
+```
+
+### Export-Only Rendering
+
+```php
+Column::make('actions')->exportRender(function($row) {
+    return strip_tags($row->actions);
+});
+```
+
+### Content Padding
+
+```php
+Column::make('description')->contentPadding('5px');
+```
+
+---
+
+<a name="class"></a>
+## Styling
+
+```php
+// Set class name
+Column::make('name')->className('text-center');
+
+// Add additional class
+Column::make('name')->addClass('text-bold');
+
+// Set column width
+Column::make('name')->width('150px');
+
+// Set column style
+Column::make('name')->style('background-color: #f0f0f0');
+```
 
 ---
 
