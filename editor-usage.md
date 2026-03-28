@@ -10,37 +10,60 @@ description: Integrate DataTables Editor with routes and frontend
 > This guide shows how to integrate your Editor class with routes and frontend.
 
 ---
-
+ 
 <a name="overview"></a>
 ## Overview
-
-DataTables Editor processes all actions (create, edit, remove) via **POST requests**. The Editor handles:
+ 
+DataTables Editor processes all actions (create, edit, remove, forceDelete, restore, upload, and custom actions) via **POST requests**. The Editor handles:
 - Validation
 - Database transactions
 - Response formatting
-
+ 
+---
+ 
+<a name="supported-actions"></a>
+## Supported Actions
+ 
+DataTables Editor supports the following actions:
+ 
+| Action | Method | Description |
+|--------|--------|-------------|
+| Create | `create()` | Creates new records |
+| Edit | `edit()` | Updates existing records |
+| Remove | `remove()` | Soft deletes records (if model uses SoftDeletes) |
+| Force Delete | `forceDelete()` | Permanently deletes records (requires SoftDeletes) |
+| Restore | `restore()` | Restores soft deleted records (requires SoftDeletes) |
+| Upload | `upload()` | Handles file uploads |
+| Custom Actions | Defined in `$customActions` | Custom business logic actions |
+ 
+> [!NOTE]
+> - The forceDelete action uses the same validation rules as the remove action.
+> - The restore action uses the same validation rules as the edit action.
+> - Custom actions are defined in the `$customActions` property and are handled by the custom action's own logic.
+ 
 ---
 
 <a name="complete-setup-flow"></a>
 ## Complete Setup Flow
-
+ 
 ```
 ┌──────────────┐     POST      ┌─────────────────┐
 │  Frontend    │ ───────────►  │  Laravel Route  │
 │  DataTables  │               │  /editor        │
 └──────────────┘               └────────┬────────┘
-                                         │
-                                         ▼
-                                ┌─────────────────┐
-                                │  Editor Class   │
-                                │  process()      │
-                                └────────┬────────┘
-                                         │
-                    ┌────────────────────┼────────────────────┐
-                    ▼                    ▼                    ▼
-            ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-            │ createRules  │    │ editRules    │    │ removeRules  │
-            └──────────────┘    └──────────────┘    └──────────────┘
+                                          │
+                                          ▼
+                                 ┌─────────────────┐
+                                 │  Editor Class   │
+                                 │  process()      │
+                                 └────────┬────────┘
+                                          │
+                     ┌────────────────────┼────────────────────┼────────────────────┐
+                     ▼                    ▼                    ▼                    ▼
+             ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+             │ createRules  │    │ editRules    │    │ removeRules  │    │ Custom     │
+             └──────────────┘    └──────────────┘    └──────────────┘    │  Actions   │
+                                                                        └──────────────┘
 ```
 
 ---

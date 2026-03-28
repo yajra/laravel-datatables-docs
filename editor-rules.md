@@ -16,14 +16,22 @@ description: Validation rules for DataTables Editor CRUD operations
 <a name="overview"></a>
 ## Overview
 
-DataTables Editor requires validation rules for three main actions:
+DataTables Editor requires validation rules for various actions:
 
 | Action | Method | Purpose |
 |--------|--------|---------|
 | Create | `createRules()` | Validate new record data |
 | Edit | `editRules()` | Validate updated record data |
 | Remove | `removeRules()` | Validate deletion requests |
+| Force Delete | `removeRules()` | Uses same validation as remove action |
+| Restore | `editRules()` | Uses same validation as edit action |
 | Upload | `uploadRules()` | Validate file uploads |
+| Custom Actions | Custom validation | Defined per action |
+
+> [!NOTE]
+> - The forceDelete action uses the same validation rules as the remove action (`removeRules()`).
+> - The restore action uses the same validation rules as the edit action (`editRules()`).
+> - Custom actions require you to implement your own validation logic in the Editor class.
 
 ---
 

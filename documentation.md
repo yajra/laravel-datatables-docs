@@ -83,6 +83,11 @@
     - [Hide Columns in SearchPanes](/docs/{{package}}/{{version}}/search-panes-hide-columns)
     - [Further options](/docs/{{package}}/{{version}}/search-panes-options)
 
+<a name="column-control"></a>
+- ## ColumnControl
+    - [ColumnControl Extension](/docs/{{package}}/{{version}}/column-control-extension)
+    - [Column Control Search](/docs/{{package}}/{{version}}/column-control-search)
+
 <a name="utilities"></a>
 - ## Utilities
 	- [XSS filtering](/docs/{{package}}/{{version}}/xss)
@@ -127,6 +132,7 @@
     - [Quick Starter](/docs/{{package}}/{{version}}/buttons-starter)
     - [DataTable Buttons](/docs/{{package}}/{{version}}/buttons-export)
     - [Custom Actions](/docs/{{package}}/{{version}}/buttons-custom)
+    - [Advanced Button Configuration](/docs/{{package}}/{{version}}/buttons-advanced)
     - [Sending Parameters](/docs/{{package}}/{{version}}/buttons-with)
     - [Extended DataTable](/docs/{{package}}/{{version}}/buttons-extended)
     - [Buttons Command](/docs/{{package}}/{{version}}/buttons-console)
@@ -156,4 +162,6 @@
     - [Event Hooks](/docs/{{package}}/{{version}}/editor-events)
     - [Usage](/docs/{{package}}/{{version}}/editor-usage)
     - [Tutorial](/docs/{{package}}/{{version}}/editor-tutorial)
+    - [Editor Fields](/docs/{{package}}/{{version}}/editor-fields)
+    - [Editor Form Options](/docs/{{package}}/{{version}}/editor-form-options)
     - [Github](https://github.com/yajra/laravel-datatables-editor)
