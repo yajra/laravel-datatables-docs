@@ -164,9 +164,21 @@ Column::make('details')->renderRaw('data.details');
 
 ### Export-Only Rendering
 
+The `exportRender()` method defines a callback that processes the column value specifically for exports and print views. This is useful for stripping HTML, formatting values, or transforming data for export purposes:
+
 ```php
 Column::make('actions')->exportRender(function($row) {
     return strip_tags($row->actions);
+});
+
+// Format currency for export
+Column::make('price')->exportRender(function($row) {
+    return '$' . number_format($row->price, 2);
+});
+
+// Combine multiple fields for export
+Column::make('full_name')->exportRender(function($row) {
+    return $row->first_name . ' ' . $row->last_name;
 });
 ```
 
@@ -194,6 +206,71 @@ Column::make('name')->width('150px');
 // Set column style
 Column::make('name')->style('background-color: #f0f0f0');
 ```
+
+---
+
+<a name="export-format"></a>
+## Export Format
+
+The `exportFormat()` method sets the Excel export format for a column. This is useful for formatting dates, numbers, currency, and text in exported files:
+
+### Static Format
+
+```php
+// Format as currency
+Column::make('price')
+    ->exportFormat('#,##0.00')
+
+// Format as date
+Column::make('created_at')
+    ->exportFormat('yyyy-mm-dd')
+
+// Format as percentage
+Column::make('discount')
+    ->exportFormat('0.00%')
+
+// Format as text (preserve leading zeros)
+Column::make('zip_code')
+    ->exportFormat('@')
+
+// Format as phone number
+Column::make('phone')
+    ->exportFormat('[<=9999999]###-####;(###) ###-####')
+```
+
+### Dynamic Format
+
+Use a callback to apply conditional formatting:
+
+```php
+Column::make('amount')
+    ->exportFormat(function($row) {
+        return $row->amount < 0 ? '#,##0.00;[Red]#,##0.00' : '#,##0.00';
+    })
+
+Column::make('status')
+    ->exportFormat(function($row) {
+        return match($row->status) {
+            'active' => 'General',
+            'inactive' => 'General',
+            default => '@',
+        };
+    })
+```
+
+### Common Excel Formats
+
+| Format | Description | Example |
+|--------|-------------|---------|
+| `@` | Text | Preserves leading zeros |
+| `#,##0` | Number with comma | 1,000 |
+| `#,##0.00` | Number with decimals | 1,000.00 |
+| `$#,##0.00` | Currency | $1,000.00 |
+| `0.00%` | Percentage | 50.00% |
+| `yyyy-mm-dd` | Date | 2024-01-15 |
+| `yyyy-mm-dd HH:mm:ss` | DateTime | 2024-01-15 14:30:00 |
+| `mm/dd/yyyy` | US Date | 01/15/2024 |
+| `dd/mm/yyyy` | EU Date | 15/01/2024 |
 
 ---
 
