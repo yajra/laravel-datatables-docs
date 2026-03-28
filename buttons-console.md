@@ -190,6 +190,7 @@ Sets the columns to be used by our DataTable.
 
 ---
 
+<a name="creating-a-datatable-scope"></a>
 ## Creating a DataTable Scope
 
 DataTable scope is a class that we can use to limit our database search results based on the defined query scopes:
@@ -218,6 +219,44 @@ class ActiveUser implements DataTableScopeContract
         return $query->where('active', true);
     }
 }
+```
+
+---
+
+<a name="using-scopes"></a>
+## Using Scopes in DataTable
+
+Register the scope in your DataTable class using the `addScope()` method:
+
+```php
+<?php
+// app/DataTables/UsersDataTable.php
+
+namespace App\DataTables;
+
+use App\DataTables\Scopes\ActiveUser;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addScope(new ActiveUser);
+    }
+}
+```
+
+You can also add multiple scopes using `addScopes()`:
+
+```php
+use App\DataTables\Scopes\ActiveUser;
+use App\DataTables\Scopes\VerifiedUser;
+
+$this->addScopes([
+    new ActiveUser,
+    new VerifiedUser,
+]);
 ```
 
 ---

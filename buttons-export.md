@@ -291,6 +291,127 @@ public function html()
 }
 ```
 
+<a name="customize-export-columns"></a>
+## Customize Export Columns
+
+You can control which columns are included in exports using the `$exportColumns` property:
+
+```php
+namespace App\DataTables;
+
+use App\Models\User;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    protected string|array $exportColumns = ['name', 'email', 'created_at'];
+}
+```
+
+You can also use `'*'` to include all columns from the HTML builder:
+
+```php
+protected string|array $exportColumns = '*';
+```
+
+<a name="exclude-columns-from-export"></a>
+## Exclude Columns from Export
+
+Use `$excludeFromExport` to exclude specific columns from all exports:
+
+```php
+namespace App\DataTables;
+
+use App\Models\User;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    protected array $excludeFromExport = ['password', 'remember_token'];
+}
+```
+
+<a name="exclude-columns-from-print"></a>
+## Exclude Columns from Print
+
+Use `$excludeFromPrint` to exclude specific columns from the print preview:
+
+```php
+protected array $excludeFromPrint = ['password', 'action'];
+```
+
+<a name="customize-print-columns"></a>
+## Customize Print Columns
+
+Use `$printColumns` to specify which columns to include in print preview:
+
+```php
+protected string|array $printColumns = ['name', 'email'];
+```
+
+<a name="custom-print-preview"></a>
+## Custom Print Preview View
+
+Override the default print preview blade template:
+
+```php
+namespace App\DataTables;
+
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    protected string $printPreview = 'datatables::custom-print';
+}
+```
+
+<a name="custom-filename"></a>
+## Custom Export Filename
+
+Set a custom filename for exports:
+
+```php
+namespace App\DataTables;
+
+use App\Models\User;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    protected string $filename = 'users_report';
+
+    // Or use the setter method
+    public function setFilename(string $filename): static
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+}
+```
+
+<a name="customize-writer-type"></a>
+## Customize Writer Type
+
+You can customize the writer type for CSV, Excel, and PDF exports:
+
+```php
+namespace App\DataTables;
+
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    protected string $csvWriter = 'Csv';
+    protected string $excelWriter = 'Xlsx';
+    protected string $pdfWriter = 'Dompdf';
+}
+```
+
+Available CSV writers: `Csv`
+Available Excel writers: `Xlsx`, `Xls`, `Csv`, `Html`
+Available PDF writers: `Dompdf`, `Mpdf`, `Tcpdf`, `Snappy`
+
 <a name="comparison-buttons-vs-queue-export"></a>
 ## Comparison: Buttons vs Queue Export
 
