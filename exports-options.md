@@ -220,23 +220,82 @@ These options can be configured globally in `config/datatables-export.php`:
 
 ```php
 return [
-    // Default date format when no specific format is set
+    /*
+    |--------------------------------------------------------------------------
+    | Query iteration method: 'lazy' (recommended for large datasets) or 'cursor'
+    |--------------------------------------------------------------------------
+    */
+    'method' => 'lazy',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Chunk size when using lazy method
+    |--------------------------------------------------------------------------
+    */
+    'chunk' => 1000,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Storage disk for export files
+    |--------------------------------------------------------------------------
+    */
+    'disk' => 'local',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Optional S3 disk for final destination
+    |--------------------------------------------------------------------------
+    */
+    's3_disk' => '',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default date format when no specific format is set
+    |--------------------------------------------------------------------------
+    */
     'default_date_format' => 'yyyy-mm-dd',
-    
-    // Auto-detect date fields using these formats
+
+    /*
+    |--------------------------------------------------------------------------
+    | Auto-detect date fields using these formats
+    |--------------------------------------------------------------------------
+    */
     'date_formats' => [
         'mm/dd/yyyy',
         NumberFormat::FORMAT_DATE_DATETIME,
         // ... other formats
     ],
-    
-    // Treat values with these formats as text
+
+    /*
+    |--------------------------------------------------------------------------
+    | Treat values with these formats as text
+    |--------------------------------------------------------------------------
+    */
     'text_formats' => [
         NumberFormat::FORMAT_TEXT,
         NumberFormat::FORMAT_GENERAL,
     ],
 ];
 ```
+
+<a name="s3-storage"></a>
+## S3 Storage Configuration
+
+You can configure exports to store files on an S3-compatible disk (AWS S3, DigitalOcean Spaces, etc.):
+
+1. Configure your S3 disk in `config/filesystems.php`
+2. Set the `s3_disk` option in `config/datatables-export.php` to your S3 disk name
+
+```php
+// config/datatables-export.php
+'s3_disk' => 's3', // matches your filesystem disk name
+```
+
+> [!NOTE]
+> Export files are initially generated locally, then uploaded to S3 if `s3_disk` is configured. The purge command only affects files on the primary `disk`, not the S3 disk.
+
+> [!NOTE]
+> The `disk` and `s3_disk` options can only be configured globally in `config/datatables-export.php` and cannot be overridden per DataTable or per export button.
 
 <a name="related-documentation"></a>
 ## See Also

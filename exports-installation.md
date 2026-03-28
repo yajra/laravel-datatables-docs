@@ -103,6 +103,12 @@ return [
 ];
 ```
 
+> [!NOTE]
+> The `disk` and `s3_disk` options can only be configured globally in `config/datatables-export.php` and cannot be overridden per DataTable or per export button.
+
+> [!NOTE]
+> To use S3 storage, configure your S3 disk in `config/filesystems.php` first, then set the `s3_disk` option to match your S3 disk name.
+
 ---
 
 ## Next Steps
