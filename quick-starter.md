@@ -1,6 +1,6 @@
 ---
 title: Quick Starter
-description: Build your first DataTable in 15 minutes with this complete guide
+description: Build your first Laravel DataTable with layout controls in 15 minutes
 ---
 
 # Quick Starter
@@ -20,18 +20,13 @@ If you have already installed [Laravel Installer](https://laravel.com/docs#your-
 laravel new datatables
 ```
 
-After the project has been created, we will then install [Laravel UI](https://github.com/laravel/ui) and [Yajra DataTables](https://github.com/yajra/laravel-datatables):
+After the project has been created, install [Yajra DataTables](https://github.com/yajra/laravel-datatables):
 
 ```bash
 cd datatables
 
-composer require laravel/ui --dev
-php artisan ui bootstrap --auth
-
-composer require yajra/laravel-datatables
+composer require yajra/laravel-datatables:"^13.0"
 ```
-
-> **Note**: Laravel UI is compatible with Laravel 10 and below. For Laravel 11+, consider using [Laravel Breeze](https://laravel.com/docs/starter-kits#breeze) instead.
 
 For simplicity, you may use SQLite to store your application's data. To instruct Laravel to use SQLite instead of MySQL, update your new application's `.env` file and remove all of the `DB_*` environment variables except for the `DB_CONNECTION` variable, which should be set to `sqlite`:
 
@@ -48,16 +43,16 @@ DB_CONNECTION=sqlite
 <a name="step-2"></a>
 ## Step 2: Install Laravel DataTables Vite
 
-Next, we will install [Laravel DataTables Vite](https://github.com/yajra/laravel-datatables-vite) to simplify our frontend setup:
+Next, install [Laravel DataTables Vite](https://github.com/yajra/laravel-datatables-vite) and the Bootstrap assets used by this guide:
 
 ```bash
-npm i laravel-datatables-vite --save-dev
+npm i -D laravel-datatables-vite bootstrap @popperjs/core bootstrap-icons
 ```
 
-This will install the following packages:
+This will install the following assets:
 
 ```
-- Bootstrap Icons
+- Bootstrap 5 and Bootstrap Icons
 - DataTables with Buttons and Select plugins for Bootstrap 5
 - Laravel DataTables custom scripts
 ```
@@ -66,12 +61,16 @@ Once installed, we can now configure our scripts and CSS needed for our applicat
 
 ```js filename=resources/js/app.js
 import './bootstrap';
+import 'bootstrap';
 import 'laravel-datatables-vite';
 ```
 
 ```css filename=resources/css/app.css
 /* Fonts */
 @import url('https://fonts.bunny.net/css?family=Nunito');
+
+/* Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 /* DataTables */
 @import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -80,7 +79,7 @@ import 'laravel-datatables-vite';
 @import 'datatables.net-select-bs5/css/select.bootstrap5.css';
 ```
 
-> **Note**: Laravel 11+ uses Vite with CSS by default. If you prefer SCSS, install the `sass` package: `npm i -D sass`
+> **Note**: Laravel uses Vite with CSS by default. If you prefer SCSS, install the `sass` package: `npm i -D sass`
 
 We just need to start the Vite development server to automatically recompile our JS, CSS and refresh the browser when we make changes to our Blade templates:
 
@@ -112,6 +111,7 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Layout;
 use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
@@ -134,11 +134,13 @@ class UsersDataTable extends DataTable
                     ->minifiedAjax()
                     ->orderBy(1)
                     ->selectStyleSingle()
+                    ->layout(function (Layout $layout) {
+                        $layout->topStart('buttons');
+                        $layout->topEnd('search');
+                        $layout->bottomStart('info');
+                        $layout->bottomEnd('paging');
+                    })
                     ->buttons([
-                        Button::make('add'),
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
                         Button::make('print'),
                         Button::make('reset'),
                         Button::make('reload'),
@@ -219,9 +221,9 @@ Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 ---
 
 <a name="step-5"></a>
-## Step 5: Update the Default App Layout
+## Step 5: Create the App Layout
 
-To be able to load our custom scripts, we need to add `@stack('scripts')` before the end of `body` tag in our `app.blade.php` layout:
+Create the layout used by the users view. It must load your Vite assets and include `@stack('scripts')` before the closing `body` tag so the generated DataTables script can be pushed from the page.
 
 ```blade filename=resources/views/layouts/app.blade.php
 <!DOCTYPE html>
@@ -231,7 +233,7 @@ To be able to load our custom scripts, we need to add `@stack('scripts')` before
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- ... other head content ... -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
@@ -246,6 +248,7 @@ To be able to load our custom scripts, we need to add `@stack('scripts')` before
 
 ---
 
+<a name="step-6"></a>
 ## Step 6: Migrate and Seed Test Data
 
 ```bash
@@ -254,7 +257,7 @@ php artisan tinker
 ```
 
 ```php
->>> User::factory(100)->create()
+App\Models\User::factory()->count(100)->create();
 ```
 
 Our application should now be ready to run:
@@ -271,6 +274,7 @@ We can now visit our [`/users`](http://localhost:8000/users) route and see our u
 
 ---
 
+<a name="see-also"></a>
 ## See Also
 
 - [HTML Builder](/docs/{{package}}/{{version}}/html-builder) - More advanced table configuration
