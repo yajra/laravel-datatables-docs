@@ -1,5 +1,5 @@
 ---
-title: Layout
+title: HTML Builder Layout
 description: Define and position table control elements using DataTables layout feature
 ---
 
@@ -37,8 +37,8 @@ The position name format is `(top|bottom)[number](Start|End)?`:
 | `bottom` | Bottom row, full width |
 | `bottomStart` | Bottom left corner |
 | `bottomEnd` | Bottom right corner |
-| `top2`, `top2Start`, `top2End` | Second top row |
-| `bottom2`, `bottom2Start`, `bottom2End` | Second bottom row |
+| `top{n}`, `top{n}Start`, `top{n}End` | Numbered top row generated with the optional order argument |
+| `bottom{n}`, `bottom{n}Start`, `bottom{n}End` | Numbered bottom row generated with the optional order argument |
 
 ```php
 $html = $builder->layout(function (Layout $layout) {
@@ -60,6 +60,7 @@ DataTables provides these built-in features:
 - `pageLength` - Page length control
 - `paging` - User input control for paging
 - `search` - Search input box
+- `buttons` - Buttons extension toolbar when the Buttons plugin is installed
 - `div` - A simple placeholder element
 - `null` - Show nothing
 
@@ -95,7 +96,7 @@ $html = $builder->layout(function (Layout $layout) {
 <a name="ordering"></a>
 ## Multiple Rows
 
-Use ordering for multiple rows:
+Use the optional order argument for multiple rows:
 
 ```php
 $html = $builder->layout(function (Layout $layout) {
@@ -103,9 +104,9 @@ $html = $builder->layout(function (Layout $layout) {
     $layout->topStart('pageLength');
     $layout->topEnd('search');
     
-    // Second top row
-    $layout->top2Start('info');
-    $layout->top2End('paging');
+    // Numbered top row
+    $layout->topStart('info', 1);
+    $layout->topEnd('paging', 1);
 });
 ```
 
@@ -152,7 +153,7 @@ Render any view or component:
 use Yajra\DataTables\Html\Enums\LayoutPosition;
 
 $html = $builder->layout(function (Layout $layout) {
-    $layout->addView('components.search-box', LayoutPosition::TopEnd);
+    $layout->addView(view('components.search-box'), LayoutPosition::TopEnd);
 });
 ```
 
@@ -186,6 +187,7 @@ $html = $builder->layout($layout);
 
 ---
 
+<a name="see-also"></a>
 ## See Also
 
 - [HTML Builder](/docs/{{package}}/{{version}}/html-builder) - Main HTML Builder documentation
